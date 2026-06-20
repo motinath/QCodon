@@ -3,7 +3,7 @@ import { Facebook, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 const columns = [
   {
     title: "Offerings",
-    links: ["Offerings", "Bio MMG", "Analytical Service", "Bio Infactic", "Regulatory & Compliance"],
+    links: ["Offerings", "Bio MMG", "Analytical Service", "Bioinformatics", "Regulatory & Compliance"],
   },
   {
     title: "Industries",

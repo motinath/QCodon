@@ -12,6 +12,8 @@ const OFFERING_ANCHORS: Record<string, string> = {
   "drug-discovery": "/#drug-discovery",
   "bio-mmg": "/#bio-mmg",
   "analytical-service": "/#analytical-services",
+  "bio-infactic": "/#bioinformatics",
+  "regulatory-complaints": "/#regulatory-complaints",
   "bio-infactic": "/#bio-infactic",
   "regulatory-compliance": "/services/regulatory-compliance",
   "education": "/#education",
@@ -1107,9 +1109,9 @@ export function QcServices() {
       color: "border-accent-emerald/20 bg-accent-emerald/[0.02] hover:bg-accent-emerald/[0.05]"
     },
     {
-      id: "bio-infactic",
+      id: "bioinformatics",
       num: "04",
-      title: "4. Bio Infactic",
+      title: "4. Bioinformatics",
       desc: "Next-gen bioinformatics modeling. Large-scale genome mapping, transcriptomic sequence annotation, custom neural net docking prediction, and multi-scale protein modeling.",
       color: "border-cyan-500/20 bg-cyan-500/[0.02] hover:bg-cyan-500/[0.05]"
     },
@@ -1276,9 +1278,9 @@ export function QcServicesDetailed() {
       technologies: "HPLC, LC-MS/MS, Thermal Shift, ADMET Assays"
     },
     {
-      id: "bio-infactic",
+      id: "bioinformatics",
       num: "04",
-      title: "Bio Infactic (Bioinformatics)",
+      title: "Bioinformatics",
       badge: "Computational Biology",
       color: "border-cyan-500/15 bg-cyan-500/[0.01]",
       accentText: "text-cyan-600 dark:text-cyan-400",

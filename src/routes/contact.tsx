@@ -3,7 +3,6 @@ import { Toaster } from "sonner";
 import { ContactHero } from "@/components/contact/ContactHero";
 import { ContactChannels } from "@/components/contact/ContactChannels";
 import { ContactForm } from "@/components/contact/ContactForm";
-import { SiteFooter } from "@/components/contact/SiteFooter";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -31,7 +30,6 @@ function ContactPage() {
       <ContactHero />
       <ContactChannels />
       <ContactForm />
-      <SiteFooter />
       <Toaster position="top-center" richColors />
     </main>
   );

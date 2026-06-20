@@ -2,7 +2,6 @@ import PageShell from "./_PageShell";
 import CareersHero from "@/components/careers/CareersHero";
 import ValuesHexGrid from "@/components/careers/ValuesHexGrid";
 import OpenPositions from "@/components/careers/OpenPositions";
-import { SiteFooter } from "@/components/contact/SiteFooter";
 
 export default function CareersPage() {
   return (
@@ -10,7 +9,6 @@ export default function CareersPage() {
       <CareersHero />
       <ValuesHexGrid />
       <OpenPositions />
-      <SiteFooter />
     </PageShell>
   );
 }

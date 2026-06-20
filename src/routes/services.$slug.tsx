@@ -3,6 +3,7 @@ import { getOffering, offerings, type Offering } from "@/lib/services-data";
 import EducationPage from "@/pages/Education";
 import AnalyticalServicesPage from "@/pages/AnalyticalServices";
 import BioMmgPage from "@/pages/BioMmg";
+import BioinformaticsPage from "@/pages/Bioinformatics";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -53,6 +54,10 @@ function ServiceDetailPage() {
   }
   if (o.slug === "bio-mmg") {
     return <BioMmgPage />;
+  }
+
+  if (o.slug === "bioinformatics") {
+    return <BioinformaticsPage />;
   }
 
   const Icon = o.icon;
