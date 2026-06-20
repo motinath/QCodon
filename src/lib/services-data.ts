@@ -120,8 +120,8 @@ export const offerings: Offering[] = [
     ],
   },
   {
-    slug: "bio-infactic",
-    title: "Bio Infactic",
+    slug: "bioinformatics",
+    title: "Bioinformatics",
     description: "Intelligent bioinformatics platforms for modern healthcare and research.",
     icon: Cpu,
     badge: "Computational Biology",
@@ -134,7 +134,7 @@ export const offerings: Offering[] = [
       sub: "Scalable pipelines, governed data, and AI copilots that meet healthcare-grade requirements out of the box.",
     },
     overview:
-      "Bio Infactic gives research and clinical teams a unified workspace to run, share, and govern bioinformatics workloads — with the security, observability, and reproducibility production environments demand.",
+      "Bioinformatics gives research and clinical teams a unified workspace to run, share, and govern bioinformatics workloads — with the security, observability, and reproducibility production environments demand.",
     features: [
       { title: "Genome-scale mapping", body: "Sequence mapping across multi-organism genetic directories." },
       { title: "Structural annotation", body: "Non-coding sequence annotation with homology indexes." },
