@@ -223,4 +223,7 @@ export const offerings: Offering[] = [
   },
 ];
 
-export const getOffering = (slug: string) => offerings.find((o) => o.slug === slug);
+export const getOffering = (slug: string) => {
+  const normSlug = slug === "analytical-services" ? "analytical-service" : slug;
+  return offerings.find((o) => o.slug === normSlug);
+};
