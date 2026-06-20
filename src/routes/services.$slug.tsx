@@ -1,6 +1,7 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { getOffering, offerings, type Offering } from "@/lib/services-data";
 import EducationPage from "@/pages/Education";
+import BioMmgPage from "@/pages/BioMmg";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -42,6 +43,10 @@ function ServiceDetailPage() {
   
   if (o.slug === "education") {
     return <EducationPage />;
+  }
+
+  if (o.slug === "bio-mmg") {
+    return <BioMmgPage />;
   }
 
   const Icon = o.icon;
@@ -140,16 +145,12 @@ function ServiceDetailPage() {
             {offerings.filter((x) => x.slug !== o.slug).map((x) => {
               const XIcon = x.icon;
               return (
-                <Link key={x.slug} to="/services/$slug" params={{ slug: x.slug }} className="offering-card group">
-                  <div className="flex items-start gap-3">
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-blue/10 text-accent-blue group-hover:bg-accent-blue group-hover:text-white transition-colors">
-                      <XIcon className="h-4 w-4" />
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="text-sm font-semibold leading-tight">{x.title}</h3>
-                      <p className="mt-1 text-xs text-muted-foreground leading-snug line-clamp-2">{x.description}</p>
-                    </div>
+                <Link key={x.slug} to="/services/$slug" params={{ slug: x.slug }} className="offering-card group p-3.5">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <XIcon className="h-4 w-4 text-foreground/80 shrink-0 group-hover:text-accent-blue transition-colors" />
+                    <h3 className="text-sm font-semibold leading-tight text-foreground group-hover:text-accent-blue transition-colors">{x.title}</h3>
                   </div>
+                  <p className="text-xs text-muted-foreground leading-snug line-clamp-2">{x.description}</p>
                 </Link>
               );
             })}
