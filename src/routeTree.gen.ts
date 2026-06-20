@@ -13,6 +13,7 @@ import { Route as ResearchRouteImport } from './routes/research'
 import { Route as EducationRouteImport } from './routes/education'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as Careers1RouteImport } from './routes/careers1'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as BlogsRouteImport } from './routes/blogs'
 import { Route as AboutRouteImport } from './routes/about'
@@ -38,6 +39,11 @@ const ContactRoute = ContactRouteImport.update({
 const CaseStudiesRoute = CaseStudiesRouteImport.update({
   id: '/case-studies',
   path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const Careers1Route = Careers1RouteImport.update({
+  id: '/careers1',
+  path: '/careers1',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CareersRoute = CareersRouteImport.update({
@@ -76,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/blogs': typeof BlogsRoute
   '/careers': typeof CareersRoute
+  '/careers1': typeof Careers1Route
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/education': typeof EducationRoute
@@ -88,6 +95,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/blogs': typeof BlogsRoute
   '/careers': typeof CareersRoute
+  '/careers1': typeof Careers1Route
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/education': typeof EducationRoute
@@ -101,6 +109,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/blogs': typeof BlogsRoute
   '/careers': typeof CareersRoute
+  '/careers1': typeof Careers1Route
   '/case-studies': typeof CaseStudiesRoute
   '/contact': typeof ContactRoute
   '/education': typeof EducationRoute
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blogs'
     | '/careers'
+    | '/careers1'
     | '/case-studies'
     | '/contact'
     | '/education'
@@ -127,6 +137,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blogs'
     | '/careers'
+    | '/careers1'
     | '/case-studies'
     | '/contact'
     | '/education'
@@ -139,6 +150,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/blogs'
     | '/careers'
+    | '/careers1'
     | '/case-studies'
     | '/contact'
     | '/education'
@@ -152,6 +164,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   BlogsRoute: typeof BlogsRoute
   CareersRoute: typeof CareersRoute
+  Careers1Route: typeof Careers1Route
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   EducationRoute: typeof EducationRoute
@@ -188,6 +201,13 @@ declare module '@tanstack/react-router' {
       path: '/case-studies'
       fullPath: '/case-studies'
       preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers1': {
+      id: '/careers1'
+      path: '/careers1'
+      fullPath: '/careers1'
+      preLoaderRoute: typeof Careers1RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/careers': {
@@ -240,6 +260,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   BlogsRoute: BlogsRoute,
   CareersRoute: CareersRoute,
+  Careers1Route: Careers1Route,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   EducationRoute: EducationRoute,
