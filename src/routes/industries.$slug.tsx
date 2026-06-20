@@ -40,7 +40,6 @@ function IndustryDetailPage() {
   const { slug } = Route.useLoaderData() as { slug: string };
   const i = getIndustry(slug);
   if (!i) throw notFound();
-  const i = getIndustry(slug)!;
   const Icon = i.icon;
 
   return (

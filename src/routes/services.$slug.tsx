@@ -43,7 +43,6 @@ function ServiceDetailPage() {
   const { slug } = Route.useLoaderData() as { slug: string };
   const o = getOffering(slug);
   if (!o) throw notFound();
-  const o = getOffering(slug)!;
   
   if (o.slug === "education") {
     return <EducationPage />;
@@ -51,6 +50,7 @@ function ServiceDetailPage() {
 
   if (o.slug === "analytical-service" || o.slug === "analytical-services") {
     return <AnalyticalServicesPage />;
+  }
   if (o.slug === "bio-mmg") {
     return <BioMmgPage />;
   }

@@ -2,7 +2,9 @@ import { useEffect, useRef } from 'react'
 import heroVideo from '@/assets/hero.mp4'
 import {
   QcAbout,
-  QcPipeline
+  QcPipeline,
+  QcBlogs,
+  QcFooter,
 } from '@/components/QuantumCodon'
 
 export default function Landing() {
@@ -53,6 +55,8 @@ export default function Landing() {
       {/* Content Sections */}
       <QcAbout />
       <QcPipeline />
+      <QcBlogs />
+      <QcFooter />
     </div>
   )
 }

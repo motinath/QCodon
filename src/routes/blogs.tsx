@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { QcFooter } from "@/components/QuantumCodon";
 
 const posts = [
   {
@@ -35,6 +36,7 @@ export const Route = createFileRoute("/blogs")({
 
 function BlogsPage() {
   return (
+    <>
     <div className="pt-24 pb-20 min-h-screen bg-[#f0f4f8] dark:bg-[#0c131f] transition-colors duration-300">
       <div className="max-w-5xl mx-auto px-6 mb-8">
         <Link to="/" className="text-xs tracking-[0.25em] uppercase text-muted-foreground hover:text-foreground transition">← Back to home</Link>
@@ -57,5 +59,7 @@ function BlogsPage() {
         ))}
       </section>
     </div>
+    <QcFooter />
+    </>
   );
 }
