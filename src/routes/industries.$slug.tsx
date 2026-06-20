@@ -5,10 +5,10 @@ export const Route = createFileRoute("/industries/$slug")({
   loader: ({ params }) => {
     const industry = getIndustry(params.slug);
     if (!industry) throw notFound();
-    return { industry };
+    return { slug: params.slug };
   },
   head: ({ loaderData }) => {
-    const i = loaderData?.industry;
+    const i = loaderData?.slug ? getIndustry(loaderData.slug) : null;
     if (!i) return { meta: [{ title: "Industry — Quantum Codon" }] };
     return {
       meta: [
@@ -37,7 +37,9 @@ export const Route = createFileRoute("/industries/$slug")({
 });
 
 function IndustryDetailPage() {
-  const { industry: i } = Route.useLoaderData() as { industry: Industry };
+  const { slug } = Route.useLoaderData() as { slug: string };
+  const i = getIndustry(slug);
+  if (!i) throw notFound();
   const Icon = i.icon;
 
   return (
