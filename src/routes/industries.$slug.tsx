@@ -1,4 +1,4 @@
-import { createFileRoute, notFound, Link } from "@tanstack/react-router";
+import { createFileRoute, notFound, Link, redirect } from "@tanstack/react-router";
 import { getIndustry, industries, type Industry } from "@/lib/industries-data";
 
 export const Route = createFileRoute("/industries/$slug")({

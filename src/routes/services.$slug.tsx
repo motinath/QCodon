@@ -1,5 +1,6 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { getOffering, offerings, type Offering } from "@/lib/services-data";
+import EducationPage from "@/pages/Education";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -38,6 +39,11 @@ export const Route = createFileRoute("/services/$slug")({
 
 function ServiceDetailPage() {
   const { offering: o } = Route.useLoaderData() as { offering: Offering };
+  
+  if (o.slug === "education") {
+    return <EducationPage />;
+  }
+
   const Icon = o.icon;
 
   return (
