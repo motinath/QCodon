@@ -19,8 +19,8 @@ const SkyToggle = ({
   };
 
   return (
-    <div className={className}>
-      <label className="theme-switch">
+    <div className={`inline-flex items-center ${className || ""}`}>
+      <label className="theme-switch" style={{ display: "block" }}>
         <input
           type="checkbox"
           className="theme-switch__checkbox"
