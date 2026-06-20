@@ -7,10 +7,10 @@ export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
     const offering = getOffering(params.slug);
     if (!offering) throw notFound();
-    return { offering };
+    return { slug: params.slug };
   },
   head: ({ loaderData }) => {
-    const o = loaderData?.offering;
+    const o = loaderData?.slug ? getOffering(loaderData.slug) : null;
     if (!o) return { meta: [{ title: "Service — Quantum Codon" }] };
     return {
       meta: [
@@ -39,7 +39,8 @@ export const Route = createFileRoute("/services/$slug")({
 });
 
 function ServiceDetailPage() {
-  const { offering: o } = Route.useLoaderData() as { offering: Offering };
+  const { slug } = Route.useLoaderData() as { slug: string };
+  const o = getOffering(slug)!;
   
   if (o.slug === "education") {
     return <EducationPage />;
