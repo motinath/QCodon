@@ -5,10 +5,10 @@ export const Route = createFileRoute("/industries/$slug")({
   loader: ({ params }) => {
     const industry = getIndustry(params.slug);
     if (!industry) throw notFound();
-    return { industry };
+    return { slug: params.slug };
   },
   head: ({ loaderData }) => {
-    const i = loaderData?.industry;
+    const i = loaderData?.slug ? getIndustry(loaderData.slug) : null;
     if (!i) return { meta: [{ title: "Industry — Quantum Codon" }] };
     return {
       meta: [
@@ -37,7 +37,8 @@ export const Route = createFileRoute("/industries/$slug")({
 });
 
 function IndustryDetailPage() {
-  const { industry: i } = Route.useLoaderData() as { industry: Industry };
+  const { slug } = Route.useLoaderData() as { slug: string };
+  const i = getIndustry(slug)!;
   const Icon = i.icon;
 
   return (
@@ -49,15 +50,28 @@ function IndustryDetailPage() {
       </div>
 
       <section className="max-w-5xl mx-auto px-6">
-        <div className={`rounded-3xl border p-10 md:p-14 ${i.color} backdrop-blur`}>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-blue/10 text-accent-blue">
-              <Icon className="h-6 w-6" />
+        <div className={`premium-glow-container rounded-3xl border p-10 md:p-14 ${i.color} backdrop-blur`}>
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-blue/10 text-accent-blue">
+                  <Icon className="h-6 w-6" />
+                </div>
+                <span className={`font-mono text-xs tracking-widest uppercase ${i.accent}`}>{i.eyebrow}</span>
+              </div>
+              <h1 className="font-serif-display text-4xl md:text-5xl lg:text-6xl mt-2 leading-tight">{i.headline}</h1>
+              <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">{i.subtext}</p>
             </div>
-            <span className={`font-mono text-xs tracking-widest uppercase ${i.accent}`}>{i.eyebrow}</span>
+            
+            <div className="lg:col-span-5 mt-6 lg:mt-0 relative w-full aspect-[4/3] lg:aspect-square overflow-hidden rounded-2xl border border-accent-blue/10 shadow-2xl bg-slate-950/5 dark:bg-slate-950/25">
+              <img
+                src={`/industry-${i.slug}-hero.png`}
+                alt={`${i.title} Industry Graphic`}
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+            </div>
           </div>
-          <h1 className="font-serif-display text-4xl md:text-6xl mt-2 leading-tight">{i.headline}</h1>
-          <p className="mt-5 text-lg text-muted-foreground max-w-3xl leading-relaxed">{i.subtext}</p>
         </div>
       </section>
 
@@ -70,13 +84,24 @@ function IndustryDetailPage() {
       <section className="max-w-5xl mx-auto px-6 mt-16">
         <p className="text-xs tracking-[0.3em] text-accent-purple uppercase">Highlights</p>
         <h2 className="font-serif-display text-3xl md:text-4xl mt-3">What we bring</h2>
-        <div className="mt-8 grid md:grid-cols-2 gap-5">
-          {i.highlights.map((h) => (
-            <div key={h.title} className="p-6 rounded-2xl border border-foreground/10 bg-white/60 dark:bg-white/5 backdrop-blur">
-              <h3 className="font-semibold text-base">{h.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{h.body}</p>
-            </div>
-          ))}
+        <div className="mt-8 grid md:grid-cols-2 gap-6">
+          {i.highlights.map((h) => {
+            const HIcon = h.icon;
+            return (
+              <div 
+                key={h.title} 
+                className="group p-8 rounded-2xl border border-foreground/10 bg-white/60 dark:bg-white/5 backdrop-blur flex flex-col items-center text-center gap-4 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-accent-blue/30 hover:bg-white/80 dark:hover:bg-white/10"
+              >
+                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-blue text-white shadow-md transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+                  <HIcon className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="font-serif-display text-lg font-bold text-foreground transition-colors duration-300 group-hover:text-accent-blue leading-snug">{h.title}</h3>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-sm">{h.body}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -85,9 +110,36 @@ function IndustryDetailPage() {
         <h2 className="font-serif-display text-3xl md:text-4xl mt-3">Where it applies</h2>
         <div className="mt-8 grid md:grid-cols-3 gap-5">
           {i.useCases.map((u) => (
-            <div key={u.title} className="p-6 rounded-2xl border border-foreground/10 bg-white/60 dark:bg-white/5 backdrop-blur">
-              <h3 className="font-semibold text-base">{u.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{u.body}</p>
+            <div 
+              key={u.title} 
+              className="group p-6 rounded-2xl border border-foreground/10 bg-white/60 dark:bg-white/5 backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-accent-blue/30 hover:bg-white/85 dark:hover:bg-white/10"
+            >
+              <h3 className="font-semibold text-base transition-colors duration-300 group-hover:text-accent-blue mb-2">{u.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{u.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="max-w-5xl mx-auto px-6 mt-20">
+        <p className="text-xs tracking-[0.3em] text-accent-purple uppercase font-bold">Collaboration Model</p>
+        <h2 className="font-serif-display text-3xl md:text-4xl mt-3 text-foreground">How We Partner</h2>
+        <p className="mt-4 text-sm text-muted-foreground max-w-2xl leading-relaxed">
+          An integrated framework designed to transition dark genome insights directly into your institutional research and deployment pipelines.
+        </p>
+        <div className="mt-8 grid sm:grid-cols-4 gap-4 relative">
+          {i.workflow.map((w) => (
+            <div 
+              key={w.step} 
+              className="group p-6 rounded-2xl border border-foreground/5 bg-white/70 dark:bg-white/[0.02] shadow-sm flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-accent-blue/20 hover:bg-white/90 dark:hover:bg-white/5"
+            >
+              <div>
+                <span className="font-serif-display text-3xl font-bold bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent block mb-4 transition-transform duration-300 group-hover:scale-110 origin-left">
+                  {w.step}
+                </span>
+                <h4 className="font-semibold text-sm text-foreground mb-2 transition-colors duration-300 group-hover:text-accent-blue">{w.title}</h4>
+              </div>
+              <p className="text-xs text-muted-foreground leading-relaxed mt-2">{w.body}</p>
             </div>
           ))}
         </div>
