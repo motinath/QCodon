@@ -4,7 +4,6 @@ import {
   QcAbout,
   QcPipeline,
   QcBlogs,
-  QcFooter,
 } from '@/components/QuantumCodon'
 
 export default function Landing() {
@@ -56,7 +55,6 @@ export default function Landing() {
       <QcAbout />
       <QcPipeline />
       <QcBlogs />
-      <QcFooter />
     </div>
   )
 }

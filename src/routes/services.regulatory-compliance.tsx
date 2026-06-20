@@ -136,7 +136,6 @@ function RegulatoryCompliancePage() {
       <ArchitectsGrid />
       <PartnerBand openContactModal={openContactModal} />
       <TagStrip />
-      <SiteFooter />
     </div>
   );
 }

@@ -15,6 +15,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as Careers1RouteImport } from './routes/careers1'
 import { Route as CareersRouteImport } from './routes/careers'
+import { Route as BlogsRouteImport } from './routes/blogs'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogsIndexRouteImport } from './routes/blogs/index'
@@ -53,6 +54,11 @@ const CareersRoute = CareersRouteImport.update({
   path: '/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogsRoute = BlogsRouteImport.update({
+  id: '/blogs',
+  path: '/blogs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -64,9 +70,9 @@ const IndexRoute = IndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogsIndexRoute = BlogsIndexRouteImport.update({
-  id: '/blogs/',
-  path: '/blogs/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => BlogsRoute,
 } as any)
 const ServicesRegulatoryComplianceRoute =
   ServicesRegulatoryComplianceRouteImport.update({
@@ -85,14 +91,15 @@ const IndustriesSlugRoute = IndustriesSlugRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogsSlugRoute = BlogsSlugRouteImport.update({
-  id: '/blogs/$slug',
-  path: '/blogs/$slug',
-  getParentRoute: () => rootRouteImport,
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogsRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blogs': typeof BlogsRouteWithChildren
   '/careers': typeof CareersRoute
   '/careers1': typeof Careers1Route
   '/case-studies': typeof CaseStudiesRoute
@@ -102,8 +109,8 @@ export interface FileRoutesByFullPath {
   '/blogs/$slug': typeof BlogsSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/blogs/': typeof BlogsIndexRoute
   '/services/regulatory-compliance': typeof ServicesRegulatoryComplianceRoute
+  '/blogs/': typeof BlogsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -117,13 +124,14 @@ export interface FileRoutesByTo {
   '/blogs/$slug': typeof BlogsSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/blogs': typeof BlogsIndexRoute
   '/services/regulatory-compliance': typeof ServicesRegulatoryComplianceRoute
+  '/blogs': typeof BlogsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/blogs': typeof BlogsRouteWithChildren
   '/careers': typeof CareersRoute
   '/careers1': typeof Careers1Route
   '/case-studies': typeof CaseStudiesRoute
@@ -133,14 +141,15 @@ export interface FileRoutesById {
   '/blogs/$slug': typeof BlogsSlugRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/services/$slug': typeof ServicesSlugRoute
-  '/blogs/': typeof BlogsIndexRoute
   '/services/regulatory-compliance': typeof ServicesRegulatoryComplianceRoute
+  '/blogs/': typeof BlogsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
     | '/about'
+    | '/blogs'
     | '/careers'
     | '/careers1'
     | '/case-studies'
@@ -150,8 +159,8 @@ export interface FileRouteTypes {
     | '/blogs/$slug'
     | '/industries/$slug'
     | '/services/$slug'
-    | '/blogs/'
     | '/services/regulatory-compliance'
+    | '/blogs/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -165,12 +174,13 @@ export interface FileRouteTypes {
     | '/blogs/$slug'
     | '/industries/$slug'
     | '/services/$slug'
-    | '/blogs'
     | '/services/regulatory-compliance'
+    | '/blogs'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/blogs'
     | '/careers'
     | '/careers1'
     | '/case-studies'
@@ -180,23 +190,22 @@ export interface FileRouteTypes {
     | '/blogs/$slug'
     | '/industries/$slug'
     | '/services/$slug'
-    | '/blogs/'
     | '/services/regulatory-compliance'
+    | '/blogs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  BlogsRoute: typeof BlogsRouteWithChildren
   CareersRoute: typeof CareersRoute
   Careers1Route: typeof Careers1Route
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactRoute: typeof ContactRoute
   EducationRoute: typeof EducationRoute
   ResearchRoute: typeof ResearchRoute
-  BlogsSlugRoute: typeof BlogsSlugRoute
   IndustriesSlugRoute: typeof IndustriesSlugRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
-  BlogsIndexRoute: typeof BlogsIndexRoute
   ServicesRegulatoryComplianceRoute: typeof ServicesRegulatoryComplianceRoute
 }
 
@@ -244,6 +253,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blogs': {
+      id: '/blogs'
+      path: '/blogs'
+      fullPath: '/blogs'
+      preLoaderRoute: typeof BlogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -260,9 +276,11 @@ declare module '@tanstack/react-router' {
     }
     '/blogs/': {
       id: '/blogs/'
-      path: '/blogs'
+      path: '/'
       fullPath: '/blogs/'
       preLoaderRoute: typeof BlogsIndexRouteImport
+      parentRoute: typeof BlogsRoute
+    }
     '/services/regulatory-compliance': {
       id: '/services/regulatory-compliance'
       path: '/services/regulatory-compliance'
@@ -286,27 +304,38 @@ declare module '@tanstack/react-router' {
     }
     '/blogs/$slug': {
       id: '/blogs/$slug'
-      path: '/blogs/$slug'
+      path: '/$slug'
       fullPath: '/blogs/$slug'
       preLoaderRoute: typeof BlogsSlugRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof BlogsRoute
     }
   }
 }
 
+interface BlogsRouteChildren {
+  BlogsSlugRoute: typeof BlogsSlugRoute
+  BlogsIndexRoute: typeof BlogsIndexRoute
+}
+
+const BlogsRouteChildren: BlogsRouteChildren = {
+  BlogsSlugRoute: BlogsSlugRoute,
+  BlogsIndexRoute: BlogsIndexRoute,
+}
+
+const BlogsRouteWithChildren = BlogsRoute._addFileChildren(BlogsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  BlogsRoute: BlogsRouteWithChildren,
   CareersRoute: CareersRoute,
   Careers1Route: Careers1Route,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactRoute: ContactRoute,
   EducationRoute: EducationRoute,
   ResearchRoute: ResearchRoute,
-  BlogsSlugRoute: BlogsSlugRoute,
   IndustriesSlugRoute: IndustriesSlugRoute,
   ServicesSlugRoute: ServicesSlugRoute,
-  BlogsIndexRoute: BlogsIndexRoute,
   ServicesRegulatoryComplianceRoute: ServicesRegulatoryComplianceRoute,
 }
 export const routeTree = rootRouteImport

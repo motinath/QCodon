@@ -978,22 +978,25 @@ export function QcFooter() {
 
 const blogPosts = [
   {
+    slug: "unlocking-biologys-dark-matter",
     eyebrow: "AI in Biology",
-    title: "Why the dark genome will define the next decade of AI-driven discovery",
-    excerpt: "Large models are reshaping how we read non-coding sequences. Here's what changes when 98% of the genome becomes addressable.",
-    date: "Jun 2026",
+    title: "Unlocking Biology's Dark Matter: Engineering the Future of Therapeutics",
+    excerpt: "At QuantumCodon, we combine the power of Dark Genome Mining, AI, and Quantum Computing to discover the next generation of therapeutics and transform lives.",
+    date: "Jun 24, 2026",
   },
   {
-    eyebrow: "Founders' Notes",
-    title: "From JNU to Amaravati: building a parallel biology universe",
-    excerpt: "A look at the journey behind the Deep Codon Initiative and what it takes to commercialize foundational science.",
-    date: "May 2026",
+    slug: "future-of-life-sciences",
+    eyebrow: "Computational Biology",
+    title: "The Future of Life Sciences Isn't Just Biological—It's Computational, Quantum, and Intelligent.",
+    excerpt: "At Quantum Codon, we combine the power of Quantum Computing, AI, and Computational Biology to decode the code of life and solve complex real-world challenges.",
+    date: "May 18, 2026",
   },
   {
-    eyebrow: "Engineering",
-    title: "Synthetic translation at scale: lessons from our internal pipelines",
-    excerpt: "Notes on tooling, GPU economics, and lab-in-the-loop systems that make dark genome screening tractable.",
-    date: "Apr 2026",
+    slug: "precision-therapeutics-deep-learning",
+    eyebrow: "Precision Medicine",
+    title: "Precision Therapeutics: The Convergence of Peptides and Deep Learning",
+    excerpt: "How Quantum Codon uses neural network architectures to design stable, highly targeted synthetic peptides for oncology and complex genetic targets.",
+    date: "Apr 12, 2026",
   },
 ];
 
@@ -1019,7 +1022,7 @@ export function QcBlogs() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {blogPosts.map((p) => (
-            <Link key={p.title} to="/blogs" className="group block p-7 rounded-2xl border border-foreground/10 bg-white/60 dark:bg-white/5 backdrop-blur hover:-translate-y-1 transition duration-200 hover:border-accent-blue/30 hover:shadow-lg">
+            <Link key={p.slug} to="/blogs/$slug" params={{ slug: p.slug }} className="group block p-7 rounded-2xl border border-foreground/10 bg-white/60 dark:bg-white/5 backdrop-blur hover:-translate-y-1 transition duration-200 hover:border-accent-blue/30 hover:shadow-lg">
               <p className="text-[10px] tracking-[0.3em] text-accent-emerald uppercase">{p.eyebrow}</p>
               <h3 className="mt-3 font-serif-display text-xl leading-snug group-hover:text-accent-blue transition-colors">{p.title}</h3>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3">{p.excerpt}</p>
