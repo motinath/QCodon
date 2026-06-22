@@ -16,8 +16,7 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: "Contact — Quantum Codon" },
       {
         property: "og:description",
-        content:
-          "Tell us about your project and our team will reach out personally.",
+        content: "Tell us about your project and our team will reach out personally.",
       },
     ],
   }),

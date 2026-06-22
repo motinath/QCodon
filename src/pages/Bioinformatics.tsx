@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PageShell from "./_PageShell";
 import { Link } from "@tanstack/react-router";
-import { 
+import {
   Database,
   Dna,
   Cpu,
@@ -22,7 +22,7 @@ import {
   GitBranch,
   Box,
   Flame,
-  Binary
+  Binary,
 } from "lucide-react";
 
 type DatabaseItem = {
@@ -38,131 +38,162 @@ const databasesData: DatabaseItem[] = [
   {
     name: "GenBank (NCBI)",
     category: "Sequence Databases",
-    description: "The primary US nucleotide sequence archive, syncing daily with ENA (Europe) and DDBJ (Japan) under the INSDC collaboration.",
-    useCase: "Comparing unknown DNA sequences against millions of records to find species origin or gene identity.",
+    description:
+      "The primary US nucleotide sequence archive, syncing daily with ENA (Europe) and DDBJ (Japan) under the INSDC collaboration.",
+    useCase:
+      "Comparing unknown DNA sequences against millions of records to find species origin or gene identity.",
     source: "NCBI (National Center for Biotechnology Information)",
-    keywords: ["sequence", "nucleotide", "dna", "blast", "genbank", "insdc"]
+    keywords: ["sequence", "nucleotide", "dna", "blast", "genbank", "insdc"],
   },
   {
     name: "RefSeq (NCBI)",
     category: "Sequence Databases",
-    description: "A curated, non-redundant set of reference sequences representing genomes, transcripts, and proteins, cleaned up from raw public submissions.",
-    useCase: "Using a single canonical transcript sequence to design PCR primers or annotate new genomes.",
+    description:
+      "A curated, non-redundant set of reference sequences representing genomes, transcripts, and proteins, cleaned up from raw public submissions.",
+    useCase:
+      "Using a single canonical transcript sequence to design PCR primers or annotate new genomes.",
     source: "NCBI",
-    keywords: ["refseq", "canonical", "reference", "transcript", "primer", "mrna"]
+    keywords: ["refseq", "canonical", "reference", "transcript", "primer", "mrna"],
   },
   {
     name: "UniProt",
     category: "Sequence Databases",
-    description: "The global hub for protein sequence and functional annotation, split into Swiss-Prot (manually curated) and TrEMBL (automatically annotated).",
-    useCase: "Pulling functional annotations, domain coordinates, modifications, and disease links for a protein.",
+    description:
+      "The global hub for protein sequence and functional annotation, split into Swiss-Prot (manually curated) and TrEMBL (automatically annotated).",
+    useCase:
+      "Pulling functional annotations, domain coordinates, modifications, and disease links for a protein.",
     source: "EMBL-EBI / SIB / PIR",
-    keywords: ["uniprot", "protein", "swiss-prot", "trembl", "annotation", "enzyme"]
+    keywords: ["uniprot", "protein", "swiss-prot", "trembl", "annotation", "enzyme"],
   },
   {
     name: "Ensembl / UCSC Browser",
     category: "Genome & Annotation",
-    description: "Interactive visual browsers hosting reference genomes, gene models, regulatory elements, and comparative genomics tracks.",
-    useCase: "Visually inspecting the exon/intron structure of genes or checking sequence conservation across species.",
+    description:
+      "Interactive visual browsers hosting reference genomes, gene models, regulatory elements, and comparative genomics tracks.",
+    useCase:
+      "Visually inspecting the exon/intron structure of genes or checking sequence conservation across species.",
     source: "EMBL-EBI / UCSC",
-    keywords: ["ensembl", "ucsc", "genome", "browser", "exon", "intron", "chromosome"]
+    keywords: ["ensembl", "ucsc", "genome", "browser", "exon", "intron", "chromosome"],
   },
   {
     name: "GENCODE",
     category: "Genome & Annotation",
-    description: "The gold-standard reference annotation database for human and mouse genomes, utilized by major research consortia globally.",
-    useCase: "Providing high-confidence gene boundaries and splicing variants for transcriptome alignment.",
+    description:
+      "The gold-standard reference annotation database for human and mouse genomes, utilized by major research consortia globally.",
+    useCase:
+      "Providing high-confidence gene boundaries and splicing variants for transcriptome alignment.",
     source: "GENCODE Consortium",
-    keywords: ["gencode", "annotation", "human", "mouse", "splicing", "transcriptome"]
+    keywords: ["gencode", "annotation", "human", "mouse", "splicing", "transcriptome"],
   },
   {
     name: "dbSNP & dbVar",
     category: "Variant & Clinical",
-    description: "Universal catalogs for short genetic variants (SNPs, indels) and structural variants, assigning global rsIDs to variants.",
-    useCase: "Querying allele frequencies and genome coordinates for single nucleotide polymorphisms.",
+    description:
+      "Universal catalogs for short genetic variants (SNPs, indels) and structural variants, assigning global rsIDs to variants.",
+    useCase:
+      "Querying allele frequencies and genome coordinates for single nucleotide polymorphisms.",
     source: "NCBI",
-    keywords: ["dbsnp", "dbvar", "rsid", "snp", "indel", "variant", "mutation"]
+    keywords: ["dbsnp", "dbvar", "rsid", "snp", "indel", "variant", "mutation"],
   },
   {
     name: "ClinVar",
     category: "Variant & Clinical",
-    description: "A public archive aggregating interpretations of clinical significance for human variants, linking variants to health conditions.",
-    useCase: "Annotating patient VCF files to flag pathogenic or likely pathogenic variants during clinical diagnoses.",
+    description:
+      "A public archive aggregating interpretations of clinical significance for human variants, linking variants to health conditions.",
+    useCase:
+      "Annotating patient VCF files to flag pathogenic or likely pathogenic variants during clinical diagnoses.",
     source: "NCBI",
-    keywords: ["clinvar", "pathogenic", "benign", "clinical", "vcf", "patient"]
+    keywords: ["clinvar", "pathogenic", "benign", "clinical", "vcf", "patient"],
   },
   {
     name: "COSMIC / TCGA",
     category: "Variant & Clinical",
-    description: "Specialized cancer databases cataloging somatic mutations, gene fusions, and multi-omic tumor samples across patient cohorts.",
-    useCase: "Checking if a specific mutation in a tumor biopsy is a recognized cancer driver mutation.",
+    description:
+      "Specialized cancer databases cataloging somatic mutations, gene fusions, and multi-omic tumor samples across patient cohorts.",
+    useCase:
+      "Checking if a specific mutation in a tumor biopsy is a recognized cancer driver mutation.",
     source: "Sanger Institute / NIH",
-    keywords: ["cosmic", "tcga", "cancer", "somatic", "mutation", "tumor"]
+    keywords: ["cosmic", "tcga", "cancer", "somatic", "mutation", "tumor"],
   },
   {
     name: "gnomAD",
     category: "Variant & Clinical",
-    description: "A database compiling population allele frequencies from hundreds of thousands of whole-genome and exome sequencing samples.",
-    useCase: "Distinguishing common benign population polymorphisms from rare, disease-causing candidate variants.",
+    description:
+      "A database compiling population allele frequencies from hundreds of thousands of whole-genome and exome sequencing samples.",
+    useCase:
+      "Distinguishing common benign population polymorphisms from rare, disease-causing candidate variants.",
     source: "Broad Institute",
-    keywords: ["gnomad", "allele", "frequency", "population", "exome", "rare"]
+    keywords: ["gnomad", "allele", "frequency", "population", "exome", "rare"],
   },
   {
     name: "PDB (Protein Data Bank)",
     category: "Structural Biology",
-    description: "The global, canonical archive for three-dimensional structures of proteins, nucleic acids, and complexes resolved experimentally.",
+    description:
+      "The global, canonical archive for three-dimensional structures of proteins, nucleic acids, and complexes resolved experimentally.",
     useCase: "Downloading 3D atomic coordinates (PDB/CIF files) to inspect ligand-binding pockets.",
     source: "wwPDB (RCSB, PDBe, PDBj)",
-    keywords: ["pdb", "structure", "3d", "protein", "crystallography", "cryo-em", "nmr"]
+    keywords: ["pdb", "structure", "3d", "protein", "crystallography", "cryo-em", "nmr"],
   },
   {
     name: "AlphaFold DB",
     category: "Structural Biology",
-    description: "An AI-driven database hosting predicted 3D structures for hundreds of millions of proteins, built by Google DeepMind and EMBL-EBI.",
-    useCase: "Obtaining structural models for uncharacterized proteins with no experimental structures available.",
+    description:
+      "An AI-driven database hosting predicted 3D structures for hundreds of millions of proteins, built by Google DeepMind and EMBL-EBI.",
+    useCase:
+      "Obtaining structural models for uncharacterized proteins with no experimental structures available.",
     source: "DeepMind / EMBL-EBI",
-    keywords: ["alphafold", "deepmind", "prediction", "ai", "model", "structural"]
+    keywords: ["alphafold", "deepmind", "prediction", "ai", "model", "structural"],
   },
   {
     name: "KEGG & Reactome",
     category: "Pathways & Interactions",
-    description: "Databases mapping genes and proteins to metabolic pathways, cellular signaling cascades, and disease pathway systems.",
-    useCase: "Performing pathway enrichment analysis on gene expression lists to identify altered pathways.",
+    description:
+      "Databases mapping genes and proteins to metabolic pathways, cellular signaling cascades, and disease pathway systems.",
+    useCase:
+      "Performing pathway enrichment analysis on gene expression lists to identify altered pathways.",
     source: "Kanehisa Labs / Reactome Consortium",
-    keywords: ["kegg", "reactome", "pathway", "metabolism", "enrichment", "cascade"]
+    keywords: ["kegg", "reactome", "pathway", "metabolism", "enrichment", "cascade"],
   },
   {
     name: "STRING",
     category: "Pathways & Interactions",
-    description: "A database compiling physical and functional protein-protein interaction networks from experimental, prediction, and text-mined data.",
-    useCase: "Building interaction networks around genes of interest to locate central hub proteins.",
+    description:
+      "A database compiling physical and functional protein-protein interaction networks from experimental, prediction, and text-mined data.",
+    useCase:
+      "Building interaction networks around genes of interest to locate central hub proteins.",
     source: "STRING Consortium",
-    keywords: ["string", "interaction", "ppi", "network", "protein-protein", "co-expression"]
+    keywords: ["string", "interaction", "ppi", "network", "protein-protein", "co-expression"],
   },
   {
     name: "Gene Ontology (GO)",
     category: "Pathways & Interactions",
-    description: "A standardized vocabulary describing gene products in terms of Biological Process, Molecular Function, and Cellular Component.",
-    useCase: "Running functional annotation tests to categorize the molecular functions of differentially expressed genes.",
+    description:
+      "A standardized vocabulary describing gene products in terms of Biological Process, Molecular Function, and Cellular Component.",
+    useCase:
+      "Running functional annotation tests to categorize the molecular functions of differentially expressed genes.",
     source: "Gene Ontology Consortium",
-    keywords: ["go", "ontology", "biological", "molecular", "cellular", "function"]
+    keywords: ["go", "ontology", "biological", "molecular", "cellular", "function"],
   },
   {
     name: "GEO / ArrayExpress / SRA",
     category: "Expression & Functional",
-    description: "Public repositories storing raw high-throughput sequencing reads (SRA) and processed expression matrices (GEO, ArrayExpress) from publications.",
-    useCase: "Downloading raw RNA-seq reads or microarray data to perform independent meta-analyses.",
+    description:
+      "Public repositories storing raw high-throughput sequencing reads (SRA) and processed expression matrices (GEO, ArrayExpress) from publications.",
+    useCase:
+      "Downloading raw RNA-seq reads or microarray data to perform independent meta-analyses.",
     source: "NCBI / EMBL-EBI",
-    keywords: ["geo", "sra", "arrayexpress", "expression", "rna-seq", "microarray", "reads"]
+    keywords: ["geo", "sra", "arrayexpress", "expression", "rna-seq", "microarray", "reads"],
   },
   {
     name: "Human Protein Atlas (HPA)",
     category: "Expression & Functional",
-    description: "A database mapping the spatial distribution and tissue-specific expression profiles of proteins across human tissues and cells.",
-    useCase: "Checking the protein localization of a candidate biomarker inside healthy vs. cancerous tissues.",
+    description:
+      "A database mapping the spatial distribution and tissue-specific expression profiles of proteins across human tissues and cells.",
+    useCase:
+      "Checking the protein localization of a candidate biomarker inside healthy vs. cancerous tissues.",
     source: "KTH Royal Institute of Technology",
-    keywords: ["hpa", "protein", "atlas", "expression", "tissue", "immunohistochemistry"]
-  }
+    keywords: ["hpa", "protein", "atlas", "expression", "tissue", "immunohistochemistry"],
+  },
 ];
 
 export default function BioinformaticsPage() {
@@ -170,13 +201,14 @@ export default function BioinformaticsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterCategory, setFilterCategory] = useState("All");
 
-  const categories = ["All", ...Array.from(new Set(databasesData.map(db => db.category)))];
+  const categories = ["All", ...Array.from(new Set(databasesData.map((db) => db.category)))];
 
-  const filteredDatabases = databasesData.filter(db => {
-    const matchesSearch = db.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  const filteredDatabases = databasesData.filter((db) => {
+    const matchesSearch =
+      db.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       db.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
       db.useCase.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      db.keywords.some(k => k.includes(searchQuery.toLowerCase()));
+      db.keywords.some((k) => k.includes(searchQuery.toLowerCase()));
 
     const matchesCategory = filterCategory === "All" || db.category === filterCategory;
 
@@ -184,13 +216,12 @@ export default function BioinformaticsPage() {
   });
 
   return (
-    <PageShell className="bg-[#f0f4f8] dark:bg-[#0c131f] transition-colors duration-300">
-      
+    <PageShell spotlight="from-cyan-500/15 via-transparent to-transparent">
       {/* 1. Hero Section */}
       <section className="max-w-6xl mx-auto px-6 mb-16">
         <div className="relative rounded-3xl border border-cyan-500/20 bg-cyan-500/[0.03] dark:bg-cyan-500/[0.05] p-10 md:p-16 backdrop-blur-md overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(6,182,212,0.1),transparent_50%)] pointer-events-none" />
-          
+
           <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-3 mb-6">
@@ -205,7 +236,8 @@ export default function BioinformaticsPage() {
                 Intelligent Bioinformatics Platforms & Frameworks
               </h1>
               <p className="mt-6 text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                Empower your research and diagnostic workflows with clinical-grade databases, standardized pipelines, and scalable computational engines.
+                Empower your research and diagnostic workflows with clinical-grade databases,
+                standardized pipelines, and scalable computational engines.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
@@ -222,7 +254,7 @@ export default function BioinformaticsPage() {
                 </a>
               </div>
             </div>
-            
+
             <div className="lg:col-span-5 relative w-full aspect-[4/3] lg:aspect-square overflow-hidden rounded-2xl border border-cyan-500/10 shadow-2xl bg-slate-950/5 dark:bg-slate-950/25">
               <img
                 src="/ai-control-panel.png"
@@ -241,7 +273,9 @@ export default function BioinformaticsPage() {
           <button
             onClick={() => setActiveTab("databases")}
             className={`pb-4 text-base font-semibold tracking-wide relative transition-colors ${
-              activeTab === "databases" ? "text-cyan-500" : "text-muted-foreground hover:text-foreground"
+              activeTab === "databases"
+                ? "text-cyan-500"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             {activeTab === "databases" && (
@@ -252,7 +286,9 @@ export default function BioinformaticsPage() {
           <button
             onClick={() => setActiveTab("programming")}
             className={`pb-4 text-base font-semibold tracking-wide relative transition-colors ${
-              activeTab === "programming" ? "text-cyan-500" : "text-muted-foreground hover:text-foreground"
+              activeTab === "programming"
+                ? "text-cyan-500"
+                : "text-muted-foreground hover:text-foreground"
             }`}
           >
             {activeTab === "programming" && (
@@ -272,7 +308,11 @@ export default function BioinformaticsPage() {
               The Backbone of Modern Life Science Research
             </h2>
             <p className="mt-4 text-base text-muted-foreground leading-relaxed">
-              Biological databases are essential repositories storing, standardizing, and making searchable the staggering volume of data generated by genomics, proteomics, and structural biology projects globally. Public resources solve key research bottlenecks: they eliminate redundant experiments, facilitate cross-species analysis, and secure long-term data preservation.
+              Biological databases are essential repositories storing, standardizing, and making
+              searchable the staggering volume of data generated by genomics, proteomics, and
+              structural biology projects globally. Public resources solve key research bottlenecks:
+              they eliminate redundant experiments, facilitate cross-species analysis, and secure
+              long-term data preservation.
             </p>
           </section>
 
@@ -291,14 +331,18 @@ export default function BioinformaticsPage() {
               </div>
               <div className="flex items-center gap-2 w-full md:w-auto">
                 <ListFilter className="h-4 w-4 text-cyan-500" />
-                <span className="text-xs font-mono uppercase text-muted-foreground whitespace-nowrap">Filter By:</span>
+                <span className="text-xs font-mono uppercase text-muted-foreground whitespace-nowrap">
+                  Filter By:
+                </span>
                 <select
                   value={filterCategory}
                   onChange={(e) => setFilterCategory(e.target.value)}
                   className="w-full md:w-56 px-3 py-2 text-xs bg-white/80 dark:bg-black/40 border border-foreground/10 rounded-xl focus:outline-none focus:border-cyan-500 transition"
                 >
-                  {categories.map(cat => (
-                    <option key={cat} value={cat}>{cat}</option>
+                  {categories.map((cat) => (
+                    <option key={cat} value={cat}>
+                      {cat}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -330,8 +374,12 @@ export default function BioinformaticsPage() {
                       </p>
                     </div>
                     <div className="mt-4 pt-4 border-t border-foreground/5 text-xs">
-                      <strong className="text-foreground font-semibold block mb-1">Use Case:</strong>
-                      <span className="text-muted-foreground italic leading-relaxed">{db.useCase}</span>
+                      <strong className="text-foreground font-semibold block mb-1">
+                        Use Case:
+                      </strong>
+                      <span className="text-muted-foreground italic leading-relaxed">
+                        {db.useCase}
+                      </span>
                     </div>
                   </div>
                 ))
@@ -346,13 +394,18 @@ export default function BioinformaticsPage() {
           {/* Database Comparison Table */}
           <section className="space-y-6">
             <div className="max-w-2xl">
-              <span className="text-xs tracking-[0.2em] uppercase font-bold text-cyan-500">Quick Reference</span>
-              <h2 className="font-serif-display text-3xl mt-2 font-semibold">Choosing the Right Database</h2>
+              <span className="text-xs tracking-[0.2em] uppercase font-bold text-cyan-500">
+                Quick Reference
+              </span>
+              <h2 className="font-serif-display text-3xl mt-2 font-semibold">
+                Choosing the Right Database
+              </h2>
               <p className="text-sm text-muted-foreground mt-2">
-                A simple workflow guide designed to direct bioinformaticians to the optimal starting point based on their experimental goals.
+                A simple workflow guide designed to direct bioinformaticians to the optimal starting
+                point based on their experimental goals.
               </p>
             </div>
-            
+
             <div className="overflow-hidden rounded-3xl border border-foreground/10 bg-white/40 dark:bg-black/20 backdrop-blur-md shadow-lg">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse text-sm">
@@ -365,19 +418,58 @@ export default function BioinformaticsPage() {
                   </thead>
                   <tbody className="divide-y divide-foreground/5">
                     {[
-                      { need: "Identify an unknown DNA/protein sequence", starting: "GenBank / UniProt + BLAST", resource: "INSDC / UniProt" },
-                      { need: "Browse gene structure and regulatory areas", starting: "Ensembl / UCSC Genome Browser", resource: "GENCODE" },
-                      { need: "Check clinical significance of a variant", starting: "ClinVar + gnomAD", resource: "dbSNP / gnomAD" },
-                      { need: "Find a protein's 3D structure", starting: "PDB, then AlphaFold DB if unavailable", resource: "wwPDB / DeepMind" },
-                      { need: "Map genes to biological pathways", starting: "KEGG / Reactome", resource: "Systems Biology" },
-                      { need: "Explore protein-protein interaction matrices", starting: "STRING", resource: "STRING Networks" },
-                      { need: "Reuse published expression datasets", starting: "GEO / ArrayExpress / SRA", resource: "NCBI / EMBL-EBI" },
-                      { need: "Research somatic cancer mutations", starting: "COSMIC / TCGA", resource: "Cancer Atlas" }
+                      {
+                        need: "Identify an unknown DNA/protein sequence",
+                        starting: "GenBank / UniProt + BLAST",
+                        resource: "INSDC / UniProt",
+                      },
+                      {
+                        need: "Browse gene structure and regulatory areas",
+                        starting: "Ensembl / UCSC Genome Browser",
+                        resource: "GENCODE",
+                      },
+                      {
+                        need: "Check clinical significance of a variant",
+                        starting: "ClinVar + gnomAD",
+                        resource: "dbSNP / gnomAD",
+                      },
+                      {
+                        need: "Find a protein's 3D structure",
+                        starting: "PDB, then AlphaFold DB if unavailable",
+                        resource: "wwPDB / DeepMind",
+                      },
+                      {
+                        need: "Map genes to biological pathways",
+                        starting: "KEGG / Reactome",
+                        resource: "Systems Biology",
+                      },
+                      {
+                        need: "Explore protein-protein interaction matrices",
+                        starting: "STRING",
+                        resource: "STRING Networks",
+                      },
+                      {
+                        need: "Reuse published expression datasets",
+                        starting: "GEO / ArrayExpress / SRA",
+                        resource: "NCBI / EMBL-EBI",
+                      },
+                      {
+                        need: "Research somatic cancer mutations",
+                        starting: "COSMIC / TCGA",
+                        resource: "Cancer Atlas",
+                      },
                     ].map((row) => (
-                      <tr key={row.need} className="hover:bg-white/40 dark:hover:bg-white/5 transition-colors">
+                      <tr
+                        key={row.need}
+                        className="hover:bg-white/40 dark:hover:bg-white/5 transition-colors"
+                      >
                         <td className="p-4 font-medium text-foreground">{row.need}</td>
-                        <td className="p-4 text-cyan-600 dark:text-cyan-400 font-semibold">{row.starting}</td>
-                        <td className="p-4 text-muted-foreground font-mono text-xs">{row.resource}</td>
+                        <td className="p-4 text-cyan-600 dark:text-cyan-400 font-semibold">
+                          {row.starting}
+                        </td>
+                        <td className="p-4 text-muted-foreground font-mono text-xs">
+                          {row.resource}
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -393,9 +485,16 @@ export default function BioinformaticsPage() {
                 <BookOpen className="h-5 w-5" />
               </div>
               <div>
-                <h4 className="font-semibold text-lg text-foreground">Pro-Tip for Clinical Researchers</h4>
+                <h4 className="font-semibold text-lg text-foreground">
+                  Pro-Tip for Clinical Researchers
+                </h4>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  When structuring bioinformatics portals or reports, group content by <strong>task</strong> (e.g., "Finding a Reference Genome") rather than alphabetically. Beginners and domain investigators arrive with specific operational questions. Linking directly to API endpoints or citing the most recent database description in <em>Nucleic Acids Research</em> ensures your team operates with maximum scientific accuracy.
+                  When structuring bioinformatics portals or reports, group content by{" "}
+                  <strong>task</strong> (e.g., "Finding a Reference Genome") rather than
+                  alphabetically. Beginners and domain investigators arrive with specific
+                  operational questions. Linking directly to API endpoints or citing the most recent
+                  database description in <em>Nucleic Acids Research</em> ensures your team operates
+                  with maximum scientific accuracy.
                 </p>
               </div>
             </div>
@@ -406,40 +505,79 @@ export default function BioinformaticsPage() {
       {/* Tab Content 2: Programming Resources */}
       {activeTab === "programming" && (
         <div className="animate-fade-in max-w-6xl mx-auto px-6 space-y-16">
-          
           {/* Overview text */}
           <section className="max-w-3xl">
             <h2 className="font-serif-display text-3xl md:text-4xl text-foreground font-semibold">
               Turning Raw Data Into Biological Insights
             </h2>
             <p className="mt-4 text-base text-muted-foreground leading-relaxed">
-              Modern genomic datasets are too vast for manual inspections. Computational scripting is crucial to parsing sequences, running alignments, and executing reproducible statistical models.
+              Modern genomic datasets are too vast for manual inspections. Computational scripting
+              is crucial to parsing sequences, running alignments, and executing reproducible
+              statistical models.
             </p>
           </section>
 
           {/* 1. Core Languages */}
           <section className="space-y-6">
-            <h3 className="text-xs tracking-[0.3em] text-cyan-500 uppercase font-bold">Languages & Ecosystems</h3>
+            <h3 className="text-xs tracking-[0.3em] text-cyan-500 uppercase font-bold">
+              Languages & Ecosystems
+            </h3>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {[
-                { name: "Python", purpose: "General Scripting & Machine Learning", use: "Sequence manipulation, data wrangling, AlphaFold modelling, and deep learning pipelines.", pct: "95%", color: "text-cyan-500" },
-                { name: "R", purpose: "Statistical Genomics & Plots", use: "Differential expression, statistical distributions, single-cell clustering, and publication-ready plots.", pct: "85%", color: "text-indigo-500" },
-                { name: "Bash / Shell", purpose: "Workflow Automation & HPC", use: "Chaining CLI aligners, job scheduling on cluster nodes, and handling directories with raw FASTQs.", pct: "90%", color: "text-emerald-500" },
-                { name: "SQL", purpose: "Relational Queries", use: "Querying local schemas of genomic annotations, LIMS logs, and metadata databases directly.", pct: "60%", color: "text-amber-500" }
+                {
+                  name: "Python",
+                  purpose: "General Scripting & Machine Learning",
+                  use: "Sequence manipulation, data wrangling, AlphaFold modelling, and deep learning pipelines.",
+                  pct: "95%",
+                  color: "text-cyan-500",
+                },
+                {
+                  name: "R",
+                  purpose: "Statistical Genomics & Plots",
+                  use: "Differential expression, statistical distributions, single-cell clustering, and publication-ready plots.",
+                  pct: "85%",
+                  color: "text-indigo-500",
+                },
+                {
+                  name: "Bash / Shell",
+                  purpose: "Workflow Automation & HPC",
+                  use: "Chaining CLI aligners, job scheduling on cluster nodes, and handling directories with raw FASTQs.",
+                  pct: "90%",
+                  color: "text-emerald-500",
+                },
+                {
+                  name: "SQL",
+                  purpose: "Relational Queries",
+                  use: "Querying local schemas of genomic annotations, LIMS logs, and metadata databases directly.",
+                  pct: "60%",
+                  color: "text-amber-500",
+                },
               ].map((lang) => (
-                <div key={lang.name} className="p-6 rounded-2xl border border-foreground/5 bg-white/40 dark:bg-black/20 backdrop-blur flex flex-col justify-between">
+                <div
+                  key={lang.name}
+                  className="p-6 rounded-2xl border border-foreground/5 bg-white/40 dark:bg-black/20 backdrop-blur flex flex-col justify-between"
+                >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <h4 className="font-serif-display text-2xl font-bold text-foreground">{lang.name}</h4>
+                      <h4 className="font-serif-display text-2xl font-bold text-foreground">
+                        {lang.name}
+                      </h4>
                       <Code className="h-4 w-4 text-muted-foreground/60" />
                     </div>
-                    <span className="text-[10px] tracking-wide font-semibold text-cyan-500 font-mono block mb-2">{lang.purpose}</span>
+                    <span className="text-[10px] tracking-wide font-semibold text-cyan-500 font-mono block mb-2">
+                      {lang.purpose}
+                    </span>
                     <p className="text-sm text-muted-foreground leading-relaxed">{lang.use}</p>
                   </div>
                   <div className="mt-6 pt-4 border-t border-foreground/5">
-                    <span className="text-[10px] text-muted-foreground uppercase font-mono block mb-1">Ecosystem Adoption</span>
+                    <span className="text-[10px] text-muted-foreground uppercase font-mono block mb-1">
+                      Ecosystem Adoption
+                    </span>
                     <div className="w-full bg-foreground/10 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-cyan-500 h-full rounded-full" style={{ width: lang.pct }} />
+                      <div
+                        className="bg-cyan-500 h-full rounded-full"
+                        style={{ width: lang.pct }}
+                      />
                     </div>
                   </div>
                 </div>
@@ -450,10 +588,15 @@ export default function BioinformaticsPage() {
           {/* 2. Interactive Code Playground */}
           <section className="space-y-6">
             <div className="max-w-2xl">
-              <span className="text-xs tracking-[0.2em] uppercase font-bold text-cyan-500">Live Templates</span>
-              <h2 className="font-serif-display text-3xl mt-2 font-semibold">Standard Script Templates</h2>
+              <span className="text-xs tracking-[0.2em] uppercase font-bold text-cyan-500">
+                Live Templates
+              </span>
+              <h2 className="font-serif-display text-3xl mt-2 font-semibold">
+                Standard Script Templates
+              </h2>
               <p className="text-sm text-muted-foreground mt-2">
-                Click a language template below to review typical production-grade workflows for sequence retrieval and statistical profiling.
+                Click a language template below to review typical production-grade workflows for
+                sequence retrieval and statistical profiling.
               </p>
             </div>
 
@@ -467,10 +610,12 @@ export default function BioinformaticsPage() {
                     <div className="h-2 w-2 rounded-full bg-green-500" />
                     <span className="text-white font-semibold ml-2">fetch_sequence.py</span>
                   </div>
-                  <span className="text-cyan-400 text-[10px] uppercase font-mono tracking-widest">Python 3 + Biopython</span>
+                  <span className="text-cyan-400 text-[10px] uppercase font-mono tracking-widest">
+                    Python 3 + Biopython
+                  </span>
                 </div>
                 <pre className="overflow-x-auto text-slate-300 leading-relaxed py-2">
-{`from Bio import Entrez, SeqIO
+                  {`from Bio import Entrez, SeqIO
 
 # Provide your institutional email
 Entrez.email = "research@quantumcodon.com"
@@ -499,10 +644,12 @@ with Entrez.efetch(
                     <div className="h-2 w-2 rounded-full bg-green-500" />
                     <span className="text-white font-semibold ml-2">deseq2_analysis.R</span>
                   </div>
-                  <span className="text-indigo-400 text-[10px] uppercase font-mono tracking-widest">R + Bioconductor</span>
+                  <span className="text-indigo-400 text-[10px] uppercase font-mono tracking-widest">
+                    R + Bioconductor
+                  </span>
                 </div>
                 <pre className="overflow-x-auto text-slate-300 leading-relaxed py-2">
-{`library(DESeq2)
+                  {`library(DESeq2)
 
 # Load counts matrix and metadata
 dds <- DESeqDataSetFromMatrix(
@@ -525,20 +672,53 @@ print(paste("Significant genes found:", nrow(significant_genes)))`}
 
           {/* 3. Command Line Tool Chest */}
           <section className="space-y-6">
-            <h3 className="text-xs tracking-[0.3em] text-cyan-500 uppercase font-bold">Standard CLI Tool Chest</h3>
+            <h3 className="text-xs tracking-[0.3em] text-cyan-500 uppercase font-bold">
+              Standard CLI Tool Chest
+            </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { title: "BLAST", desc: "Aligns sequences against databases to assess homology and trace evolutionary similarities.", cmd: "blastn -query query.fa -db nt -out results.txt" },
-                { title: "SAMtools / BCFtools", desc: "Manipulates BAM/SAM files (sorting, indexing) and calls/filters genomic VCF records.", cmd: "samtools sort input.bam -o sorted.bam" },
-                { title: "BWA / Bowtie2", desc: "Short-read aligners that map raw sequencing reads directly back onto a reference genome.", cmd: "bwa mem reference.fa read1.fq read2.fq > aligned.sam" },
-                { title: "STAR / Salmon", desc: "RNA-seq read alignment and transcript quantification tools utilizing pseudo-alignment.", cmd: "salmon quant -i index -l A -1 r1.fq -2 r2.fq -o quant" },
-                { title: "GATK Suite", desc: "Broad Institute's gold-standard suite for calling SNPs, indels, and structural variants.", cmd: "gatk HaplotypeCaller -R ref.fa -I input.bam -O var.vcf" },
-                { title: "Bedtools", desc: "Enables fast mathematical genomic interval operations (intersect, merge, subtract).", cmd: "bedtools intersect -a peak.bed -b gene.bed > intersect.bed" }
+                {
+                  title: "BLAST",
+                  desc: "Aligns sequences against databases to assess homology and trace evolutionary similarities.",
+                  cmd: "blastn -query query.fa -db nt -out results.txt",
+                },
+                {
+                  title: "SAMtools / BCFtools",
+                  desc: "Manipulates BAM/SAM files (sorting, indexing) and calls/filters genomic VCF records.",
+                  cmd: "samtools sort input.bam -o sorted.bam",
+                },
+                {
+                  title: "BWA / Bowtie2",
+                  desc: "Short-read aligners that map raw sequencing reads directly back onto a reference genome.",
+                  cmd: "bwa mem reference.fa read1.fq read2.fq > aligned.sam",
+                },
+                {
+                  title: "STAR / Salmon",
+                  desc: "RNA-seq read alignment and transcript quantification tools utilizing pseudo-alignment.",
+                  cmd: "salmon quant -i index -l A -1 r1.fq -2 r2.fq -o quant",
+                },
+                {
+                  title: "GATK Suite",
+                  desc: "Broad Institute's gold-standard suite for calling SNPs, indels, and structural variants.",
+                  cmd: "gatk HaplotypeCaller -R ref.fa -I input.bam -O var.vcf",
+                },
+                {
+                  title: "Bedtools",
+                  desc: "Enables fast mathematical genomic interval operations (intersect, merge, subtract).",
+                  cmd: "bedtools intersect -a peak.bed -b gene.bed > intersect.bed",
+                },
               ].map((tool) => (
-                <div key={tool.title} className="p-6 rounded-2xl border border-foreground/5 bg-white/40 dark:bg-black/20 backdrop-blur flex flex-col justify-between">
+                <div
+                  key={tool.title}
+                  className="p-6 rounded-2xl border border-foreground/5 bg-white/40 dark:bg-black/20 backdrop-blur flex flex-col justify-between"
+                >
                   <div>
-                    <h4 className="font-serif-display text-lg font-bold text-foreground mb-2">{tool.title}</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{tool.desc}</p>
+                    <h4 className="font-serif-display text-lg font-bold text-foreground mb-2">
+                      {tool.title}
+                    </h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      {tool.desc}
+                    </p>
                   </div>
                   <div className="p-3 bg-slate-950 text-cyan-400 font-mono text-[10px] rounded-lg overflow-x-auto border border-white/5">
                     <code>{tool.cmd}</code>
@@ -551,10 +731,18 @@ print(paste("Significant genes found:", nrow(significant_genes)))`}
           {/* 4. Env Management & Repositories */}
           <section className="grid lg:grid-cols-12 gap-8 items-center border-t border-foreground/10 pt-16">
             <div className="lg:col-span-6 space-y-4">
-              <span className="text-xs tracking-[0.25em] uppercase font-bold text-cyan-500">Reproducibility</span>
-              <h3 className="font-serif-display text-3xl font-bold text-foreground">Package Management & Environments</h3>
+              <span className="text-xs tracking-[0.25em] uppercase font-bold text-cyan-500">
+                Reproducibility
+              </span>
+              <h3 className="font-serif-display text-3xl font-bold text-foreground">
+                Package Management & Environments
+              </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Bioconda maintains pre-packaged versions of thousands of tools, enabling installation in isolated virtual spaces. To enforce absolute reproducibility across clusters, labs combine Conda environments with <strong>Docker</strong> or <strong>Singularity (Apptainer)</strong> containers. Chaining these is commonly automated using Nextflow or Snakemake pipelines.
+                Bioconda maintains pre-packaged versions of thousands of tools, enabling
+                installation in isolated virtual spaces. To enforce absolute reproducibility across
+                clusters, labs combine Conda environments with <strong>Docker</strong> or{" "}
+                <strong>Singularity (Apptainer)</strong> containers. Chaining these is commonly
+                automated using Nextflow or Snakemake pipelines.
               </p>
               <div className="flex gap-4">
                 <div className="flex items-center gap-2 text-xs text-foreground font-mono">
@@ -582,9 +770,12 @@ print(paste("Significant genes found:", nrow(significant_genes)))`}
                   { task: "RNA-seq Expression Models", tool: "R / Bioconductor (DESeq2)" },
                   { task: "Single-Cell Transcriptomics", tool: "Scanpy (Py) / Seurat (R)" },
                   { task: "Variant Pipeline Execution", tool: "GATK / SAMtools (CLI)" },
-                  { task: "Multi-Tool Dependency Control", tool: "Conda / Docker" }
+                  { task: "Multi-Tool Dependency Control", tool: "Conda / Docker" },
                 ].map((item) => (
-                  <div key={item.task} className="flex items-center justify-between text-xs p-3 rounded-xl border border-foreground/5 bg-white/30 dark:bg-black/10">
+                  <div
+                    key={item.task}
+                    className="flex items-center justify-between text-xs p-3 rounded-xl border border-foreground/5 bg-white/30 dark:bg-black/10"
+                  >
                     <span className="font-medium text-foreground">{item.task}</span>
                     <span className="font-mono text-cyan-500 font-bold">{item.tool}</span>
                   </div>
@@ -603,17 +794,18 @@ print(paste("Significant genes found:", nrow(significant_genes)))`}
             Design Your Computational Pipeline
           </h2>
           <p className="mt-3 text-muted-foreground max-w-2xl mx-auto text-base relative z-10 leading-relaxed">
-            Need customized pipeline deployment, single-cell analysis setups, or large-scale molecular queries? Reach out to our scientific software team.
+            Need customized pipeline deployment, single-cell analysis setups, or large-scale
+            molecular queries? Reach out to our scientific software team.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4 relative z-10">
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               className="px-6 py-3 rounded-full bg-foreground text-background text-sm font-semibold hover:opacity-90 transition shadow-lg"
             >
               Collaborate With Us
             </Link>
-            <Link 
-              to="/services/drug-discovery" 
+            <Link
+              to="/services/drug-discovery"
               className="px-6 py-3 rounded-full border border-foreground/20 text-sm font-semibold hover:bg-foreground/5 transition"
             >
               Explore Drug Discovery
@@ -621,7 +813,6 @@ print(paste("Significant genes found:", nrow(significant_genes)))`}
           </div>
         </div>
       </section>
-      
     </PageShell>
   );
 }

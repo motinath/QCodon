@@ -5,7 +5,7 @@ import OpenPositions from "@/components/careers/OpenPositions";
 
 export default function CareersPage() {
   return (
-    <PageShell className="bg-[#edf2f7] dark:bg-[#0a1118]">
+    <PageShell spotlight="from-amber-500/10 via-transparent to-transparent">
       <CareersHero />
       <ValuesHexGrid />
       <OpenPositions />

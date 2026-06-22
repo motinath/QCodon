@@ -8,12 +8,7 @@ interface SkyToggleProps {
   className?: string;
 }
 
-const SkyToggle = ({
-  checked,
-  onChange,
-  "aria-label": ariaLabel,
-  className,
-}: SkyToggleProps) => {
+const SkyToggle = ({ checked, onChange, "aria-label": ariaLabel, className }: SkyToggleProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(e.target.checked);
   };

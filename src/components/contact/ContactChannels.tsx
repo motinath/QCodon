@@ -24,9 +24,9 @@ const channels = [
   {
     icon: MapPin,
     title: "Visit us",
-    subtitle: "Stop by our studio in San Francisco — coffee is on us.",
-    linkLabel: "View Location",
-    href: "#",
+    subtitle: "Amaravati Quantum Valley, Amaravati, Andhra Pradesh 522020, India.",
+    linkLabel: "View on Google Maps",
+    href: "https://maps.app.goo.gl/bAURtJ7543zqQ3qG8",
     // right card: slides up from bottom
     from: "translateY(80px)",
   },
@@ -81,7 +81,7 @@ export function ContactChannels() {
         // animate in when section is well into view, reset when it leaves
         setInView(entry.isIntersecting);
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -94,25 +94,18 @@ export function ContactChannels() {
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-4xl font-semibold text-foreground sm:text-5xl">
               Turn Your Ideas
-              <span
-                className="font-serif-italic mt-1 block"
-                style={{ color: "#2563eb" }}
-              >
+              <span className="font-serif-italic mt-1 block" style={{ color: "#2563eb" }}>
                 into Reality
               </span>
             </h2>
             <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-              Pick the channel that works best for you. Whether you&rsquo;re scoping
-              a new project, troubleshooting, or just want to say hello — we&rsquo;re
-              listening.
+              Pick the channel that works best for you. Whether you&rsquo;re scoping a new project,
+              troubleshooting, or just want to say hello — we&rsquo;re listening.
             </p>
           </div>
         </Reveal>
 
-        <div
-          ref={gridRef}
-          className="mt-16 flex flex-col md:flex-row justify-center gap-16"
-        >
+        <div ref={gridRef} className="mt-16 flex flex-col md:flex-row justify-center gap-16">
           {channels.map((c, i) => (
             <AnimatedCard key={c.title} channel={c} index={i} inView={inView} />
           ))}

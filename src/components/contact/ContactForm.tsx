@@ -49,11 +49,13 @@ export function ContactForm() {
             </p>
             <h2 className="text-4xl font-semibold text-foreground sm:text-5xl">
               Get in
-              <span className="font-serif-italic ml-3" style={{ color: '#2563eb' }}>touch</span>
+              <span className="font-serif-italic ml-3" style={{ color: "#2563eb" }}>
+                touch
+              </span>
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
-              Share a few details about your project or question, and the right
-              person on our team will reach back out personally.
+              Share a few details about your project or question, and the right person on our team
+              will reach back out personally.
             </p>
           </div>
         </Reveal>
@@ -65,15 +67,19 @@ export function ContactForm() {
           >
             <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
               <Field label="Name" name="name" type="text" required placeholder="Jane Doe" />
-              <Field label="Email" name="email" type="email" required placeholder="jane@company.com" />
+              <Field
+                label="Email"
+                name="email"
+                type="email"
+                required
+                placeholder="jane@company.com"
+              />
             </div>
             <div className="mt-5">
               <Field label="Phone" name="phone" type="tel" placeholder="+1 555 000 0000" />
             </div>
             <div className="mt-5">
-              <label className="mb-2 block text-sm font-medium text-foreground">
-                Message
-              </label>
+              <label className="mb-2 block text-sm font-medium text-foreground">Message</label>
               <textarea
                 name="message"
                 required
@@ -106,9 +112,7 @@ function Field({
 }: { label: string } & React.InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div>
-      <label className="mb-2 block text-sm font-medium text-foreground">
-        {label}
-      </label>
+      <label className="mb-2 block text-sm font-medium text-foreground">{label}</label>
       <input
         {...rest}
         className="w-full rounded-full border border-border bg-background px-5 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"

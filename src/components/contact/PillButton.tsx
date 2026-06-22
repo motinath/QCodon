@@ -8,7 +8,7 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export function PillButton({ children, asChildHref, className = "", ...rest }: Props) {
   const classes = `group inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium text-white shadow-sm transition-all hover:shadow-md hover:opacity-90 ${className}`;
-  const style = { backgroundColor: '#2563eb' };
+  const style = { backgroundColor: "#2563eb" };
 
   if (asChildHref) {
     return (

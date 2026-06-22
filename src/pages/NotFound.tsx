@@ -16,10 +16,11 @@ const NotFound = () => {
         </h1>
         <h2 className="text-2xl font-serif-display mb-3">Oops! Page not found</h2>
         <p className="mb-8 text-sm text-muted-foreground leading-relaxed">
-          The page you are looking for does not exist or has been moved. We are decoding the dark genome, but this route remains empty.
+          The page you are looking for does not exist or has been moved. We are decoding the dark
+          genome, but this route remains empty.
         </p>
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="px-6 py-3 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple text-white text-sm hover:opacity-90 transition shadow-md inline-block"
         >
           Return to Home

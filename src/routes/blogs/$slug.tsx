@@ -1,13 +1,13 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { getBlogPost, blogPosts } from "@/lib/blogs-data";
-import { 
-  Dna, 
-  Brain, 
-  Cpu, 
-  Pill, 
-  Database, 
-  Sparkles, 
-  Activity, 
+import {
+  Dna,
+  Brain,
+  Cpu,
+  Pill,
+  Database,
+  Sparkles,
+  Activity,
   Atom,
   ArrowLeft,
   Calendar,
@@ -17,7 +17,7 @@ import {
   Users,
   Shield,
   Globe,
-  Lightbulb
+  Lightbulb,
 } from "lucide-react";
 
 export const Route = createFileRoute("/blogs/$slug")({
@@ -43,7 +43,12 @@ export const Route = createFileRoute("/blogs/$slug")({
     <div className="pt-32 pb-24 px-6 max-w-3xl mx-auto text-center">
       <p className="text-xs tracking-[0.3em] text-accent-blue uppercase">404</p>
       <h1 className="font-serif-display text-4xl mt-3">Blog post not found</h1>
-      <Link to="/blogs" className="inline-block mt-6 text-sm text-muted-foreground hover:text-foreground">← Back to blogs</Link>
+      <Link
+        to="/blogs"
+        className="inline-block mt-6 text-sm text-muted-foreground hover:text-foreground"
+      >
+        ← Back to blogs
+      </Link>
     </div>
   ),
   component: BlogPostDetailPage,
@@ -57,13 +62,21 @@ function BlogPostDetailPage() {
   // Helper to map sections to rich icons
   const getSectionIcon = (title: string) => {
     const t = title.toLowerCase();
-    if (t.includes("mining") || t.includes("genome") || t.includes("genomics") || t.includes("dna")) return Dna;
+    if (t.includes("mining") || t.includes("genome") || t.includes("genomics") || t.includes("dna"))
+      return Dna;
     if (t.includes("intelligence") || t.includes("ai") || t.includes("brain")) return Brain;
     if (t.includes("quantum") || t.includes("simulate") || t.includes("atom")) return Atom;
-    if (t.includes("therapeutics") || t.includes("medicine") || t.includes("pill") || t.includes("drug")) return Pill;
+    if (
+      t.includes("therapeutics") ||
+      t.includes("medicine") ||
+      t.includes("pill") ||
+      t.includes("drug")
+    )
+      return Pill;
     if (t.includes("datasets") || t.includes("data") || t.includes("process")) return Database;
     if (t.includes("patterns") || t.includes("decode")) return Cpu;
-    if (t.includes("bridge") || t.includes("scientific") || t.includes("innovation")) return Sparkles;
+    if (t.includes("bridge") || t.includes("scientific") || t.includes("innovation"))
+      return Sparkles;
     return Activity;
   };
 
@@ -87,8 +100,8 @@ function BlogPostDetailPage() {
     <div className="pt-24 pb-20 min-h-screen bg-[#f0f4f8] dark:bg-[#0c131f] transition-colors duration-300 page-3d-transition">
       {/* Back button */}
       <div className="max-w-4xl mx-auto px-6 mb-8 animate-fade-in">
-        <Link 
-          to="/blogs" 
+        <Link
+          to="/blogs"
           id="back-to-blogs-btn"
           className="group inline-flex items-center gap-2 text-xs tracking-[0.25em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300"
         >
@@ -150,13 +163,15 @@ function BlogPostDetailPage() {
 
         {/* Main Sections Content */}
         <section className="space-y-8 mb-16">
-          <h2 className="text-xs tracking-[0.3em] text-accent-purple uppercase font-bold mb-6">Key Core Capabilities</h2>
+          <h2 className="text-xs tracking-[0.3em] text-accent-purple uppercase font-bold mb-6">
+            Key Core Capabilities
+          </h2>
           <div className="grid gap-6">
             {post.sections.map((section) => {
               const SectionIcon = getSectionIcon(section.title);
               return (
-                <div 
-                  key={section.title} 
+                <div
+                  key={section.title}
                   className="group relative p-8 rounded-2xl border border-foreground/10 bg-white/40 dark:bg-black/20 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-accent-blue/35 hover:bg-white/60 dark:hover:bg-black/35"
                 >
                   <div className="flex flex-col md:flex-row md:items-start gap-6">
@@ -205,15 +220,15 @@ function BlogPostDetailPage() {
                     <div className="grid md:grid-cols-2 gap-4">
                       {post.conclusion.bullets.map((bullet) => {
                         const BulletIcon = getBulletIcon(bullet);
-                        
+
                         // Parse title vs description if separated by colon
                         const parts = bullet.split(": ");
                         const title = parts[0];
                         const desc = parts.slice(1).join(": ");
 
                         return (
-                          <div 
-                            key={bullet} 
+                          <div
+                            key={bullet}
                             className="flex items-start gap-3 p-4 rounded-2xl border border-foreground/5 bg-white/30 dark:bg-white/[0.02] backdrop-blur-sm transition-all duration-300 hover:border-accent-blue/20 hover:bg-white/50 dark:hover:bg-white/5"
                           >
                             <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-accent-blue/10 text-accent-blue shrink-0">
@@ -223,7 +238,9 @@ function BlogPostDetailPage() {
                               {desc ? (
                                 <>
                                   <strong className="text-foreground font-semibold">{title}</strong>
-                                  <span className="text-muted-foreground block mt-0.5 text-xs">{desc}</span>
+                                  <span className="text-muted-foreground block mt-0.5 text-xs">
+                                    {desc}
+                                  </span>
                                 </>
                               ) : (
                                 bullet
@@ -248,9 +265,9 @@ function BlogPostDetailPage() {
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
               {readNextPosts.map((nextPost) => (
-                <Link 
+                <Link
                   key={nextPost.slug}
-                  to="/blogs/$slug" 
+                  to="/blogs/$slug"
                   params={{ slug: nextPost.slug }}
                   className="group flex flex-col p-5 rounded-3xl border border-foreground/5 bg-white/40 dark:bg-black/20 hover:-translate-y-1 hover:shadow-xl hover:border-accent-blue/35 transition-all duration-500"
                 >
@@ -274,7 +291,8 @@ function BlogPostDetailPage() {
                       </p>
                     </div>
                     <div className="flex items-center gap-1 text-xs font-semibold text-accent-blue pt-3 border-t border-foreground/5 mt-3">
-                      Read Article <ArrowLeft className="h-3 w-3 rotate-180 transition-transform duration-300 group-hover:translate-x-0.5" />
+                      Read Article{" "}
+                      <ArrowLeft className="h-3 w-3 rotate-180 transition-transform duration-300 group-hover:translate-x-0.5" />
                     </div>
                   </div>
                 </Link>

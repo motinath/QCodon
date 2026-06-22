@@ -1,19 +1,15 @@
-import { useEffect, useRef } from 'react'
-import heroVideo from '@/assets/hero.mp4'
-import {
-  QcAbout,
-  QcPipeline,
-  QcBlogs,
-} from '@/components/QuantumCodon'
+import { useEffect, useRef } from "react";
+import heroVideo from "@/assets/hero.mp4";
+import { QcAbout, QcPipeline, QcBlogs } from "@/components/QuantumCodon";
 
 export default function Landing() {
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.playbackRate = 0.5
+      videoRef.current.playbackRate = 0.5;
     }
-  }, [])
+  }, []);
 
   return (
     <div className="flex flex-col w-full page-3d-transition">
@@ -29,7 +25,7 @@ export default function Landing() {
           muted
           loop
           playsInline
-          style={{ filter: 'saturate(1.15) brightness(1.05)' }}
+          style={{ filter: "saturate(1.15) brightness(1.05)" }}
         />
         {/* Subtle overlay so hero text stays readable while the DNA animation shows through */}
         <div className="absolute inset-0 bg-white/20 dark:bg-black/40" />
@@ -40,11 +36,14 @@ export default function Landing() {
             Quantum Codon · Deep Codon Initiative
           </p>
           <h1 className="font-serif-display text-5xl md:text-7xl leading-[1.05] text-foreground">
-            The genome holds a secret <em className="italic text-accent-purple dark:text-accent-purple">98%</em>.
-            <br />We are decoding it.
+            The genome holds a secret{" "}
+            <em className="italic text-accent-purple dark:text-accent-purple">98%</em>.
+            <br />
+            We are decoding it.
           </h1>
           <p className="mt-8 max-w-xl mx-auto text-base md:text-lg text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
-            A scientific platform unlocking the dark genome — non-expressing DNA and non-translating RNA — to design first-in-class therapeutic molecules.
+            A scientific platform unlocking the dark genome — non-expressing DNA and non-translating
+            RNA — to design first-in-class therapeutic molecules.
           </p>
 
           {/* Removed links and contact info pill as requested */}
@@ -56,5 +55,5 @@ export default function Landing() {
       <QcPipeline />
       <QcBlogs />
     </div>
-  )
+  );
 }
