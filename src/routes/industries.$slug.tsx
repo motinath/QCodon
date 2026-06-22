@@ -63,7 +63,7 @@ function IndustryDetailPage() {
               <h1 className="font-serif-display text-4xl md:text-5xl lg:text-6xl mt-2 leading-tight">{i.headline}</h1>
               <p className="mt-5 text-base md:text-lg text-muted-foreground leading-relaxed">{i.subtext}</p>
             </div>
-            
+
             <div className="lg:col-span-5 mt-6 lg:mt-0 relative w-full aspect-[4/3] lg:aspect-square overflow-hidden rounded-2xl border border-accent-blue/10 shadow-2xl bg-slate-950/5 dark:bg-slate-950/25">
               <img
                 src={`/industry-${i.slug}-hero.png`}
@@ -89,8 +89,8 @@ function IndustryDetailPage() {
           {i.highlights.map((h) => {
             const HIcon = h.icon;
             return (
-              <div 
-                key={h.title} 
+              <div
+                key={h.title}
                 className="group p-8 rounded-2xl border border-foreground/10 bg-white/60 dark:bg-white/5 backdrop-blur flex flex-col items-center text-center gap-4 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-accent-blue/30 hover:bg-white/80 dark:hover:bg-white/10"
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-accent-blue text-white shadow-md transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
@@ -111,8 +111,8 @@ function IndustryDetailPage() {
         <h2 className="font-serif-display text-3xl md:text-4xl mt-3">Where it applies</h2>
         <div className="mt-8 grid md:grid-cols-3 gap-5">
           {i.useCases.map((u) => (
-            <div 
-              key={u.title} 
+            <div
+              key={u.title}
               className="group p-6 rounded-2xl border border-foreground/10 bg-white/60 dark:bg-white/5 backdrop-blur transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-accent-blue/30 hover:bg-white/85 dark:hover:bg-white/10"
             >
               <h3 className="font-semibold text-base transition-colors duration-300 group-hover:text-accent-blue mb-2">{u.title}</h3>
@@ -130,8 +130,8 @@ function IndustryDetailPage() {
         </p>
         <div className="mt-8 grid sm:grid-cols-4 gap-4 relative">
           {i.workflow.map((w) => (
-            <div 
-              key={w.step} 
+            <div
+              key={w.step}
               className="group p-6 rounded-2xl border border-foreground/5 bg-white/70 dark:bg-white/[0.02] shadow-sm flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-accent-blue/20 hover:bg-white/90 dark:hover:bg-white/5"
             >
               <div>
