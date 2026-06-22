@@ -16,10 +16,11 @@ import { QcNavbar } from "../components/QuantumCodon";
 import QcPreloader from "../components/QcPreloader";
 import QcRouteSwipe from "../components/QcRouteSwipe";
 import { SiteFooter } from "../components/contact/SiteFooter";
+import QcChatbot from "../components/QcChatbot";
 
 // no-op stub — Lovable platform reporting is not used in local/self-hosted builds
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function reportLovableError(_error: unknown, _context?: Record<string, any>): void {}
+function reportLovableError(_error: unknown, _context?: Record<string, any>): void { }
 
 function NotFoundComponent() {
   return (
@@ -139,6 +140,7 @@ function RootComponent() {
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
           <SiteFooter />
+          <QcChatbot />
         </ContactModalProvider>
       </ThemeProvider>
     </QueryClientProvider>
