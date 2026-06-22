@@ -5,7 +5,11 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Quantum Codon — Deep Codon Initiative" },
-      { name: "description", content: "Decoding the 98% of the genome that mainstream biology has ignored — to design first-in-class therapeutic molecules." },
+      {
+        name: "description",
+        content:
+          "Decoding the 98% of the genome that mainstream biology has ignored — to design first-in-class therapeutic molecules.",
+      },
     ],
   }),
   component: Landing,

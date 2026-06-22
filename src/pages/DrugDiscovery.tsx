@@ -22,7 +22,7 @@ import {
   Check,
   BookOpen,
   Activity,
-  Dna
+  Dna,
 } from "lucide-react";
 
 // --- Sub-component: GenomeAtlasHero ---
@@ -159,7 +159,7 @@ export function GenomeAtlasHero({ isDark }: { isDark: boolean }) {
         }
 
         if (scrollY > 0) {
-          currentY += (scrollY * 0.2) * (p.size * 0.4);
+          currentY += scrollY * 0.2 * (p.size * 0.4);
         }
 
         ctx.beginPath();
@@ -196,8 +196,7 @@ export function GenomeAtlasHero({ isDark }: { isDark: boolean }) {
   return (
     <canvas
       ref={canvasRef}
-      className={`absolute inset-0 w-full h-full pointer-events-none z-0 ${isDark ? "bg-[#0a0b0d]" : "bg-white"
-        }`}
+      className="absolute inset-0 w-full h-full pointer-events-none z-0 bg-background"
     />
   );
 }
@@ -236,7 +235,7 @@ export function AnimatedCounter({
           window.requestAnimationFrame(step);
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.1 },
     );
 
     if (elementRef.current) {
@@ -265,64 +264,70 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
       title: "Protein-Coding Genome",
       ratio: "2%",
       meaning: "Active Exons & Structural Translation Matrices",
-      description: "Decades of drug development have focused exclusively on the tiny fraction of DNA that codes directly for protein structures. This has left the remaining 98% completely unmined.",
+      description:
+        "Decades of drug development have focused exclusively on the tiny fraction of DNA that codes directly for protein structures. This has left the remaining 98% completely unmined.",
       accentColor: "from-slate-500 to-slate-600",
       accentText: "text-slate-500 dark:text-slate-400",
       status: "Saturated Target Field",
       metrics: [
         { label: "Druggability Index", value: "Low (Saturated)" },
         { label: "R&D Focus Rate", value: "98% of Global Capital" },
-        { label: "Target Scope", value: "~20,005 Annotations" }
+        { label: "Target Scope", value: "~20,005 Annotations" },
       ],
       attributes: [
         "Well-characterized translation mechanics",
         "Saturated patent space & high generic competition",
-        "Higher off-target side effect margins across tissues"
+        "Higher off-target side effect margins across tissues",
       ],
-      strategy: "We bypass standard coding sequence bottlenecks to design completely unique chemical spaces."
+      strategy:
+        "We bypass standard coding sequence bottlenecks to design completely unique chemical spaces.",
     },
     {
       num: "02",
       title: "Class I Dark DNA",
       ratio: "~40%",
       meaning: "Non-Expressing Introns & Chromosomal Intergenic Regions",
-      description: "Silent segments and alternative reading frames that do not express under standard cellular coordinates. We map hidden promoters and translation pathways to express therapeutic peptide candidates.",
+      description:
+        "Silent segments and alternative reading frames that do not express under standard cellular coordinates. We map hidden promoters and translation pathways to express therapeutic peptide candidates.",
       accentColor: "from-[#cca54a] to-[#cca54a]/85",
       accentText: "text-amber-500",
       status: "Active Expression Mapping",
       metrics: [
         { label: "Druggability Index", value: "High (Unexplored)" },
         { label: "Target Resolution", value: "Sub-nanomolar Lead Affinity" },
-        { label: "SPR Validation", value: "tREP-18 Lead (1.8 nM)" }
+        { label: "SPR Validation", value: "tREP-18 Lead (1.8 nM)" },
       ],
       attributes: [
         "Maps hidden promoters and alternative reading frames",
         "Direct high-density synthesis of peptide candidates",
-        "Locks disease states at intronic splice boundaries"
+        "Locks disease states at intronic splice boundaries",
       ],
-      strategy: "SilicoFeller indexes introns to create high-affinity synthetic peptides, unlocking novel patent spaces."
+      strategy:
+        "SilicoFeller indexes introns to create high-affinity synthetic peptides, unlocking novel patent spaces.",
     },
     {
       num: "03",
       title: "Class II Dark RNA",
       ratio: "~56%",
       meaning: "Non-Translating Structural RNAs & Riboswitch Domains",
-      description: "Regulatory RNA machinery (lncRNAs, microRNAs, and untranslated mRNA hairpins) that coordinate cellular protein levels. Our platform models three-dimensional binding pockets directly on these structures.",
+      description:
+        "Regulatory RNA machinery (lncRNAs, microRNAs, and untranslated mRNA hairpins) that coordinate cellular protein levels. Our platform models three-dimensional binding pockets directly on these structures.",
       accentColor: "from-[#3f4c8c] to-[#3f4c8c]/85",
       accentText: "text-[#3f4c8c] dark:text-[#5c6bb0]",
       status: "3D Fold Target Lock",
       metrics: [
         { label: "Druggability Index", value: "Exceptional" },
         { label: "Binding Focus", value: "3D Tertiary Pockets" },
-        { label: "Preclinical Lead", value: "EcoI2 Candidate (5.6x reduction)" }
+        { label: "Preclinical Lead", value: "EcoI2 Candidate (5.6x reduction)" },
       ],
       attributes: [
         "Models secondary & tertiary lncRNA conformations",
         "Blocks protein translation via 5'-UTR and 3'-UTR locks",
-        "Targets structural RNA complexes without genetic modification"
+        "Targets structural RNA complexes without genetic modification",
       ],
-      strategy: "SilicoFeller models structural RNA pockets to shut down disease translation networks at the source."
-    }
+      strategy:
+        "SilicoFeller models structural RNA pockets to shut down disease translation networks at the source.",
+    },
   ];
 
   return (
@@ -331,14 +336,21 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
         {segments.map((seg, idx) => (
           <div key={idx} className="relative group">
             {/* Visual offset backing container (warm bone / deep slate) */}
-            <div className={`absolute -bottom-3 -right-3 h-full w-full rounded-3xl -z-10 transition-all duration-300 group-hover:-bottom-4 group-hover:-right-4 ${isDark ? "bg-[#16171a] border border-border-subtle" : "bg-[#f4f0e6] border border-slate-200/80 shadow-sm"
-              }`} />
+            <div
+              className={`absolute -bottom-3 -right-3 h-full w-full rounded-3xl -z-10 transition-all duration-300 group-hover:-bottom-4 group-hover:-right-4 ${
+                isDark
+                  ? "bg-[#16171a] border border-border-subtle"
+                  : "bg-[#f4f0e6] border border-slate-200/80 shadow-sm"
+              }`}
+            />
 
-            <div className={`h-full border rounded-3xl p-6 md:p-8 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-1 ${isDark
-              ? "border-zinc-800/80 bg-zinc-950/30 text-white hover:border-zinc-700 hover:bg-zinc-950/40"
-              : "border-slate-200 bg-white text-slate-900 shadow-md shadow-slate-100/50 hover:border-slate-350 hover:shadow-lg"
-              }`}>
-
+            <div
+              className={`h-full border rounded-3xl p-6 md:p-8 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-1 ${
+                isDark
+                  ? "border-zinc-800/80 bg-zinc-950/30 text-white hover:border-zinc-700 hover:bg-zinc-950/40"
+                  : "border-slate-200 bg-white text-slate-900 shadow-md shadow-slate-100/50 hover:border-slate-350 hover:shadow-lg"
+              }`}
+            >
               {/* Card Header */}
               <div>
                 <div className="flex justify-between items-start mb-6">
@@ -346,16 +358,23 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
                     <span className="text-[10px] font-mono font-bold tracking-widest text-text-tertiary block mb-1">
                       SEGMENT {seg.num}
                     </span>
-                    <span className={`inline-block px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider border ${idx === 0
-                      ? (isDark ? "border-slate-800 bg-slate-900/30 text-slate-400" : "border-slate-200 bg-slate-50 text-slate-650")
-                      : idx === 1
-                        ? "border-amber-500/20 bg-amber-500/5 text-amber-500"
-                        : "border-[#3f4c8c]/20 bg-[#3f4c8c]/5 text-[#3f4c8c] dark:text-[#5c6bb0]"
-                      }`}>
+                    <span
+                      className={`inline-block px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider border ${
+                        idx === 0
+                          ? isDark
+                            ? "border-slate-800 bg-slate-900/30 text-slate-400"
+                            : "border-slate-200 bg-slate-50 text-slate-650"
+                          : idx === 1
+                            ? "border-amber-500/20 bg-amber-500/5 text-amber-500"
+                            : "border-[#3f4c8c]/20 bg-[#3f4c8c]/5 text-[#3f4c8c] dark:text-[#5c6bb0]"
+                      }`}
+                    >
                       {seg.status}
                     </span>
                   </div>
-                  <span className={`text-xl font-mono font-bold px-3 py-1 rounded-2xl bg-gradient-to-r ${seg.accentColor} text-white shadow-sm`}>
+                  <span
+                    className={`text-xl font-mono font-bold px-3 py-1 rounded-2xl bg-gradient-to-r ${seg.accentColor} text-white shadow-sm`}
+                  >
                     {seg.ratio}
                   </span>
                 </div>
@@ -363,7 +382,9 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
                 <h3 className="font-serif-display text-2xl font-medium tracking-tight mb-2">
                   {seg.title}
                 </h3>
-                <p className={`text-[10px] font-mono tracking-wider uppercase mb-5 font-bold ${seg.accentText}`}>
+                <p
+                  className={`text-[10px] font-mono tracking-wider uppercase mb-5 font-bold ${seg.accentText}`}
+                >
                   {seg.meaning}
                 </p>
 
@@ -372,14 +393,20 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
                 </p>
 
                 {/* Technical Parameters */}
-                <div className={`p-4 rounded-2xl border mb-6 space-y-3 ${isDark ? "bg-black/20 border-zinc-800/60" : "bg-slate-50 border-slate-200/60"
-                  }`}>
+                <div
+                  className={`p-4 rounded-2xl border mb-6 space-y-3 ${
+                    isDark ? "bg-black/20 border-zinc-800/60" : "bg-slate-50 border-slate-200/60"
+                  }`}
+                >
                   <span className="text-[9px] font-mono uppercase tracking-wider text-text-tertiary block font-bold">
                     Bioinformatics Parameters
                   </span>
                   <div className="space-y-2 text-xs font-mono">
                     {seg.metrics.map((m, mIdx) => (
-                      <div key={mIdx} className="flex justify-between items-center py-1 border-b border-border-subtle/20 last:border-0">
+                      <div
+                        key={mIdx}
+                        className="flex justify-between items-center py-1 border-b border-border-subtle/20 last:border-0"
+                      >
                         <span className="text-text-secondary font-medium">{m.label}</span>
                         <span className="text-text-primary font-bold">{m.value}</span>
                       </div>
@@ -404,14 +431,22 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
               </div>
 
               {/* SilicoFeller Integration Box */}
-              <div className={`p-4 rounded-2xl border flex items-start gap-3 transition-colors ${idx === 0
-                ? (isDark ? "bg-zinc-900/10 border-zinc-800/50" : "bg-slate-50/50 border-slate-200/50")
-                : idx === 1
-                  ? "bg-amber-500/5 border-amber-500/20"
-                  : "bg-[#3f4c8c]/5 border-[#3f4c8c]/20"
-                }`}>
-                <span className={`h-2 w-2 rounded-full mt-1.5 shrink-0 ${idx === 0 ? "bg-slate-400" : idx === 1 ? "bg-amber-500" : "bg-[#3f4c8c]"
-                  }`} />
+              <div
+                className={`p-4 rounded-2xl border flex items-start gap-3 transition-colors ${
+                  idx === 0
+                    ? isDark
+                      ? "bg-zinc-900/10 border-zinc-800/50"
+                      : "bg-slate-50/50 border-slate-200/50"
+                    : idx === 1
+                      ? "bg-amber-500/5 border-amber-500/20"
+                      : "bg-[#3f4c8c]/5 border-[#3f4c8c]/20"
+                }`}
+              >
+                <span
+                  className={`h-2 w-2 rounded-full mt-1.5 shrink-0 ${
+                    idx === 0 ? "bg-slate-400" : idx === 1 ? "bg-amber-500" : "bg-[#3f4c8c]"
+                  }`}
+                />
                 <div>
                   <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-text-primary block mb-0.5">
                     SilicoFeller Strategy
@@ -421,7 +456,6 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
                   </p>
                 </div>
               </div>
-
             </div>
           </div>
         ))}
@@ -441,7 +475,7 @@ export function BiologicalScalePipeline({ isDark }: { isDark: boolean }) {
       (entries) => {
         if (entries[0].isIntersecting) setIntersecting(true);
       },
-      { threshold: 0.2 }
+      { threshold: 0.2 },
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -495,16 +529,22 @@ export function BiologicalScalePipeline({ isDark }: { isDark: boolean }) {
       {/* Node Path */}
       <div className="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 px-4">
         {/* Dynamic connection lines */}
-        <div className={`absolute top-1/2 left-0 right-0 h-[1.5px] -translate-y-1/2 z-0 hidden md:block ${isDark ? "bg-[#222528]" : "bg-slate-200"
-          }`}>
+        <div
+          className={`absolute top-1/2 left-0 right-0 h-[1.5px] -translate-y-1/2 z-0 hidden md:block ${
+            isDark ? "bg-[#222528]" : "bg-slate-200"
+          }`}
+        >
           <div
             className="h-full bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-data transition-all duration-[1800ms] ease-out"
             style={{ width: intersecting ? "100%" : "0%" }}
           />
         </div>
 
-        <div className={`absolute left-1/2 top-0 bottom-0 w-[1.5px] -translate-x-1/2 z-0 md:hidden ${isDark ? "bg-[#222528]" : "bg-slate-200"
-          }`}>
+        <div
+          className={`absolute left-1/2 top-0 bottom-0 w-[1.5px] -translate-x-1/2 z-0 md:hidden ${
+            isDark ? "bg-[#222528]" : "bg-slate-200"
+          }`}
+        >
           <div
             className="w-full bg-gradient-to-b from-accent-primary via-accent-secondary to-accent-data transition-all duration-[1800ms] ease-out"
             style={{ height: intersecting ? "100%" : "0%" }}
@@ -526,22 +566,21 @@ export function BiologicalScalePipeline({ isDark }: { isDark: boolean }) {
               }}
             >
               <div
-                className={`h-16 w-16 rounded-full border flex flex-col items-center justify-center transition-all duration-300 shadow-md ${isActive
-                  ? `${isDark ? "border-white bg-zinc-900" : "border-accent-blue bg-accent-blue/10"} scale-105`
-                  : `${isDark ? "border-border-subtle bg-obsidian" : "border-slate-200 bg-white"} hover:border-text-secondary`
-                  }`}
+                className={`h-16 w-16 rounded-full border flex flex-col items-center justify-center transition-all duration-300 shadow-md ${
+                  isActive
+                    ? `${isDark ? "border-white bg-zinc-900" : "border-accent-blue bg-accent-blue/10"} scale-105`
+                    : `${isDark ? "border-border-subtle bg-obsidian" : "border-slate-200 bg-white"} hover:border-text-secondary`
+                }`}
               >
-                <Icon className={`h-5 w-5 ${isActive ? (isDark ? "text-white" : "text-accent-blue") : "text-text-secondary"}`} />
+                <Icon
+                  className={`h-5 w-5 ${isActive ? (isDark ? "text-white" : "text-accent-blue") : "text-text-secondary"}`}
+                />
               </div>
               <span className="text-[9px] font-mono mt-3 font-semibold tracking-wider text-accent-blue dark:text-zinc-500">
                 STAGE {stage.num}
               </span>
-              <span className="text-[11px] font-bold text-text-primary mt-0.5">
-                {stage.name}
-              </span>
-              <span className="text-[9px] font-mono opacity-60 mt-0.5">
-                {stage.scale}
-              </span>
+              <span className="text-[11px] font-bold text-text-primary mt-0.5">{stage.name}</span>
+              <span className="text-[9px] font-mono opacity-60 mt-0.5">{stage.scale}</span>
             </div>
           );
         })}
@@ -549,10 +588,18 @@ export function BiologicalScalePipeline({ isDark }: { isDark: boolean }) {
 
       {/* Node Detail Drawer */}
       <div className="mt-10 overflow-hidden relative">
-        <div className={`absolute -bottom-3 -right-3 h-full w-full rounded-3xl -z-10 transition-all ${isDark ? "bg-[#181a1d] border border-border-subtle" : "bg-[#f4f0e6] border border-slate-200"
-          }`} />
-        <div className={`border rounded-3xl p-6 md:p-8 shadow-sm transition-all duration-300 min-h-[140px] ${isDark ? "border-border-subtle bg-bg-raised" : "border-slate-200 bg-white"
-          }`}>
+        <div
+          className={`absolute -bottom-3 -right-3 h-full w-full rounded-3xl -z-10 transition-all ${
+            isDark
+              ? "bg-[#181a1d] border border-border-subtle"
+              : "bg-[#f4f0e6] border border-slate-200"
+          }`}
+        />
+        <div
+          className={`border rounded-3xl p-6 md:p-8 shadow-sm transition-all duration-300 min-h-[140px] ${
+            isDark ? "border-border-subtle bg-bg-raised" : "border-slate-200 bg-white"
+          }`}
+        >
           {activeStage !== null ? (
             <div className="animate-fade-in space-y-2">
               <div className="flex items-center gap-3">
@@ -614,13 +661,19 @@ export function NatureStyleEvidence({ isDark }: { isDark: boolean }) {
     <div className="grid md:grid-cols-3 gap-8">
       {publications.map((paper, idx) => (
         <div key={idx} className="relative">
-          <div className={`absolute -bottom-3 -right-3 h-full w-full rounded-3xl -z-10 transition-all ${isDark ? "bg-[#181a1d] border border-border-subtle" : "bg-[#f4f0e6] border border-slate-200"
-            }`} />
+          <div
+            className={`absolute -bottom-3 -right-3 h-full w-full rounded-3xl -z-10 transition-all ${
+              isDark
+                ? "bg-[#181a1d] border border-border-subtle"
+                : "bg-[#f4f0e6] border border-slate-200"
+            }`}
+          />
           <article
-            className={`border rounded-3xl p-6 md:p-8 flex flex-col justify-between h-full transition-all duration-300 ${isDark
-              ? "border-border-subtle bg-bg-raised hover:border-white shadow-md shadow-black/25"
-              : "border-slate-200 bg-white hover:border-accent-blue shadow-md shadow-slate-100/50"
-              }`}
+            className={`border rounded-3xl p-6 md:p-8 flex flex-col justify-between h-full transition-all duration-300 ${
+              isDark
+                ? "border-border-subtle bg-bg-raised hover:border-white shadow-md shadow-black/25"
+                : "border-slate-200 bg-white hover:border-accent-blue shadow-md shadow-slate-100/50"
+            }`}
           >
             <div>
               <div className="flex justify-between items-center text-[10px] font-mono text-text-tertiary font-bold uppercase mb-4 tracking-wider">
@@ -634,7 +687,11 @@ export function NatureStyleEvidence({ isDark }: { isDark: boolean }) {
 
               <div className="my-5 p-4 rounded-2xl border text-center bg-accent-blue/5 border-border-subtle dark:bg-zinc-800/40 dark:border-zinc-700/50">
                 <span className="text-3xl font-mono font-bold text-accent-blue dark:text-white">
-                  <AnimatedCounter value={parseFloat(paper.metric)} suffix={paper.metric.replace(/[0-9.]/g, "")} decimals={paper.metric.includes(".") ? 1 : 0} />
+                  <AnimatedCounter
+                    value={parseFloat(paper.metric)}
+                    suffix={paper.metric.replace(/[0-9.]/g, "")}
+                    decimals={paper.metric.includes(".") ? 1 : 0}
+                  />
                 </span>
                 <p className="text-[9px] font-mono uppercase text-text-secondary mt-1 font-semibold tracking-wider">
                   {paper.metricLabel}
@@ -667,19 +724,23 @@ export function MoleculeShowcase({ isDark }: { isDark: boolean }) {
       steps: [
         {
           label: "1. Sequence Origin",
-          detail: "Isolated from structural transfer RNA segments inside the non-coding genome mapped in clinical Leishmania lines.",
+          detail:
+            "Isolated from structural transfer RNA segments inside the non-coding genome mapped in clinical Leishmania lines.",
         },
         {
           label: "2. Vector Structure",
-          detail: "Folds into a rigid, cationic macrocycle displaying optimal ADMET profiles and proteolytic stability thresholds.",
+          detail:
+            "Folds into a rigid, cationic macrocycle displaying optimal ADMET profiles and proteolytic stability thresholds.",
         },
         {
           label: "3. Target Lock",
-          detail: "Binds directly to the pathogen outer membrane, disrupting replication and structural integrity.",
+          detail:
+            "Binds directly to the pathogen outer membrane, disrupting replication and structural integrity.",
         },
         {
           label: "4. Assay Proof",
-          detail: "Tested in vitro, yielding a best-in-class binding affinity index of 1.8 nM IC50, with minimal toxicity bounds.",
+          detail:
+            "Tested in vitro, yielding a best-in-class binding affinity index of 1.8 nM IC50, with minimal toxicity bounds.",
         },
       ],
     },
@@ -690,19 +751,23 @@ export function MoleculeShowcase({ isDark }: { isDark: boolean }) {
       steps: [
         {
           label: "1. Sequence Origin",
-          detail: "Derived from unannotated chromosomal exons outside classic protein-coding segments.",
+          detail:
+            "Derived from unannotated chromosomal exons outside classic protein-coding segments.",
         },
         {
           label: "2. Vector Structure",
-          detail: "AlphaFold models show a highly specific alpha-helix arm that slots precisely into mutated ATP kinase pockets.",
+          detail:
+            "AlphaFold models show a highly specific alpha-helix arm that slots precisely into mutated ATP kinase pockets.",
         },
         {
           label: "3. Target Lock",
-          detail: "Blocks signaling cascade sequences, arresting cell division without triggering cellular necrosis pathways.",
+          detail:
+            "Blocks signaling cascade sequences, arresting cell division without triggering cellular necrosis pathways.",
         },
         {
           label: "4. Assay Proof",
-          detail: "Tested in solid tumor cultures, showcasing a 5.6-fold division arrest rate compared to traditional inhibitors.",
+          detail:
+            "Tested in solid tumor cultures, showcasing a 5.6-fold division arrest rate compared to traditional inhibitors.",
         },
       ],
     },
@@ -712,26 +777,36 @@ export function MoleculeShowcase({ isDark }: { isDark: boolean }) {
 
   return (
     <div className="relative">
-      <div className={`absolute -bottom-4 -right-4 h-full w-full rounded-3xl -z-10 transition-all ${isDark ? "bg-[#181a1d] border border-border-subtle" : "bg-[#f4f0e6] border border-slate-200"
-        }`} />
-      <div className={`border rounded-3xl p-6 md:p-10 shadow-sm ${isDark ? "border-border-subtle bg-bg-raised" : "border-slate-200 bg-white"
-        }`}>
+      <div
+        className={`absolute -bottom-4 -right-4 h-full w-full rounded-3xl -z-10 transition-all ${
+          isDark
+            ? "bg-[#181a1d] border border-border-subtle"
+            : "bg-[#f4f0e6] border border-slate-200"
+        }`}
+      />
+      <div
+        className={`border rounded-3xl p-6 md:p-10 shadow-sm ${
+          isDark ? "border-border-subtle bg-bg-raised" : "border-slate-200 bg-white"
+        }`}
+      >
         <div className="flex gap-4 border-b border-border-subtle pb-6 mb-8">
           <button
             onClick={() => setActiveMol("trep")}
-            className={`pb-2 border-b-2 font-serif-display text-lg font-bold transition-all ${activeMol === "trep"
-              ? "border-accent-blue text-accent-blue dark:border-white dark:text-white"
-              : "border-transparent text-text-secondary hover:text-text-primary"
-              }`}
+            className={`pb-2 border-b-2 font-serif-display text-lg font-bold transition-all ${
+              activeMol === "trep"
+                ? "border-accent-blue text-accent-blue dark:border-white dark:text-white"
+                : "border-transparent text-text-secondary hover:text-text-primary"
+            }`}
           >
             tREP-18 Dossier
           </button>
           <button
             onClick={() => setActiveMol("ecoi")}
-            className={`pb-2 border-b-2 font-serif-display text-lg font-bold transition-all ${activeMol === "ecoi"
-              ? "border-accent-blue text-accent-blue dark:border-white dark:text-white"
-              : "border-transparent text-text-secondary hover:text-text-primary"
-              }`}
+            className={`pb-2 border-b-2 font-serif-display text-lg font-bold transition-all ${
+              activeMol === "ecoi"
+                ? "border-accent-blue text-accent-blue dark:border-white dark:text-white"
+                : "border-transparent text-text-secondary hover:text-text-primary"
+            }`}
           >
             EcoI2 Dossier
           </button>
@@ -749,25 +824,32 @@ export function MoleculeShowcase({ isDark }: { isDark: boolean }) {
               <p className="text-xs font-mono text-text-secondary">{active.type}</p>
             </div>
 
-            <div className={`p-4 rounded-xl border space-y-1 ${isDark ? "bg-zinc-900 border-zinc-800" : "bg-slate-50 border-slate-200"
-              }`}>
-              <span className="text-[9px] font-mono uppercase text-text-tertiary tracking-wider font-semibold">Target Indication</span>
+            <div
+              className={`p-4 rounded-xl border space-y-1 ${
+                isDark ? "bg-zinc-900 border-zinc-800" : "bg-slate-50 border-slate-200"
+              }`}
+            >
+              <span className="text-[9px] font-mono uppercase text-text-tertiary tracking-wider font-semibold">
+                Target Indication
+              </span>
               <p className="text-sm font-bold text-text-primary">{active.disease}</p>
             </div>
           </div>
 
           <div className="md:col-span-8 grid gap-4 sm:grid-cols-2">
             {active.steps.map((step, idx) => (
-              <div key={idx} className={`p-5 rounded-2xl border space-y-2 transition-colors duration-300 ${isDark
-                ? "bg-bg-sunken/45 border-border-subtle hover:border-zinc-700"
-                : "bg-slate-50/50 border-slate-200 hover:border-accent-blue"
-                }`}>
+              <div
+                key={idx}
+                className={`p-5 rounded-2xl border space-y-2 transition-colors duration-300 ${
+                  isDark
+                    ? "bg-bg-sunken/45 border-border-subtle hover:border-zinc-700"
+                    : "bg-slate-50/50 border-slate-200 hover:border-accent-blue"
+                }`}
+              >
                 <span className="text-[10px] font-mono font-bold tracking-wider uppercase block text-accent-blue dark:text-white">
                   {step.label}
                 </span>
-                <p className="text-xs text-text-secondary leading-relaxed">
-                  {step.detail}
-                </p>
+                <p className="text-xs text-text-secondary leading-relaxed">{step.detail}</p>
               </div>
             ))}
           </div>
@@ -879,7 +961,7 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
       desc: "Subtle ambient loop. Capsule continues slow rotation. Connections breathe softly. Particles drift.",
       durationText: "6.0s",
       easingText: "easeInOutSine",
-    }
+    },
   ];
 
   const stageDurations = [
@@ -957,32 +1039,38 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
   }, []);
 
   const colorGold = {
-    activeBorder: "border-[#cca54a]/60 dark:border-[#cca54a]/50 shadow-[0_0_15px_rgba(204,165,74,0.06)]",
+    activeBorder:
+      "border-[#cca54a]/60 dark:border-[#cca54a]/50 shadow-[0_0_15px_rgba(204,165,74,0.06)]",
     activeBg: "bg-[#cca54a]/5 dark:bg-[#cca54a]/3",
     activeText: "text-[#cca54a] dark:text-[#cca54a]",
   };
   const colorAmber = {
-    activeBorder: "border-amber-500/60 dark:border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.06)]",
+    activeBorder:
+      "border-amber-500/60 dark:border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.06)]",
     activeBg: "bg-amber-500/5 dark:bg-amber-500/3",
     activeText: "text-amber-600 dark:text-amber-400",
   };
   const colorIndigo = {
-    activeBorder: "border-[#3f4c8c]/60 dark:border-[#3f4c8c]/50 shadow-[0_0_15px_rgba(63,76,140,0.06)]",
+    activeBorder:
+      "border-[#3f4c8c]/60 dark:border-[#3f4c8c]/50 shadow-[0_0_15px_rgba(63,76,140,0.06)]",
     activeBg: "bg-[#3f4c8c]/5 dark:bg-[#3f4c8c]/3",
     activeText: "text-[#3f4c8c] dark:text-[#5c6bb0]",
   };
   const colorCopper = {
-    activeBorder: "border-[#3e6b5c]/60 dark:border-[#3e6b5c]/50 shadow-[0_0_15px_rgba(62,107,92,0.06)]",
+    activeBorder:
+      "border-[#3e6b5c]/60 dark:border-[#3e6b5c]/50 shadow-[0_0_15px_rgba(62,107,92,0.06)]",
     activeBg: "bg-[#3e6b5c]/5 dark:bg-[#3e6b5c]/3",
     activeText: "text-[#3e6b5c] dark:text-[#5fa38d]",
   };
   const colorAmberPotential = {
-    activeBorder: "border-amber-500/60 dark:border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.06)]",
+    activeBorder:
+      "border-amber-500/60 dark:border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.06)]",
     activeBg: "bg-amber-500/5 dark:bg-amber-500/3",
     activeText: "text-amber-600 dark:text-amber-400",
   };
   const colorIndigoPotential = {
-    activeBorder: "border-[#3f4c8c]/60 dark:border-[#3f4c8c]/50 shadow-[0_0_15px_rgba(63,76,140,0.06)]",
+    activeBorder:
+      "border-[#3f4c8c]/60 dark:border-[#3f4c8c]/50 shadow-[0_0_15px_rgba(63,76,140,0.06)]",
     activeBg: "bg-[#3f4c8c]/5 dark:bg-[#3f4c8c]/3",
     activeText: "text-[#3f4c8c] dark:text-[#5c6bb0]",
   };
@@ -997,41 +1085,62 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
     subtitle: string,
     icon: React.ReactNode,
     colorClass: typeof colorGold,
-    isActive: boolean
+    isActive: boolean,
   ) => {
     const isHovered = hoveredNode === badgeNum;
     return (
       <div
         onClick={() => {
-          const targetStage = badgeNum === 1 ? 1 : badgeNum === 2 ? 3 : badgeNum === 3 ? 5 : badgeNum === 4 ? 2 : badgeNum === 5 ? 4 : 6;
+          const targetStage =
+            badgeNum === 1
+              ? 1
+              : badgeNum === 2
+                ? 3
+                : badgeNum === 3
+                  ? 5
+                  : badgeNum === 4
+                    ? 2
+                    : badgeNum === 5
+                      ? 4
+                      : 6;
           setActiveStage(targetStage);
           setIsPlaying(false);
         }}
         onMouseEnter={() => setHoveredNode(badgeNum)}
         onMouseLeave={() => setHoveredNode(null)}
-        className={`p-3 md:p-4 rounded-2xl border text-left transition-all duration-500 cursor-pointer ${isActive
-          ? `${colorClass.activeBorder} ${colorClass.activeBg} ${isHovered ? "scale-[1.04] border-opacity-100" : "scale-[1.02]"}`
-          : `${isDark ? "border-zinc-800/50 bg-[#0d0e12]/20 text-zinc-500" : "border-slate-200 bg-slate-50/30 text-slate-400"} hover:scale-[1.01]`
-          }`}
+        className={`p-3 md:p-4 rounded-2xl border text-left transition-all duration-500 cursor-pointer ${
+          isActive
+            ? `${colorClass.activeBorder} ${colorClass.activeBg} ${isHovered ? "scale-[1.04] border-opacity-100" : "scale-[1.02]"}`
+            : `${isDark ? "border-zinc-800/50 bg-[#0d0e12]/20 text-zinc-500" : "border-slate-200 bg-slate-50/30 text-slate-400"} hover:scale-[1.01]`
+        }`}
       >
         <div className="flex items-center gap-3">
-          <div className={`h-8 w-8 rounded-full border flex items-center justify-center transition-all ${isActive ? colorClass.activeBorder : "border-border-subtle"
-            } ${isHovered ? "scale-110" : ""}`}>
+          <div
+            className={`h-8 w-8 rounded-full border flex items-center justify-center transition-all ${
+              isActive ? colorClass.activeBorder : "border-border-subtle"
+            } ${isHovered ? "scale-110" : ""}`}
+          >
             {icon}
           </div>
           <div className="flex-1 min-w-0">
-            <h4 className={`text-[10px] md:text-xs font-mono tracking-wider uppercase font-bold truncate transition-colors ${isActive ? colorClass.activeText : "text-text-secondary"
-              }`}>
+            <h4
+              className={`text-[10px] md:text-xs font-mono tracking-wider uppercase font-bold truncate transition-colors ${
+                isActive ? colorClass.activeText : "text-text-secondary"
+              }`}
+            >
               {title}
             </h4>
             <p className="text-[9px] md:text-[10px] text-text-secondary/70 font-mono mt-0.5 truncate">
               {subtitle}
             </p>
           </div>
-          <span className={`h-5 w-5 rounded-full text-[9px] font-mono font-bold flex items-center justify-center border transition-all ${isActive
-            ? `${colorClass.activeBorder} ${colorClass.activeText}`
-            : "border-border-subtle text-zinc-500"
-            } ${isHovered ? "scale-110" : ""}`}>
+          <span
+            className={`h-5 w-5 rounded-full text-[9px] font-mono font-bold flex items-center justify-center border transition-all ${
+              isActive
+                ? `${colorClass.activeBorder} ${colorClass.activeText}`
+                : "border-border-subtle text-zinc-500"
+            } ${isHovered ? "scale-110" : ""}`}
+          >
             {badgeNum}
           </span>
         </div>
@@ -1039,17 +1148,23 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
     );
   };
 
-  const renderBadgeOnPath = (cx: number, cy: number, num: number, isActive: boolean, activeColor: string) => {
+  const renderBadgeOnPath = (
+    cx: number,
+    cy: number,
+    num: number,
+    isActive: boolean,
+    activeColor: string,
+  ) => {
     const isHovered = hoveredNode === num;
-    const radius = isHovered ? 13 : (isActive ? 10 : 8.5);
+    const radius = isHovered ? 13 : isActive ? 10 : 8.5;
     return (
       <g>
         <circle
           cx={cx}
           cy={cy}
           r={radius}
-          fill={isActive ? activeColor : (isDark ? "#121316" : "#faf6f0")}
-          stroke={isActive ? activeColor : (isDark ? "#27272a" : "#cbd5e1")}
+          fill={isActive ? activeColor : isDark ? "#121316" : "#faf6f0"}
+          stroke={isActive ? activeColor : isDark ? "#27272a" : "#cbd5e1"}
           strokeWidth={isHovered ? 2.5 : 1.5}
           className="transition-all duration-300 ease-out"
           style={{
@@ -1063,7 +1178,7 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
           fontSize={isHovered ? "10" : "9"}
           fontWeight="bold"
           fontFamily="monospace"
-          fill={isActive ? (isDark ? "#0a0b0d" : "#ffffff") : (isDark ? "#71717a" : "#64748b")}
+          fill={isActive ? (isDark ? "#0a0b0d" : "#ffffff") : isDark ? "#71717a" : "#64748b"}
           className="transition-all duration-300"
         >
           {num}
@@ -1077,83 +1192,87 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
       title: "01 INTRO - CAPSULE APPEARS",
       subtitle: "Duration: 1.2s • Easing: easeOutCubic",
       desc: "Scene fades in from darkness. Particle field forms. Capsule materializes in the center with a soft glow.",
-      color: "border-zinc-800/50 bg-zinc-900/5 text-text-primary"
+      color: "border-zinc-800/50 bg-zinc-900/5 text-text-primary",
     },
     {
       title: "02 CONNECT: PROTEIN-CODING",
       subtitle: "Duration: 1.4s • Easing: easeInOutCubic",
       desc: "Top-left node activates. Wavy line draws from capsule top to the Protein-Coding node with a gold glow.",
-      color: "border-[#cca54a]/30 bg-[#cca54a]/5 text-[#cca54a]"
+      color: "border-[#cca54a]/30 bg-[#cca54a]/5 text-[#cca54a]",
     },
     {
       title: "03 CONNECT: CURRENTLY MINED",
       subtitle: "Duration: 1.4s • Easing: easeInOutCubic",
       desc: "Top-right node activates. Wavy line draws from capsule top-right. Copper/green glow travels to the node.",
-      color: "border-[#3e6b5c]/30 bg-[#3e6b5c]/5 text-[#3e6b5c]"
+      color: "border-[#3e6b5c]/30 bg-[#3e6b5c]/5 text-[#3e6b5c]",
     },
     {
       title: "04 CONNECT: CLASS I DARK DNA",
       subtitle: "Duration: 1.4s • Easing: easeInOutCubic",
       desc: "Middle-left node activates. Wavy line draws from capsule middle to the Class I Dark DNA node. Amber glow pulses.",
-      color: "border-amber-500/30 bg-amber-500/5 text-amber-500"
+      color: "border-amber-500/30 bg-amber-500/5 text-amber-500",
     },
     {
       title: "05 CONNECT: CLASS I POTENTIAL",
       subtitle: "Duration: 1.4s • Easing: easeInOutCubic",
       desc: "Middle-right node activates. Wavy line draws to Class I Potential. Amber glow mirrors the left side.",
-      color: "border-amber-500/30 bg-amber-500/5 text-amber-500"
+      color: "border-amber-500/30 bg-amber-500/5 text-amber-500",
     },
     {
       title: "06 CONNECT: CLASS II DARK RNA",
       subtitle: "Duration: 1.4s • Easing: easeInOutCubic",
       desc: "Lower-left node activates. Wavy line draws from capsule lower section to Class II Dark RNA. Indigo glow.",
-      color: "border-[#3f4c8c]/30 bg-[#3f4c8c]/5 text-[#3f4c8c]"
+      color: "border-[#3f4c8c]/30 bg-[#3f4c8c]/5 text-[#3f4c8c]",
     },
     {
       title: "07 CONNECT: CLASS II POTENTIAL",
       subtitle: "Duration: 1.4s • Easing: easeInOutCubic",
       desc: "Lower-right node activates. All 6 nodes are now connected. Indigo glow completes the final connection.",
-      color: "border-[#3f4c8c]/30 bg-[#3f4c8c]/5 text-[#3f4c8c]"
+      color: "border-[#3f4c8c]/30 bg-[#3f4c8c]/5 text-[#3f4c8c]",
     },
     {
       title: "08 ALL CONNECTIONS ACTIVE",
       subtitle: "Duration: 1.2s • Easing: easeOutCubic",
       desc: "All 6 nodes connected. Lines pulse once in sequence. Capsule rotation slows and settles in center.",
-      color: "border-emerald-500/30 bg-emerald-500/5 text-emerald-500"
+      color: "border-emerald-500/30 bg-emerald-500/5 text-emerald-500",
     },
     {
       title: "09 CAPSULE ROTATION HIGHLIGHT",
       subtitle: "Duration: 1.2s • Easing: linear",
       desc: "Capsule rotates 360° on Y-axis. Bands emit sequential glow from top to bottom and back.",
-      color: "border-indigo-500/30 bg-indigo-500/5 text-indigo-400"
+      color: "border-indigo-500/30 bg-indigo-500/5 text-indigo-400",
     },
     {
       title: "10 ACTIVE SEQUENCE EVENT",
       subtitle: "Duration: 1.6s • Easing: easeOutCubic",
       desc: "Bottom info panel expands from center. Text types in with subtle scan effect. Background particles intensify.",
-      color: "border-orange-500/30 bg-orange-500/5 text-orange-400"
+      color: "border-orange-500/30 bg-orange-500/5 text-orange-400",
     },
     {
       title: "11 TIMELINE / STEPS NAVIGATION",
       subtitle: "Duration (per step): 0.6s • Easing: easeInOutCubic",
       desc: "Step timeline appears at the bottom. Active step is highlighted. On hover, corresponding line & node pulse.",
-      color: "border-blue-500/30 bg-blue-500/5 text-blue-400"
+      color: "border-blue-500/30 bg-blue-500/5 text-blue-400",
     },
     {
       title: "12 LOOP & IDLE STATE",
       subtitle: "Loop Duration: 6.0s • Easing: easeInOutSine",
       desc: "Subtle ambient loop. Capsule continues slow rotation. Connections breathe softly. Particles drift.",
-      color: "border-teal-500/30 bg-teal-500/5 text-teal-400"
-    }
+      color: "border-teal-500/30 bg-teal-500/5 text-teal-400",
+    },
   ];
 
   return (
-    <div className={`w-full border rounded-3xl p-5 md:p-8 flex flex-col items-center relative overflow-hidden transition-all duration-300 ${isDark
-      ? "bg-obsidian/45 border-zinc-850 shadow-2xl shadow-black/40"
-      : "bg-white/70 border-slate-200/90 shadow-xl shadow-slate-100/50"
-      }`}>
-      <style dangerouslySetInnerHTML={{
-        __html: `
+    <div
+      className={`w-full border rounded-3xl p-5 md:p-8 flex flex-col items-center relative overflow-hidden transition-all duration-300 ${
+        isDark
+          ? "bg-obsidian/45 border-zinc-850 shadow-2xl shadow-black/40"
+          : "bg-white/70 border-slate-200/90 shadow-xl shadow-slate-100/50"
+      }`}
+    >
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes dgs-rotateCapsule {
           0% { transform: translateX(0); }
           100% { transform: translateX(-100px); }
@@ -1270,11 +1389,16 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
           0% { width: 0%; }
           100% { width: 100%; }
         }
-      ` }} />
+      `,
+        }}
+      />
 
       {/* Decorative Particle Cloud behind components */}
-      <div className={`absolute inset-0 pointer-events-none transition-opacity duration-[1500ms] ${activeStage === 7 ? "opacity-75" : "opacity-40"
-        }`}>
+      <div
+        className={`absolute inset-0 pointer-events-none transition-opacity duration-[1500ms] ${
+          activeStage === 7 ? "opacity-75" : "opacity-40"
+        }`}
+      >
         <svg className="w-full h-full" fill="none">
           {bgParticles.map((p, i) => (
             <circle
@@ -1305,14 +1429,16 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
         </div>
         <div className="flex flex-col md:items-end gap-2 max-w-md">
           <p className="text-[11px] text-text-secondary leading-relaxed md:text-right">
-            A continuous, smooth, story-driven animation that connects all nodes one by one with capsule rotation, particle fields, glow pulses and elegant transitions.
+            A continuous, smooth, story-driven animation that connects all nodes one by one with
+            capsule rotation, particle fields, glow pulses and elegant transitions.
           </p>
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className={`px-3 py-1.5 rounded-full text-[9px] font-mono uppercase font-bold border transition-all flex items-center gap-1.5 self-start md:self-auto ${isDark
-              ? "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 text-zinc-300"
-              : "border-slate-200 bg-slate-100/50 hover:bg-slate-200/50 text-slate-600"
-              }`}
+            className={`px-3 py-1.5 rounded-full text-[9px] font-mono uppercase font-bold border transition-all flex items-center gap-1.5 self-start md:self-auto ${
+              isDark
+                ? "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 text-zinc-300"
+                : "border-slate-200 bg-slate-100/50 hover:bg-slate-200/50 text-slate-600"
+            }`}
           >
             {isPlaying ? (
               <>
@@ -1331,7 +1457,11 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
 
       {/* DESKTOP: Single full-width SVG — cards + capsule + lines in one coordinate space */}
       <div className="hidden md:block w-full max-w-5xl relative z-10" style={{ height: 440 }}>
-        <svg viewBox="0 0 900 440" className="w-full h-full overflow-visible" style={{ pointerEvents: 'none' }}>
+        <svg
+          viewBox="0 0 900 440"
+          className="w-full h-full overflow-visible"
+          style={{ pointerEvents: "none" }}
+        >
           <defs>
             <filter id="glow-filter" x="-50%" y="-50%" width="200%" height="200%">
               <feGaussianBlur stdDeviation="4" result="blur" />
@@ -1347,84 +1477,153 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
             </clipPath>
             <linearGradient id="capsule-shading" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor={isDark ? "rgba(0,0,0,0.65)" : "rgba(0,0,0,0.15)"} />
-              <stop offset="18%" stopColor={isDark ? "rgba(255,255,255,0.28)" : "rgba(255,255,255,0.55)"} />
-              <stop offset="50%" stopColor={isDark ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0)"} />
+              <stop
+                offset="18%"
+                stopColor={isDark ? "rgba(255,255,255,0.28)" : "rgba(255,255,255,0.55)"}
+              />
+              <stop
+                offset="50%"
+                stopColor={isDark ? "rgba(255,255,255,0.02)" : "rgba(255,255,255,0)"}
+              />
               <stop offset="85%" stopColor={isDark ? "rgba(0,0,0,0.02)" : "rgba(0,0,0,0)"} />
               <stop offset="100%" stopColor={isDark ? "rgba(0,0,0,0.65)" : "rgba(0,0,0,0.2)"} />
             </linearGradient>
           </defs>
 
           {/* Card backgrounds — 6 boxes */}
-          {([
-            [10, 30, "#cca54a", 1],
-            [10, 172, "#f59e0b", 2],
-            [10, 314, "#3f4c8c", 3],
-            [695, 30, "#3e6b5c", 4],
-            [695, 172, "#f59e0b", 5],
-            [695, 314, "#3f4c8c", 6],
-          ] as [number, number, string, number][]).map(([cx, cy, col, num]) => {
+          {(
+            [
+              [10, 30, "#cca54a", 1],
+              [10, 172, "#f59e0b", 2],
+              [10, 314, "#3f4c8c", 3],
+              [695, 30, "#3e6b5c", 4],
+              [695, 172, "#f59e0b", 5],
+              [695, 314, "#3f4c8c", 6],
+            ] as [number, number, string, number][]
+          ).map(([cx, cy, col, num]) => {
             const active = isNodeActive(num);
             const hov = hoveredNode === num || hoveredNode === 99;
             return (
-              <rect key={`bg-${num}`} x={cx} y={cy} width={195} height={96} rx={14}
-                fill={isDark ? (active ? `${col}20` : "#0d0e1240") : (active ? `${col}10` : "#f8f8f680")}
-                stroke={active ? col : (isDark ? "#3f3f46" : "#e2e8f0")}
+              <rect
+                key={`bg-${num}`}
+                x={cx}
+                y={cy}
+                width={195}
+                height={96}
+                rx={14}
+                fill={
+                  isDark ? (active ? `${col}20` : "#0d0e1240") : active ? `${col}10` : "#f8f8f680"
+                }
+                stroke={active ? col : isDark ? "#3f3f46" : "#e2e8f0"}
                 strokeWidth={hov ? 2 : 1.5}
                 filter="url(#card-shadow)"
-                style={{ transition: 'stroke 500ms ease, fill 500ms ease' }}
+                style={{ transition: "stroke 500ms ease, fill 500ms ease" }}
               />
             );
           })}
 
           {/* Ghost guide lines (static dashes, wavy S-curves) */}
-          {([
-            { d: "M 400 60  C 360 60,  320 78,  280 78  S 240 78,  205 78", col: "#cca54a" },
-            { d: "M 400 150 C 355 150, 310 190, 280 210 S 230 230, 205 220", col: "#f59e0b" },
-            { d: "M 400 310 C 355 320, 305 345, 270 358 S 230 368, 205 362", col: "#3f4c8c" },
-            { d: "M 456 60  C 496 60,  536 78,  576 78  S 660 78,  695 78", col: "#3e6b5c" },
-            { d: "M 456 150 C 501 150, 546 190, 576 210 S 626 230, 695 220", col: "#f59e0b" },
-            { d: "M 456 310 C 501 320, 551 345, 586 358 S 626 368, 695 362", col: "#3f4c8c" },
-          ] as { d: string; col: string }[]).map(({ d, col }, i) => (
-            <path key={`ghost-${i}`} d={d}
+          {(
+            [
+              { d: "M 400 60  C 360 60,  320 78,  280 78  S 240 78,  205 78", col: "#cca54a" },
+              { d: "M 400 150 C 355 150, 310 190, 280 210 S 230 230, 205 220", col: "#f59e0b" },
+              { d: "M 400 310 C 355 320, 305 345, 270 358 S 230 368, 205 362", col: "#3f4c8c" },
+              { d: "M 456 60  C 496 60,  536 78,  576 78  S 660 78,  695 78", col: "#3e6b5c" },
+              { d: "M 456 150 C 501 150, 546 190, 576 210 S 626 230, 695 220", col: "#f59e0b" },
+              { d: "M 456 310 C 501 320, 551 345, 586 358 S 626 368, 695 362", col: "#3f4c8c" },
+            ] as { d: string; col: string }[]
+          ).map(({ d, col }, i) => (
+            <path
+              key={`ghost-${i}`}
+              d={d}
               stroke={isDark ? "rgba(255,255,255,0.05)" : "rgba(0,0,0,0.06)"}
-              strokeWidth="1.5" strokeDasharray="5 5" fill="none" />
+              strokeWidth="1.5"
+              strokeDasharray="5 5"
+              fill="none"
+            />
           ))}
           {/* Animated connection lines — wavy S-curves */}
-          {([
-            { d: "M 400 60  C 360 60,  320 78,  280 78  S 240 78,  205 78", col: "#cca54a", node: 1 },
-            { d: "M 400 150 C 355 150, 310 190, 280 210 S 230 230, 205 220", col: "#f59e0b", node: 2 },
-            { d: "M 400 310 C 355 320, 305 345, 270 358 S 230 368, 205 362", col: "#3f4c8c", node: 3 },
-            { d: "M 456 60  C 496 60,  536 78,  576 78  S 660 78,  695 78", col: "#3e6b5c", node: 4 },
-            { d: "M 456 150 C 501 150, 546 190, 576 210 S 626 230, 695 220", col: "#f59e0b", node: 5 },
-            { d: "M 456 310 C 501 320, 551 345, 586 358 S 626 368, 695 362", col: "#3f4c8c", node: 6 },
-          ] as { d: string; col: string; node: number }[]).map(({ d, col, node }) => {
+          {(
+            [
+              {
+                d: "M 400 60  C 360 60,  320 78,  280 78  S 240 78,  205 78",
+                col: "#cca54a",
+                node: 1,
+              },
+              {
+                d: "M 400 150 C 355 150, 310 190, 280 210 S 230 230, 205 220",
+                col: "#f59e0b",
+                node: 2,
+              },
+              {
+                d: "M 400 310 C 355 320, 305 345, 270 358 S 230 368, 205 362",
+                col: "#3f4c8c",
+                node: 3,
+              },
+              {
+                d: "M 456 60  C 496 60,  536 78,  576 78  S 660 78,  695 78",
+                col: "#3e6b5c",
+                node: 4,
+              },
+              {
+                d: "M 456 150 C 501 150, 546 190, 576 210 S 626 230, 695 220",
+                col: "#f59e0b",
+                node: 5,
+              },
+              {
+                d: "M 456 310 C 501 320, 551 345, 586 358 S 626 368, 695 362",
+                col: "#3f4c8c",
+                node: 6,
+              },
+            ] as { d: string; col: string; node: number }[]
+          ).map(({ d, col, node }) => {
             const active = isNodeActive(node);
             const hov = hoveredNode === node || hoveredNode === 99;
             return (
               <g key={`ln-${node}`}>
-                <path d={d} stroke={col}
+                <path
+                  d={d}
+                  stroke={col}
                   strokeWidth={hov ? 3.5 : 2.5}
-                  strokeDasharray="700" strokeDashoffset={active ? 0 : 700}
+                  strokeDasharray="700"
+                  strokeDashoffset={active ? 0 : 700}
                   fill="none"
-                  className={activeStage === 7 ? "dgs-line-pulse-once" : (activeStage >= 11 && active && !hoveredNode ? "dgs-connection-breathe" : "")}
+                  className={
+                    activeStage === 7
+                      ? "dgs-line-pulse-once"
+                      : activeStage >= 11 && active && !hoveredNode
+                        ? "dgs-connection-breathe"
+                        : ""
+                  }
                   style={{
-                    transition: 'stroke-dashoffset 1200ms cubic-bezier(0.645,0.045,0.355,1), stroke-width 300ms ease',
-                    filter: hov ? `drop-shadow(0 0 6px ${col})` : 'none',
-                  }} />
+                    transition:
+                      "stroke-dashoffset 1200ms cubic-bezier(0.645,0.045,0.355,1), stroke-width 300ms ease",
+                    filter: hov ? `drop-shadow(0 0 6px ${col})` : "none",
+                  }}
+                />
                 {active && (
-                  <path d={d} stroke={col} strokeWidth="3" strokeDasharray="8 28"
-                    fill="none" className="dgs-flow-particles"
+                  <path
+                    d={d}
+                    stroke={col}
+                    strokeWidth="3"
+                    strokeDasharray="8 28"
+                    fill="none"
+                    className="dgs-flow-particles"
                     opacity={activeStage === 9 || hov ? 0.9 : 0}
-                    style={{ transition: 'opacity 400ms ease' }} />
+                    style={{ transition: "opacity 400ms ease" }}
+                  />
                 )}
               </g>
             );
           })}
 
           {/* CHROMOSOME CAPSULE BODY */}
-          <g clipPath="url(#capsule-clip-path)" className={activeStage === 0 ? "dgs-capsule-intro" : ""}>
+          <g
+            clipPath="url(#capsule-clip-path)"
+            className={activeStage === 0 ? "dgs-capsule-intro" : ""}
+          >
             <g className={getCapsuleRotationClass()}>
-              {[0, 100].map(dx => (
+              {[0, 100].map((dx) => (
                 <g key={dx} transform={`translate(${dx + 370}, 0)`}>
                   <rect x="0" y="0" width="100" height="440" fill={capsuleBodyColor} />
                   <rect x="12" y="0" width="4" height="440" fill={capsuleLineColor} />
@@ -1432,12 +1631,42 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
                   <rect x="75" y="0" width="4" height="440" fill={capsuleLineColor} />
                   <rect x="0" y="46" width="100" height="26" fill="#cca54a" />
                   <rect x="12" y="46" width="9" height="26" fill={isDark ? "#8c6f27" : "#fffbe8"} />
-                  <rect x="44" y="46" width="14" height="26" fill={isDark ? "#634e19" : "#f5e6c8"} />
-                  <rect x="0" y="124" width="100" height="26" fill={isDark ? "#b45309" : "#f59e0b"} />
-                  <rect x="18" y="124" width="12" height="26" fill={isDark ? "#78350f" : "#fef3c7"} />
+                  <rect
+                    x="44"
+                    y="46"
+                    width="14"
+                    height="26"
+                    fill={isDark ? "#634e19" : "#f5e6c8"}
+                  />
+                  <rect
+                    x="0"
+                    y="124"
+                    width="100"
+                    height="26"
+                    fill={isDark ? "#b45309" : "#f59e0b"}
+                  />
+                  <rect
+                    x="18"
+                    y="124"
+                    width="12"
+                    height="26"
+                    fill={isDark ? "#78350f" : "#fef3c7"}
+                  />
                   <rect x="0" y="276" width="100" height="30" fill="#3f4c8c" />
-                  <rect x="10" y="276" width="9" height="30" fill={isDark ? "#2d3765" : "#e0e7ff"} />
-                  <rect x="48" y="276" width="14" height="30" fill={isDark ? "#1e244a" : "#c7d2fe"} />
+                  <rect
+                    x="10"
+                    y="276"
+                    width="9"
+                    height="30"
+                    fill={isDark ? "#2d3765" : "#e0e7ff"}
+                  />
+                  <rect
+                    x="48"
+                    y="276"
+                    width="14"
+                    height="30"
+                    fill={isDark ? "#1e244a" : "#c7d2fe"}
+                  />
                 </g>
               ))}
             </g>
@@ -1445,87 +1674,300 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
 
           {/* 3D shading */}
           <g className={activeStage === 0 ? "dgs-capsule-intro" : ""}>
-            <rect x="400" y="30" width="56" height="148" rx="28" ry="28" fill="url(#capsule-shading)" pointerEvents="none" />
-            <rect x="414" y="178" width="28" height="24" fill="url(#capsule-shading)" pointerEvents="none" />
-            <rect x="400" y="202" width="56" height="148" rx="28" ry="28" fill="url(#capsule-shading)" pointerEvents="none" />
+            <rect
+              x="400"
+              y="30"
+              width="56"
+              height="148"
+              rx="28"
+              ry="28"
+              fill="url(#capsule-shading)"
+              pointerEvents="none"
+            />
+            <rect
+              x="414"
+              y="178"
+              width="28"
+              height="24"
+              fill="url(#capsule-shading)"
+              pointerEvents="none"
+            />
+            <rect
+              x="400"
+              y="202"
+              width="56"
+              height="148"
+              rx="28"
+              ry="28"
+              fill="url(#capsule-shading)"
+              pointerEvents="none"
+            />
           </g>
-          <rect x="400" y="30" width="56" height="148" rx="28" ry="28" stroke={isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.06)"} strokeWidth="1.5" fill="none" className={activeStage === 0 ? "dgs-capsule-intro" : ""} />
-          <rect x="414" y="178" width="28" height="24" stroke={isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"} strokeWidth="1" fill="none" className={activeStage === 0 ? "dgs-capsule-intro" : ""} />
-          <rect x="400" y="202" width="56" height="148" rx="28" ry="28" stroke={isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.06)"} strokeWidth="1.5" fill="none" className={activeStage === 0 ? "dgs-capsule-intro" : ""} />
+          <rect
+            x="400"
+            y="30"
+            width="56"
+            height="148"
+            rx="28"
+            ry="28"
+            stroke={isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.06)"}
+            strokeWidth="1.5"
+            fill="none"
+            className={activeStage === 0 ? "dgs-capsule-intro" : ""}
+          />
+          <rect
+            x="414"
+            y="178"
+            width="28"
+            height="24"
+            stroke={isDark ? "rgba(255,255,255,0.06)" : "rgba(0,0,0,0.04)"}
+            strokeWidth="1"
+            fill="none"
+            className={activeStage === 0 ? "dgs-capsule-intro" : ""}
+          />
+          <rect
+            x="400"
+            y="202"
+            width="56"
+            height="148"
+            rx="28"
+            ry="28"
+            stroke={isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.06)"}
+            strokeWidth="1.5"
+            fill="none"
+            className={activeStage === 0 ? "dgs-capsule-intro" : ""}
+          />
 
           {/* Band glows — stage 8 = sequential pulse, stage >=7 = breathing idle */}
-          <rect x="400" y="46" width="56" height="26" fill="#cca54a" filter="url(#glow-filter)"
-            opacity={activeStage === 8 ? 1 : (isNodeActive(1) || hoveredNode === 1 || hoveredNode === 4 || hoveredNode === 99 ? 0.7 : 0)}
-            className={`pointer-events-none transition-opacity duration-700 ${activeStage === 8 ? "dgs-band-seq-glow-gold" : (activeStage >= 7 || hoveredNode === 1 || hoveredNode === 4 || hoveredNode === 99 ? "dgs-active-band-glow" : "")}`} />
-          <rect x="400" y="124" width="56" height="26" fill="#f59e0b" filter="url(#glow-filter)"
-            opacity={activeStage === 8 ? 1 : (isNodeActive(2) || hoveredNode === 2 || hoveredNode === 5 || hoveredNode === 99 ? 0.7 : 0)}
-            className={`pointer-events-none transition-opacity duration-700 ${activeStage === 8 ? "dgs-band-seq-glow-amber" : (activeStage >= 7 || hoveredNode === 2 || hoveredNode === 5 || hoveredNode === 99 ? "dgs-active-band-glow" : "")}`} />
-          <rect x="400" y="276" width="56" height="30" fill="#3f4c8c" filter="url(#glow-filter)"
-            opacity={activeStage === 8 ? 1 : (isNodeActive(3) || hoveredNode === 3 || hoveredNode === 6 || hoveredNode === 99 ? 0.7 : 0)}
-            className={`pointer-events-none transition-opacity duration-700 ${activeStage === 8 ? "dgs-band-seq-glow-indigo" : (activeStage >= 7 || hoveredNode === 3 || hoveredNode === 6 || hoveredNode === 99 ? "dgs-active-band-glow" : "")}`} />
+          <rect
+            x="400"
+            y="46"
+            width="56"
+            height="26"
+            fill="#cca54a"
+            filter="url(#glow-filter)"
+            opacity={
+              activeStage === 8
+                ? 1
+                : isNodeActive(1) || hoveredNode === 1 || hoveredNode === 4 || hoveredNode === 99
+                  ? 0.7
+                  : 0
+            }
+            className={`pointer-events-none transition-opacity duration-700 ${activeStage === 8 ? "dgs-band-seq-glow-gold" : activeStage >= 7 || hoveredNode === 1 || hoveredNode === 4 || hoveredNode === 99 ? "dgs-active-band-glow" : ""}`}
+          />
+          <rect
+            x="400"
+            y="124"
+            width="56"
+            height="26"
+            fill="#f59e0b"
+            filter="url(#glow-filter)"
+            opacity={
+              activeStage === 8
+                ? 1
+                : isNodeActive(2) || hoveredNode === 2 || hoveredNode === 5 || hoveredNode === 99
+                  ? 0.7
+                  : 0
+            }
+            className={`pointer-events-none transition-opacity duration-700 ${activeStage === 8 ? "dgs-band-seq-glow-amber" : activeStage >= 7 || hoveredNode === 2 || hoveredNode === 5 || hoveredNode === 99 ? "dgs-active-band-glow" : ""}`}
+          />
+          <rect
+            x="400"
+            y="276"
+            width="56"
+            height="30"
+            fill="#3f4c8c"
+            filter="url(#glow-filter)"
+            opacity={
+              activeStage === 8
+                ? 1
+                : isNodeActive(3) || hoveredNode === 3 || hoveredNode === 6 || hoveredNode === 99
+                  ? 0.7
+                  : 0
+            }
+            className={`pointer-events-none transition-opacity duration-700 ${activeStage === 8 ? "dgs-band-seq-glow-indigo" : activeStage >= 7 || hoveredNode === 3 || hoveredNode === 6 || hoveredNode === 99 ? "dgs-active-band-glow" : ""}`}
+          />
 
           {/* Card text via foreignObject */}
-          {([
-            { x: 10, y: 30, n: 1, title: "PROTEIN-CODING", sub: "1–2% of genome", col: "#cca54a", Icon: Brain },
-            { x: 10, y: 172, n: 2, title: "CLASS I DARK DNA", sub: "Non-expressing DNA", col: "#f59e0b", Icon: Sparkles },
-            { x: 10, y: 314, n: 3, title: "CLASS II DARK RNA", sub: "Non-translating RNA", col: "#3f4c8c", Icon: Activity },
-            { x: 695, y: 30, n: 4, title: "CURRENTLY MINED", sub: "~2% · explored so far", col: "#3e6b5c", Icon: Search },
-            { x: 695, y: 172, n: 5, title: "CLASS I POTENTIAL", sub: "~40% untapped DNA", col: "#f59e0b", Icon: Sparkles },
-            { x: 695, y: 314, n: 6, title: "CLASS II POTENTIAL", sub: "~56% untapped RNA", col: "#3f4c8c", Icon: Activity },
-          ] as { x: number; y: number; n: number; title: string; sub: string; col: string; Icon: React.ElementType }[]).map(({ x, y, n, title, sub, col, Icon }) => {
+          {(
+            [
+              {
+                x: 10,
+                y: 30,
+                n: 1,
+                title: "PROTEIN-CODING",
+                sub: "1–2% of genome",
+                col: "#cca54a",
+                Icon: Brain,
+              },
+              {
+                x: 10,
+                y: 172,
+                n: 2,
+                title: "CLASS I DARK DNA",
+                sub: "Non-expressing DNA",
+                col: "#f59e0b",
+                Icon: Sparkles,
+              },
+              {
+                x: 10,
+                y: 314,
+                n: 3,
+                title: "CLASS II DARK RNA",
+                sub: "Non-translating RNA",
+                col: "#3f4c8c",
+                Icon: Activity,
+              },
+              {
+                x: 695,
+                y: 30,
+                n: 4,
+                title: "CURRENTLY MINED",
+                sub: "~2% · explored so far",
+                col: "#3e6b5c",
+                Icon: Search,
+              },
+              {
+                x: 695,
+                y: 172,
+                n: 5,
+                title: "CLASS I POTENTIAL",
+                sub: "~40% untapped DNA",
+                col: "#f59e0b",
+                Icon: Sparkles,
+              },
+              {
+                x: 695,
+                y: 314,
+                n: 6,
+                title: "CLASS II POTENTIAL",
+                sub: "~56% untapped RNA",
+                col: "#3f4c8c",
+                Icon: Activity,
+              },
+            ] as {
+              x: number;
+              y: number;
+              n: number;
+              title: string;
+              sub: string;
+              col: string;
+              Icon: React.ElementType;
+            }[]
+          ).map(({ x, y, n, title, sub, col, Icon }) => {
             const active = isNodeActive(n);
             return (
-              <foreignObject key={`fo-${n}`} x={x} y={y} width={195} height={96}
-                style={{ pointerEvents: 'all', cursor: 'pointer' }}
-                onClick={() => { const s = n === 1 ? 1 : n === 2 ? 3 : n === 3 ? 5 : n === 4 ? 2 : n === 5 ? 4 : 6; setActiveStage(s); setIsPlaying(false); }}
-                onMouseEnter={() => setHoveredNode(n)} onMouseLeave={() => setHoveredNode(null)}>
+              <foreignObject
+                key={`fo-${n}`}
+                x={x}
+                y={y}
+                width={195}
+                height={96}
+                style={{ pointerEvents: "all", cursor: "pointer" }}
+                onClick={() => {
+                  const s = n === 1 ? 1 : n === 2 ? 3 : n === 3 ? 5 : n === 4 ? 2 : n === 5 ? 4 : 6;
+                  setActiveStage(s);
+                  setIsPlaying(false);
+                }}
+                onMouseEnter={() => setHoveredNode(n)}
+                onMouseLeave={() => setHoveredNode(null)}
+              >
                 <div className="w-full h-full flex items-center gap-3 px-3">
-                  <div className="h-8 w-8 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300"
-                    style={{ borderColor: active ? col : (isDark ? '#3f3f46' : '#e2e8f0'), background: active ? `${col}22` : 'transparent', opacity: active ? 1 : 0.45 }}>
-                    <Icon style={{ width: 14, height: 14, color: active ? col : (isDark ? '#71717a' : '#94a3b8') }} />
+                  <div
+                    className="h-8 w-8 rounded-full border flex items-center justify-center shrink-0 transition-all duration-300"
+                    style={{
+                      borderColor: active ? col : isDark ? "#3f3f46" : "#e2e8f0",
+                      background: active ? `${col}22` : "transparent",
+                      opacity: active ? 1 : 0.45,
+                    }}
+                  >
+                    <Icon
+                      style={{
+                        width: 14,
+                        height: 14,
+                        color: active ? col : isDark ? "#71717a" : "#94a3b8",
+                      }}
+                    />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[9px] font-mono font-bold tracking-wider truncate" style={{ color: active ? col : (isDark ? '#52525b' : '#94a3b8') }}>{title}</p>
-                    <p className="text-[9px] mt-0.5 truncate" style={{ color: isDark ? '#52525b' : '#94a3b8' }}>{sub}</p>
+                    <p
+                      className="text-[9px] font-mono font-bold tracking-wider truncate"
+                      style={{ color: active ? col : isDark ? "#52525b" : "#94a3b8" }}
+                    >
+                      {title}
+                    </p>
+                    <p
+                      className="text-[9px] mt-0.5 truncate"
+                      style={{ color: isDark ? "#52525b" : "#94a3b8" }}
+                    >
+                      {sub}
+                    </p>
                   </div>
-                  <span className="h-5 w-5 rounded-full text-[9px] font-mono font-bold flex items-center justify-center border shrink-0"
-                    style={{ borderColor: active ? col : (isDark ? '#3f3f46' : '#e2e8f0'), color: active ? col : (isDark ? '#52525b' : '#94a3b8') }}>{n}</span>
+                  <span
+                    className="h-5 w-5 rounded-full text-[9px] font-mono font-bold flex items-center justify-center border shrink-0"
+                    style={{
+                      borderColor: active ? col : isDark ? "#3f3f46" : "#e2e8f0",
+                      color: active ? col : isDark ? "#52525b" : "#94a3b8",
+                    }}
+                  >
+                    {n}
+                  </span>
                 </div>
               </foreignObject>
             );
           })}
 
           {/* Line-end dots — at wavy path endpoints touching card edges */}
-          {([
-            { cx: 205, cy: 78, col: "#cca54a", node: 1 },
-            { cx: 205, cy: 220, col: "#f59e0b", node: 2 },
-            { cx: 205, cy: 362, col: "#3f4c8c", node: 3 },
-            { cx: 695, cy: 78, col: "#3e6b5c", node: 4 },
-            { cx: 695, cy: 220, col: "#f59e0b", node: 5 },
-            { cx: 695, cy: 362, col: "#3f4c8c", node: 6 },
-          ] as { cx: number; cy: number; col: string; node: number }[]).map(({ cx, cy, col, node }) => {
+          {(
+            [
+              { cx: 205, cy: 78, col: "#cca54a", node: 1 },
+              { cx: 205, cy: 220, col: "#f59e0b", node: 2 },
+              { cx: 205, cy: 362, col: "#3f4c8c", node: 3 },
+              { cx: 695, cy: 78, col: "#3e6b5c", node: 4 },
+              { cx: 695, cy: 220, col: "#f59e0b", node: 5 },
+              { cx: 695, cy: 362, col: "#3f4c8c", node: 6 },
+            ] as { cx: number; cy: number; col: string; node: number }[]
+          ).map(({ cx, cy, col, node }) => {
             const active = isNodeActive(node);
             return (
-              <circle key={`dot-${node}`} cx={cx} cy={cy} r={active ? 5.5 : 3.5}
-                fill={active ? col : (isDark ? '#3f3f46' : '#cbd5e1')}
-                style={{ transition: 'r 400ms ease, fill 600ms ease', filter: active ? `drop-shadow(0 0 5px ${col})` : 'none' }} />
+              <circle
+                key={`dot-${node}`}
+                cx={cx}
+                cy={cy}
+                r={active ? 5.5 : 3.5}
+                fill={active ? col : isDark ? "#3f3f46" : "#cbd5e1"}
+                style={{
+                  transition: "r 400ms ease, fill 600ms ease",
+                  filter: active ? `drop-shadow(0 0 5px ${col})` : "none",
+                }}
+              />
             );
           })}
 
           {/* Capsule-side start dots */}
-          {([
-            { cx: 400, cy: 60, col: "#cca54a", node: 1 },
-            { cx: 400, cy: 150, col: "#f59e0b", node: 2 },
-            { cx: 400, cy: 310, col: "#3f4c8c", node: 3 },
-            { cx: 456, cy: 60, col: "#3e6b5c", node: 4 },
-            { cx: 456, cy: 150, col: "#f59e0b", node: 5 },
-            { cx: 456, cy: 310, col: "#3f4c8c", node: 6 },
-          ] as { cx: number; cy: number; col: string; node: number }[]).map(({ cx, cy, col, node }) => {
+          {(
+            [
+              { cx: 400, cy: 60, col: "#cca54a", node: 1 },
+              { cx: 400, cy: 150, col: "#f59e0b", node: 2 },
+              { cx: 400, cy: 310, col: "#3f4c8c", node: 3 },
+              { cx: 456, cy: 60, col: "#3e6b5c", node: 4 },
+              { cx: 456, cy: 150, col: "#f59e0b", node: 5 },
+              { cx: 456, cy: 310, col: "#3f4c8c", node: 6 },
+            ] as { cx: number; cy: number; col: string; node: number }[]
+          ).map(({ cx, cy, col, node }) => {
             const active = isNodeActive(node);
             return (
-              <circle key={`sdot-${node}`} cx={cx} cy={cy} r={active ? 4 : 2.5}
-                fill={active ? col : (isDark ? '#3f3f46' : '#cbd5e1')}
-                style={{ transition: 'r 400ms ease, fill 600ms ease', filter: active ? `drop-shadow(0 0 4px ${col})` : 'none' }} />
+              <circle
+                key={`sdot-${node}`}
+                cx={cx}
+                cy={cy}
+                r={active ? 4 : 2.5}
+                fill={active ? col : isDark ? "#3f3f46" : "#cbd5e1"}
+                style={{
+                  transition: "r 400ms ease, fill 600ms ease",
+                  filter: active ? `drop-shadow(0 0 4px ${col})` : "none",
+                }}
+              />
             );
           })}
 
@@ -1542,7 +1984,10 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
       {/* MOBILE CHROMOSOME DISPLAY */}
       <div className="flex md:hidden flex-col items-center gap-6 w-full max-w-sm relative z-10">
         <div className="h-56 flex justify-center items-center">
-          <svg viewBox="85 30 50 280" className="w-16 h-56 select-none pointer-events-none overflow-visible">
+          <svg
+            viewBox="85 30 50 280"
+            className="w-16 h-56 select-none pointer-events-none overflow-visible"
+          >
             <defs>
               <filter id="glow-filter-mobile" x="-30%" y="-30%" width="160%" height="160%">
                 <feGaussianBlur stdDeviation="3" result="blur" />
@@ -1555,15 +2000,24 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
               </clipPath>
               <linearGradient id="capsule-shading-mobile" x1="0" y1="0" x2="1" y2="0">
                 <stop offset="0%" stopColor={isDark ? "rgba(0,0,0,0.7)" : "rgba(0,0,0,0.18)"} />
-                <stop offset="20%" stopColor={isDark ? "rgba(255,255,255,0.3)" : "rgba(255,255,255,0.6)"} />
-                <stop offset="45%" stopColor={isDark ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0)"} />
+                <stop
+                  offset="20%"
+                  stopColor={isDark ? "rgba(255,255,255,0.3)" : "rgba(255,255,255,0.6)"}
+                />
+                <stop
+                  offset="45%"
+                  stopColor={isDark ? "rgba(255,255,255,0.03)" : "rgba(255,255,255,0)"}
+                />
                 <stop offset="75%" stopColor={isDark ? "rgba(0,0,0,0)" : "rgba(0,0,0,0)"} />
                 <stop offset="92%" stopColor={isDark ? "rgba(0,0,0,0.35)" : "rgba(0,0,0,0.02)"} />
                 <stop offset="100%" stopColor={isDark ? "rgba(0,0,0,0.7)" : "rgba(0,0,0,0.22)"} />
               </linearGradient>
             </defs>
 
-            <g clipPath="url(#capsule-clip-path-mobile)" className={activeStage === 0 ? "dgs-capsule-intro" : ""}>
+            <g
+              clipPath="url(#capsule-clip-path-mobile)"
+              className={activeStage === 0 ? "dgs-capsule-intro" : ""}
+            >
               <g className={getCapsuleRotationClass()}>
                 <g transform="translate(0, 0)">
                   <rect x="0" y="0" width="100" height="340" fill={capsuleBodyColor} />
@@ -1572,13 +2026,37 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
 
                   <rect x="0" y="45" width="100" height="20" fill="#cca54a" />
                   <rect x="15" y="45" width="8" height="20" fill={isDark ? "#8c6f27" : "#faf6f0"} />
-                  <rect x="45" y="45" width="12" height="20" fill={isDark ? "#634e19" : "#eeddcc"} />
+                  <rect
+                    x="45"
+                    y="45"
+                    width="12"
+                    height="20"
+                    fill={isDark ? "#634e19" : "#eeddcc"}
+                  />
 
-                  <rect x="0" y="95" width="100" height="20" fill={isDark ? "#b45309" : "#f59e0b"} />
-                  <rect x="20" y="95" width="10" height="20" fill={isDark ? "#78350f" : "#fef3c7"} />
+                  <rect
+                    x="0"
+                    y="95"
+                    width="100"
+                    height="20"
+                    fill={isDark ? "#b45309" : "#f59e0b"}
+                  />
+                  <rect
+                    x="20"
+                    y="95"
+                    width="10"
+                    height="20"
+                    fill={isDark ? "#78350f" : "#fef3c7"}
+                  />
 
                   <rect x="0" y="220" width="100" height="25" fill="#3f4c8c" />
-                  <rect x="10" y="220" width="8" height="25" fill={isDark ? "#2d3765" : "#e0e7ff"} />
+                  <rect
+                    x="10"
+                    y="220"
+                    width="8"
+                    height="25"
+                    fill={isDark ? "#2d3765" : "#e0e7ff"}
+                  />
                 </g>
                 <g transform="translate(100, 0)">
                   <rect x="0" y="0" width="100" height="340" fill={capsuleBodyColor} />
@@ -1588,33 +2066,141 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
                   <rect x="0" y="45" width="100" height="20" fill="#cca54a" />
                   <rect x="15" y="45" width="8" height="20" fill={isDark ? "#8c6f27" : "#faf6f0"} />
 
-                  <rect x="0" y="95" width="100" height="20" fill={isDark ? "#b45309" : "#f59e0b"} />
-                  <rect x="20" y="95" width="10" height="20" fill={isDark ? "#78350f" : "#fef3c7"} />
+                  <rect
+                    x="0"
+                    y="95"
+                    width="100"
+                    height="20"
+                    fill={isDark ? "#b45309" : "#f59e0b"}
+                  />
+                  <rect
+                    x="20"
+                    y="95"
+                    width="10"
+                    height="20"
+                    fill={isDark ? "#78350f" : "#fef3c7"}
+                  />
 
                   <rect x="0" y="220" width="100" height="25" fill="#3f4c8c" />
-                  <rect x="10" y="220" width="8" height="25" fill={isDark ? "#2d3765" : "#e0e7ff"} />
+                  <rect
+                    x="10"
+                    y="220"
+                    width="8"
+                    height="25"
+                    fill={isDark ? "#2d3765" : "#e0e7ff"}
+                  />
                 </g>
               </g>
             </g>
 
-            <rect x="85" y="30" width="50" height="125" rx="25" ry="25" fill="url(#capsule-shading-mobile)" pointerEvents="none" className={activeStage === 0 ? "dgs-capsule-intro" : ""} />
-            <rect x="85" y="185" width="50" height="125" rx="25" ry="25" fill="url(#capsule-shading-mobile)" pointerEvents="none" className={activeStage === 0 ? "dgs-capsule-intro" : ""} />
-            <circle cx="110" cy="170" r="10" fill="url(#capsule-shading-mobile)" pointerEvents="none" className={activeStage === 0 ? "dgs-capsule-intro" : ""} />
+            <rect
+              x="85"
+              y="30"
+              width="50"
+              height="125"
+              rx="25"
+              ry="25"
+              fill="url(#capsule-shading-mobile)"
+              pointerEvents="none"
+              className={activeStage === 0 ? "dgs-capsule-intro" : ""}
+            />
+            <rect
+              x="85"
+              y="185"
+              width="50"
+              height="125"
+              rx="25"
+              ry="25"
+              fill="url(#capsule-shading-mobile)"
+              pointerEvents="none"
+              className={activeStage === 0 ? "dgs-capsule-intro" : ""}
+            />
+            <circle
+              cx="110"
+              cy="170"
+              r="10"
+              fill="url(#capsule-shading-mobile)"
+              pointerEvents="none"
+              className={activeStage === 0 ? "dgs-capsule-intro" : ""}
+            />
 
-            <rect x="85" y="30" width="50" height="125" rx="25" ry="25" stroke={isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"} strokeWidth="1.5" fill="none" pointerEvents="none" className={activeStage === 0 ? "dgs-capsule-intro" : ""} />
-            <rect x="85" y="185" width="50" height="125" rx="25" ry="25" stroke={isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"} strokeWidth="1.5" fill="none" pointerEvents="none" className={activeStage === 0 ? "dgs-capsule-intro" : ""} />
-            <circle cx="110" cy="170" r="10" stroke={isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"} strokeWidth="1.5" fill="none" pointerEvents="none" className={activeStage === 0 ? "dgs-capsule-intro" : ""} />
+            <rect
+              x="85"
+              y="30"
+              width="50"
+              height="125"
+              rx="25"
+              ry="25"
+              stroke={isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"}
+              strokeWidth="1.5"
+              fill="none"
+              pointerEvents="none"
+              className={activeStage === 0 ? "dgs-capsule-intro" : ""}
+            />
+            <rect
+              x="85"
+              y="185"
+              width="50"
+              height="125"
+              rx="25"
+              ry="25"
+              stroke={isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"}
+              strokeWidth="1.5"
+              fill="none"
+              pointerEvents="none"
+              className={activeStage === 0 ? "dgs-capsule-intro" : ""}
+            />
+            <circle
+              cx="110"
+              cy="170"
+              r="10"
+              stroke={isDark ? "rgba(255,255,255,0.08)" : "rgba(0,0,0,0.06)"}
+              strokeWidth="1.5"
+              fill="none"
+              pointerEvents="none"
+              className={activeStage === 0 ? "dgs-capsule-intro" : ""}
+            />
 
             {/* Glowing active overlays */}
-            <rect x="85" y="45" width="50" height="20" fill="#cca54a" filter="url(#glow-filter-mobile)" opacity={isNodeActive(1) ? 0.6 : 0} className="transition-opacity duration-700 pointer-events-none" />
-            <rect x="85" y="95" width="50" height="20" fill="#f59e0b" filter="url(#glow-filter-mobile)" opacity={isNodeActive(2) ? 0.6 : 0} className="transition-opacity duration-700 pointer-events-none" />
-            <rect x="85" y="220" width="50" height="25" fill="#3f4c8c" filter="url(#glow-filter-mobile)" opacity={isNodeActive(3) ? 0.6 : 0} className="transition-opacity duration-700 pointer-events-none" />
+            <rect
+              x="85"
+              y="45"
+              width="50"
+              height="20"
+              fill="#cca54a"
+              filter="url(#glow-filter-mobile)"
+              opacity={isNodeActive(1) ? 0.6 : 0}
+              className="transition-opacity duration-700 pointer-events-none"
+            />
+            <rect
+              x="85"
+              y="95"
+              width="50"
+              height="20"
+              fill="#f59e0b"
+              filter="url(#glow-filter-mobile)"
+              opacity={isNodeActive(2) ? 0.6 : 0}
+              className="transition-opacity duration-700 pointer-events-none"
+            />
+            <rect
+              x="85"
+              y="220"
+              width="50"
+              height="25"
+              fill="#3f4c8c"
+              filter="url(#glow-filter-mobile)"
+              opacity={isNodeActive(3) ? 0.6 : 0}
+              className="transition-opacity duration-700 pointer-events-none"
+            />
           </svg>
         </div>
 
         {/* Mobile Active Stage Card */}
-        <div className={`w-full p-5 rounded-2xl border transition-all duration-500 text-center ${isDark ? "bg-[#0d0e12]/60 border-zinc-800/80" : "bg-slate-50/80 border-slate-200"
-          } ${mobileCardContent[activeStage].color}`}>
+        <div
+          className={`w-full p-5 rounded-2xl border transition-all duration-500 text-center ${
+            isDark ? "bg-[#0d0e12]/60 border-zinc-800/80" : "bg-slate-50/80 border-slate-200"
+          } ${mobileCardContent[activeStage].color}`}
+        >
           <h4 className="text-xs font-mono font-bold tracking-widest uppercase">
             {mobileCardContent[activeStage].title}
           </h4>
@@ -1628,8 +2214,13 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
       </div>
 
       {/* ACTIVE STAGE DESCRIPTION BOX (DESKTOP) */}
-      <div className={`hidden md:block w-full mt-6 p-5 rounded-2xl border text-center transition-all duration-500 relative overflow-hidden ${isDark ? "bg-[#0d0e12]/40 border-zinc-800/80 scanline-effect" : "bg-slate-50/50 border-slate-200 scanline-effect"
-        }`}>
+      <div
+        className={`hidden md:block w-full mt-6 p-5 rounded-2xl border text-center transition-all duration-500 relative overflow-hidden ${
+          isDark
+            ? "bg-[#0d0e12]/40 border-zinc-800/80 scanline-effect"
+            : "bg-slate-50/50 border-slate-200 scanline-effect"
+        }`}
+      >
         <div className="flex justify-between items-center border-b border-border-subtle/30 pb-2 mb-3">
           <span className="text-[10px] font-mono uppercase font-bold text-amber-500 tracking-wider">
             {stages[activeStage].id} {stages[activeStage].label}
@@ -1657,9 +2248,7 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
             { id: "08", name: "All Connected", targetStage: 9, hoverNode: 99 },
           ].map((st, idx) => {
             const isButtonActive =
-              st.targetStage === 9
-                ? activeStage >= 7
-                : activeStage === st.targetStage;
+              st.targetStage === 9 ? activeStage >= 7 : activeStage === st.targetStage;
 
             return (
               <button
@@ -1670,20 +2259,27 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
                 }}
                 onMouseEnter={() => setHoveredNode(st.hoverNode as number | null)}
                 onMouseLeave={() => setHoveredNode(null)}
-                className={`px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase transition-all duration-300 border ${isButtonActive
-                  ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-transparent scale-105"
-                  : `${isDark ? "border-zinc-800 hover:border-zinc-700 bg-zinc-900/30 text-zinc-400" : "border-slate-200 hover:border-slate-350 bg-slate-50/50 text-slate-500"}`
-                  }`}
+                className={`px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase transition-all duration-300 border ${
+                  isButtonActive
+                    ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-transparent scale-105"
+                    : `${isDark ? "border-zinc-800 hover:border-zinc-700 bg-zinc-900/30 text-zinc-400" : "border-slate-200 hover:border-slate-350 bg-slate-50/50 text-slate-500"}`
+                }`}
               >
-                {st.id} <span className="hidden sm:inline ml-1 font-sans text-[9px] font-semibold tracking-normal text-opacity-80">{st.name}</span>
+                {st.id}{" "}
+                <span className="hidden sm:inline ml-1 font-sans text-[9px] font-semibold tracking-normal text-opacity-80">
+                  {st.name}
+                </span>
               </button>
             );
           })}
         </div>
 
         {/* Timeline progress bar indicator */}
-        <div className={`h-1 w-48 rounded-full overflow-hidden mt-1 bg-opacity-10 ${isDark ? "bg-white" : "bg-black"
-          }`}>
+        <div
+          className={`h-1 w-48 rounded-full overflow-hidden mt-1 bg-opacity-10 ${
+            isDark ? "bg-white" : "bg-black"
+          }`}
+        >
           <div
             key={activeStage + (isPlaying ? "-playing" : "-paused")}
             className="h-full bg-accent-blue dark:bg-white"
@@ -1693,7 +2289,9 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
                 ? `width ${stageDurations[activeStage]}ms linear`
                 : "width 300ms ease-out",
               // Start at 0 width when playing
-              ...(isPlaying ? { animation: `dgs-fillProgress ${stageDurations[activeStage]}ms linear forwards` } : {})
+              ...(isPlaying
+                ? { animation: `dgs-fillProgress ${stageDurations[activeStage]}ms linear forwards` }
+                : {}),
             }}
           />
         </div>
@@ -1722,7 +2320,7 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
           <span>Respects reduce-motion preferences</span>
         </div>
       </div>
-    </div >
+    </div>
   );
 }
 
@@ -1740,17 +2338,19 @@ export default function DrugDiscoveryPage() {
   };
 
   return (
-    <div className={`flex flex-col w-full min-h-screen relative overflow-hidden font-sans transition-colors duration-300 ${isDark ? "bg-[#0a0b0d] text-bone" : "bg-white text-slate-900"
-      }`}>
+    <div
+      className="flex flex-col w-full min-h-screen relative overflow-hidden font-sans transition-colors duration-300 bg-background text-foreground"
+    >
+      {/* Premium Spotlight Effect */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[350px] bg-gradient-to-b from-accent-blue/15 via-transparent to-transparent blur-[120px] rounded-full pointer-events-none -z-10 opacity-60 dark:opacity-40" />
 
       {/* SECTION 1: THE FRONTIER (Hero) */}
       <section className="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden">
         <GenomeAtlasHero isDark={isDark} />
 
-        <div className={`absolute inset-0 pointer-events-none ${isDark
-          ? "bg-gradient-to-t from-[#0a0b0d] via-transparent to-[#0a0b0d]/60"
-          : "bg-gradient-to-t from-white via-transparent to-white/40"
-          }`} />
+        <div
+          className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background via-transparent to-background/60"
+        />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <Reveal>
@@ -1760,7 +2360,10 @@ export default function DrugDiscoveryPage() {
           </Reveal>
           <Reveal delay={120}>
             {/* Heading styled exactly like the Contact page hero (sans-serif with serif-italic blocker) */}
-            <h1 className="font-semibold leading-[1.1] text-text-primary tracking-tight" style={{ fontSize: 'clamp(2.3rem, 5.5vw, 4.25rem)' }}>
+            <h1
+              className="font-semibold leading-[1.1] text-text-primary tracking-tight"
+              style={{ fontSize: "clamp(2.3rem, 5.5vw, 4.25rem)" }}
+            >
               <span>Discover previously inaccessible</span>
               <span className="font-serif-italic block mt-3 text-accent-blue dark:text-white">
                 — in weeks instead of years.
@@ -1769,7 +2372,8 @@ export default function DrugDiscoveryPage() {
           </Reveal>
           <Reveal delay={240}>
             <p className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-text-secondary leading-relaxed font-medium">
-              We explore the 98% non-coding genome—mapping silent DNA frames and structural RNA networks to output validated therapeutic candidates.
+              We explore the 98% non-coding genome—mapping silent DNA frames and structural RNA
+              networks to output validated therapeutic candidates.
             </p>
           </Reveal>
 
@@ -1790,10 +2394,11 @@ export default function DrugDiscoveryPage() {
               </button>
               <button
                 onClick={() => scrollToSection("evidence")}
-                className={`px-8 py-3.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition duration-300 hover:scale-105 active:scale-95 shadow-sm ${isDark
-                  ? "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-850 hover:border-zinc-700 text-white"
-                  : "border-slate-200 bg-white/75 hover:bg-white hover:border-accent-blue text-slate-800"
-                  }`}
+                className={`px-8 py-3.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition duration-300 hover:scale-105 active:scale-95 shadow-sm ${
+                  isDark
+                    ? "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-850 hover:border-zinc-700 text-white"
+                    : "border-slate-200 bg-white/75 hover:bg-white hover:border-accent-blue text-slate-800"
+                }`}
               >
                 View Scientific Evidence
               </button>
@@ -1803,8 +2408,12 @@ export default function DrugDiscoveryPage() {
       </section>
 
       {/* SECTION 2: THE DARK GENOME MAP (Interactive Chromosome) */}
-      <section id="genome-map" className={`relative z-10 py-24 border-y ${isDark ? "border-border-subtle bg-bg-raised/20" : "border-slate-200 bg-slate-50/50"
-        }`}>
+      <section
+        id="genome-map"
+        className={`relative z-10 py-24 border-y ${
+          isDark ? "border-border-subtle bg-bg-raised/20" : "border-slate-200 bg-slate-50/50"
+        }`}
+      >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
             <Reveal>
@@ -1822,7 +2431,8 @@ export default function DrugDiscoveryPage() {
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto leading-relaxed">
-                Decades of medicine focused on 2% coding regions. We map Class I DNA and Class II RNA structures inside the unexamined 98%.
+                Decades of medicine focused on 2% coding regions. We map Class I DNA and Class II
+                RNA structures inside the unexamined 98%.
               </p>
             </Reveal>
           </div>
@@ -1834,8 +2444,12 @@ export default function DrugDiscoveryPage() {
       </section>
 
       {/* SECTION 3: THE DISCOVERY PIPELINE (Journey through Scale) */}
-      <section id="pipeline" className={`relative z-10 py-24 border-b ${isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
-        }`}>
+      <section
+        id="pipeline"
+        className={`relative z-10 py-24 border-b ${
+          isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
+        }`}
+      >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
             <Reveal>
@@ -1853,7 +2467,8 @@ export default function DrugDiscoveryPage() {
             </Reveal>
             <Reveal delay={250}>
               <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto leading-relaxed">
-                Following genomic candidates from macroscopic structural database mapping to sub-angstrom quantum simulation parameters.
+                Following genomic candidates from macroscopic structural database mapping to
+                sub-angstrom quantum simulation parameters.
               </p>
             </Reveal>
           </div>
@@ -1865,8 +2480,12 @@ export default function DrugDiscoveryPage() {
       </section>
 
       {/* SECTION 4: SCIENTIFIC EVIDENCE (Trust Builders) */}
-      <section id="evidence" className={`relative z-10 py-24 border-b ${isDark ? "bg-bg-raised/20 border-border-subtle" : "bg-slate-50/50 border-slate-200"
-        }`}>
+      <section
+        id="evidence"
+        className={`relative z-10 py-24 border-b ${
+          isDark ? "bg-bg-raised/20 border-border-subtle" : "bg-slate-50/50 border-slate-200"
+        }`}
+      >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
             <Reveal>
@@ -1884,7 +2503,8 @@ export default function DrugDiscoveryPage() {
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto leading-relaxed">
-                Rigorous empirical validations backed by in vitro testing coordinates and academic publications.
+                Rigorous empirical validations backed by in vitro testing coordinates and academic
+                publications.
               </p>
             </Reveal>
           </div>
@@ -1896,8 +2516,12 @@ export default function DrugDiscoveryPage() {
       </section>
 
       {/* SECTION 5: MOLECULE SHOWCASE (Case Studies) */}
-      <section id="molecule-showcase" className={`relative z-10 py-24 border-b ${isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
-        }`}>
+      <section
+        id="molecule-showcase"
+        className={`relative z-10 py-24 border-b ${
+          isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
+        }`}
+      >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
             <Reveal>
@@ -1915,7 +2539,8 @@ export default function DrugDiscoveryPage() {
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto leading-relaxed">
-                Step-by-step case histories tracing candidate discovery from genomic sequences to verified assay binding outcomes.
+                Step-by-step case histories tracing candidate discovery from genomic sequences to
+                verified assay binding outcomes.
               </p>
             </Reveal>
           </div>
@@ -1927,8 +2552,11 @@ export default function DrugDiscoveryPage() {
       </section>
 
       {/* SECTION 6: PLATFORM VISION (Supporting Engines) */}
-      <section className={`relative z-10 py-24 border-b ${isDark ? "bg-bg-raised/25 border-border-subtle" : "bg-slate-50/50 border-slate-200"
-        }`}>
+      <section
+        className={`relative z-10 py-24 border-b ${
+          isDark ? "bg-bg-raised/25 border-border-subtle" : "bg-slate-50/50 border-slate-200"
+        }`}
+      >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
             <Reveal>
@@ -1946,7 +2574,8 @@ export default function DrugDiscoveryPage() {
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-4 text-sm text-text-secondary max-w-lg mx-auto leading-relaxed">
-                Our biological outcomes are backed by proprietary compute clusters, AI algorithms, and quantum solvers.
+                Our biological outcomes are backed by proprietary compute clusters, AI algorithms,
+                and quantum solvers.
               </p>
             </Reveal>
           </div>
@@ -1967,20 +2596,24 @@ export default function DrugDiscoveryPage() {
               },
             ].map((vision, idx) => (
               <div key={idx} className="relative">
-                <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-3xl -z-10 transition-all ${isDark ? "bg-[#181a1d] border border-border-subtle" : "bg-[#f4f0e6] border border-slate-200"
-                  }`} />
+                <div
+                  className={`absolute -bottom-2 -right-2 h-full w-full rounded-3xl -z-10 transition-all ${
+                    isDark
+                      ? "bg-[#181a1d] border border-border-subtle"
+                      : "bg-[#f4f0e6] border border-slate-200"
+                  }`}
+                />
                 <Reveal delay={idx * 100}>
-                  <div className={`border rounded-3xl p-6 md:p-8 flex flex-col justify-between min-h-[200px] transition-all hover:-translate-y-0.5 duration-300 ${isDark
-                    ? "border-border-subtle bg-bg-raised hover:border-accent-blue shadow-md shadow-black/25"
-                    : "border-slate-200 bg-white hover:border-accent-blue shadow-md shadow-slate-100/50"
-                    }`}>
+                  <div
+                    className={`border rounded-3xl p-6 md:p-8 flex flex-col justify-between min-h-[200px] transition-all hover:-translate-y-0.5 duration-300 ${
+                      isDark
+                        ? "border-border-subtle bg-bg-raised hover:border-accent-blue shadow-md shadow-black/25"
+                        : "border-slate-200 bg-white hover:border-accent-blue shadow-md shadow-slate-100/50"
+                    }`}
+                  >
                     <div>
-                      <h4 className="text-lg font-serif-display font-bold mb-3">
-                        {vision.title}
-                      </h4>
-                      <p className="text-xs text-text-secondary leading-relaxed">
-                        {vision.body}
-                      </p>
+                      <h4 className="text-lg font-serif-display font-bold mb-3">{vision.title}</h4>
+                      <p className="text-xs text-text-secondary leading-relaxed">{vision.body}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -2007,8 +2640,8 @@ export default function DrugDiscoveryPage() {
           <Reveal delay={120}>
             {/* Description matching the contact page description */}
             <p className="text-slate-400 text-sm md:text-base mb-10 max-w-xl mx-auto leading-relaxed">
-              Tell us what you&rsquo;re building and we&rsquo;ll help you ship it.
-              Our team replies to every message within one business day.
+              Tell us what you&rsquo;re building and we&rsquo;ll help you ship it. Our team replies
+              to every message within one business day.
             </p>
           </Reveal>
 
@@ -2030,7 +2663,6 @@ export default function DrugDiscoveryPage() {
           </Reveal>
         </div>
       </section>
-
     </div>
   );
 }

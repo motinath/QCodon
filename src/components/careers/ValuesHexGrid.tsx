@@ -59,10 +59,7 @@ function HexCard({ value, index }: { value: Value; index: number }) {
     >
       <div className={`hex-flip-inner ${flipped ? "is-flipped" : ""}`}>
         {/* FRONT */}
-        <div
-          className="hex-face hex-face-front"
-          style={{ backgroundColor: value.accent }}
-        >
+        <div className="hex-face hex-face-front" style={{ backgroundColor: value.accent }}>
           {/* photographic background, desaturated and multiplied with the accent */}
           <div
             className="absolute inset-0"
@@ -90,7 +87,9 @@ function HexCard({ value, index }: { value: Value; index: number }) {
           <div className="relative z-10 flex h-full w-full items-start justify-start px-[14%] pt-[26%]">
             <p className="text-left text-white text-[0.95rem] md:text-[1.05rem] leading-[1.25] font-medium tracking-[-0.005em]">
               {value.title}{" "}
-              <span aria-hidden className="inline-block translate-y-[1px]">→</span>
+              <span aria-hidden className="inline-block translate-y-[1px]">
+                →
+              </span>
             </p>
           </div>
         </div>
@@ -107,9 +106,7 @@ function HexCard({ value, index }: { value: Value; index: number }) {
               {value.title}
             </p>
             <div className="my-3 h-[2px] w-10 rounded-full bg-white/60" />
-            <p className="text-[12px] md:text-[13px] text-white/90 leading-relaxed">
-              {value.body}
-            </p>
+            <p className="text-[12px] md:text-[13px] text-white/90 leading-relaxed">{value.body}</p>
           </div>
         </div>
       </div>
@@ -135,8 +132,7 @@ export default function ValuesHexGrid() {
           <h2 className="font-bagel text-4xl md:text-5xl leading-[1.1] text-[#1a1a1a]">
             <span
               style={{
-                background:
-                  "linear-gradient(90deg, #7c3aed 0%, #5b21b6 100%)",
+                background: "linear-gradient(90deg, #7c3aed 0%, #5b21b6 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -150,8 +146,7 @@ export default function ValuesHexGrid() {
           <p className="mt-5 text-sm md:text-base text-[#5a5a5a]">
             Hover or tap each value to read how we work.
             <br className="hidden md:block" />
-            These aren&apos;t posters on a wall — they&apos;re the decisions we
-            make every day.
+            These aren&apos;t posters on a wall — they&apos;re the decisions we make every day.
           </p>
         </div>
 

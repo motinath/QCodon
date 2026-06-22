@@ -89,9 +89,7 @@ function Reveal({
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[11px] font-mono tracking-[0.32em] text-emerald-600 uppercase">
-      {children}
-    </p>
+    <p className="text-[11px] font-mono tracking-[0.32em] text-emerald-600 uppercase">{children}</p>
   );
 }
 
@@ -109,7 +107,6 @@ function HexBadge({ label }: { label: string }) {
 /* ============================================================
    Page
    ============================================================ */
-
 
 /* ============================================================
    Page
@@ -172,10 +169,7 @@ function Hero({ openContactModal }: { openContactModal: () => void }) {
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-white/20 via-transparent to-white/60 dark:from-slate-950/20 dark:via-transparent dark:to-slate-950/60" />
       <HexGridOverlay />
 
-      <motion.div
-        className="relative z-[2] max-w-3xl"
-        style={{ y: yText, opacity: opacityText }}
-      >
+      <motion.div className="relative z-[2] max-w-3xl" style={{ y: yText, opacity: opacityText }}>
         <Reveal>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/60 shadow-sm">
             <Compass className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
@@ -196,9 +190,10 @@ function Hero({ openContactModal }: { openContactModal: () => void }) {
 
         <Reveal delay={0.2}>
           <p className="mt-6 text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed">
-            Your regulatory compass in <span className="text-slate-900 dark:text-slate-100 font-medium">Biotech</span>,{" "}
-            <span className="text-slate-900 dark:text-slate-100 font-medium">Biomanufacturing</span> &{" "}
-            <span className="text-slate-900 dark:text-slate-100 font-medium">BioAI</span>.
+            Your regulatory compass in{" "}
+            <span className="text-slate-900 dark:text-slate-100 font-medium">Biotech</span>,{" "}
+            <span className="text-slate-900 dark:text-slate-100 font-medium">Biomanufacturing</span>{" "}
+            & <span className="text-slate-900 dark:text-slate-100 font-medium">BioAI</span>.
           </p>
         </Reveal>
 
@@ -265,9 +260,21 @@ function HexGridOverlay() {
    ============================================================ */
 
 const IMPACT = [
-  { icon: TrendingUp, title: "Unprecedented Growth", body: "Global biotech investment surpassing $100B annually, with regulatory complexity growing in parallel." },
-  { icon: ShieldCheck, title: "Critical Compliance", body: "Regulatory missteps cost companies years and millions — our expertise eliminates that risk." },
-  { icon: Target, title: "Clear Pathways", body: "We transform complex regulatory challenges into actionable strategies for market success." },
+  {
+    icon: TrendingUp,
+    title: "Unprecedented Growth",
+    body: "Global biotech investment surpassing $100B annually, with regulatory complexity growing in parallel.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Critical Compliance",
+    body: "Regulatory missteps cost companies years and millions — our expertise eliminates that risk.",
+  },
+  {
+    icon: Target,
+    title: "Clear Pathways",
+    body: "We transform complex regulatory challenges into actionable strategies for market success.",
+  },
 ];
 
 function ImpactStrip() {
@@ -278,7 +285,9 @@ function ImpactStrip() {
           <Eyebrow>The Bio-Revolution</Eyebrow>
           <h2 className="mt-4 font-serif-display italic text-4xl md:text-5xl text-slate-900 dark:text-slate-100 max-w-3xl leading-tight">
             Demands Precision.{" "}
-            <span className="text-emerald-600 dark:text-emerald-400 not-italic">We provide it.</span>
+            <span className="text-emerald-600 dark:text-emerald-400 not-italic">
+              We provide it.
+            </span>
           </h2>
           <p className="mt-5 text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
             The biotech, biomanufacturing, and bioAI sectors are experiencing unprecedented growth —
@@ -300,8 +309,12 @@ function ImpactStrip() {
                   <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-100 dark:ring-emerald-900">
                     <it.icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-6 font-serif-display italic text-2xl text-slate-900 dark:text-slate-100">{it.title}</h3>
-                  <p className="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{it.body}</p>
+                  <h3 className="mt-6 font-serif-display italic text-2xl text-slate-900 dark:text-slate-100">
+                    {it.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {it.body}
+                  </p>
                 </div>
               </motion.div>
             </Reveal>
@@ -342,17 +355,34 @@ function InvestorTrust() {
           </div>
           <div className="mt-8 space-y-3">
             {[
-              { t: "Deep Regulatory Intelligence", d: "Former agency reviewers and industry veterans on every engagement.", icon: ScanSearch },
-              { t: "Accelerated Timelines", d: "Proven strategies that compress approval cycles and reduce capital burn.", icon: Clock },
-              { t: "Investor-Ready Documentation", d: "Regulatory packages that instill confidence in due diligence.", icon: ShieldCheck },
+              {
+                t: "Deep Regulatory Intelligence",
+                d: "Former agency reviewers and industry veterans on every engagement.",
+                icon: ScanSearch,
+              },
+              {
+                t: "Accelerated Timelines",
+                d: "Proven strategies that compress approval cycles and reduce capital burn.",
+                icon: Clock,
+              },
+              {
+                t: "Investor-Ready Documentation",
+                d: "Regulatory packages that instill confidence in due diligence.",
+                icon: ShieldCheck,
+              },
             ].map((p) => (
-              <div key={p.t} className="flex gap-4 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/60 dark:bg-slate-800/60">
+              <div
+                key={p.t}
+                className="flex gap-4 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/60 dark:bg-slate-800/60"
+              >
                 <div className="flex-shrink-0 h-10 w-10 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 grid place-items-center ring-1 ring-emerald-100 dark:ring-emerald-900">
                   <p.icon className="h-4 w-4" />
                 </div>
                 <div>
                   <h4 className="font-medium text-slate-900 dark:text-slate-100">{p.t}</h4>
-                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{p.d}</p>
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {p.d}
+                  </p>
                 </div>
               </div>
             ))}
@@ -429,8 +459,10 @@ function DomainsSection() {
             <Eyebrow>Unlocking Your Company's Potential</Eyebrow>
             <h2 className="mt-4 font-serif-display italic text-4xl md:text-5xl text-slate-900 dark:text-slate-100 leading-tight">
               From molecule to market —{" "}
-              <span className="text-emerald-600 dark:text-emerald-400 not-italic">specialized expertise</span> across the
-              full spectrum.
+              <span className="text-emerald-600 dark:text-emerald-400 not-italic">
+                specialized expertise
+              </span>{" "}
+              across the full spectrum.
             </h2>
           </div>
         </Reveal>
@@ -462,7 +494,9 @@ function DomainsSection() {
                     <h3 className="font-serif-display italic text-2xl md:text-3xl text-slate-900 dark:text-slate-100 leading-snug">
                       {d.title}
                     </h3>
-                    <p className="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{d.body}</p>
+                    <p className="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                      {d.body}
+                    </p>
                   </div>
                   <div className="flex flex-wrap gap-2 pt-2 border-t border-slate-200 dark:border-slate-700">
                     {d.tags.map((t) => (
@@ -553,11 +587,7 @@ function ProvenProcess() {
           className="absolute inset-0 -z-10"
           style={{ scale: bgScale, opacity: bgOpacity }}
         >
-          <img
-            src={facilityImg}
-            alt=""
-            className="h-full w-full object-cover"
-          />
+          <img src={facilityImg} alt="" className="h-full w-full object-cover" />
         </motion.div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/85 via-white/75 to-white/95 dark:from-slate-950/85 dark:via-slate-950/75 dark:to-slate-950/95" />
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.08),transparent_60%)]" />
@@ -565,8 +595,8 @@ function ProvenProcess() {
         <div className="relative max-w-6xl mx-auto w-full">
           <Eyebrow>Our Proven Process</Eyebrow>
           <h2 className="mt-4 font-serif-display italic text-4xl md:text-5xl text-slate-900 dark:text-slate-100 leading-tight max-w-3xl">
-            From <span className="text-emerald-600 dark:text-emerald-400 not-italic">Vision</span> to{" "}
-            <span className="text-sky-600 dark:text-sky-400 not-italic">Validation</span>.
+            From <span className="text-emerald-600 dark:text-emerald-400 not-italic">Vision</span>{" "}
+            to <span className="text-sky-600 dark:text-sky-400 not-italic">Validation</span>.
           </h2>
           <p className="mt-5 text-slate-600 dark:text-slate-400 max-w-2xl">
             A structured, milestone-driven methodology that transforms regulatory complexity into
@@ -590,13 +620,15 @@ function ProvenProcess() {
                         scale: isActive ? 1 : 0.85,
                         backgroundColor: isActive
                           ? "rgb(5,150,105)"
-                          : isDark ? "rgb(15,23,42)" : "rgb(255,255,255)",
+                          : isDark
+                            ? "rgb(15,23,42)"
+                            : "rgb(255,255,255)",
                         borderColor: isActive
                           ? "rgb(16,185,129)"
-                          : isDark ? "rgb(51,65,85)" : "rgb(226,232,240)",
-                        color: isActive
-                          ? "#ffffff"
-                          : isDark ? "#94a3b8" : "#475569",
+                          : isDark
+                            ? "rgb(51,65,85)"
+                            : "rgb(226,232,240)",
+                        color: isActive ? "#ffffff" : isDark ? "#94a3b8" : "#475569",
                       }}
                       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                       className="relative z-10 mx-auto h-14 w-14 rounded-full border-2 grid place-items-center shadow-md"
@@ -651,10 +683,34 @@ function ProvenProcess() {
    ============================================================ */
 
 const STATS = [
-  { value: 200, suffix: "+", label: "Regulatory Submissions", sub: "Across global agencies", icon: Briefcase },
-  { value: 40, suffix: "%", label: "Faster Time-to-Market", sub: "Average client improvement", icon: Clock },
-  { value: 98, suffix: "%", label: "First-Cycle Approval", sub: "Rate for prepared submissions", icon: ShieldCheck },
-  { value: 50, suffix: "+", label: "Expert Advisors", sub: "Former FDA, EMA & ICH veterans", icon: Users },
+  {
+    value: 200,
+    suffix: "+",
+    label: "Regulatory Submissions",
+    sub: "Across global agencies",
+    icon: Briefcase,
+  },
+  {
+    value: 40,
+    suffix: "%",
+    label: "Faster Time-to-Market",
+    sub: "Average client improvement",
+    icon: Clock,
+  },
+  {
+    value: 98,
+    suffix: "%",
+    label: "First-Cycle Approval",
+    sub: "Rate for prepared submissions",
+    icon: ShieldCheck,
+  },
+  {
+    value: 50,
+    suffix: "+",
+    label: "Expert Advisors",
+    sub: "Former FDA, EMA & ICH veterans",
+    icon: Users,
+  },
 ];
 
 function Counter({ to, suffix }: { to: number; suffix: string }) {
@@ -694,7 +750,9 @@ function NumbersStrip() {
             <Eyebrow>By the Numbers</Eyebrow>
             <h2 className="mt-4 font-serif-display italic text-4xl md:text-5xl text-slate-900 dark:text-slate-100 leading-tight">
               Every complex journey has a{" "}
-              <span className="text-emerald-600 dark:text-emerald-400 not-italic">clear path forward.</span>
+              <span className="text-emerald-600 dark:text-emerald-400 not-italic">
+                clear path forward.
+              </span>
             </h2>
             <p className="mt-5 text-slate-600 dark:text-slate-400 leading-relaxed">
               Regulatory uncertainty is the single greatest threat to biotech investment returns. We
@@ -715,7 +773,9 @@ function NumbersStrip() {
                     <s.icon className="h-4 w-4" />
                   </div>
                 </div>
-                <p className="mt-4 text-sm font-semibold text-slate-900 dark:text-slate-100">{s.label}</p>
+                <p className="mt-4 text-sm font-semibold text-slate-900 dark:text-slate-100">
+                  {s.label}
+                </p>
                 <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">{s.sub}</p>
               </div>
             </Reveal>
@@ -731,10 +791,26 @@ function NumbersStrip() {
    ============================================================ */
 
 const ARCHITECTS = [
-  { icon: Award, title: "Former Agency Reviewers", body: "Veterans from FDA, EMA, and PMDA who understand the reviewer mindset and how to build winning submissions." },
-  { icon: Briefcase, title: "Industry Strategists", body: "Senior consultants with decades of experience at top-tier pharma, biotech, and medical device companies." },
-  { icon: Cpu, title: "BioAI Specialists", body: "Pioneers in AI/ML regulatory science, bridging computational innovation with emerging global frameworks." },
-  { icon: ShieldCheck, title: "GMP Compliance Experts", body: "Deep specialists in biomanufacturing quality systems, facility design, and process validation strategy." },
+  {
+    icon: Award,
+    title: "Former Agency Reviewers",
+    body: "Veterans from FDA, EMA, and PMDA who understand the reviewer mindset and how to build winning submissions.",
+  },
+  {
+    icon: Briefcase,
+    title: "Industry Strategists",
+    body: "Senior consultants with decades of experience at top-tier pharma, biotech, and medical device companies.",
+  },
+  {
+    icon: Cpu,
+    title: "BioAI Specialists",
+    body: "Pioneers in AI/ML regulatory science, bridging computational innovation with emerging global frameworks.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "GMP Compliance Experts",
+    body: "Deep specialists in biomanufacturing quality systems, facility design, and process validation strategy.",
+  },
 ];
 
 function ArchitectsGrid() {
@@ -744,7 +820,11 @@ function ArchitectsGrid() {
         <Reveal>
           <Eyebrow>Meet the Architects</Eyebrow>
           <h2 className="mt-4 font-serif-display italic text-4xl md:text-5xl text-slate-900 dark:text-slate-100 leading-tight max-w-3xl">
-            of your <span className="text-emerald-600 dark:text-emerald-400 not-italic">regulatory success</span>.
+            of your{" "}
+            <span className="text-emerald-600 dark:text-emerald-400 not-italic">
+              regulatory success
+            </span>
+            .
           </h2>
         </Reveal>
 
@@ -762,7 +842,9 @@ function ArchitectsGrid() {
                 <h3 className="mt-6 font-serif-display italic text-xl text-slate-900 dark:text-slate-100 leading-snug">
                   {a.title}
                 </h3>
-                <p className="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{a.body}</p>
+                <p className="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {a.body}
+                </p>
               </motion.div>
             </Reveal>
           ))}
@@ -777,9 +859,21 @@ function ArchitectsGrid() {
    ============================================================ */
 
 const AUDIENCES = [
-  { icon: Users, title: "For Founders", body: "Build a regulatory strategy that accelerates your path to commercialization and scales with your ambition." },
-  { icon: TrendingUp, title: "For Investors", body: "Conduct deeper due diligence with confidence — our assessments illuminate regulatory risk and timeline clarity." },
-  { icon: Building2, title: "For Boards", body: "Establish governance-grade compliance infrastructure that protects enterprise value at every stage." },
+  {
+    icon: Users,
+    title: "For Founders",
+    body: "Build a regulatory strategy that accelerates your path to commercialization and scales with your ambition.",
+  },
+  {
+    icon: TrendingUp,
+    title: "For Investors",
+    body: "Conduct deeper due diligence with confidence — our assessments illuminate regulatory risk and timeline clarity.",
+  },
+  {
+    icon: Building2,
+    title: "For Boards",
+    body: "Establish governance-grade compliance infrastructure that protects enterprise value at every stage.",
+  },
 ];
 
 function PartnerBand({ openContactModal }: { openContactModal: () => void }) {
@@ -813,8 +907,12 @@ function PartnerBand({ openContactModal }: { openContactModal: () => void }) {
                 <div className="h-11 w-11 rounded-xl bg-emerald-50 dark:bg-emerald-950 border border-emerald-100 dark:border-emerald-900 grid place-items-center text-emerald-600 dark:text-emerald-400">
                   <a.icon className="h-5 w-5" />
                 </div>
-                <h3 className="mt-6 font-serif-display italic text-2xl text-slate-900 dark:text-slate-100">{a.title}</h3>
-                <p className="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{a.body}</p>
+                <h3 className="mt-6 font-serif-display italic text-2xl text-slate-900 dark:text-slate-100">
+                  {a.title}
+                </h3>
+                <p className="mt-3 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {a.body}
+                </p>
               </div>
             </Reveal>
           ))}

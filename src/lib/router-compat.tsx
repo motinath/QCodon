@@ -5,6 +5,7 @@ type LinkProps = Omit<ComponentProps<typeof TLink>, "to"> & {
   to: string;
   children?: ReactNode;
   className?: string;
+  params?: any;
 };
 
 // Drop-in `Link` matching react-router-dom's API surface used in this project.
@@ -26,10 +27,8 @@ export function NavLink({ to, className, children, end, ...rest }: NavLinkProps)
   const target = path || "/";
   const isActive = end || target === "/" ? pathname === target : pathname.startsWith(target);
   const state = { isActive, isPending: false };
-  const resolvedClass =
-    typeof className === "function" ? className(state) : className;
-  const resolvedChildren =
-    typeof children === "function" ? children(state) : children;
+  const resolvedClass = typeof className === "function" ? className(state) : className;
+  const resolvedChildren = typeof children === "function" ? children(state) : children;
   return (
     <Link to={to} className={resolvedClass} {...rest}>
       {resolvedChildren}

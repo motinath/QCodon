@@ -23,7 +23,7 @@ export default function OpenPositions() {
 
   const filtered = useMemo(
     () => (active === "All" ? JOBS : JOBS.filter((j) => j.track === active)),
-    [active]
+    [active],
   );
 
   return (
@@ -44,7 +44,9 @@ export default function OpenPositions() {
                   type="button"
                   onClick={() => setActive(tab)}
                   className={`relative pb-3 text-sm md:text-base transition ${
-                    isActive ? "text-accent-blue font-semibold" : "text-muted-foreground hover:text-foreground"
+                    isActive
+                      ? "text-accent-blue font-semibold"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {tab}
@@ -96,8 +98,8 @@ export default function OpenPositions() {
           <div className="rounded-3xl border border-border bg-card shadow-[0_20px_60px_-25px_rgba(0,0,0,0.25)] px-6 py-12 md:px-12 md:py-14 text-center">
             <h3 className="font-bagel text-3xl md:text-4xl">Ready to Build What's Next?</h3>
             <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
-              We're always reading notes from driven, curious minds. Tell us what you'd build
-              if the dark genome was your canvas.
+              We're always reading notes from driven, curious minds. Tell us what you'd build if the
+              dark genome was your canvas.
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
               <a

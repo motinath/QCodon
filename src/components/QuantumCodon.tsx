@@ -2,21 +2,37 @@ import React, { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
 import SkyToggle from "@/components/ui/sky-toggle";
 import { Link, NavLink } from "@/lib/router-compat";
-import { ArrowUp, Heart, Mail, Instagram, Facebook, Linkedin, Youtube, ChevronDown, Info, Briefcase, BookOpen, FileText, Microscope, HeartPulse, Factory, GraduationCap } from "lucide-react";
+import {
+  ArrowUp,
+  Heart,
+  Mail,
+  Instagram,
+  Facebook,
+  Linkedin,
+  Youtube,
+  ChevronDown,
+  Info,
+  Briefcase,
+  BookOpen,
+  FileText,
+  Microscope,
+  HeartPulse,
+  Factory,
+  GraduationCap,
+} from "lucide-react";
 import { industries } from "@/lib/industries-data";
 import { offerings } from "@/lib/services-data";
 import { useTheme } from "@/components/ThemeProvider";
 import { useContactModal } from "@/components/ContactModal";
+import dnaVideo from "@/assets/dna.mp4";
 
 const OFFERING_ANCHORS: Record<string, string> = {
   "drug-discovery": "/#drug-discovery",
   "bio-mmg": "/#bio-mmg",
   "analytical-service": "/#analytical-services",
-  "bio-infactic": "/#bioinformatics",
-  "regulatory-complaints": "/#regulatory-complaints",
-  "bio-infactic": "/#bio-infactic",
+  bioinformatics: "/#bioinformatics",
   "regulatory-compliance": "/services/regulatory-compliance",
-  "education": "/#education",
+  education: "/#education",
 };
 
 const companyItems = [
@@ -110,7 +126,11 @@ export function QcNavbar() {
     <header className="fixed top-0 inset-x-0 z-50 glass-navbar">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5">
-          <img src="/logo-emblem.png" alt="Quantum Codon Logo" className="h-7 w-auto object-contain dark:brightness-110" />
+          <img
+            src="/logo-emblem.png"
+            alt="Quantum Codon Logo"
+            className="h-7 w-auto object-contain dark:brightness-110"
+          />
           <span className="font-serif-display text-base tracking-tight">Quantum Codon</span>
         </Link>
 
@@ -125,12 +145,14 @@ export function QcNavbar() {
             <button
               type="button"
               onClick={() => setActiveMenu(activeMenu === "offerings" ? null : "offerings")}
-              className={`flex items-center gap-1 py-2 transition-colors ${activeMenu === "offerings" ? 'text-foreground font-medium' : 'text-muted-foreground hover:text-foreground'}`}
+              className={`flex items-center gap-1 py-2 transition-colors ${activeMenu === "offerings" ? "text-foreground font-medium" : "text-muted-foreground hover:text-foreground"}`}
               aria-expanded={activeMenu === "offerings"}
               aria-haspopup="menu"
             >
               Offerings
-              <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === "offerings" ? "rotate-180" : ""}`} />
+              <ChevronDown
+                className={`h-3 w-3 transition-transform duration-200 ${activeMenu === "offerings" ? "rotate-180" : ""}`}
+              />
             </button>
 
             {activeMenu === "offerings" && (
@@ -152,8 +174,12 @@ export function QcNavbar() {
                 }}
               >
                 <div className="mb-2 px-1">
-                  <p className="text-[9px] tracking-[0.3em] text-accent-emerald uppercase font-semibold">Our Offerings</p>
-                  <p className="text-[11px] text-muted-foreground mt-0">Explore the full suite of Quantum Codon services.</p>
+                  <p className="text-[9px] tracking-[0.3em] text-accent-emerald uppercase font-semibold">
+                    Our Offerings
+                  </p>
+                  <p className="text-[11px] text-muted-foreground mt-0">
+                    Explore the full suite of Quantum Codon services.
+                  </p>
                 </div>
                 <div className="grid grid-cols-2" style={{ gap: "8px" }}>
                   {offerings.map((o) => {
@@ -167,9 +193,13 @@ export function QcNavbar() {
                       >
                         <div className="flex items-center gap-2 mb-1.5">
                           <Icon className="h-4 w-4 text-foreground/80 shrink-0 group-hover:text-accent-blue transition-colors" />
-                          <h3 className="text-[12px] font-semibold leading-tight text-foreground group-hover:text-accent-blue transition-colors">{o.title}</h3>
+                          <h3 className="text-[12px] font-semibold leading-tight text-foreground group-hover:text-accent-blue transition-colors">
+                            {o.title}
+                          </h3>
                         </div>
-                        <p className="text-[11px] leading-snug text-muted-foreground offering-desc">{o.description}</p>
+                        <p className="text-[11px] leading-snug text-muted-foreground offering-desc">
+                          {o.description}
+                        </p>
                       </Link>
                     );
                   })}
@@ -188,12 +218,14 @@ export function QcNavbar() {
             <button
               type="button"
               onClick={() => setActiveMenu(activeMenu === "industries" ? null : "industries")}
-              className={`flex items-center gap-1 py-2 transition-colors ${activeMenu === "industries" ? 'text-foreground font-medium' : 'text-muted-foreground hover:text-foreground'}`}
+              className={`flex items-center gap-1 py-2 transition-colors ${activeMenu === "industries" ? "text-foreground font-medium" : "text-muted-foreground hover:text-foreground"}`}
               aria-expanded={activeMenu === "industries"}
               aria-haspopup="menu"
             >
               Industries
-              <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === "industries" ? "rotate-180" : ""}`} />
+              <ChevronDown
+                className={`h-3 w-3 transition-transform duration-200 ${activeMenu === "industries" ? "rotate-180" : ""}`}
+              />
             </button>
 
             {activeMenu === "industries" && (
@@ -215,8 +247,12 @@ export function QcNavbar() {
                 }}
               >
                 <div className="mb-2 px-1">
-                  <p className="text-[9px] tracking-[0.3em] text-accent-emerald uppercase font-semibold">Industries</p>
-                  <p className="text-[11px] text-muted-foreground mt-0">Where Deep Codon creates impact.</p>
+                  <p className="text-[9px] tracking-[0.3em] text-accent-emerald uppercase font-semibold">
+                    Industries
+                  </p>
+                  <p className="text-[11px] text-muted-foreground mt-0">
+                    Where Deep Codon creates impact.
+                  </p>
                 </div>
                 <div className="flex flex-col" style={{ gap: "8px" }}>
                   {industriesItems.map((item) => {
@@ -230,9 +266,13 @@ export function QcNavbar() {
                       >
                         <div className="flex items-center gap-2 mb-1.5">
                           <Icon className="h-4 w-4 text-foreground/80 shrink-0 group-hover:text-accent-blue transition-colors" />
-                          <h3 className="text-[12px] font-semibold leading-tight text-foreground group-hover:text-accent-blue transition-colors">{item.label}</h3>
+                          <h3 className="text-[12px] font-semibold leading-tight text-foreground group-hover:text-accent-blue transition-colors">
+                            {item.label}
+                          </h3>
                         </div>
-                        <p className="text-[11px] leading-snug text-muted-foreground offering-desc line-clamp-2">{item.subtext}</p>
+                        <p className="text-[11px] leading-snug text-muted-foreground offering-desc line-clamp-2">
+                          {item.subtext}
+                        </p>
                       </Link>
                     );
                   })}
@@ -251,12 +291,14 @@ export function QcNavbar() {
             <button
               type="button"
               onClick={() => setActiveMenu(activeMenu === "insights" ? null : "insights")}
-              className={`flex items-center gap-1 py-2 transition-colors ${activeMenu === "insights" ? 'text-foreground font-medium' : 'text-muted-foreground hover:text-foreground'}`}
+              className={`flex items-center gap-1 py-2 transition-colors ${activeMenu === "insights" ? "text-foreground font-medium" : "text-muted-foreground hover:text-foreground"}`}
               aria-expanded={activeMenu === "insights"}
               aria-haspopup="menu"
             >
               Insights
-              <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === "insights" ? "rotate-180" : ""}`} />
+              <ChevronDown
+                className={`h-3 w-3 transition-transform duration-200 ${activeMenu === "insights" ? "rotate-180" : ""}`}
+              />
             </button>
 
             {activeMenu === "insights" && (
@@ -278,8 +320,12 @@ export function QcNavbar() {
                 }}
               >
                 <div className="mb-2 px-1">
-                  <p className="text-[9px] tracking-[0.3em] text-accent-emerald uppercase font-semibold">Insights</p>
-                  <p className="text-[11px] text-muted-foreground mt-0">Ideas, stories, and science from our team.</p>
+                  <p className="text-[9px] tracking-[0.3em] text-accent-emerald uppercase font-semibold">
+                    Insights
+                  </p>
+                  <p className="text-[11px] text-muted-foreground mt-0">
+                    Ideas, stories, and science from our team.
+                  </p>
                 </div>
                 <div className="flex flex-col" style={{ gap: "8px" }}>
                   {insightsItems.map((item) => {
@@ -293,9 +339,13 @@ export function QcNavbar() {
                       >
                         <div className="flex items-center gap-2 mb-1.5">
                           <Icon className="h-4 w-4 text-foreground/80 shrink-0 group-hover:text-accent-blue transition-colors" />
-                          <h3 className="text-[12px] font-semibold leading-tight text-foreground group-hover:text-accent-blue transition-colors">{item.label}</h3>
+                          <h3 className="text-[12px] font-semibold leading-tight text-foreground group-hover:text-accent-blue transition-colors">
+                            {item.label}
+                          </h3>
                         </div>
-                        <p className="text-[11px] leading-snug text-muted-foreground offering-desc line-clamp-2">{item.subtext}</p>
+                        <p className="text-[11px] leading-snug text-muted-foreground offering-desc line-clamp-2">
+                          {item.subtext}
+                        </p>
                       </Link>
                     );
                   })}
@@ -303,7 +353,6 @@ export function QcNavbar() {
               </div>
             )}
           </div>
-
 
           {/* Company dropdown */}
           <div
@@ -315,12 +364,14 @@ export function QcNavbar() {
             <button
               type="button"
               onClick={() => setActiveMenu(activeMenu === "company" ? null : "company")}
-              className={`flex items-center gap-1 py-2 transition-colors ${activeMenu === "company" ? 'text-foreground font-medium' : 'text-muted-foreground hover:text-foreground'}`}
+              className={`flex items-center gap-1 py-2 transition-colors ${activeMenu === "company" ? "text-foreground font-medium" : "text-muted-foreground hover:text-foreground"}`}
               aria-expanded={activeMenu === "company"}
               aria-haspopup="menu"
             >
               Company
-              <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${activeMenu === "company" ? "rotate-180" : ""}`} />
+              <ChevronDown
+                className={`h-3 w-3 transition-transform duration-200 ${activeMenu === "company" ? "rotate-180" : ""}`}
+              />
             </button>
 
             {activeMenu === "company" && (
@@ -342,8 +393,12 @@ export function QcNavbar() {
                 }}
               >
                 <div className="mb-2 px-1">
-                  <p className="text-[9px] tracking-[0.3em] text-accent-emerald uppercase font-semibold">Company</p>
-                  <p className="text-[11px] text-muted-foreground mt-0">Learn more about Quantum Codon.</p>
+                  <p className="text-[9px] tracking-[0.3em] text-accent-emerald uppercase font-semibold">
+                    Company
+                  </p>
+                  <p className="text-[11px] text-muted-foreground mt-0">
+                    Learn more about Quantum Codon.
+                  </p>
                 </div>
                 <div className="flex flex-col" style={{ gap: "8px" }}>
                   {companyItems.map((item) => {
@@ -357,9 +412,13 @@ export function QcNavbar() {
                       >
                         <div className="flex items-center gap-2 mb-1.5">
                           <Icon className="h-4 w-4 text-foreground/80 shrink-0 group-hover:text-accent-blue transition-colors" />
-                          <h3 className="text-[12px] font-semibold leading-tight text-foreground group-hover:text-accent-blue transition-colors">{item.label}</h3>
+                          <h3 className="text-[12px] font-semibold leading-tight text-foreground group-hover:text-accent-blue transition-colors">
+                            {item.label}
+                          </h3>
                         </div>
-                        <p className="text-[11px] leading-snug text-muted-foreground offering-desc">{item.subtext}</p>
+                        <p className="text-[11px] leading-snug text-muted-foreground offering-desc">
+                          {item.subtext}
+                        </p>
                       </Link>
                     );
                   })}
@@ -394,8 +453,6 @@ export function QcNavbar() {
   );
 }
 
-
-
 export function QcHero() {
   return (
     <section id="hero" className="relative min-h-screen pt-32 pb-24 overflow-hidden">
@@ -403,23 +460,33 @@ export function QcHero() {
       <div className="absolute inset-0 opacity-[0.08] bg-[linear-gradient(rgba(255,255,255,0.4)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.4)_1px,transparent_1px)] bg-[size:48px_48px]" />
       <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <p className="text-xs tracking-[0.3em] text-accent-blue mb-6">DEEP CODON INITIATIVE — QUANTUM CODON PVT LTD</p>
+          <p className="text-xs tracking-[0.3em] text-accent-blue mb-6">
+            DEEP CODON INITIATIVE — QUANTUM CODON PVT LTD
+          </p>
           <h1 className="font-bagel text-5xl md:text-7xl leading-[1.05]">
             The Genome Holds a Secret{" "}
             <span className="bg-gradient-to-r from-accent-blue via-accent-purple to-accent-emerald bg-clip-text text-transparent">
               98%.
             </span>
-            <br />We Are Decoding It.
+            <br />
+            We Are Decoding It.
           </h1>
           <blockquote className="mt-8 border-l-2 border-accent-purple pl-4 text-muted-foreground italic max-w-lg">
             "Dark genome is a treasure house for the next generation of drug discovery molecules."
-            <footer className="not-italic mt-2 text-sm">— Prof. Pawan K Dhar, CSO, Quantum Codon</footer>
+            <footer className="not-italic mt-2 text-sm">
+              — Prof. Pawan K Dhar, CSO, Quantum Codon
+            </footer>
           </blockquote>
           <p className="mt-6 text-muted-foreground max-w-xl leading-relaxed">
-            For fifty years, biology focused on the 2% of DNA that codes for proteins. Deep Codon systematically unlocks the remaining 98% — non-expressing DNA and non-translating RNA — and converts it into first-in-class therapeutic molecules.
+            For fifty years, biology focused on the 2% of DNA that codes for proteins. Deep Codon
+            systematically unlocks the remaining 98% — non-expressing DNA and non-translating RNA —
+            and converts it into first-in-class therapeutic molecules.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#platform" className="px-6 py-3 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple text-white shadow-[0_10px_40px_-10px_rgba(124,58,237,0.6)]">
+            <a
+              href="#platform"
+              className="px-6 py-3 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple text-white shadow-[0_10px_40px_-10px_rgba(124,58,237,0.6)]"
+            >
               Explore the Platform →
             </a>
             <a href="#paper" className="px-6 py-3 rounded-full glass-effect dark:border-white/15">
@@ -472,7 +539,9 @@ export function QcHero() {
           ["22nM", "IC50 of tREP-18 against Leishmania"],
         ].map(([n, l]) => (
           <Card key={n} className="glass-effect dark:border-white/10 p-6 dark:bg-white/5">
-            <div className="font-bagel text-4xl bg-gradient-to-r from-accent-blue to-accent-emerald bg-clip-text text-transparent">{n}</div>
+            <div className="font-bagel text-4xl bg-gradient-to-r from-accent-blue to-accent-emerald bg-clip-text text-transparent">
+              {n}
+            </div>
             <div className="mt-2 text-xs text-muted-foreground">{l}</div>
           </Card>
         ))}
@@ -483,21 +552,36 @@ export function QcHero() {
 
 export function QcUntapped() {
   return (
-    <section id="platform" className="relative py-28 px-6 bg-[#f0f4f8] dark:bg-[#0c131f] transition-colors duration-300">
+    <section
+      id="platform"
+      className="relative py-28 px-6 bg-[#f0f4f8] dark:bg-[#0c131f] transition-colors duration-300"
+    >
       <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
         {/* Left column: Text & progress bars */}
         <div className="lg:col-span-7">
           <p className="text-xs tracking-[0.3em] text-accent-emerald">UNTAPPED BIOLOGICAL SPACE</p>
-          <h2 className="font-bagel text-4xl md:text-5xl mt-3">The Untapped Scale of the Dark Genome</h2>
+          <h2 className="font-bagel text-4xl md:text-5xl mt-3">
+            The Untapped Scale of the Dark Genome
+          </h2>
           <p className="mt-6 text-muted-foreground text-sm leading-relaxed">
-            Every genome — bacterial, yeast, fly, worm, human — contains an overwhelming majority of sequences that have never been expressed as proteins. These are not gaps or errors. They are the unexplored majority of life's coding potential.
+            Every genome — bacterial, yeast, fly, worm, human — contains an overwhelming majority of
+            sequences that have never been expressed as proteins. These are not gaps or errors. They
+            are the unexplored majority of life's coding potential.
           </p>
 
           <div className="mt-10 space-y-4">
             {[
               { label: "Protein-coding DNA", pct: 2, color: "from-cyan-400 to-accent-blue" },
-              { label: "Class I — Non-expressing DNA", pct: 40, color: "from-yellow-500 to-orange-500" },
-              { label: "Class II — Non-translating RNA", pct: 56, color: "from-accent-purple to-pink-500" },
+              {
+                label: "Class I — Non-expressing DNA",
+                pct: 40,
+                color: "from-yellow-500 to-orange-500",
+              },
+              {
+                label: "Class II — Non-translating RNA",
+                pct: 56,
+                color: "from-accent-purple to-pink-500",
+              },
             ].map((b) => (
               <div key={b.label}>
                 <div className="flex justify-between text-xs mb-1.5 font-medium">
@@ -505,13 +589,17 @@ export function QcUntapped() {
                   <span className="font-mono text-muted-foreground">{b.pct}%</span>
                 </div>
                 <div className="h-2.5 rounded-full bg-black/5 dark:bg-white/5 overflow-hidden">
-                  <div className={`h-full bg-gradient-to-r ${b.color}`} style={{ width: `${b.pct}%` }} />
+                  <div
+                    className={`h-full bg-gradient-to-r ${b.color}`}
+                    style={{ width: `${b.pct}%` }}
+                  />
                 </div>
               </div>
             ))}
           </div>
           <p className="mt-5 text-[11px] text-muted-foreground leading-relaxed">
-            Approximate proportions vary by organism and annotation methodology. Class I + Class II form Deep Codon's therapeutic reservoir.
+            Approximate proportions vary by organism and annotation methodology. Class I + Class II
+            form Deep Codon's therapeutic reservoir.
           </p>
         </div>
 
@@ -519,13 +607,20 @@ export function QcUntapped() {
         <div className="lg:col-span-5 flex justify-center w-full">
           <div className="relative w-full max-w-sm rounded-3xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/40 dark:bg-black/20 p-4 shadow-xl backdrop-blur-md">
             <div className="absolute inset-0 bg-gradient-to-br from-accent-emerald/10 via-transparent to-accent-blue/10 opacity-40 pointer-events-none" />
-            <img
-              src="/dark-genome.png"
-              alt="98% Dark Genome Structure Map"
-              className="w-full h-64 object-cover rounded-2xl border border-black/5 dark:border-white/5 hover:scale-[1.02] transition-transform duration-500"
-            />
+            <div className="w-full h-64 rounded-2xl overflow-hidden border border-black/5 dark:border-white/5 relative bg-[#091b2c]">
+              <video
+                className="w-full h-full object-cover rounded-2xl"
+                src={dnaVideo}
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+            </div>
             <div className="mt-4 text-center">
-              <span className="text-[10px] tracking-[0.25em] uppercase font-mono text-accent-emerald font-semibold">98% Dark Genome Reservoir</span>
+              <span className="text-[10px] tracking-[0.25em] uppercase font-mono text-accent-emerald font-semibold">
+                98% Dark Genome Reservoir
+              </span>
             </div>
           </div>
         </div>
@@ -544,13 +639,29 @@ const classes = [
     intro:
       "DNA regions that are present in every cell but are never transcribed into RNA under natural conditions. Deep Codon's synthetic expression platform unlocks this vast, untouched coding reservoir for the first time.",
     items: [
-      ["Intergenic regions", "Sequences between annotated genes. 6/6 randomly selected E. coli intergenic sequences produced stable, functional proteins."],
-      ["Antisense sequences", "Complementary strands to coding sequences. Full-length antisense proteins predicted across E. coli, S. cerevisiae, and D. melanogaster."],
-      ["Reverse ORFs", "Existing coding sequences read in the reverse (-1) frame — a parallel protein universe derived from every annotated gene."],
-      ["Repetitive elements", "Telomeric repeats, microsatellites, LINE/SINE-derived sequences — an underexplored test bed for novel scaffold motifs."],
-      ["Pseudogenes", "Once-active genes silenced by mutation. Synthetic reconstruction shows many fold into stable, functional proteins."],
+      [
+        "Intergenic regions",
+        "Sequences between annotated genes. 6/6 randomly selected E. coli intergenic sequences produced stable, functional proteins.",
+      ],
+      [
+        "Antisense sequences",
+        "Complementary strands to coding sequences. Full-length antisense proteins predicted across E. coli, S. cerevisiae, and D. melanogaster.",
+      ],
+      [
+        "Reverse ORFs",
+        "Existing coding sequences read in the reverse (-1) frame — a parallel protein universe derived from every annotated gene.",
+      ],
+      [
+        "Repetitive elements",
+        "Telomeric repeats, microsatellites, LINE/SINE-derived sequences — an underexplored test bed for novel scaffold motifs.",
+      ],
+      [
+        "Pseudogenes",
+        "Once-active genes silenced by mutation. Synthetic reconstruction shows many fold into stable, functional proteins.",
+      ],
     ],
-    pipeline: "Bioinformatics → Synthetic cloning → Expression (E. coli / HEK293 / cell-free) → AlphaFold → Functional assays → Lead optimisation",
+    pipeline:
+      "Bioinformatics → Synthetic cloning → Expression (E. coli / HEK293 / cell-free) → AlphaFold → Functional assays → Lead optimisation",
   },
   {
     badge: "II",
@@ -561,19 +672,38 @@ const classes = [
     intro:
       "RNA molecules produced by the cell but never translated into protein. Synthetic translation of these sequences produces biologically active peptides with remarkable therapeutic properties.",
     items: [
-      ["Introns", "Spliced out during mRNA processing — yet translate into stable, bioactive peptides and proteins."],
-      ["tREPs (tRNA-derived peptides)", "tREP-18, derived from E. coli tRNA, showed anti-leishmanial activity at IC50 = 22.13 nM while safe for human cells."],
-      ["Ribosomal RNA", "The scaffold of the ribosome itself — never translated in evolution, a unique template for novel functional peptides."],
-      ["MicroRNA", "Only ~22 nucleotides, but with remarkable precision when synthetically translated."],
-      ["Long non-coding RNA", "Hundreds to thousands of bases — enormous, uncharted protein-coding reservoir."],
+      [
+        "Introns",
+        "Spliced out during mRNA processing — yet translate into stable, bioactive peptides and proteins.",
+      ],
+      [
+        "tREPs (tRNA-derived peptides)",
+        "tREP-18, derived from E. coli tRNA, showed anti-leishmanial activity at IC50 = 22.13 nM while safe for human cells.",
+      ],
+      [
+        "Ribosomal RNA",
+        "The scaffold of the ribosome itself — never translated in evolution, a unique template for novel functional peptides.",
+      ],
+      [
+        "MicroRNA",
+        "Only ~22 nucleotides, but with remarkable precision when synthetically translated.",
+      ],
+      [
+        "Long non-coding RNA",
+        "Hundreds to thousands of bases — enormous, uncharted protein-coding reservoir.",
+      ],
     ],
-    pipeline: "tRNA / rRNA / intron ID → Computational translation → Stability prediction → Chemical synthesis → Bioassay → tREP library",
+    pipeline:
+      "tRNA / rRNA / intron ID → Computational translation → Stability prediction → Chemical synthesis → Bioassay → tREP library",
   },
 ];
 
 export function QcClasses() {
   return (
-    <section id="classes" className="relative py-28 px-6 bg-[#f5f3ff] dark:bg-[#120e24] transition-colors duration-300">
+    <section
+      id="classes"
+      className="relative py-28 px-6 bg-[#f5f3ff] dark:bg-[#120e24] transition-colors duration-300"
+    >
       <div className="max-w-6xl mx-auto">
         <p className="text-xs tracking-[0.3em] text-accent-purple">THE DEEP CODON CLASSIFICATION</p>
         <h2 className="font-bagel text-4xl md:text-5xl mt-3 max-w-3xl">
@@ -582,20 +712,26 @@ export function QcClasses() {
 
         <div className="mt-14 grid lg:grid-cols-2 gap-8">
           {classes.map((c) => (
-            <Card key={c.tag} className={`relative p-8 border bg-gradient-to-br ${c.color} backdrop-blur-xl flex flex-col md:flex-row gap-6 items-start`}>
+            <Card
+              key={c.tag}
+              className={`relative p-8 border bg-gradient-to-br ${c.color} backdrop-blur-xl flex flex-col md:flex-row gap-6 items-start`}
+            >
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center font-bagel text-2xl">
                     {c.badge}
                   </div>
-                  <div className="text-xs tracking-[0.3em] text-muted-foreground">{c.tag.toUpperCase()}</div>
+                  <div className="text-xs tracking-[0.3em] text-muted-foreground">
+                    {c.tag.toUpperCase()}
+                  </div>
                 </div>
                 <h3 className="font-bagel text-2xl mb-3">{c.title}</h3>
                 <p className="text-sm text-muted-foreground mb-6">{c.intro}</p>
                 <ul className="space-y-3 text-sm">
                   {c.items.map(([k, v]) => (
                     <li key={k} className="border-l-2 border-black/10 dark:border-white/10 pl-3">
-                      <span className="font-semibold">{k}</span>{" — "}
+                      <span className="font-semibold">{k}</span>
+                      {" — "}
                       <span className="text-muted-foreground">{v}</span>
                     </li>
                   ))}
@@ -606,7 +742,11 @@ export function QcClasses() {
               </div>
               {c.image && (
                 <div className="w-full md:w-32 shrink-0 rounded-2xl overflow-hidden border border-black/5 dark:border-white/10 bg-white/20 dark:bg-black/20 p-2 shadow-md self-center md:self-start">
-                  <img src={c.image} alt={c.title} className="w-full h-32 md:h-24 object-cover rounded-xl border border-black/5 dark:border-white/5" />
+                  <img
+                    src={c.image}
+                    alt={c.title}
+                    className="w-full h-32 md:h-24 object-cover rounded-xl border border-black/5 dark:border-white/5"
+                  />
                 </div>
               )}
             </Card>
@@ -616,7 +756,9 @@ export function QcClasses() {
         <Card className="mt-10 p-8 border border-white/10 bg-gradient-to-r from-accent-blue/10 via-accent-purple/10 to-accent-emerald/10">
           <h3 className="font-bagel text-2xl">Class I + Class II → First-in-Class Pathways</h3>
           <p className="mt-3 text-muted-foreground">
-            By combining Class I proteins and Class II peptides — using domain prediction and molecular docking — Deep Codon designs entirely novel cellular pathways: regulatory, signalling, or metabolic. These pathways do not exist in nature.
+            By combining Class I proteins and Class II peptides — using domain prediction and
+            molecular docking — Deep Codon designs entirely novel cellular pathways: regulatory,
+            signalling, or metabolic. These pathways do not exist in nature.
           </p>
         </Card>
       </div>
@@ -625,27 +767,87 @@ export function QcClasses() {
 }
 
 const results = [
-  { year: "2009", cls: "Class I", author: "Dhar et al — JNU, New Delhi", area: "Proof of Concept", title: "World's First Dark Genome Expression", body: "Six E. coli intergenic sequences cloned and expressed. All six produced stable proteins, with Eka1 causing potent reversible growth inhibition.", stats: "6/6 expressed · Eka1 inhibition · 2 stable tertiary structures" },
-  { year: "2013–15", cls: "Class I", author: "Joshi, Krishnan et al", area: "Anti-Malaria", title: "Plasmodium falciparum Invasion Blocked", body: "Synthetic peptides from S. cerevisiae intergenic sequences screened against P. falciparum invasion proteins. >60% inhibition of parasite entry.", stats: ">60% invasion inhibition · clinical strain validated" },
-  { year: "2015–23", cls: "Class I", author: "Raj, Verma et al", area: "Alzheimer's", title: "BACE1 Inhibition: 86.7% at 1μM", body: "From 2,500 intergenic sequences and 424 novel peptides, ECOI2 achieved 86.7% BACE1 inhibition and reduced amyloid Aβ 1-40 and 1-42 in SH-SY5Y cells.", stats: "ECOI2 86.7% · Aβ reduction · non-toxic" },
-  { year: "2023", cls: "Class II", author: "Dhar et al — Published", area: "Anti-Leishmania", title: "First Functional tRNA-Derived Peptide", body: "E. coli tRNAs computationally translated into tREPs. tREP-18 showed IC50 = 22.13 nM against L. donovani and remained safe for human macrophages.", stats: "IC50 = 22.13 nM · membrane disruption" },
-  { year: "2024", cls: "Class II", author: "Shanthappa et al", area: "Vaccines", title: "tREP-Derived Antiviral Vaccine Epitopes", body: "tRNA-encoded peptides screened as vaccine epitopes. RRHIDIVV and IMVRFSAE showed favorable HLA binding and 200 ns MD stability.", stats: "2 validated epitopes · 200 ns MD stable" },
-  { year: "2016–23", cls: "Class I", author: "Varughese, Garg et al", area: "Enzymes", title: "Antisense and Reverse Protein Landscape", body: "Full-length antisense and reverse proteins mapped across E. coli, S. cerevisiae, D. melanogaster — many predicted enzymatic, transporter, or secretory functions.", stats: "Thousands mapped · multi-organism" },
+  {
+    year: "2009",
+    cls: "Class I",
+    author: "Dhar et al — JNU, New Delhi",
+    area: "Proof of Concept",
+    title: "World's First Dark Genome Expression",
+    body: "Six E. coli intergenic sequences cloned and expressed. All six produced stable proteins, with Eka1 causing potent reversible growth inhibition.",
+    stats: "6/6 expressed · Eka1 inhibition · 2 stable tertiary structures",
+  },
+  {
+    year: "2013–15",
+    cls: "Class I",
+    author: "Joshi, Krishnan et al",
+    area: "Anti-Malaria",
+    title: "Plasmodium falciparum Invasion Blocked",
+    body: "Synthetic peptides from S. cerevisiae intergenic sequences screened against P. falciparum invasion proteins. >60% inhibition of parasite entry.",
+    stats: ">60% invasion inhibition · clinical strain validated",
+  },
+  {
+    year: "2015–23",
+    cls: "Class I",
+    author: "Raj, Verma et al",
+    area: "Alzheimer's",
+    title: "BACE1 Inhibition: 86.7% at 1μM",
+    body: "From 2,500 intergenic sequences and 424 novel peptides, ECOI2 achieved 86.7% BACE1 inhibition and reduced amyloid Aβ 1-40 and 1-42 in SH-SY5Y cells.",
+    stats: "ECOI2 86.7% · Aβ reduction · non-toxic",
+  },
+  {
+    year: "2023",
+    cls: "Class II",
+    author: "Dhar et al — Published",
+    area: "Anti-Leishmania",
+    title: "First Functional tRNA-Derived Peptide",
+    body: "E. coli tRNAs computationally translated into tREPs. tREP-18 showed IC50 = 22.13 nM against L. donovani and remained safe for human macrophages.",
+    stats: "IC50 = 22.13 nM · membrane disruption",
+  },
+  {
+    year: "2024",
+    cls: "Class II",
+    author: "Shanthappa et al",
+    area: "Vaccines",
+    title: "tREP-Derived Antiviral Vaccine Epitopes",
+    body: "tRNA-encoded peptides screened as vaccine epitopes. RRHIDIVV and IMVRFSAE showed favorable HLA binding and 200 ns MD stability.",
+    stats: "2 validated epitopes · 200 ns MD stable",
+  },
+  {
+    year: "2016–23",
+    cls: "Class I",
+    author: "Varughese, Garg et al",
+    area: "Enzymes",
+    title: "Antisense and Reverse Protein Landscape",
+    body: "Full-length antisense and reverse proteins mapped across E. coli, S. cerevisiae, D. melanogaster — many predicted enzymatic, transporter, or secretory functions.",
+    stats: "Thousands mapped · multi-organism",
+  },
 ];
 
 export function QcResults() {
   return (
-    <section id="results" className="relative py-28 px-6 bg-[#f0fcf5] dark:bg-[#071d12] transition-colors duration-300">
+    <section
+      id="results"
+      className="relative py-28 px-6 bg-[#f0fcf5] dark:bg-[#071d12] transition-colors duration-300"
+    >
       <div className="max-w-6xl mx-auto">
-        <p className="text-xs tracking-[0.3em] text-accent-blue">15 YEARS OF PROOF — 2009 TO 2026</p>
-        <h2 className="font-bagel text-4xl md:text-5xl mt-3 max-w-3xl">Validated results across six disease areas</h2>
+        <p className="text-xs tracking-[0.3em] text-accent-blue">
+          15 YEARS OF PROOF — 2009 TO 2026
+        </p>
+        <h2 className="font-bagel text-4xl md:text-5xl mt-3 max-w-3xl">
+          Validated results across six disease areas
+        </h2>
         <p className="mt-6 text-muted-foreground max-w-3xl">
-          The platform has produced biologically active molecules against cancer, malaria, leishmaniasis, Alzheimer's disease, pathogenic microbes, and viral pathogens — over a sustained, peer-reviewed research programme beginning in 2009.
+          The platform has produced biologically active molecules against cancer, malaria,
+          leishmaniasis, Alzheimer's disease, pathogenic microbes, and viral pathogens — over a
+          sustained, peer-reviewed research programme beginning in 2009.
         </p>
 
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {results.map((r) => (
-            <Card key={r.title} className="p-6 border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-md shadow-sm hover:shadow-md transition">
+            <Card
+              key={r.title}
+              className="p-6 border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-md shadow-sm hover:shadow-md transition"
+            >
               <div className="flex justify-between text-xs text-muted-foreground">
                 <span className="font-mono">{r.year}</span>
                 <span className="px-2 py-0.5 rounded-full border border-white/15">{r.cls}</span>
@@ -654,7 +856,9 @@ export function QcResults() {
               <h3 className="font-bagel text-xl mt-2">{r.title}</h3>
               <p className="text-xs text-muted-foreground mt-1">{r.author}</p>
               <p className="mt-3 text-sm text-muted-foreground">{r.body}</p>
-              <div className="mt-4 pt-3 border-t border-white/10 text-xs font-mono text-accent-emerald">{r.stats}</div>
+              <div className="mt-4 pt-3 border-t border-white/10 text-xs font-mono text-accent-emerald">
+                {r.stats}
+              </div>
             </Card>
           ))}
         </div>
@@ -664,27 +868,60 @@ export function QcResults() {
 }
 
 const steps = [
-  ["01", "Dark Genome Mapping", "Identify Class I and Class II sequences across model organisms; cross-reference NCBI GEO and NR databases."],
-  ["02", "AI Prediction", "Translate in silico, predict tertiary structure, screen toxicity, and rank stability, solubility, charge, and immunogenicity."],
-  ["03", "Virtual Screening", "Dock dark-genome candidates against kinases, GPCRs, enzymes, viral proteins, and other target classes."],
-  ["04", "Quantum Simulation", "Molecular dynamics + quantum modules for binding, folding, electron distribution, and reaction-energy modeling."],
-  ["05", "Experimental Validation", "Synthesize or express top candidates and validate via cell assays, Western blot, flow cytometry, and preclinical models."],
+  [
+    "01",
+    "Dark Genome Mapping",
+    "Identify Class I and Class II sequences across model organisms; cross-reference NCBI GEO and NR databases.",
+  ],
+  [
+    "02",
+    "AI Prediction",
+    "Translate in silico, predict tertiary structure, screen toxicity, and rank stability, solubility, charge, and immunogenicity.",
+  ],
+  [
+    "03",
+    "Virtual Screening",
+    "Dock dark-genome candidates against kinases, GPCRs, enzymes, viral proteins, and other target classes.",
+  ],
+  [
+    "04",
+    "Quantum Simulation",
+    "Molecular dynamics + quantum modules for binding, folding, electron distribution, and reaction-energy modeling.",
+  ],
+  [
+    "05",
+    "Experimental Validation",
+    "Synthesize or express top candidates and validate via cell assays, Western blot, flow cytometry, and preclinical models.",
+  ],
 ];
 
 export function QcPipeline() {
   return (
-    <section id="pipeline" className="relative py-28 px-6 bg-[#edf2f7] dark:bg-[#0a1118] transition-colors duration-300">
+    <section
+      id="pipeline"
+      className="relative py-28 px-6 bg-[#edf2f7] dark:bg-[#0a1118] transition-colors duration-300"
+    >
       <div className="max-w-6xl mx-auto">
-        <p className="text-xs tracking-[0.3em] text-accent-emerald">THE DEEP CODON TECHNOLOGY PLATFORM</p>
-        <h2 className="font-bagel text-4xl md:text-5xl mt-3 max-w-3xl">From dark genome to validated drug candidate</h2>
+        <p className="text-xs tracking-[0.3em] text-accent-emerald">
+          THE DEEP CODON TECHNOLOGY PLATFORM
+        </p>
+        <h2 className="font-bagel text-4xl md:text-5xl mt-3 max-w-3xl">
+          From dark genome to validated drug candidate
+        </h2>
         <p className="mt-6 text-muted-foreground max-w-3xl">
-          An integrated pipeline converting silent genomic sequences into therapeutic candidates through bioinformatics, AI, molecular simulation, and experimental validation.
+          An integrated pipeline converting silent genomic sequences into therapeutic candidates
+          through bioinformatics, AI, molecular simulation, and experimental validation.
         </p>
 
         <ol className="mt-14 grid md:grid-cols-5 gap-4 relative">
           {steps.map(([n, t, d]) => (
-            <li key={n} className="relative p-6 rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-md shadow-sm">
-              <div className="font-bagel text-3xl bg-gradient-to-br from-accent-blue to-accent-purple bg-clip-text text-transparent">{n}</div>
+            <li
+              key={n}
+              className="relative p-6 rounded-2xl border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-md shadow-sm"
+            >
+              <div className="font-bagel text-3xl bg-gradient-to-br from-accent-blue to-accent-purple bg-clip-text text-transparent">
+                {n}
+              </div>
               <h3 className="font-bagel text-lg mt-2">{t}</h3>
               <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{d}</p>
             </li>
@@ -704,7 +941,9 @@ export function QcPipeline() {
           </Card>
           <Card className="p-8 border border-black/10 dark:border-white/10 bg-gradient-to-br from-accent-purple/10 to-transparent shadow-sm">
             <p className="text-xs tracking-[0.3em] text-accent-purple">QUANTUM COMPUTING</p>
-            <h3 className="font-bagel text-2xl mt-2">Simulating Molecular Reality with Precision</h3>
+            <h3 className="font-bagel text-2xl mt-2">
+              Simulating Molecular Reality with Precision
+            </h3>
             <ul className="mt-4 space-y-2 text-sm text-muted-foreground list-disc pl-5">
               <li>Quantum-level electron distribution modeling</li>
               <li>Variational Quantum Eigensolver for electronic structure</li>
@@ -720,43 +959,80 @@ export function QcPipeline() {
 
 export function QcPaper() {
   return (
-    <section id="paper" className="relative py-28 px-6 bg-[#fdf6e2] dark:bg-[#15120a] transition-colors duration-300">
+    <section
+      id="paper"
+      className="relative py-28 px-6 bg-[#fdf6e2] dark:bg-[#15120a] transition-colors duration-300"
+    >
       <div className="max-w-5xl mx-auto">
         <p className="text-xs tracking-[0.3em] text-accent-purple">LANDMARK PUBLICATION — 2025</p>
         <h2 className="font-bagel text-4xl md:text-5xl mt-3">The Scientific Foundation</h2>
         <p className="mt-6 text-muted-foreground max-w-3xl">
-          The Deep Codon platform is anchored in 15+ years of published research, culminating in a 2025 preprint proposing an integrated AI + quantum framework for dark genome drug discovery.
+          The Deep Codon platform is anchored in 15+ years of published research, culminating in a
+          2025 preprint proposing an integrated AI + quantum framework for dark genome drug
+          discovery.
         </p>
 
         <Card className="mt-10 p-8 border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] backdrop-blur-md shadow-sm">
-          <div className="text-xs text-muted-foreground">Preprint · Posted 19 May 2025 · Preprints.org · Biology and Biotechnology</div>
+          <div className="text-xs text-muted-foreground">
+            Preprint · Posted 19 May 2025 · Preprints.org · Biology and Biotechnology
+          </div>
           <h3 className="font-bagel text-2xl md:text-3xl mt-3">
-            Recoding Genomic Elements with AI and Quantum Computation to Build the Next Generation Drug Discovery Platform
+            Recoding Genomic Elements with AI and Quantum Computation to Build the Next Generation
+            Drug Discovery Platform
           </h3>
           <p className="mt-3 text-sm text-muted-foreground">
-            Kadalmani Krishnan · Anita Chugh · Vidya Niranjan · <strong className="text-foreground">Pawan Kumar Dhar*</strong>
+            Kadalmani Krishnan · Anita Chugh · Vidya Niranjan ·{" "}
+            <strong className="text-foreground">Pawan Kumar Dhar*</strong>
           </p>
-          <p className="mt-2 text-xs font-mono text-muted-foreground">DOI: 10.20944/preprints202505.1422.v1</p>
+          <p className="mt-2 text-xs font-mono text-muted-foreground">
+            DOI: 10.20944/preprints202505.1422.v1
+          </p>
           <blockquote className="mt-5 border-l-2 border-accent-purple pl-4 italic text-muted-foreground">
-            "We propose a next-generation, first-in-class drug discovery platform that harnesses the vast, untapped genomic landscape through the integration of Artificial Intelligence and Quantum Computing."
+            "We propose a next-generation, first-in-class drug discovery platform that harnesses the
+            vast, untapped genomic landscape through the integration of Artificial Intelligence and
+            Quantum Computing."
           </blockquote>
           <div className="mt-5 flex flex-wrap gap-2 text-xs">
-            {["dark genome", "synthetic biology", "drug discovery", "AI", "quantum computing", "tRNA-derived peptides"].map((t) => (
-              <span key={t} className="px-3 py-1 rounded-full border border-white/15 text-muted-foreground">{t}</span>
+            {[
+              "dark genome",
+              "synthetic biology",
+              "drug discovery",
+              "AI",
+              "quantum computing",
+              "tRNA-derived peptides",
+            ].map((t) => (
+              <span
+                key={t}
+                className="px-3 py-1 rounded-full border border-white/15 text-muted-foreground"
+              >
+                {t}
+              </span>
             ))}
           </div>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="https://www.preprints.org/manuscript/202505.1422" target="_blank" rel="noreferrer" className="px-5 py-2.5 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple text-white text-sm">
+            <a
+              href="https://www.preprints.org/manuscript/202505.1422"
+              target="_blank"
+              rel="noreferrer"
+              className="px-5 py-2.5 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple text-white text-sm"
+            >
               Read Full Paper →
             </a>
-            <a href="https://www.preprints.org/frontend/manuscript/a1670eb948afd0978f09cf16d10f08c9/download_pub" target="_blank" rel="noreferrer" className="px-5 py-2.5 rounded-full glass-effect dark:border-white/15 text-sm">
+            <a
+              href="https://www.preprints.org/frontend/manuscript/a1670eb948afd0978f09cf16d10f08c9/download_pub"
+              target="_blank"
+              rel="noreferrer"
+              className="px-5 py-2.5 rounded-full glass-effect dark:border-white/15 text-sm"
+            >
               Download PDF
             </a>
           </div>
         </Card>
 
         <p className="mt-8 text-sm text-muted-foreground">
-          <strong className="text-foreground">Also see:</strong> Dhar et al 2009, Joshi et al 2013, Raj et al 2015, Verma et al 2023, Garg & Dhar 2023a,b, Nayak & Dhar 2023, Shanthappa et al 2024.
+          <strong className="text-foreground">Also see:</strong> Dhar et al 2009, Joshi et al 2013,
+          Raj et al 2015, Verma et al 2023, Garg & Dhar 2023a,b, Nayak & Dhar 2023, Shanthappa et al
+          2024.
         </p>
       </div>
     </section>
@@ -766,24 +1042,41 @@ export function QcPaper() {
 export function QcInvestor() {
   return (
     <div className="relative py-6 px-6 max-w-6xl mx-auto">
-      <p className="text-xs tracking-[0.3em] text-accent-emerald">INVESTOR BRIEF — QUANTUM CODON PVT LTD</p>
+      <p className="text-xs tracking-[0.3em] text-accent-emerald">
+        INVESTOR BRIEF — QUANTUM CODON PVT LTD
+      </p>
       <h2 className="font-bagel text-4xl md:text-5xl mt-3 max-w-4xl">
         The last great frontier in drug discovery is inside our own genomes.
       </h2>
       <p className="mt-6 text-muted-foreground max-w-3xl">
-        The global pharmaceutical industry spends USD 2.6 trillion annually on R&D with a 90%+ failure rate. The structural reason: it is mining only 1-2% of available biological space.
+        The global pharmaceutical industry spends USD 2.6 trillion annually on R&D with a 90%+
+        failure rate. The structural reason: it is mining only 1-2% of available biological space.
       </p>
       <p className="mt-3 text-muted-foreground max-w-3xl">
-        Deep Codon has built a platform from Class I non-expressing DNA and Class II non-translating RNA sequences. Every intergenic region, antisense strand, tRNA, and pseudogene becomes part of the competitive moat.
+        Deep Codon has built a platform from Class I non-expressing DNA and Class II non-translating
+        RNA sequences. Every intergenic region, antisense strand, tRNA, and pseudogene becomes part
+        of the competitive moat.
       </p>
 
       <div className="mt-10 grid md:grid-cols-3 gap-6">
         {[
-          ["15 Years of Proprietary Science", "Reproducible, published research across 6 disease areas creates a long-duration scientific advantage."],
-          ["Amaravati Quantum Valley Anchor", "Quantum integration is already architected into the discovery pipeline as infrastructure matures."],
-          ["No Competitive Platform Exists", "The non-expressing and non-translating genomic space remains largely unexplored territory."],
+          [
+            "15 Years of Proprietary Science",
+            "Reproducible, published research across 6 disease areas creates a long-duration scientific advantage.",
+          ],
+          [
+            "Amaravati Quantum Valley Anchor",
+            "Quantum integration is already architected into the discovery pipeline as infrastructure matures.",
+          ],
+          [
+            "No Competitive Platform Exists",
+            "The non-expressing and non-translating genomic space remains largely unexplored territory.",
+          ],
         ].map(([t, d]) => (
-          <Card key={t} className="p-6 border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] shadow-sm">
+          <Card
+            key={t}
+            className="p-6 border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/[0.03] shadow-sm"
+          >
             <h3 className="font-bagel text-lg">{t}</h3>
             <p className="mt-2 text-sm text-muted-foreground">{d}</p>
           </Card>
@@ -801,13 +1094,20 @@ export function QcContact() {
         The genome's most important medicines are yet to be discovered.
       </h2>
       <p className="mt-6 text-muted-foreground max-w-2xl mx-auto">
-        Deep Codon is the platform built to find them in the 98% of the genome that science has barely explored. Join us at the frontier of next-generation drug discovery.
+        Deep Codon is the platform built to find them in the 98% of the genome that science has
+        barely explored. Join us at the frontier of next-generation drug discovery.
       </p>
       <div className="mt-8 flex flex-wrap gap-4 justify-center">
-        <a href="mailto:contact@quantumcodon.in" className="px-6 py-3 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple text-white shadow-[0_10px_40px_-10px_rgba(124,58,237,0.6)]">
+        <a
+          href="mailto:contact@quantumcodon.in"
+          className="px-6 py-3 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple text-white shadow-[0_10px_40px_-10px_rgba(124,58,237,0.6)]"
+        >
           Request Investor Deck
         </a>
-        <a href="mailto:contact@quantumcodon.in" className="px-6 py-3 rounded-full glass-effect dark:border-white/15">
+        <a
+          href="mailto:contact@quantumcodon.in"
+          className="px-6 py-3 rounded-full glass-effect dark:border-white/15"
+        >
           Schedule a Meeting
         </a>
       </div>
@@ -824,7 +1124,15 @@ const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const ThreadsIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
     <path d="M12 2a10 10 0 1 0 10 10c0-1.8-1-3-2.5-3s-2.5 1.2-2.5 3a2.5 2.5 0 0 1-5 0V11a2.5 2.5 0 0 0-5 0v1a8 8 0 1 1 16 0" />
   </svg>
 );
@@ -937,8 +1245,14 @@ export function QcFooter() {
         {/* Left Side: Logo & Copyright */}
         <div className="flex flex-col md:flex-row items-center gap-4">
           <Link to="/" className="flex items-center gap-2">
-            <img src="/logo-emblem.png" alt="Quantum Codon Logo" className="h-6 w-auto object-contain dark:brightness-110" />
-            <span className="font-serif-display text-sm tracking-tight text-white font-semibold">Quantum Codon</span>
+            <img
+              src="/logo-emblem.png"
+              alt="Quantum Codon Logo"
+              className="h-6 w-auto object-contain dark:brightness-110"
+            />
+            <span className="font-serif-display text-sm tracking-tight text-white font-semibold">
+              Quantum Codon
+            </span>
           </Link>
           <div className="text-[11px] text-slate-400 font-mono tracking-tight text-center md:text-left">
             <span>© {new Date().getFullYear()} Quantum Codon Pvt Ltd · Deep Codon Initiative.</span>
@@ -981,35 +1295,45 @@ const blogPosts = [
     slug: "unlocking-biologys-dark-matter",
     eyebrow: "AI in Biology",
     title: "Unlocking Biology's Dark Matter: Engineering the Future of Therapeutics",
-    excerpt: "At QuantumCodon, we combine the power of Dark Genome Mining, AI, and Quantum Computing to discover the next generation of therapeutics and transform lives.",
+    excerpt:
+      "At QuantumCodon, we combine the power of Dark Genome Mining, AI, and Quantum Computing to discover the next generation of therapeutics and transform lives.",
     date: "Jun 24, 2026",
   },
   {
     slug: "future-of-life-sciences",
     eyebrow: "Computational Biology",
-    title: "The Future of Life Sciences Isn't Just Biological—It's Computational, Quantum, and Intelligent.",
-    excerpt: "At Quantum Codon, we combine the power of Quantum Computing, AI, and Computational Biology to decode the code of life and solve complex real-world challenges.",
+    title:
+      "The Future of Life Sciences Isn't Just Biological—It's Computational, Quantum, and Intelligent.",
+    excerpt:
+      "At Quantum Codon, we combine the power of Quantum Computing, AI, and Computational Biology to decode the code of life and solve complex real-world challenges.",
     date: "May 18, 2026",
   },
   {
     slug: "precision-therapeutics-deep-learning",
     eyebrow: "Precision Medicine",
     title: "Precision Therapeutics: The Convergence of Peptides and Deep Learning",
-    excerpt: "How Quantum Codon uses neural network architectures to design stable, highly targeted synthetic peptides for oncology and complex genetic targets.",
+    excerpt:
+      "How Quantum Codon uses neural network architectures to design stable, highly targeted synthetic peptides for oncology and complex genetic targets.",
     date: "Apr 12, 2026",
   },
 ];
 
 export function QcBlogs() {
   return (
-    <section id="blogs" className="relative py-28 px-6 bg-[#f0f4f8] dark:bg-[#0a1118] transition-colors duration-300">
+    <section
+      id="blogs"
+      className="relative py-28 px-6 bg-[#f0f4f8] dark:bg-[#0a1118] transition-colors duration-300"
+    >
       <div className="max-w-6xl mx-auto">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <p className="text-xs tracking-[0.3em] text-accent-emerald uppercase">Insights · Blogs</p>
+            <p className="text-xs tracking-[0.3em] text-accent-emerald uppercase">
+              Insights · Blogs
+            </p>
             <h2 className="font-bagel text-4xl md:text-5xl mt-3">Ideas from the frontier</h2>
             <p className="mt-3 text-muted-foreground max-w-xl">
-              Long-form essays and field notes from the Quantum Codon team on dark genome science, AI, and therapeutics.
+              Long-form essays and field notes from the Quantum Codon team on dark genome science,
+              AI, and therapeutics.
             </p>
           </div>
           <Link
@@ -1022,17 +1346,31 @@ export function QcBlogs() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {blogPosts.map((p) => (
-            <Link key={p.slug} to="/blogs/$slug" params={{ slug: p.slug }} className="group block p-7 rounded-2xl border border-foreground/10 bg-white/60 dark:bg-white/5 backdrop-blur hover:-translate-y-1 transition duration-200 hover:border-accent-blue/30 hover:shadow-lg">
-              <p className="text-[10px] tracking-[0.3em] text-accent-emerald uppercase">{p.eyebrow}</p>
-              <h3 className="mt-3 font-serif-display text-xl leading-snug group-hover:text-accent-blue transition-colors">{p.title}</h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3">{p.excerpt}</p>
+            <Link
+              key={p.slug}
+              to="/blogs/$slug"
+              params={{ slug: p.slug }}
+              className="group block p-7 rounded-2xl border border-foreground/10 bg-white/60 dark:bg-white/5 backdrop-blur hover:-translate-y-1 transition duration-200 hover:border-accent-blue/30 hover:shadow-lg"
+            >
+              <p className="text-[10px] tracking-[0.3em] text-accent-emerald uppercase">
+                {p.eyebrow}
+              </p>
+              <h3 className="mt-3 font-serif-display text-xl leading-snug group-hover:text-accent-blue transition-colors">
+                {p.title}
+              </h3>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                {p.excerpt}
+              </p>
               <p className="mt-5 text-xs text-muted-foreground font-mono">{p.date}</p>
             </Link>
           ))}
         </div>
 
         <div className="mt-8 md:hidden">
-          <Link to="/blogs" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-foreground/15 text-sm hover:bg-foreground/5 transition">
+          <Link
+            to="/blogs"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-foreground/15 text-sm hover:bg-foreground/5 transition"
+          >
             All posts →
           </Link>
         </div>
@@ -1045,7 +1383,10 @@ export function QcBlogs() {
 
 export function QcAbout() {
   return (
-    <section id="about" className="relative py-28 px-6 bg-[#f8fafc] dark:bg-[#0f172a] transition-colors duration-300">
+    <section
+      id="about"
+      className="relative py-28 px-6 bg-[#f8fafc] dark:bg-[#0f172a] transition-colors duration-300"
+    >
       <div className="max-w-6xl mx-auto">
         <p className="text-xs tracking-[0.3em] text-accent-blue">ABOUT QUANTUM CODON</p>
         <h2 className="font-bagel text-4xl md:text-5xl mt-3">Unlocking the Genome's Hidden Moat</h2>
@@ -1053,31 +1394,50 @@ export function QcAbout() {
         <div className="grid lg:grid-cols-2 gap-12 mt-12 items-center">
           <div className="space-y-6 text-muted-foreground leading-relaxed">
             <p>
-              Quantum Codon was founded to explore the final frontier of biology: the non-coding and silent DNA regions that constitute 98% of our genome. Long dismissed as "junk DNA", these regions hold the instructions for creating stable, highly potent therapeutic candidates that do not exist in nature.
+              Quantum Codon was founded to explore the final frontier of biology: the non-coding and
+              silent DNA regions that constitute 98% of our genome. Long dismissed as "junk DNA",
+              these regions hold the instructions for creating stable, highly potent therapeutic
+              candidates that do not exist in nature.
             </p>
             <p>
-              Led by Prof. Pawan K Dhar, a pioneer with over 15 years of continuous dark genome research, we integrate advanced bioinformatics, state-of-the-art AI structural predictions (AlphaFold), and quantum mechanics to design and synthesize novel peptides and proteins.
+              Led by Prof. Pawan K Dhar, a pioneer with over 15 years of continuous dark genome
+              research, we integrate advanced bioinformatics, state-of-the-art AI structural
+              predictions (AlphaFold), and quantum mechanics to design and synthesize novel peptides
+              and proteins.
             </p>
             <p className="text-sm border-l-2 border-accent-blue pl-4 italic">
-              "We are building a parallel biology universe. By synthetically expressing genes that nature kept silent, we are creating a completely new class of medicines."
-              <span className="block not-italic mt-2 text-xs font-semibold text-foreground">— Prof. Pawan K Dhar, CSO</span>
+              "We are building a parallel biology universe. By synthetically expressing genes that
+              nature kept silent, we are creating a completely new class of medicines."
+              <span className="block not-italic mt-2 text-xs font-semibold text-foreground">
+                — Prof. Pawan K Dhar, CSO
+              </span>
             </p>
           </div>
           <div className="glass-effect rounded-3xl p-8 dark:border-white/10 dark:bg-white/5 backdrop-blur">
             <h3 className="font-bagel text-xl mb-4">Our Anchors</h3>
             <ul className="space-y-4">
               <li className="flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-accent-blue/10 flex items-center justify-center shrink-0 text-accent-blue font-bold">1</div>
+                <div className="w-10 h-10 rounded-full bg-accent-blue/10 flex items-center justify-center shrink-0 text-accent-blue font-bold">
+                  1
+                </div>
                 <div>
                   <h4 className="font-semibold text-sm">Academic Heritage</h4>
-                  <p className="text-xs text-muted-foreground mt-1">Research initiated at Jawaharlal Nehru University (JNU), New Delhi, with proof of concept validated across multiple peer-reviewed studies.</p>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Research initiated at Jawaharlal Nehru University (JNU), New Delhi, with proof
+                    of concept validated across multiple peer-reviewed studies.
+                  </p>
                 </div>
               </li>
               <li className="flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-accent-emerald/10 flex items-center justify-center shrink-0 text-accent-emerald font-bold">2</div>
+                <div className="w-10 h-10 rounded-full bg-accent-emerald/10 flex items-center justify-center shrink-0 text-accent-emerald font-bold">
+                  2
+                </div>
                 <div>
                   <h4 className="font-semibold text-sm">Amaravati Quantum Valley</h4>
-                  <p className="text-xs text-muted-foreground mt-1">Anchor corporate laboratory in Amaravati, designing advanced quantum-computational simulations of molecular docking and folding dynamics.</p>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Anchor corporate laboratory in Amaravati, designing advanced
+                    quantum-computational simulations of molecular docking and folding dynamics.
+                  </p>
                 </div>
               </li>
             </ul>
@@ -1095,50 +1455,61 @@ export function QcServices() {
       num: "01",
       title: "1. Drug Discovery",
       desc: "Systematic screening and design of first-in-class therapeutic molecules and peptides from the dark genome's non-expressing regions. Tailored leads against cancer, neurodegenerative, and infectious diseases.",
-      color: "border-accent-blue/20 bg-accent-blue/[0.02] hover:bg-accent-blue/[0.05]"
+      color: "border-accent-blue/20 bg-accent-blue/[0.02] hover:bg-accent-blue/[0.05]",
     },
     {
       id: "bio-mmg",
       num: "02",
       title: "2. Bio MMG",
       desc: "Microbiology and molecular genetics testing. Synthetic gene design, promoter cloning, expression profiling in bacterial/yeast/mammalian systems, and verification of synthetic translation products.",
-      color: "border-accent-purple/20 bg-accent-purple/[0.02] hover:bg-accent-purple/[0.05]"
+      color: "border-accent-purple/20 bg-accent-purple/[0.02] hover:bg-accent-purple/[0.05]",
     },
     {
       id: "analytical-services",
       num: "03",
       title: "3. Analytical Service",
       desc: "High-resolution molecular structure validation. Chromatographic analysis, HPLC, mass spectrometry, stability testing, solubility profiling, and quantum-refined ADMET checks.",
-      color: "border-accent-emerald/20 bg-accent-emerald/[0.02] hover:bg-accent-emerald/[0.05]"
+      color: "border-accent-emerald/20 bg-accent-emerald/[0.02] hover:bg-accent-emerald/[0.05]",
     },
     {
       id: "bioinformatics",
       num: "04",
       title: "4. Bioinformatics",
       desc: "Next-gen bioinformatics modeling. Large-scale genome mapping, transcriptomic sequence annotation, custom neural net docking prediction, and multi-scale protein modeling.",
-      color: "border-cyan-500/20 bg-cyan-500/[0.02] hover:bg-cyan-500/[0.05]"
+      color: "border-cyan-500/20 bg-cyan-500/[0.02] hover:bg-cyan-500/[0.05]",
     },
     {
       id: "regulatory-complaints",
       num: "05",
       title: "5. Regulatory & Complaints",
       desc: "Comprehensive compliance auditing. IND documentation assistance, FDA/EMA dossier compilation, safety assurance, and rigorous reporting systems conforming to international biotech regulatory metrics.",
-      color: "border-orange-500/20 bg-orange-500/[0.02] hover:bg-orange-500/[0.05]"
-    }
+      color: "border-orange-500/20 bg-orange-500/[0.02] hover:bg-orange-500/[0.05]",
+    },
   ];
 
   return (
-    <section id="services" className="relative py-28 px-6 bg-[#f0f4f8] dark:bg-[#0c131f] transition-colors duration-300">
+    <section
+      id="services"
+      className="relative py-28 px-6 bg-[#f0f4f8] dark:bg-[#0c131f] transition-colors duration-300"
+    >
       <div className="max-w-6xl mx-auto font-sans">
         <p className="text-xs tracking-[0.3em] text-accent-emerald uppercase">OUR SERVICES</p>
-        <h2 className="font-bagel text-4xl md:text-5xl mt-3">Enterprise Biotechnology & Computing Solutions</h2>
+        <h2 className="font-bagel text-4xl md:text-5xl mt-3">
+          Enterprise Biotechnology & Computing Solutions
+        </h2>
         <p className="mt-6 text-muted-foreground max-w-3xl">
-          We offer a comprehensive suite of computational, biological, and compliance services tailored to help pharmaceutical, agricultural, and clinical research teams unlock biological coding potential.
+          We offer a comprehensive suite of computational, biological, and compliance services
+          tailored to help pharmaceutical, agricultural, and clinical research teams unlock
+          biological coding potential.
         </p>
 
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {servicesList.map((s) => (
-            <Card id={s.id} key={s.id} className={`p-8 border backdrop-blur transition-all duration-300 hover:-translate-y-1 ${s.color}`}>
+            <Card
+              id={s.id}
+              key={s.id}
+              className={`p-8 border backdrop-blur transition-all duration-300 hover:-translate-y-1 ${s.color}`}
+            >
               <div className="font-mono text-xs text-muted-foreground mb-4">{s.num}</div>
               <h3 className="font-bagel text-2xl mb-3">{s.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
@@ -1156,28 +1527,45 @@ export function QcEducation() {
       <p className="text-xs tracking-[0.3em] text-accent-purple">EDUCATION & TRAINING</p>
       <h2 className="font-bagel text-4xl md:text-5xl mt-3">Academic Training and Certification</h2>
       <p className="mt-6 text-muted-foreground max-w-3xl">
-        Deep Codon Initiative provides institutional training and certification programs for scholars, graduate students, and corporate researchers. Learn state-of-the-art computational biology, synthetic gene expression, and quantum-molecular mechanics.
+        Deep Codon Initiative provides institutional training and certification programs for
+        scholars, graduate students, and corporate researchers. Learn state-of-the-art computational
+        biology, synthetic gene expression, and quantum-molecular mechanics.
       </p>
 
       <div className="grid md:grid-cols-2 gap-8 mt-12" id="academic-training">
         <Card className="p-8 border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur hover:bg-white/10 dark:hover:bg-white/10 transition">
           <h3 className="font-bagel text-2xl mb-4 text-accent-purple">Programs & Curriculums</h3>
           <ul className="space-y-4 text-sm text-muted-foreground list-disc pl-5">
-            <li><strong>Dark Genome Mapping & Annotation</strong>: Analyzing non-coding RNA structures and synthetic translation frames.</li>
-            <li><strong>AI Structure Prediction</strong>: Integrating AlphaFold algorithms and model metrics into lead generation pipelines.</li>
-            <li><strong>Quantum Molecular Dynamics</strong>: Refining energy structures and binding calculations on quantum hardware.</li>
-            <li><strong>Synthetic Expression Genetics</strong>: Designing promoters, intergenic sequence expression loops, and vectors.</li>
+            <li>
+              <strong>Dark Genome Mapping & Annotation</strong>: Analyzing non-coding RNA structures
+              and synthetic translation frames.
+            </li>
+            <li>
+              <strong>AI Structure Prediction</strong>: Integrating AlphaFold algorithms and model
+              metrics into lead generation pipelines.
+            </li>
+            <li>
+              <strong>Quantum Molecular Dynamics</strong>: Refining energy structures and binding
+              calculations on quantum hardware.
+            </li>
+            <li>
+              <strong>Synthetic Expression Genetics</strong>: Designing promoters, intergenic
+              sequence expression loops, and vectors.
+            </li>
           </ul>
         </Card>
 
         <Card className="p-8 border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur hover:bg-white/10 dark:hover:bg-white/10 transition">
           <h3 className="font-bagel text-2xl mb-4 text-accent-emerald">Certification</h3>
           <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-            All courses are certified by Quantum Codon Pvt Ltd, demonstrating core competency in synthetic bio-engineering and computational tools. Validated by theoretical assessments and laboratory design assignments.
+            All courses are certified by Quantum Codon Pvt Ltd, demonstrating core competency in
+            synthetic bio-engineering and computational tools. Validated by theoretical assessments
+            and laboratory design assignments.
           </p>
           <div className="p-4 rounded-xl bg-accent-emerald/10 border border-accent-emerald/20 text-xs text-accent-emerald font-mono">
             Next Cohort Enrollment opens: July 15, 2026.
-            <br />For institutional partnerships, contact: edu@quantumcodon.in
+            <br />
+            For institutional partnerships, contact: edu@quantumcodon.in
           </div>
         </Card>
       </div>
@@ -1187,8 +1575,16 @@ export function QcEducation() {
 
 export function QcCareers() {
   const jobs = [
-    { title: "Computational Biologist", type: "Full-Time · Amaravati Anchor", dept: "R&D Bio-computational" },
-    { title: "Quantum Software Engineer", type: "Full-Time / Hybrid", dept: "Quantum Mechanics & Simulation" },
+    {
+      title: "Computational Biologist",
+      type: "Full-Time · Amaravati Anchor",
+      dept: "R&D Bio-computational",
+    },
+    {
+      title: "Quantum Software Engineer",
+      type: "Full-Time / Hybrid",
+      dept: "Quantum Mechanics & Simulation",
+    },
     { title: "Lead Regulatory Auditor", type: "Full-Time · Hybrid", dept: "Quality & Compliance" },
   ];
 
@@ -1197,18 +1593,26 @@ export function QcCareers() {
       <p className="text-xs tracking-[0.3em] text-accent-blue">CAREERS AT QUANTUM CODON</p>
       <h2 className="font-bagel text-4xl md:text-5xl mt-3">Join the Deep Codon Team</h2>
       <p className="mt-6 text-muted-foreground max-w-3xl">
-        We are searching for pioneers, scientists, and engineers to build the next generation drug discovery platform. Explore open roles across biological sciences, quantum computation, and software engineering.
+        We are searching for pioneers, scientists, and engineers to build the next generation drug
+        discovery platform. Explore open roles across biological sciences, quantum computation, and
+        software engineering.
       </p>
 
       <div className="mt-12 space-y-4">
         {jobs.map((j) => (
-          <Card key={j.title} className="p-6 border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur hover:bg-white/10 dark:hover:bg-white/10 transition flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <Card
+            key={j.title}
+            className="p-6 border border-black/10 dark:border-white/10 bg-white/80 dark:bg-white/5 backdrop-blur hover:bg-white/10 dark:hover:bg-white/10 transition flex flex-col md:flex-row md:items-center justify-between gap-4"
+          >
             <div>
               <span className="text-xs text-accent-purple font-mono uppercase">{j.dept}</span>
               <h3 className="font-bagel text-xl mt-1">{j.title}</h3>
               <p className="text-xs text-muted-foreground mt-1">{j.type}</p>
             </div>
-            <a href="mailto:careers@quantumcodon.in" className="px-5 py-2 text-xs rounded-full bg-foreground text-background font-semibold hover:opacity-90 transition inline-block text-center">
+            <a
+              href="mailto:careers@quantumcodon.in"
+              className="px-5 py-2 text-xs rounded-full bg-foreground text-background font-semibold hover:opacity-90 transition inline-block text-center"
+            >
               Apply Now
             </a>
           </Card>
@@ -1243,10 +1647,11 @@ export function QcServicesDetailed() {
         "Computational screening of intergenic DNA strands and antisense reading frames.",
         "Translation in silico of microRNAs, introns, and tRNA-derived peptides (tREPs).",
         "Binding affinity optimization utilizing state-of-the-art virtual docking software.",
-        "Candidate synthesis of leading peptide structures for preclinical validations."
+        "Candidate synthesis of leading peptide structures for preclinical validations.",
       ],
-      leadParagraph: "Quantum Codon's primary focus is the systematic conversion of previously unmined genomic regions into active drug candidates. Led by our proprietary discovery platform, we map silent sequences directly to cellular receptors.",
-      technologies: "In Silico Translation, Dynamic Docking, Peptide Synthesis, Lead Profiling"
+      leadParagraph:
+        "Quantum Codon's primary focus is the systematic conversion of previously unmined genomic regions into active drug candidates. Led by our proprietary discovery platform, we map silent sequences directly to cellular receptors.",
+      technologies: "In Silico Translation, Dynamic Docking, Peptide Synthesis, Lead Profiling",
     },
     {
       id: "bio-mmg",
@@ -1259,10 +1664,11 @@ export function QcServicesDetailed() {
         "High-fidelity cloning of candidate constructs into customized plasmids.",
         "Host organism engineering (E. coli, S. cerevisiae, cell-free models).",
         "Verification of synthetic protein expression and translational stability.",
-        "Growth-inhibition, receptor-binding, and multi-well functional bioassays."
+        "Growth-inhibition, receptor-binding, and multi-well functional bioassays.",
       ],
-      leadParagraph: "Our molecular genetics facility validates computer models through rigorous wet-lab experimentation. We construct synthetic gene pathways that do not exist under natural evolutionary parameters.",
-      technologies: "Cloning Vectors, Recombinant Expression, Western Blot, SDS-PAGE"
+      leadParagraph:
+        "Our molecular genetics facility validates computer models through rigorous wet-lab experimentation. We construct synthetic gene pathways that do not exist under natural evolutionary parameters.",
+      technologies: "Cloning Vectors, Recombinant Expression, Western Blot, SDS-PAGE",
     },
     {
       id: "analytical-services",
@@ -1275,10 +1681,11 @@ export function QcServicesDetailed() {
         "Purity and concentration assessment via High-Performance Liquid Chromatography (HPLC).",
         "Mass spectrometry (LC-MS/MS) for exact molecular weight and sequence validation.",
         "Solubility, thermal shift, stability, and formulation assays.",
-        "Preclinical ADMET (Absorption, Distribution, Metabolism, Excretion, Toxicity) checks."
+        "Preclinical ADMET (Absorption, Distribution, Metabolism, Excretion, Toxicity) checks.",
       ],
-      leadParagraph: "Every synthetic candidate undergoes strict analytical characterization. We verify folding coordinates, absolute molecular weight, and pharmacokinetic properties under standard GLP directives.",
-      technologies: "HPLC, LC-MS/MS, Thermal Shift, ADMET Assays"
+      leadParagraph:
+        "Every synthetic candidate undergoes strict analytical characterization. We verify folding coordinates, absolute molecular weight, and pharmacokinetic properties under standard GLP directives.",
+      technologies: "HPLC, LC-MS/MS, Thermal Shift, ADMET Assays",
     },
     {
       id: "bioinformatics",
@@ -1291,10 +1698,11 @@ export function QcServicesDetailed() {
         "Genome-scale sequence mapping across multi-organism genetic directories.",
         "Non-coding sequence structural annotation and sequence homology indexes.",
         "Tertiary structure prediction utilizing machine-learning metrics (AlphaFold integrations).",
-        "High-throughput screening algorithms for virtual library prioritization."
+        "High-throughput screening algorithms for virtual library prioritization.",
       ],
-      leadParagraph: "Computational bioinformatics forms the digital backbone of our discovery engine. We annotate genomes at scale, focusing exclusively on untranslated regions to prioritize viable candidates.",
-      technologies: "Homology Models, Sequence Mapping, AlphaFold APIs, Deep Docking"
+      leadParagraph:
+        "Computational bioinformatics forms the digital backbone of our discovery engine. We annotate genomes at scale, focusing exclusively on untranslated regions to prioritize viable candidates.",
+      technologies: "Homology Models, Sequence Mapping, AlphaFold APIs, Deep Docking",
     },
     {
       id: "regulatory-complaints",
@@ -1307,10 +1715,11 @@ export function QcServicesDetailed() {
         "IND (Investigational New Drug) dossier compilation and regulatory support.",
         "Complete safety assurance reporting in accordance with FDA and EMA guidelines.",
         "GLP/GMP-compliant documentation audits and laboratory standard logging.",
-        "Comprehensive client reporting, inquiry handling, and complaint logging logs."
+        "Comprehensive client reporting, inquiry handling, and complaint logging logs.",
       ],
-      leadParagraph: "We maintain rigorous data integrity and clinical readiness. Our regulatory team ensures that every scientific discovery complies with international biotechnology guidelines and safety controls.",
-      technologies: "GLP Logging, FDA Dossiers, Audit Trails, Quality Controls"
+      leadParagraph:
+        "We maintain rigorous data integrity and clinical readiness. Our regulatory team ensures that every scientific discovery complies with international biotechnology guidelines and safety controls.",
+      technologies: "GLP Logging, FDA Dossiers, Audit Trails, Quality Controls",
     },
     {
       id: "education",
@@ -1323,13 +1732,14 @@ export function QcServicesDetailed() {
         "Structured tracks for engineers, scientists, and research leadership.",
         "Live cohort-based workshops led by working quantum scientists.",
         "Industry-recognized certifications with rigorous assessment.",
-        "Bespoke corporate training aligned to your team's roadmap."
+        "Bespoke corporate training aligned to your team's roadmap.",
       ],
-      leadParagraph: "Deep Codon Initiative provides institutional training and certification programs in computational biology, synthetic gene expression, and quantum-molecular mechanics — taught by domain experts on real hardware.",
-      technologies: "Dark Genome Mapping, AI Structure Prediction, Quantum Molecular Dynamics, Synthetic Expression"
-    }
+      leadParagraph:
+        "Deep Codon Initiative provides institutional training and certification programs in computational biology, synthetic gene expression, and quantum-molecular mechanics — taught by domain experts on real hardware.",
+      technologies:
+        "Dark Genome Mapping, AI Structure Prediction, Quantum Molecular Dynamics, Synthetic Expression",
+    },
   ];
-
 
   const activeDetail = details.find((d) => d.id === activeTab) || details[0];
 
@@ -1348,16 +1758,21 @@ export function QcServicesDetailed() {
                     setActiveTab(d.id);
                     window.location.hash = d.id;
                   }}
-                  className={`flex-shrink-0 text-left px-5 py-4 rounded-2xl border transition-all duration-300 w-[240px] lg:w-full flex items-center justify-between ${isActive
+                  className={`flex-shrink-0 text-left px-5 py-4 rounded-2xl border transition-all duration-300 w-[240px] lg:w-full flex items-center justify-between ${
+                    isActive
                       ? "bg-foreground text-background shadow-lg border-foreground font-semibold"
                       : "bg-white/5 border-white/10 hover:bg-white/10 text-muted-foreground hover:text-foreground"
-                    }`}
+                  }`}
                 >
                   <div className="flex flex-col">
                     <span className="text-[10px] font-mono opacity-60 tracking-wider">{d.num}</span>
-                    <span className="font-serif-display text-base font-semibold mt-1">{d.title.replace(/^\d+\.\s*/, '')}</span>
+                    <span className="font-serif-display text-base font-semibold mt-1">
+                      {d.title.replace(/^\d+\.\s*/, "")}
+                    </span>
                   </div>
-                  <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-accent-emerald' : 'bg-transparent'}`} />
+                  <span
+                    className={`w-1.5 h-1.5 rounded-full ${isActive ? "bg-accent-emerald" : "bg-transparent"}`}
+                  />
                 </button>
               );
             })}
@@ -1365,17 +1780,25 @@ export function QcServicesDetailed() {
 
           {/* Tab Content */}
           <div className="lg:col-span-8">
-            <div className={`p-8 md:p-10 rounded-3xl border backdrop-blur-xl ${activeDetail.color} space-y-6 transition-all duration-500 animate-in fade-in slide-in-from-right-4`}>
+            <div
+              className={`p-8 md:p-10 rounded-3xl border backdrop-blur-xl ${activeDetail.color} space-y-6 transition-all duration-500 animate-in fade-in slide-in-from-right-4`}
+            >
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
                 <div>
-                  <span className="font-mono text-xs text-muted-foreground tracking-widest">{activeDetail.num} · {activeDetail.badge.toUpperCase()}</span>
-                  <h3 className="font-serif-display text-3xl md:text-4xl mt-2">{activeDetail.title}</h3>
+                  <span className="font-mono text-xs text-muted-foreground tracking-widest">
+                    {activeDetail.num} · {activeDetail.badge.toUpperCase()}
+                  </span>
+                  <h3 className="font-serif-display text-3xl md:text-4xl mt-2">
+                    {activeDetail.title}
+                  </h3>
                 </div>
-                <a href="#contact" className="px-5 py-2 text-xs rounded-full bg-foreground text-background font-semibold hover:opacity-90 transition">
+                <a
+                  href="#contact"
+                  className="px-5 py-2 text-xs rounded-full bg-foreground text-background font-semibold hover:opacity-90 transition"
+                >
                   Inquire Services
                 </a>
               </div>
-
 
               <p className="text-base text-foreground/80 leading-relaxed font-serif-display italic">
                 {activeDetail.leadParagraph}
@@ -1383,7 +1806,11 @@ export function QcServicesDetailed() {
 
               <div className="grid md:grid-cols-2 gap-8 pt-4">
                 <div>
-                  <h4 className={`text-sm font-semibold uppercase tracking-wider mb-4 ${activeDetail.accentText}`}>Core Deliverables & Capabilities</h4>
+                  <h4
+                    className={`text-sm font-semibold uppercase tracking-wider mb-4 ${activeDetail.accentText}`}
+                  >
+                    Core Deliverables & Capabilities
+                  </h4>
                   <ul className="space-y-3 text-sm text-muted-foreground list-disc pl-5">
                     {activeDetail.bullets.map((b, i) => (
                       <li key={i}>{b}</li>
@@ -1392,7 +1819,9 @@ export function QcServicesDetailed() {
                 </div>
                 <div className="p-6 rounded-2xl bg-white/5 border border-white/5 flex flex-col justify-between">
                   <div>
-                    <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">Technologies & Methods</h4>
+                    <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-widest">
+                      Technologies & Methods
+                    </h4>
                     <p className="text-sm text-foreground/80 font-mono mt-3 leading-relaxed">
                       {activeDetail.technologies}
                     </p>

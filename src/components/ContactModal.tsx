@@ -1,4 +1,12 @@
-import { createContext, useCallback, useContext, useEffect, useState, type ReactNode, type FormEvent } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+  type FormEvent,
+} from "react";
 import { X } from "lucide-react";
 
 type ContactModalContextValue = {
@@ -64,10 +72,7 @@ function ContactModal() {
       aria-modal="true"
       aria-labelledby="contact-modal-title"
     >
-      <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-md"
-        onClick={close}
-      />
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-md" onClick={close} />
       <div className="relative w-full max-w-2xl rounded-3xl border bg-card text-card-foreground shadow-2xl animate-scale-in">
         <button
           type="button"
@@ -80,14 +85,22 @@ function ContactModal() {
 
         <div className="px-6 pt-10 pb-6 sm:px-10 sm:pt-12 sm:pb-8">
           <div className="text-center">
-            <p className="text-[10px] tracking-[0.3em] uppercase text-accent-emerald font-semibold">Quantum Codon</p>
-            <h2 id="contact-modal-title" className="font-serif-display text-3xl md:text-4xl mt-2">Get in touch</h2>
-            <p className="mt-2 text-sm text-muted-foreground">We typically reply within one business day.</p>
+            <p className="text-[10px] tracking-[0.3em] uppercase text-accent-emerald font-semibold">
+              Quantum Codon
+            </p>
+            <h2 id="contact-modal-title" className="font-serif-display text-3xl md:text-4xl mt-2">
+              Get in touch
+            </h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              We typically reply within one business day.
+            </p>
           </div>
 
           {submitted ? (
             <div className="mt-10 mb-6 text-center">
-              <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent-emerald/15 text-accent-emerald text-xl">✓</div>
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-accent-emerald/15 text-accent-emerald text-xl">
+                ✓
+              </div>
               <p className="mt-4 text-base font-medium">Thanks! Your message is on its way.</p>
             </div>
           ) : (
@@ -97,11 +110,19 @@ function ContactModal() {
                 <Field label="Last Name" name="lastName" placeholder="Doe" required />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <Field label="Email Address" name="email" type="email" placeholder="jane@company.com" required />
+                <Field
+                  label="Email Address"
+                  name="email"
+                  type="email"
+                  placeholder="jane@company.com"
+                  required
+                />
                 <Field label="Phone Number" name="phone" type="tel" placeholder="+1 555 000 0000" />
               </div>
               <div>
-                <label className="block text-xs font-medium text-muted-foreground mb-1.5">Message</label>
+                <label className="block text-xs font-medium text-muted-foreground mb-1.5">
+                  Message
+                </label>
                 <textarea
                   name="message"
                   rows={5}

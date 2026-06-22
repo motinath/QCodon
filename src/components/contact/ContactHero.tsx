@@ -14,16 +14,19 @@ export function ContactHero() {
             <p className="mb-6 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
               Contact
             </p>
-            <h1 className="font-semibold leading-[1.1] text-foreground" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3.25rem)' }}>
+            <h1
+              className="font-semibold leading-[1.1] text-foreground"
+              style={{ fontSize: "clamp(1.8rem, 3.5vw, 3.25rem)" }}
+            >
               <span className="block whitespace-nowrap">Your Goals,</span>
               <span className="block whitespace-nowrap">Our Commitment</span>
-              <span className="font-serif-italic mt-2 block" style={{ color: '#2563eb' }}>
+              <span className="font-serif-italic mt-2 block" style={{ color: "#2563eb" }}>
                 — Let&rsquo;s Build Together
               </span>
             </h1>
             <p className="mt-8 max-w-md text-base leading-relaxed text-muted-foreground">
-              Tell us what you&rsquo;re building and we&rsquo;ll help you ship it.
-              Our team replies to every message within one business day.
+              Tell us what you&rsquo;re building and we&rsquo;ll help you ship it. Our team replies
+              to every message within one business day.
             </p>
             <div className="mt-10">
               <PillButton asChildHref="#form">Get in touch</PillButton>
@@ -33,7 +36,10 @@ export function ContactHero() {
 
         <Reveal delay={150}>
           <div className="relative">
-            <div className="absolute -bottom-6 -right-6 h-3/4 w-3/4 rounded-3xl md:-bottom-8 md:-right-8" style={{ backgroundColor: '#2563eb' }} />
+            <div
+              className="absolute -bottom-6 -right-6 h-3/4 w-3/4 rounded-3xl md:-bottom-8 md:-right-8"
+              style={{ backgroundColor: "#2563eb" }}
+            />
             <div className="relative overflow-hidden rounded-3xl shadow-xl ring-1 ring-border">
               <img
                 src={contactImg}

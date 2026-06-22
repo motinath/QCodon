@@ -1,6 +1,6 @@
-import PageShell from './_PageShell'
-import { 
-  LineChart, 
+import PageShell from "./_PageShell";
+import {
+  LineChart,
   ArrowRight,
   ShieldAlert,
   Eye,
@@ -18,46 +18,46 @@ import {
   Activity,
   Dna,
   Target,
-  GitFork
-} from 'lucide-react'
-import { Card } from '@/components/ui/card'
-import { useContactModal } from '@/components/ContactModal'
-import molVideo from '@/assets/mol_9x9 (1).mp4'
+  GitFork,
+} from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { useContactModal } from "@/components/ContactModal";
+import molVideo from "@/assets/mol_9x9 (1).mp4";
 
 export default function AnalyticalServicesPage() {
-  const { open: openContact } = useContactModal()
+  const { open: openContact } = useContactModal();
 
   const challenges = [
     {
       icon: ShieldAlert,
       title: "Emerging Modalities",
-      desc: "mRNA, LNPs, and gene therapies demand a new level of analytical rigor that legacy platforms cannot meet."
+      desc: "mRNA, LNPs, and gene therapies demand a new level of analytical rigor that legacy platforms cannot meet.",
     },
     {
       icon: Eye,
       title: "Opaque CRO Processes",
-      desc: "Traditional CROs deliver slow turnarounds and limited visibility, blocking critical go/no-go decisions."
+      desc: "Traditional CROs deliver slow turnarounds and limited visibility, blocking critical go/no-go decisions.",
     },
     {
       icon: CheckCircle,
       title: "Uncompromising Standards",
-      desc: "Quality, safety, and efficacy must be verified at every stage - from discovery to commercialization."
-    }
+      desc: "Quality, safety, and efficacy must be verified at every stage - from discovery to commercialization.",
+    },
   ];
 
   const solutions = [
     {
       title: "BioAnalysis Platform",
-      desc: "GMP-compliant analytical services with audit-ready reporting and industry-grade quality systems."
+      desc: "GMP-compliant analytical services with audit-ready reporting and industry-grade quality systems.",
     },
     {
       title: "Dash Intelligence",
-      desc: "Faster bioanalysis workflows with transparent pricing, structured data delivery, and rapid result turnaround."
+      desc: "Faster bioanalysis workflows with transparent pricing, structured data delivery, and rapid result turnaround.",
     },
     {
       title: "IncuScience Integration",
-      desc: "Integrated CRO support combining sequencing, biological sciences, and analytical chemistry for emerging biotech innovators."
-    }
+      desc: "Integrated CRO support combining sequencing, biological sciences, and analytical chemistry for emerging biotech innovators.",
+    },
   ];
 
   const assays = [
@@ -65,95 +65,94 @@ export default function AnalyticalServicesPage() {
       title: "LC-MS & HPLC",
       desc: "Precision compound quantitation, impurity profiling, and molecular characterization.",
       img: "/precision/hplc.png",
-      icon: LineChart
+      icon: LineChart,
     },
     {
       title: "Analytical Ultracentrifugation",
       desc: "Size distribution and aggregate detection for LNPs, antibodies, and biologics safety.",
       img: "/precision/ultracentrifugation.png",
-      icon: Target
+      icon: Target,
     },
     {
       title: "Next-Generation Sequencing",
       desc: "Genomic analysis for target validation, biomarker discovery, and gene therapy characterization.",
       img: "/precision/next_gen.png",
-      icon: Dna
+      icon: Dna,
     },
     {
       title: "Proteomics",
       desc: "Ultrasensitive protein measurement to accelerate discovery and de-risk therapeutic development.",
       img: "/precision/proteomics.png",
-      icon: GitFork
-    }
+      icon: GitFork,
+    },
   ];
 
   const workflow = [
     {
       num: "01",
       title: "Sample Intake",
-      desc: "Secure onboarding of samples, metadata, study objectives, and analytical requirements."
+      desc: "Secure onboarding of samples, metadata, study objectives, and analytical requirements.",
     },
     {
       num: "02",
       title: "Assay Selection",
-      desc: "Selection of LC-MS, HPLC, NGS, proteomics, or custom analytical workflows."
+      desc: "Selection of LC-MS, HPLC, NGS, proteomics, or custom analytical workflows.",
     },
     {
       num: "03",
       title: "Data Generation",
-      desc: "Validated instruments and controlled laboratory processes generate high-integrity molecular data."
+      desc: "Validated instruments and controlled laboratory processes generate high-integrity molecular data.",
     },
     {
       num: "04",
       title: "AI-Assisted Interpretation",
-      desc: "Analytical outputs are transformed into structured insights, anomaly detection, and decision-ready summaries."
+      desc: "Analytical outputs are transformed into structured insights, anomaly detection, and decision-ready summaries.",
     },
     {
       num: "05",
       title: "Audit-Ready Reporting",
-      desc: "Clear, traceable, regulatory-aligned reports support go/no-go decisions and partner communication."
-    }
+      desc: "Clear, traceable, regulatory-aligned reports support go/no-go decisions and partner communication.",
+    },
   ];
 
   const benefits = [
     {
       icon: Clock3,
       title: "Faster Timelines",
-      desc: "Rapid analytical workflows help teams move from preclinical studies to clinical decisions faster."
+      desc: "Rapid analytical workflows help teams move from preclinical studies to clinical decisions faster.",
     },
     {
       icon: ShieldAlert,
       title: "Reduced Risk",
-      desc: "Targeted analytical strategies and expert regulatory guidance help de-risk your pipeline at every stage."
+      desc: "Targeted analytical strategies and expert regulatory guidance help de-risk your pipeline at every stage.",
     },
     {
       icon: TrendingUp,
       title: "Data-Driven Decisions",
-      desc: "Raw molecular data is converted into clear, actionable insights your scientific and business teams can use immediately."
-    }
+      desc: "Raw molecular data is converted into clear, actionable insights your scientific and business teams can use immediately.",
+    },
   ];
 
   const trustPoints = [
     {
       icon: BookmarkCheck,
       title: "Scientific Rigor",
-      desc: "Validated protocols, meticulous QC, and publication-ready data quality."
+      desc: "Validated protocols, meticulous QC, and publication-ready data quality.",
     },
     {
       icon: FileCheck2,
       title: "Transparent Communication",
-      desc: "Scheduled updates, structured reporting, and milestone-based visibility."
+      desc: "Scheduled updates, structured reporting, and milestone-based visibility.",
     },
     {
       icon: Sliders,
       title: "Tailored Solutions",
-      desc: "Custom analytical strategies aligned with each therapeutic program's unique needs."
-    }
+      desc: "Custom analytical strategies aligned with each therapeutic program's unique needs.",
+    },
   ];
 
   return (
-    <PageShell className="bg-[#f8fafc] dark:bg-[#07090e] transition-colors duration-300">
-      
+    <PageShell spotlight="from-accent-emerald/15 via-transparent to-transparent">
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-6 mb-16">
         <div className="rounded-3xl border border-black/10 dark:border-white/10 bg-white/40 dark:bg-white/[0.02] p-8 md:p-14 backdrop-blur-md grid md:grid-cols-12 gap-8 items-center">
@@ -170,7 +169,8 @@ export default function AnalyticalServicesPage() {
               Precision in Every Molecule
             </h1>
             <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-              Analytical services for tomorrow's therapeutics - combining bioanalysis, AI-driven insights, and audit-ready reporting to accelerate drug discovery.
+              Analytical services for tomorrow's therapeutics - combining bioanalysis, AI-driven
+              insights, and audit-ready reporting to accelerate drug discovery.
             </p>
             <button
               onClick={openContact}
@@ -198,7 +198,7 @@ export default function AnalyticalServicesPage() {
       </section>
 
       {/* The Unseen Frontier Section */}
-      <section className="bg-white dark:bg-[#090d1a] py-20 px-6 mt-16 border-y border-slate-100 dark:border-slate-900 transition-colors duration-300">
+      <section className="bg-card py-20 px-6 mt-16 border-y border-border transition-colors duration-300">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-4 space-y-6 text-left">
             <h2 className="font-sans text-4xl md:text-5xl font-bold tracking-tight leading-tight">
@@ -209,20 +209,24 @@ export default function AnalyticalServicesPage() {
             </h2>
             <div className="h-[3px] w-12 bg-gradient-to-r from-[#d946ef] to-[#f97316] rounded-full my-4" />
             <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed font-medium">
-              Every therapeutic that reaches a patient is built on a foundation of analytical certainty. Behind every clinical milestone, regulatory approval, and breakthrough discovery lies a critical layer of data – invisible to the world, but indispensable to science.
+              Every therapeutic that reaches a patient is built on a foundation of analytical
+              certainty. Behind every clinical milestone, regulatory approval, and breakthrough
+              discovery lies a critical layer of data – invisible to the world, but indispensable to
+              science.
             </p>
             <p className="text-slate-600 dark:text-slate-300 text-[15px] leading-relaxed font-medium">
-              Analytical data is not a commodity. It is the backbone of every decision made in drug development.
+              Analytical data is not a commodity. It is the backbone of every decision made in drug
+              development.
             </p>
           </div>
           <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* Molecule Card (Light themed) */}
             <div className="flex flex-col bg-white dark:bg-[#111c35] rounded-[24px] border border-slate-200/80 dark:border-slate-800 shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="relative aspect-[4/5] w-full overflow-hidden">
-                <img 
-                  src="/precision_others/molecule_ref.png" 
-                  alt="Molecule" 
-                  className="w-full h-full object-cover" 
+                <img
+                  src="/precision_others/molecule_ref.png"
+                  alt="Molecule"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="flex items-center gap-3.5 p-5 border-t border-slate-100 dark:border-slate-800">
@@ -230,8 +234,12 @@ export default function AnalyticalServicesPage() {
                   <Network className="h-5 w-5" />
                 </div>
                 <div className="text-left">
-                  <h3 className="font-sans font-bold text-sm text-[#0c1f40] dark:text-white leading-tight">Molecule</h3>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium leading-tight mt-0.5">The building blocks of innovation</p>
+                  <h3 className="font-sans font-bold text-sm text-[#0c1f40] dark:text-white leading-tight">
+                    Molecule
+                  </h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium leading-tight mt-0.5">
+                    The building blocks of innovation
+                  </p>
                 </div>
               </div>
             </div>
@@ -239,10 +247,10 @@ export default function AnalyticalServicesPage() {
             {/* Data Signal Card (Light themed) */}
             <div className="flex flex-col bg-white dark:bg-[#111c35] rounded-[24px] border border-slate-200/80 dark:border-slate-800 shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="relative aspect-[4/5] w-full overflow-hidden">
-                <img 
-                  src="/precision_others/data_signal_ref.png" 
-                  alt="Data Signal" 
-                  className="w-full h-full object-cover" 
+                <img
+                  src="/precision_others/data_signal_ref.png"
+                  alt="Data Signal"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="flex items-center gap-3.5 p-5 border-t border-slate-100 dark:border-slate-800">
@@ -250,8 +258,12 @@ export default function AnalyticalServicesPage() {
                   <Activity className="h-5 w-5" />
                 </div>
                 <div className="text-left">
-                  <h3 className="font-sans font-bold text-sm text-[#0c1f40] dark:text-white leading-tight">Data Signal</h3>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium leading-tight mt-0.5">Insights hidden within complexity</p>
+                  <h3 className="font-sans font-bold text-sm text-[#0c1f40] dark:text-white leading-tight">
+                    Data Signal
+                  </h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium leading-tight mt-0.5">
+                    Insights hidden within complexity
+                  </p>
                 </div>
               </div>
             </div>
@@ -259,10 +271,10 @@ export default function AnalyticalServicesPage() {
             {/* Decision Card (Light themed) */}
             <div className="flex flex-col bg-white dark:bg-[#111c35] rounded-[24px] border border-slate-200/80 dark:border-slate-800 shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div className="relative aspect-[4/5] w-full overflow-hidden">
-                <img 
-                  src="/precision_others/decision_ref.png" 
-                  alt="Decision" 
-                  className="w-full h-full object-cover" 
+                <img
+                  src="/precision_others/decision_ref.png"
+                  alt="Decision"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="flex items-center gap-3.5 p-5 border-t border-slate-100 dark:border-slate-800">
@@ -270,8 +282,12 @@ export default function AnalyticalServicesPage() {
                   <BrainCircuit className="h-5 w-5" />
                 </div>
                 <div className="text-left">
-                  <h3 className="font-sans font-bold text-sm text-[#0c1f40] dark:text-white leading-tight">Decision</h3>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium leading-tight mt-0.5">Intelligence driving better outcomes</p>
+                  <h3 className="font-sans font-bold text-sm text-[#0c1f40] dark:text-white leading-tight">
+                    Decision
+                  </h3>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 font-medium leading-tight mt-0.5">
+                    Intelligence driving better outcomes
+                  </p>
                 </div>
               </div>
             </div>
@@ -282,26 +298,34 @@ export default function AnalyticalServicesPage() {
       {/* The Challenge Section */}
       <section className="max-w-6xl mx-auto px-6 py-12 border-t border-slate-100 dark:border-slate-900 mt-12">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <p className="text-xs tracking-[0.3em] text-rose-500 uppercase font-semibold">The challenge</p>
+          <p className="text-xs tracking-[0.3em] text-rose-500 uppercase font-semibold">
+            The challenge
+          </p>
           <h2 className="font-serif-display text-3xl md:text-4xl font-bold leading-tight text-foreground mt-3">
             Navigating Complexity in Drug Development
           </h2>
           <p className="text-slate-500 text-sm mt-3">
-            Modern therapeutic programs require clearer analytical evidence, faster decisions, and stronger confidence at every stage.
+            Modern therapeutic programs require clearer analytical evidence, faster decisions, and
+            stronger confidence at every stage.
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {challenges.map((c, idx) => {
             const Icon = c.icon;
             return (
-              <Card key={idx} className="p-8 border border-slate-200/60 dark:border-slate-900 bg-white/60 dark:bg-slate-950/20 rounded-2xl backdrop-blur-sm shadow-sm flex flex-col items-start gap-4">
+              <Card
+                key={idx}
+                className="p-8 border border-slate-200/60 dark:border-slate-900 bg-white/60 dark:bg-slate-950/20 rounded-2xl backdrop-blur-sm shadow-sm flex flex-col items-start gap-4"
+              >
                 <div className="p-3 rounded-xl bg-rose-500/10 text-rose-500">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h3 className="font-serif-display font-bold text-lg text-foreground">{c.title}</h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">{c.desc}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  {c.desc}
+                </p>
               </Card>
-            )
+            );
           })}
         </div>
       </section>
@@ -310,12 +334,16 @@ export default function AnalyticalServicesPage() {
       <section className="max-w-6xl mx-auto px-6 py-16 border-t border-slate-100 dark:border-slate-900 mt-12">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 space-y-6">
-            <p className="text-xs tracking-[0.3em] text-accent-blue uppercase font-semibold">Our solution</p>
+            <p className="text-xs tracking-[0.3em] text-accent-blue uppercase font-semibold">
+              Our solution
+            </p>
             <h2 className="font-serif-display text-3xl md:text-4xl font-bold leading-tight text-foreground">
               A Tech-First Approach to Bioanalysis
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-              Quantum Codon Analytical Services brings together advanced analytical capabilities, transparent reporting, and AI-assisted data interpretation to help biotech teams move from complex biological questions to clear development decisions.
+              Quantum Codon Analytical Services brings together advanced analytical capabilities,
+              transparent reporting, and AI-assisted data interpretation to help biotech teams move
+              from complex biological questions to clear development decisions.
             </p>
             <button
               onClick={openContact}
@@ -327,12 +355,21 @@ export default function AnalyticalServicesPage() {
           </div>
           <div className="lg:col-span-7 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {solutions.map((s, idx) => (
-              <Card key={idx} className="p-6 border border-slate-200/60 dark:border-slate-900 bg-white/40 dark:bg-slate-950/10 rounded-2xl backdrop-blur-sm shadow-sm flex flex-col justify-between min-h-[220px]">
+              <Card
+                key={idx}
+                className="p-6 border border-slate-200/60 dark:border-slate-900 bg-white/40 dark:bg-slate-950/10 rounded-2xl backdrop-blur-sm shadow-sm flex flex-col justify-between min-h-[220px]"
+              >
                 <div>
-                  <span className="font-mono text-xs text-accent-blue font-bold uppercase tracking-wider">0{idx+1}</span>
-                  <h3 className="font-serif-display font-semibold text-base text-foreground mt-3 leading-snug">{s.title}</h3>
+                  <span className="font-mono text-xs text-accent-blue font-bold uppercase tracking-wider">
+                    0{idx + 1}
+                  </span>
+                  <h3 className="font-serif-display font-semibold text-base text-foreground mt-3 leading-snug">
+                    {s.title}
+                  </h3>
                 </div>
-                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-4">{s.desc}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-4">
+                  {s.desc}
+                </p>
               </Card>
             ))}
           </div>
@@ -346,22 +383,23 @@ export default function AnalyticalServicesPage() {
             High-integrity assays for complex molecular programs
           </h2>
           <p className="text-slate-500 dark:text-slate-400 text-sm mt-3 leading-relaxed font-medium">
-            A practical analytical stack for emerging modalities, translational teams, and partner-ready development decisions.
+            A practical analytical stack for emerging modalities, translational teams, and
+            partner-ready development decisions.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {assays.map((a, idx) => {
             const Icon = a.icon;
             return (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="group relative flex flex-col bg-white dark:bg-[#111c35] rounded-[24px] border border-slate-200/80 dark:border-slate-800 shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full"
               >
                 <div className="relative aspect-[4/3] w-full overflow-hidden border-b border-slate-100 dark:border-slate-800/50">
-                  <img 
-                    src={a.img} 
-                    alt={a.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  <img
+                    src={a.img}
+                    alt={a.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   {/* Centered overlapping circle icon */}
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#081026] text-white shadow-md">
@@ -379,7 +417,7 @@ export default function AnalyticalServicesPage() {
                   </p>
                 </div>
               </div>
-            )
+            );
           })}
         </div>
       </section>
@@ -387,20 +425,30 @@ export default function AnalyticalServicesPage() {
       {/* Platform Workflow Section */}
       <section className="max-w-6xl mx-auto px-6 py-16 border-t border-slate-100 dark:border-slate-900 mt-12">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <p className="text-xs tracking-[0.3em] text-accent-blue uppercase font-semibold">Platform workflow</p>
+          <p className="text-xs tracking-[0.3em] text-accent-blue uppercase font-semibold">
+            Platform workflow
+          </p>
           <h2 className="font-serif-display text-3xl md:text-4xl font-bold leading-tight text-foreground mt-3">
             From sample intake to audit-ready reports
           </h2>
           <p className="text-slate-500 text-sm mt-3">
-            A clear operating model for turning complex molecular inputs into aligned scientific and business decisions.
+            A clear operating model for turning complex molecular inputs into aligned scientific and
+            business decisions.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {workflow.map((w, idx) => (
-            <Card key={idx} className="p-6 border border-slate-200/60 dark:border-slate-900 bg-white/40 dark:bg-slate-950/10 rounded-2xl backdrop-blur-sm shadow-sm">
+            <Card
+              key={idx}
+              className="p-6 border border-slate-200/60 dark:border-slate-900 bg-white/40 dark:bg-slate-950/10 rounded-2xl backdrop-blur-sm shadow-sm"
+            >
               <span className="font-mono text-2xl font-bold text-accent-blue">{w.num}</span>
-              <h3 className="font-serif-display font-bold text-sm text-foreground mt-3 leading-snug">{w.title}</h3>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-2.5">{w.desc}</p>
+              <h3 className="font-serif-display font-bold text-sm text-foreground mt-3 leading-snug">
+                {w.title}
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mt-2.5">
+                {w.desc}
+              </p>
             </Card>
           ))}
         </div>
@@ -410,7 +458,9 @@ export default function AnalyticalServicesPage() {
       <section className="max-w-6xl mx-auto px-6 py-16 border-t border-slate-100 dark:border-slate-900 mt-12 grid md:grid-cols-2 gap-8">
         {/* Market Journey */}
         <Card className="p-8 border border-slate-200/60 dark:border-slate-900 bg-white/60 dark:bg-slate-950/10 rounded-2xl shadow-sm space-y-6">
-          <h3 className="font-serif-display text-2xl font-bold text-foreground">Accelerating Your Journey to Market</h3>
+          <h3 className="font-serif-display text-2xl font-bold text-foreground">
+            Accelerating Your Journey to Market
+          </h3>
           <div className="space-y-4">
             {benefits.map((b, idx) => {
               const BIcon = b.icon;
@@ -421,17 +471,21 @@ export default function AnalyticalServicesPage() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-sm text-foreground">{b.title}</h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">{b.desc}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                      {b.desc}
+                    </p>
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
         </Card>
 
         {/* Partnership Trust */}
         <Card className="p-8 border border-slate-200/60 dark:border-slate-900 bg-white/60 dark:bg-slate-950/10 rounded-2xl shadow-sm space-y-6">
-          <h3 className="font-serif-display text-2xl font-bold text-foreground">A Partnership Built on Trust and Expertise</h3>
+          <h3 className="font-serif-display text-2xl font-bold text-foreground">
+            A Partnership Built on Trust and Expertise
+          </h3>
           <div className="space-y-4">
             {trustPoints.map((tp, idx) => {
               const TPIcon = tp.icon;
@@ -442,10 +496,12 @@ export default function AnalyticalServicesPage() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-sm text-foreground">{tp.title}</h4>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">{tp.desc}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                      {tp.desc}
+                    </p>
                   </div>
                 </div>
-              )
+              );
             })}
           </div>
         </Card>
@@ -456,19 +512,25 @@ export default function AnalyticalServicesPage() {
         <div className="rounded-3xl border border-black/10 dark:border-white/10 p-10 md:p-14 overflow-hidden relative shadow-xl backdrop-blur-md">
           {/* background image cover */}
           <div className="absolute inset-0 z-0">
-            <img 
-              src="/precision_last/partner.png" 
-              alt="Scientific Partnership background" 
-              className="w-full h-full object-cover opacity-15 dark:opacity-20 blur-[1px]" 
+            <img
+              src="/precision_last/partner.png"
+              alt="Scientific Partnership background"
+              className="w-full h-full object-cover opacity-15 dark:opacity-20 blur-[1px]"
             />
             <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/10 via-transparent to-accent-purple/10" />
           </div>
-          
+
           <div className="relative z-10 text-center max-w-2xl mx-auto space-y-6">
-            <span className="text-[10px] tracking-[0.25em] uppercase font-mono text-accent-blue font-semibold">Analytical partnership</span>
-            <h2 className="font-serif-display text-3xl md:text-5xl font-bold leading-tight">The Future of Therapeutics Starts Here</h2>
+            <span className="text-[10px] tracking-[0.25em] uppercase font-mono text-accent-blue font-semibold">
+              Analytical partnership
+            </span>
+            <h2 className="font-serif-display text-3xl md:text-5xl font-bold leading-tight">
+              The Future of Therapeutics Starts Here
+            </h2>
             <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed max-w-lg mx-auto">
-              Partner with Quantum Codon to transform complex analytical challenges into clear pathways for groundbreaking therapies. Let's accelerate discovery and bring life-changing treatments to patients faster.
+              Partner with Quantum Codon to transform complex analytical challenges into clear
+              pathways for groundbreaking therapies. Let's accelerate discovery and bring
+              life-changing treatments to patients faster.
             </p>
             <div className="pt-2">
               <button
@@ -482,7 +544,6 @@ export default function AnalyticalServicesPage() {
           </div>
         </div>
       </section>
-
     </PageShell>
-  )
+  );
 }

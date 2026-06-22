@@ -1,4 +1,12 @@
-import { Atom, Dna, LineChart, Cpu, ShieldCheck, GraduationCap, type LucideIcon } from "lucide-react";
+import {
+  Atom,
+  Dna,
+  LineChart,
+  Cpu,
+  ShieldCheck,
+  GraduationCap,
+  type LucideIcon,
+} from "lucide-react";
 
 export type Offering = {
   slug: string;
@@ -20,7 +28,8 @@ export const offerings: Offering[] = [
   {
     slug: "drug-discovery",
     title: "Drug Discovery",
-    description: "Accelerate molecule discovery using quantum simulations and AI-powered research workflows.",
+    description:
+      "Accelerate molecule discovery using quantum simulations and AI-powered research workflows.",
     icon: Atom,
     badge: "Discovery Core",
     num: "01",
@@ -34,10 +43,22 @@ export const offerings: Offering[] = [
     overview:
       "Quantum Codon's discovery platform maps silent sequences directly to cellular receptors, then synthesizes and validates the leading peptide structures for preclinical work — compressing years of iteration into weeks.",
     features: [
-      { title: "In silico translation", body: "Translate intergenic DNA, antisense frames, microRNAs, introns, and tRNA-derived peptides." },
-      { title: "Dynamic docking", body: "Binding affinity optimization using state-of-the-art virtual docking software." },
-      { title: "Peptide synthesis", body: "Candidate synthesis of leading peptide structures for preclinical validations." },
-      { title: "Lead profiling", body: "Iterative refinement loops guided by reinforcement learning and ADMET scoring." },
+      {
+        title: "In silico translation",
+        body: "Translate intergenic DNA, antisense frames, microRNAs, introns, and tRNA-derived peptides.",
+      },
+      {
+        title: "Dynamic docking",
+        body: "Binding affinity optimization using state-of-the-art virtual docking software.",
+      },
+      {
+        title: "Peptide synthesis",
+        body: "Candidate synthesis of leading peptide structures for preclinical validations.",
+      },
+      {
+        title: "Lead profiling",
+        body: "Iterative refinement loops guided by reinforcement learning and ADMET scoring.",
+      },
     ],
     benefits: [
       "Cut early-stage discovery time by up to 60%",
@@ -48,7 +69,10 @@ export const offerings: Offering[] = [
     useCases: [
       { title: "Oncology", body: "Selective inhibitors for hard-to-drug kinases." },
       { title: "Anti-infectives", body: "Rapid response pipelines for parasites and pathogens." },
-      { title: "Neurodegeneration", body: "BACE1-class targets validated with synthetic peptides." },
+      {
+        title: "Neurodegeneration",
+        body: "BACE1-class targets validated with synthetic peptides.",
+      },
     ],
   },
   {
@@ -68,10 +92,19 @@ export const offerings: Offering[] = [
     overview:
       "Our molecular genetics facility validates computational models through rigorous wet-lab experimentation, constructing synthetic gene pathways that do not exist under natural evolutionary parameters.",
     features: [
-      { title: "High-fidelity cloning", body: "Customized plasmids for candidate constructs at scale." },
+      {
+        title: "High-fidelity cloning",
+        body: "Customized plasmids for candidate constructs at scale.",
+      },
       { title: "Host engineering", body: "E. coli, S. cerevisiae, and cell-free model systems." },
-      { title: "Expression verification", body: "Western blot, SDS-PAGE, and translational stability checks." },
-      { title: "Functional bioassays", body: "Growth-inhibition, receptor-binding, and multi-well screens." },
+      {
+        title: "Expression verification",
+        body: "Western blot, SDS-PAGE, and translational stability checks.",
+      },
+      {
+        title: "Functional bioassays",
+        body: "Growth-inhibition, receptor-binding, and multi-well screens.",
+      },
     ],
     benefits: [
       "One platform across structural and -omics workflows",
@@ -81,8 +114,14 @@ export const offerings: Offering[] = [
     ],
     useCases: [
       { title: "Variant interpretation", body: "Predict functional impact of clinical variants." },
-      { title: "Target validation", body: "Confirm druggability with structural and pathway evidence." },
-      { title: "Biologics design", body: "Engineer antibodies and enzymes with improved stability." },
+      {
+        title: "Target validation",
+        body: "Confirm druggability with structural and pathway evidence.",
+      },
+      {
+        title: "Biologics design",
+        body: "Engineer antibodies and enzymes with improved stability.",
+      },
     ],
   },
   {
@@ -102,10 +141,22 @@ export const offerings: Offering[] = [
     overview:
       "Every synthetic candidate undergoes strict analytical characterization. We verify folding coordinates, absolute molecular weight, and pharmacokinetic properties under standard GLP directives.",
     features: [
-      { title: "HPLC purity", body: "Concentration and purity assessment via High-Performance Liquid Chromatography." },
-      { title: "Mass spectrometry", body: "LC-MS/MS for exact molecular weight and sequence validation." },
-      { title: "Stability assays", body: "Solubility, thermal shift, stability, and formulation testing." },
-      { title: "ADMET checks", body: "Preclinical absorption, distribution, metabolism, excretion, and toxicity." },
+      {
+        title: "HPLC purity",
+        body: "Concentration and purity assessment via High-Performance Liquid Chromatography.",
+      },
+      {
+        title: "Mass spectrometry",
+        body: "LC-MS/MS for exact molecular weight and sequence validation.",
+      },
+      {
+        title: "Stability assays",
+        body: "Solubility, thermal shift, stability, and formulation testing.",
+      },
+      {
+        title: "ADMET checks",
+        body: "Preclinical absorption, distribution, metabolism, excretion, and toxicity.",
+      },
     ],
     benefits: [
       "Cut reporting cycles from weeks to hours",
@@ -136,10 +187,22 @@ export const offerings: Offering[] = [
     overview:
       "Bioinformatics gives research and clinical teams a unified workspace to run, share, and govern bioinformatics workloads — with the security, observability, and reproducibility production environments demand.",
     features: [
-      { title: "Genome-scale mapping", body: "Sequence mapping across multi-organism genetic directories." },
-      { title: "Structural annotation", body: "Non-coding sequence annotation with homology indexes." },
-      { title: "AlphaFold integration", body: "Tertiary structure prediction via modern ML metrics." },
-      { title: "Deep docking", body: "High-throughput algorithms for virtual library prioritization." },
+      {
+        title: "Genome-scale mapping",
+        body: "Sequence mapping across multi-organism genetic directories.",
+      },
+      {
+        title: "Structural annotation",
+        body: "Non-coding sequence annotation with homology indexes.",
+      },
+      {
+        title: "AlphaFold integration",
+        body: "Tertiary structure prediction via modern ML metrics.",
+      },
+      {
+        title: "Deep docking",
+        body: "High-throughput algorithms for virtual library prioritization.",
+      },
     ],
     benefits: [
       "Production-ready from day one",
@@ -170,10 +233,22 @@ export const offerings: Offering[] = [
     overview:
       "We maintain rigorous data integrity and clinical readiness. Our regulatory team ensures every scientific discovery complies with international biotechnology guidelines and safety controls.",
     features: [
-      { title: "IND dossiers", body: "Investigational New Drug compilation and regulatory support." },
-      { title: "FDA/EMA filings", body: "Complete safety assurance reporting per agency guidelines." },
-      { title: "GLP/GMP audits", body: "Compliant documentation audits and laboratory standard logging." },
-      { title: "Complaint logging", body: "Client reporting, inquiry handling, and full audit trails." },
+      {
+        title: "IND dossiers",
+        body: "Investigational New Drug compilation and regulatory support.",
+      },
+      {
+        title: "FDA/EMA filings",
+        body: "Complete safety assurance reporting per agency guidelines.",
+      },
+      {
+        title: "GLP/GMP audits",
+        body: "Compliant documentation audits and laboratory standard logging.",
+      },
+      {
+        title: "Complaint logging",
+        body: "Client reporting, inquiry handling, and full audit trails.",
+      },
     ],
     benefits: [
       "Shorten submission cycles",
@@ -190,7 +265,8 @@ export const offerings: Offering[] = [
   {
     slug: "education",
     title: "Education",
-    description: "Quantum computing education, certifications, workshops, and professional training.",
+    description:
+      "Quantum computing education, certifications, workshops, and professional training.",
     icon: GraduationCap,
     badge: "Training & Certification",
     num: "06",
@@ -206,7 +282,10 @@ export const offerings: Offering[] = [
     features: [
       { title: "Structured tracks", body: "Curated paths for engineers, scientists, and leaders." },
       { title: "Live workshops", body: "Cohort-based sessions with expert instructors." },
-      { title: "Certifications", body: "Industry-recognized credentials with rigorous assessment." },
+      {
+        title: "Certifications",
+        body: "Industry-recognized credentials with rigorous assessment.",
+      },
       { title: "Corporate training", body: "Bespoke programs aligned to your team's roadmap." },
     ],
     benefits: [
@@ -217,7 +296,10 @@ export const offerings: Offering[] = [
     ],
     useCases: [
       { title: "Enterprise onboarding", body: "Get new hires productive on quantum stacks." },
-      { title: "University partnerships", body: "Co-develop curriculum with leading institutions." },
+      {
+        title: "University partnerships",
+        body: "Co-develop curriculum with leading institutions.",
+      },
       { title: "Executive briefings", body: "Strategy sessions for leadership teams." },
     ],
   },

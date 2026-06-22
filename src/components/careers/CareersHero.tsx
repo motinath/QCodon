@@ -15,7 +15,13 @@ export default function CareersHero() {
       >
         <defs>
           <pattern id="careers-grid" width="120" height="120" patternUnits="userSpaceOnUse">
-            <path d="M0 60 L120 60 M60 0 L60 120 M0 0 L120 120 M120 0 L0 120" stroke="currentColor" strokeWidth="0.6" fill="none" className="text-accent-blue" />
+            <path
+              d="M0 60 L120 60 M60 0 L60 120 M0 0 L120 120 M120 0 L0 120"
+              stroke="currentColor"
+              strokeWidth="0.6"
+              fill="none"
+              className="text-accent-blue"
+            />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#careers-grid)" />
@@ -35,9 +41,9 @@ export default function CareersHero() {
             <span className="text-accent-blue/80 ml-2 align-top text-3xl md:text-4xl">”</span>
           </h1>
           <p className="mt-6 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
-            We're recruiting pioneers across biology, quantum computation, and software
-            engineering. If you're driven to decode the genome's untouched frontier — there's
-            a bench, a terminal, and a team waiting for you here.
+            We're recruiting pioneers across biology, quantum computation, and software engineering.
+            If you're driven to decode the genome's untouched frontier — there's a bench, a
+            terminal, and a team waiting for you here.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">

@@ -49,7 +49,14 @@ export default function StarfieldBackground() {
     window.addEventListener("resize", resize);
 
     // Shooting star state
-    let shooting: { x: number; y: number; vx: number; vy: number; life: number; maxLife: number } | null = null;
+    let shooting: {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      life: number;
+      maxLife: number;
+    } | null = null;
     let nextShootingAt = performance.now() + 4000 + Math.random() * 5000;
 
     function spawnShooting(now: number) {
@@ -126,7 +133,11 @@ export default function StarfieldBackground() {
           ctx.moveTo(shooting.x, shooting.y);
           ctx.lineTo(tailX, tailY);
           ctx.stroke();
-          if (shooting.life > shooting.maxLife || shooting.x > width + 100 || shooting.y > height + 100) {
+          if (
+            shooting.life > shooting.maxLife ||
+            shooting.x > width + 100 ||
+            shooting.y > height + 100
+          ) {
             shooting = null;
           }
         }
