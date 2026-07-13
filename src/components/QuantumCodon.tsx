@@ -745,6 +745,8 @@ export function QcClasses() {
                   <img
                     src={c.image}
                     alt={c.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-32 md:h-24 object-cover rounded-xl border border-black/5 dark:border-white/5"
                   />
                 </div>

@@ -425,6 +425,8 @@ export default function About() {
                         <img
                           src={slide.url}
                           alt={slide.alt}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover opacity-90"
                         />
                         {/* Elegant slide description overlay */}
@@ -611,6 +613,8 @@ export default function About() {
                         <img
                           src={m.image}
                           alt={m.title}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-auto block brightness-95 group-hover:scale-105 transition-transform duration-500"
                         />
                       </div>

@@ -86,6 +86,7 @@ function IndustryDetailPage() {
               <img
                 src={`/industry-${i.slug}-hero.png`}
                 alt={`${i.title} Industry Graphic`}
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />

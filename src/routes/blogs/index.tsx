@@ -54,6 +54,8 @@ function BlogsPage() {
               <img
                 src={p.image}
                 alt={p.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute top-4 left-4 bg-slate-900/90 text-white font-mono text-[10px] tracking-widest uppercase px-3 py-1 rounded-md backdrop-blur shadow">

@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "At QuantumCodon, we combine the power of Dark Genome Mining, AI, and Quantum Computing to discover the next generation of therapeutics and transform lives.",
     date: "Jun 24, 2026",
-    image: "/blog-dark-matter.png",
+    image: "/blog-dark-matter.jpg",
     introduction:
       "At Quantum Codon, we are decoding the 98% of the genome that mainstream biology has long ignored—the dark genome. By combining the power of Dark Genome Mining, AI, and Quantum Computing, we are discovering the next generation of therapeutics and transforming human health.",
     sections: [
@@ -63,7 +63,7 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "At Quantum Codon, we combine the power of Quantum Computing, AI, and Computational Biology to decode the code of life and solve complex real-world challenges.",
     date: "May 18, 2026",
-    image: "/blog-life-sciences.png",
+    image: "/blog-life-sciences.jpg",
     introduction:
       "Life is code. It is an intricate, digital-like language written in nucleotides and structured in three-dimensional space. At Quantum Codon, we believe that understanding this code requires more than just biology—it requires computational, quantum, and intelligent systems.",
     sections: [

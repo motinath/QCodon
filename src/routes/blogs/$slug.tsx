@@ -147,6 +147,7 @@ function BlogPostDetailPage() {
           <img
             src={post.image}
             alt={post.title}
+            decoding="async"
             className="w-full h-full object-cover transition-transform duration-1000 hover:scale-102"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
@@ -275,6 +276,8 @@ function BlogPostDetailPage() {
                     <img
                       src={nextPost.image}
                       alt={nextPost.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute top-3 left-3 bg-slate-900/90 text-white font-mono text-[9px] tracking-widest uppercase px-2 py-0.5 rounded-md backdrop-blur">
