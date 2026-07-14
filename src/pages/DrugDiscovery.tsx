@@ -303,7 +303,7 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
         "Locks disease states at intronic splice boundaries",
       ],
       strategy:
-        "SilicoFeller indexes introns to create high-affinity synthetic peptides, unlocking novel patent spaces.",
+        "Quantum Codon indexes introns to create high-affinity synthetic peptides, unlocking novel patent spaces.",
     },
     {
       num: "03",
@@ -326,7 +326,7 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
         "Targets structural RNA complexes without genetic modification",
       ],
       strategy:
-        "SilicoFeller models structural RNA pockets to shut down disease translation networks at the source.",
+        "Quantum Codon models structural RNA pockets to shut down disease translation networks at the source.",
     },
   ];
 
@@ -355,11 +355,11 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
               <div>
                 <div className="flex justify-between items-start mb-6">
                   <div>
-                    <span className="text-[10px] font-mono font-bold tracking-widest text-text-tertiary block mb-1">
+                    <span className="text-[10px] font-sans font-semibold tracking-[0.12em] text-text-tertiary block mb-1">
                       SEGMENT {seg.num}
                     </span>
                     <span
-                      className={`inline-block px-2.5 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase tracking-wider border ${
+                      className={`inline-block px-2.5 py-0.5 rounded-full text-[9px] font-sans font-semibold uppercase tracking-[0.06em] border ${
                         idx === 0
                           ? isDark
                             ? "border-slate-800 bg-slate-900/30 text-slate-400"
@@ -373,7 +373,7 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
                     </span>
                   </div>
                   <span
-                    className={`text-xl font-mono font-bold px-3 py-1 rounded-2xl bg-gradient-to-r ${seg.accentColor} text-white shadow-sm`}
+                    className={`text-xl font-sans font-bold px-3 py-1 rounded-2xl bg-gradient-to-r ${seg.accentColor} text-white shadow-sm`}
                   >
                     {seg.ratio}
                   </span>
@@ -383,7 +383,7 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
                   {seg.title}
                 </h3>
                 <p
-                  className={`text-[10px] font-mono tracking-wider uppercase mb-5 font-bold ${seg.accentText}`}
+                  className={`text-[10px] font-sans tracking-[0.08em] uppercase mb-5 font-semibold ${seg.accentText}`}
                 >
                   {seg.meaning}
                 </p>
@@ -398,10 +398,10 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
                     isDark ? "bg-black/20 border-zinc-800/60" : "bg-slate-50 border-slate-200/60"
                   }`}
                 >
-                  <span className="text-[9px] font-mono uppercase tracking-wider text-text-tertiary block font-bold">
+                  <span className="text-[10px] font-sans uppercase tracking-[0.08em] text-text-tertiary block font-semibold">
                     Bioinformatics Parameters
                   </span>
-                  <div className="space-y-2 text-xs font-mono">
+                  <div className="space-y-2 text-xs font-sans">
                     {seg.metrics.map((m, mIdx) => (
                       <div
                         key={mIdx}
@@ -416,7 +416,7 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
 
                 {/* Attributes List */}
                 <div className="space-y-3 mb-8">
-                  <span className="text-[9px] font-mono uppercase tracking-wider text-text-tertiary block font-bold">
+                  <span className="text-[10px] font-sans uppercase tracking-[0.08em] text-text-tertiary block font-semibold">
                     Target Properties
                   </span>
                   <ul className="space-y-2.5 text-xs text-text-secondary">
@@ -430,7 +430,7 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
                 </div>
               </div>
 
-              {/* SilicoFeller Integration Box */}
+              {/* Quantum Codon Integration Box */}
               <div
                 className={`p-4 rounded-2xl border flex items-start gap-3 transition-colors ${
                   idx === 0
@@ -448,8 +448,8 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
                   }`}
                 />
                 <div>
-                  <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-text-primary block mb-0.5">
-                    SilicoFeller Strategy
+                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] text-text-primary block mb-1">
+                    Quantum Codon Strategy
                   </span>
                   <p className="text-xs text-text-secondary leading-relaxed font-medium">
                     {seg.strategy}
@@ -2623,23 +2623,34 @@ export default function DrugDiscoveryPage() {
         </div>
       </section>
 
-      {/* Act 6: Conversion / Closing CTA (Contact Page Copy & Visual Formats) */}
-      <section className="relative z-10 py-28 bg-[#0a0b0d] text-white overflow-hidden border-t border-border-subtle/25">
-        <GenomeAtlasHero isDark={true} />
+      {/* Act 6: Conversion / Closing CTA */}
+      <section className="relative z-10 py-28 overflow-hidden border-t border-white/5" style={{background: "linear-gradient(135deg, #060814 0%, #0a0f1e 40%, #0c0f18 70%, #07090d 100%)"}}>
+        {/* Decorative background glow orbs */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-accent-blue/10 blur-[120px] opacity-60" />
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-accent-purple/10 blur-[100px] opacity-50" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[#1e3a8a]/8 blur-[140px]" />
+        </div>
+
+        {/* Subtle grid pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px"}} />
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <Reveal>
-            {/* Title styled EXACTLY like the Contact page main heading */}
-            <h2 className="font-semibold leading-[1.1] text-bone tracking-tight mb-6 text-3xl md:text-5xl">
-              <span>Your Goals, Our Commitment</span>
-              <span className="font-serif-italic block mt-3 text-white">
+            {/* Top eyebrow label */}
+            <p className="text-xs tracking-[0.35em] text-[#60a5fa] uppercase font-semibold mb-6">
+              Partner With Us
+            </p>
+            {/* Main heading — always bright white */}
+            <h2 className="font-semibold leading-[1.1] tracking-tight mb-4 text-3xl md:text-5xl text-white">
+              Your Goals, Our Commitment
+              <span className="font-serif-italic block mt-3 text-[#a5b4fc]">
                 — Let&rsquo;s Build Together.
               </span>
             </h2>
           </Reveal>
           <Reveal delay={120}>
-            {/* Description matching the contact page description */}
-            <p className="text-slate-400 text-sm md:text-base mb-10 max-w-xl mx-auto leading-relaxed">
+            <p className="text-[#94a3b8] text-sm md:text-base mb-10 max-w-xl mx-auto leading-relaxed">
               Tell us what you&rsquo;re building and we&rsquo;ll help you ship it. Our team replies
               to every message within one business day.
             </p>
@@ -2649,16 +2660,25 @@ export default function DrugDiscoveryPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <button
                 onClick={() => contactModal.open()}
-                className="px-8 py-3.5 rounded-full bg-white hover:bg-zinc-100 text-black font-bold text-xs font-semibold uppercase tracking-wider transition hover:scale-105 active:scale-95 shadow-md"
+                className="px-8 py-3.5 rounded-full bg-[#1e3a8a] hover:bg-[#1d4ed8] text-white font-bold text-xs uppercase tracking-wider transition-all hover:scale-105 active:scale-95 shadow-lg shadow-blue-900/40 border border-blue-700/40"
               >
                 Get in touch
               </button>
               <Link
                 to="/contact"
-                className="px-8 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs font-semibold uppercase tracking-wider transition hover:scale-105 active:scale-95"
+                className="px-8 py-3.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs font-semibold uppercase tracking-wider transition-all hover:scale-105 active:scale-95 backdrop-blur-sm"
               >
                 Inquire Online
               </Link>
+            </div>
+          </Reveal>
+
+          {/* Trust signals */}
+          <Reveal delay={360}>
+            <div className="mt-12 flex flex-wrap justify-center gap-6 text-[11px] text-[#64748b]">
+              <span className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400 inline-block" />Replies within 1 business day</span>
+              <span className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-blue-400 inline-block" />Peer-reviewed science</span>
+              <span className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-purple-400 inline-block" />Amaravati, India HQ</span>
             </div>
           </Reveal>
         </div>

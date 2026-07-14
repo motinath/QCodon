@@ -14,25 +14,12 @@ import {
   BookOpen,
   Check,
   Cpu,
-  History,
-  TrendingUp,
-  FlaskConical,
-  Sparkles,
   Search,
   Database,
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
 
-// Sub-components / Data Types
-interface Milestone {
-  year: string;
-  title: string;
-  tag: string;
-  description: string;
-  image: string;
-  icon: React.ComponentType<any>;
-}
 
 interface Leader {
   name: string;
@@ -112,7 +99,7 @@ export default function About() {
   const [activeSection, setActiveSection] = useState("mission");
 
   useEffect(() => {
-    const sections = ["mission", "story", "leadership", "events"];
+    const sections = ["mission", "leadership", "events"];
     const observerOptions = {
       root: null,
       rootMargin: "-20% 0px -50% 0px", // Trigger when the section occupies the center of the screen
@@ -142,53 +129,6 @@ export default function About() {
   }, []);
 
   // Data Definitions
-  const milestones: Milestone[] = [
-    {
-      year: "2011",
-      title: "Dark Genome Genesis",
-      tag: "Academic Breakthrough",
-      description:
-        "Prof. Pawan K Dhar publishes initial proof-of-concept papers at JNU, expressing functional, stable proteins from non-expressing intergenic sequences in E. coli.",
-      image: "/timeline_genesis.png",
-      icon: History,
-    },
-    {
-      year: "2018",
-      title: "Founding of Quantum Codon",
-      tag: "Corporate Spin-out",
-      description:
-        "Quantum Codon is incorporated to scale and commercialize dark genome research. A dedicated team of computational biologists and molecular biophysicists is assembled.",
-      image: "/timeline_launch.png",
-      icon: FlaskConical,
-    },
-    {
-      year: "2021",
-      title: "Amaravati Laboratory Launch",
-      tag: "Infrastructure Expansion",
-      description:
-        "Opened flagship laboratories in Amaravati Quantum Valley. Integrating quantum chemistry solvers to simulate atomic docking energies for synthetically expressed peptides.",
-      image: "/timeline_lab.jpg",
-      icon: Cpu,
-    },
-    {
-      year: "2024",
-      title: "AI Structural Integration",
-      tag: "Technology Milestone",
-      description:
-        "Seamless integration of deep learning (AlphaFold predictions) into our design pipeline. Accelerates Class I (non-expressing DNA) & Class II (non-translating RNA) candidate validation.",
-      image: "/timeline_ai.png",
-      icon: Sparkles,
-    },
-    {
-      year: "2026",
-      title: "Preclinical Advancements",
-      tag: "Clinical Validation",
-      description:
-        "Preclinical validation of therapeutic candidates like tREP-18. Achieving micromolar and nanomolar efficacy profiles against antimicrobial resistant pathogens and oncology models.",
-      image: "/timeline_preclinical.png",
-      icon: TrendingUp,
-    },
-  ];
 
   const leaders: Leader[] = [
     {
@@ -204,53 +144,6 @@ export default function About() {
       linkedin: "https://linkedin.com",
       photo: "/team_pawan_dhar.png",
     },
-    {
-      name: "Dr. Kadalmani Krishnan",
-      title: "Head of Bioinformatics & Co-Founder",
-      credential: "Ph.D. in Computational Biology",
-      bio: "Senior researcher in structural biology and sequence analysis. Co-author of the landmark paper on recoding genomic elements using AI and quantum models. Specializes in sequence translation models, tRNA-derived peptide (tREP) mapping, and GPU-accelerated structural searches.",
-      specialties: ["Sequence Translation Models", "tREP Mapping", "Structural Bioinformatics"],
-      publications: [
-        'Krishnan et al. (2025) "Recoding genomic elements with AI and quantum computation"',
-        'Krishnan & Dhar (2024) "Computational translation parameters for non-coding sequences"',
-      ],
-      linkedin: "https://linkedin.com",
-      photo: "/team_kadalmani_krishnan.png",
-    },
-    {
-      name: "Dr. Vidya Niranjan",
-      title: "Chief Scientific Advisor",
-      credential: "Ph.D. in Biotechnology",
-      bio: "Professor and Head of Biotechnology Department. Expert in high-throughput sequencing data analysis, structural biology database models, and sequence alignment algorithms. Advisor to several national genomic initiatives.",
-      specialties: [
-        "Multi-Omics Database Integration",
-        "Metabolic Reconstruction",
-        "Structural Analysis",
-      ],
-      publications: [
-        'Niranjan et al. (2024) "Comparative analysis of silent elements in bacterial genomes"',
-        'Niranjan & Sen (2025) "High-throughput bioinformatics tools for novel drug discovery"',
-      ],
-      linkedin: "https://linkedin.com",
-      photo: "/team_vidya_niranjan.png",
-    },
-    {
-      name: "Dr. Anita Chugh",
-      title: "Director of Biotechnology",
-      credential: "Ph.D. in Molecular Biophysics",
-      bio: "Lead investigator in synthetic gene expressions and biochemical validation assays. Oversees the wet-lab validation pipeline, synthetic cloning vectors, cell-free expression assays, and lead candidate optimizations.",
-      specialties: [
-        "Cloning Vector Synthesis",
-        "Cell-Free Expression Assays",
-        "Lead Candidate Optimization",
-      ],
-      publications: [
-        'Chugh et al. (2023) "In vitro stability of synthetically expressed intergenic proteins"',
-        'Chugh & Dhar (2025) "Lead validation parameters for Class II therapeutic peptides"',
-      ],
-      linkedin: "https://linkedin.com",
-      photo: "/team_anita_chugh.png",
-    },
   ];
 
   const events: EventItem[] = [
@@ -260,10 +153,10 @@ export default function About() {
       date: "Oct 12, 2026",
       day: "12",
       monthYear: "OCT 2026",
-      venue: "Boston Convention Center",
-      location: "Boston, MA",
+      venue: "Amaravati Convention Hall",
+      location: "Amaravati, India",
       type: "Keynote",
-      speaker: "Prof. Pawan K. Dhar",
+      speaker: "",
       description:
         'Quantum Codon will present its landmark keynote "Therapeutic Peptides from Silent Genomes: Preclinical Efficacy Analysis" outlining the nanomolar results of tREP-18.',
       upcoming: true,
@@ -277,7 +170,7 @@ export default function About() {
       venue: "Amaravati Convention Hall",
       location: "Amaravati, India",
       type: "Workshop",
-      speaker: "Dr. Kadalmani Krishnan",
+      speaker: "",
       description:
         'A technical workshop on "Quantum-State Docking Simulations for Non-Coding Targets", demonstrating high-throughput simulations on quantum annealing architectures.',
       upcoming: true,
@@ -288,10 +181,10 @@ export default function About() {
       date: "Jun 02, 2025",
       day: "02",
       monthYear: "JUN 2025",
-      venue: "McCormick Place",
-      location: "Chicago, IL",
+      venue: "Amaravati Convention Hall",
+      location: "Amaravati, India",
       type: "Poster",
-      speaker: "Dr. Anita Chugh",
+      speaker: "",
       description:
         'Unveiling preclinical poster board #240: "Targeting Non-Coding Mutations in Oncology via Synthetic Introns," showing 86% tumor growth reduction in vivo.',
       upcoming: false,
@@ -302,10 +195,10 @@ export default function About() {
       date: "Apr 16, 2025",
       day: "16",
       monthYear: "APR 2025",
-      venue: "Omni Boston Hotel at the Seaport",
-      location: "Boston, MA",
+      venue: "Amaravati Convention Hall",
+      location: "Amaravati, India",
       type: "Panel",
-      speaker: "Dr. Kadalmani Krishnan",
+      speaker: "",
       description:
         'Participated in the plenary panel session "Scaling the Parallel Proteome: AI-Guided Structural Search in Bioinformatics", detailing dark genome screening speedups.',
       upcoming: false,
@@ -356,7 +249,7 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-6 flex justify-center gap-4 md:gap-8">
           {[
             { id: "mission", label: "Our Mission" },
-            { id: "story", label: "Our Story" },
+
             { id: "leadership", label: "Leadership" },
             { id: "events", label: "Events & Presence" },
           ].map((tab) => (
@@ -550,84 +443,7 @@ export default function About() {
           </div>
         </section>
 
-        {/* SECTION 2: OUR STORY (TIMELINE) */}
-        <section id="story" className="scroll-mt-32 space-y-12">
-          <div className="text-center max-w-2xl mx-auto">
-            <p className="text-[10px] tracking-[0.35em] text-accent-purple uppercase font-semibold">
-              Our Journey
-            </p>
-            <h2 className="font-serif-display text-3xl md:text-4xl mt-2 leading-tight">
-              Decades of Discovery
-            </h2>
-            <p className="mt-2 text-xs md:text-sm text-muted-foreground font-medium">
-              Quantum Codon is built on a clear foundation of scientific milestones. This timeline
-              details how we evolved from research hypotheses into a clinical drug discovery
-              platform.
-            </p>
-          </div>
 
-          {/* Vertical timeline */}
-          <div className="relative space-y-16 py-8">
-            {/* Central connection line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-blue/30 via-accent-purple/30 to-accent-emerald/30 -translate-x-1/2" />
-
-            {milestones.map((m, idx) => {
-              const Icon = m.icon;
-              const isEven = idx % 2 === 0;
-              return (
-                <div
-                  key={m.year}
-                  className="relative flex flex-col md:flex-row items-start md:items-center w-full"
-                >
-                  {/* Circle timeline dot with indicator icon */}
-                  <div className="absolute left-4 md:left-1/2 -translate-x-1/2 h-9 w-9 rounded-full bg-background border-2 border-foreground flex items-center justify-center z-10 shadow-sm">
-                    <Icon className="h-4 w-4 text-foreground" />
-                  </div>
-
-                  {/* Timeline card wrapper */}
-                  <div
-                    className={`w-full md:w-1/2 pl-12 md:pl-0 ${isEven ? "md:pr-12 md:text-right" : "md:pl-12 md:order-2 md:text-left"}`}
-                  >
-                    <div className="p-6 rounded-2xl border border-black/10 dark:border-white/10 bg-white/40 dark:bg-white/[0.02] backdrop-blur-md hover:shadow-lg transition-shadow duration-300 relative group overflow-hidden">
-                      {/* Background mesh glow on card hover */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-accent-blue/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                      <div className={`flex items-center gap-2.5 mb-2 justify-start ${isEven ? "md:justify-end" : "md:justify-start"} group-hover:text-accent-blue transition-colors`}>
-                        <span className="font-serif-display text-2xl font-bold tracking-tight">
-                          {m.year}
-                        </span>
-                        <span className="text-[10px] uppercase tracking-wider font-semibold bg-black/5 dark:bg-white/10 px-2 py-0.5 rounded-full text-muted-foreground">
-                          {m.tag}
-                        </span>
-                      </div>
-
-                      <h3 className="font-semibold text-sm leading-tight text-foreground mb-2">
-                        {m.title}
-                      </h3>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        {m.description}
-                      </p>
-
-                      {/* Decorative image from public resources */}
-                      <div className="mt-4 rounded-xl overflow-hidden border border-black/5 dark:border-white/5">
-                        <img
-                          src={m.image}
-                          alt={m.title}
-                          loading="lazy"
-                          decoding="async"
-                          className="w-full h-auto block brightness-95 group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Empty placeholder to balance desktop layout */}
-                  <div className="hidden md:block w-1/2" />
-                </div>
-              );
-            })}
-          </div>
-        </section>
 
         {/* SECTION 3: LEADERSHIP */}
         <section id="leadership" className="scroll-mt-32 space-y-12">
@@ -645,7 +461,7 @@ export default function About() {
           </div>
 
           {/* Grid of Executive Profiles */}
-          <div className="grid md:grid-cols-2 gap-8 items-start">
+          <div className="max-w-xl mx-auto">
             {leaders.map((leader) => {
               const isExpanded = expandedLeader === leader.name;
               return (
@@ -819,9 +635,6 @@ export default function About() {
                     <h3 className="font-serif-display text-lg font-semibold leading-snug mt-2 text-foreground">
                       {evt.title}
                     </h3>
-                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                      Presenter: <strong className="text-foreground">{evt.speaker}</strong>
-                    </p>
 
                     <p className="text-xs text-muted-foreground mt-3 leading-relaxed">
                       {evt.description}
