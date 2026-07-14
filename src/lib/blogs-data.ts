@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     title: "Unlocking Biology's Dark Matter: Engineering the Future of Therapeutics",
     excerpt:
       "At QuantumCodon, we combine the power of Dark Genome Mining, AI, and Quantum Computing to discover the next generation of therapeutics and transform lives.",
-    date: "Jun 24, 2026",
+    date: "Jul 14, 2026",
     image: "/blog-dark-matter.jpg",
     introduction:
       "At Quantum Codon, we are decoding the 98% of the genome that mainstream biology has long ignored—the dark genome. By combining the power of Dark Genome Mining, AI, and Quantum Computing, we are discovering the next generation of therapeutics and transforming human health.",
@@ -62,7 +62,7 @@ export const blogPosts: BlogPost[] = [
       "The Future of Life Sciences Isn't Just Biological—It's Computational, Quantum, and Intelligent.",
     excerpt:
       "At Quantum Codon, we combine the power of Quantum Computing, AI, and Computational Biology to decode the code of life and solve complex real-world challenges.",
-    date: "May 18, 2026",
+    date: "Jul 14, 2026",
     image: "/blog-life-sciences.jpg",
     introduction:
       "Life is code. It is an intricate, digital-like language written in nucleotides and structured in three-dimensional space. At Quantum Codon, we believe that understanding this code requires more than just biology—it requires computational, quantum, and intelligent systems.",
@@ -113,7 +113,7 @@ export const blogPosts: BlogPost[] = [
     title: "Precision Therapeutics: The Convergence of Peptides and Deep Learning",
     excerpt:
       "How Quantum Codon uses neural network architectures to design stable, highly targeted synthetic peptides for oncology and complex genetic targets.",
-    date: "Apr 12, 2026",
+    date: "Jul 14, 2026",
     image: "/blog-precision-therapeutics.png",
     introduction:
       "Peptides are the body's natural messengers, but designing synthetic versions that are stable and highly specific has long been an engineering bottleneck. At Quantum Codon, we combine deep learning language models with biological assays to design next-generation precision peptides that treat oncological and neurodegenerative targets.",
@@ -151,7 +151,7 @@ export const blogPosts: BlogPost[] = [
     title: "Quantum Simulations of Molecular Docking: Shifting Discovery from Labs to Silicon",
     excerpt:
       "Discover how modeling molecular dynamics at the atomic level using quantum hardware allows us to simulate docking profiles with absolute biophysical precision.",
-    date: "Mar 05, 2026",
+    date: "Jul 14, 2026",
     image: "/blog-quantum-simulations.png",
     introduction:
       "Traditional molecular docking relies on classical approximations of physics, which often fail when modeling electron density and atomic orbitals. By shifting biophysical calculations onto quantum simulators, Quantum Codon maps molecular docking at the quantum level, achieving unprecedented accuracy in silico.",

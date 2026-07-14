@@ -61,11 +61,14 @@ export function SiteFooter() {
               Empowering the future of biotechnology with cutting-edge solutions.
             </p>
             <a
-              href="mailto:hello@quantumcodon.com"
-              className="mt-6 inline-block text-sm font-medium underline-offset-4 hover:underline"
+              href="https://www.qcodon.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium underline-offset-4 hover:underline"
               style={{ color: "#2563eb" }}
             >
-              hello@quantumcodon.com
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              www.qcodon.com
             </a>
             <div className="mt-6 flex gap-3">
               {socials.map((s) => (

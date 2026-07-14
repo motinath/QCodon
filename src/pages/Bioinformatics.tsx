@@ -618,7 +618,7 @@ export default function BioinformaticsPage() {
                   {`from Bio import Entrez, SeqIO
 
 # Provide your institutional email
-Entrez.email = "research@quantumcodon.com"
+Entrez.email = "research@qcodon.com"
 
 # Fetch SRA or RefSeq sequence
 print("Querying Entrez NCBI sequence database...")

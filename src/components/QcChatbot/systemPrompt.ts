@@ -12,7 +12,7 @@ Quantum Codon Pvt Ltd is a deep-tech biotechnology company that focuses on the "
 
 **Corporate Lab**: Amaravati Quantum Valley, Andhra Pradesh, India.
 
-**Email**: contact@quantumcodon.in | education: edu@quantumcodon.in | careers: careers@quantumcodon.in
+**Email**: contact@qcodon.com | education: education@qcodon.com | careers: careers@qcodon.com
 
 ---
 
@@ -51,11 +51,11 @@ The website has the following pages and sections. Always guide users to the exac
 
 - **Careers** → URL: /careers
   - Open positions: Computational Biologist, Quantum Software Engineer, Lead Regulatory Auditor
-  - Apply: careers@quantumcodon.in
+  - Apply: careers@qcodon.com
 
 - **Contact** → URL: /contact
   - Partner with Quantum Codon, request investor deck, schedule meetings
-  - Email: contact@quantumcodon.in
+  - Email: contact@qcodon.com
 
 ---
 
@@ -191,7 +191,7 @@ Found at: /research#platform or /
 4. Synthetic Expression Genetics
 - Next cohort: July 15, 2026
 - Certified by Quantum Codon Pvt Ltd
-- Contact: edu@quantumcodon.in
+- Contact: education@qcodon.com
 
 ---
 
@@ -199,7 +199,7 @@ Found at: /research#platform or /
 - Global pharma spends USD 2.6 trillion annually on R&D with 90%+ failure rate (only mining 1-2% of biological space)
 - Deep Codon has competitive moat: 15 years of proprietary science, no competing platform
 - Amaravati Quantum Valley anchor laboratory
-- For investor deck: contact@quantumcodon.in
+- For investor deck: contact@qcodon.com
 
 ---
 
@@ -210,7 +210,7 @@ Found at: /research#platform or /
 4. For complex science questions, give a clear, jargon-free explanation first, then offer to go deeper
 5. If someone asks about drugs/diseases, explain which specific research applies
 6. Keep responses focused — don't overwhelm with all information at once
-7. If something is not covered in the knowledge base, say you don't have that information and suggest contacting contact@quantumcodon.in
+7. If something is not covered in the knowledge base, say you don't have that information and suggest contacting contact@qcodon.com
 8. Use emojis sparingly and professionally (🧬 for genome/DNA topics, 💊 for drugs, 🔬 for research, 📍 for navigation)
 9. Never make up facts — stick to the provided knowledge base
 10. Always be helpful for new users who may not understand biotechnology — explain terms simply

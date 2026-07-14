@@ -1101,13 +1101,13 @@ export function QcContact() {
       </p>
       <div className="mt-8 flex flex-wrap gap-4 justify-center">
         <a
-          href="mailto:contact@quantumcodon.in"
+          href="mailto:contact@qcodon.com"
           className="px-6 py-3 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple text-white shadow-[0_10px_40px_-10px_rgba(124,58,237,0.6)]"
         >
           Request Investor Deck
         </a>
         <a
-          href="mailto:contact@quantumcodon.in"
+          href="mailto:contact@qcodon.com"
           className="px-6 py-3 rounded-full glass-effect dark:border-white/15"
         >
           Schedule a Meeting
@@ -1236,7 +1236,7 @@ export function ThemeToggle() {
 
 export function QcFooter() {
   const socials = [
-    { ariaLabel: "Email", href: "mailto:contact@quantumcodon.in", icon: Mail },
+    { ariaLabel: "Email", href: "mailto:contact@qcodon.com", icon: Mail },
     { ariaLabel: "LinkedIn", href: "https://linkedin.com/company/quantumcodon", icon: Linkedin },
     { ariaLabel: "X", href: "https://x.com/quantumcodon", icon: XIcon },
   ];
@@ -1567,7 +1567,7 @@ export function QcEducation() {
           <div className="p-4 rounded-xl bg-accent-emerald/10 border border-accent-emerald/20 text-xs text-accent-emerald font-mono">
             Next Cohort Enrollment opens: July 15, 2026.
             <br />
-            For institutional partnerships, contact: edu@quantumcodon.in
+            For institutional partnerships, contact: education@qcodon.com
           </div>
         </Card>
       </div>
@@ -1612,7 +1612,7 @@ export function QcCareers() {
               <p className="text-xs text-muted-foreground mt-1">{j.type}</p>
             </div>
             <a
-              href="mailto:careers@quantumcodon.in"
+              href="mailto:careers@qcodon.com"
               className="px-5 py-2 text-xs rounded-full bg-foreground text-background font-semibold hover:opacity-90 transition inline-block text-center"
             >
               Apply Now

@@ -7,8 +7,8 @@ const channels = [
     icon: Headphones,
     title: "Talk to sales",
     subtitle: "Interested in our offerings? Reach out and we'll tailor a fit.",
-    linkLabel: "sales@quantumcodon.com",
-    href: "mailto:sales@quantumcodon.com",
+    linkLabel: "contact@qcodon.com",
+    href: "mailto:contact@qcodon.com",
     // left card: slides up from bottom
     from: "translateY(80px)",
   },
@@ -16,8 +16,8 @@ const channels = [
     icon: LifeBuoy,
     title: "Talk to support",
     subtitle: "Already a customer? We're here whenever you need a hand.",
-    linkLabel: "support@quantumcodon.com",
-    href: "mailto:support@quantumcodon.com",
+    linkLabel: "support@qcodon.com",
+    href: "mailto:support@qcodon.com",
     // middle card: slides down from top
     from: "translateY(-80px)",
   },
