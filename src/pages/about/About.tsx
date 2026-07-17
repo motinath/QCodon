@@ -2,18 +2,18 @@ import { useState, useEffect, useRef } from "react";
 import PageShell from "../_PageShell";
 import { useTheme } from "@/components/shared/ThemeProvider";
 import { Reveal } from "@/components/shared/Reveal";
-import { 
-  Award, 
-  Activity, 
-  Cpu, 
-  Users, 
-  BookOpen, 
-  Globe, 
-  ChevronLeft, 
+import {
+  Award,
+  Activity,
+  Cpu,
+  Users,
+  BookOpen,
+  Globe,
+  ChevronLeft,
   ChevronRight,
   ShieldAlert,
   Zap,
-  FileCheck
+  FileCheck,
 } from "lucide-react";
 import { MolecularBackground } from "./components/MolecularBackground";
 import { DiagnosticWaveform } from "./components/DiagnosticWaveform";
@@ -128,8 +128,10 @@ export default function About() {
   ];
 
   return (
-    <PageShell className="pb-24 relative overflow-hidden" spotlight="from-accent-blue/15 via-accent-purple/5 to-transparent">
-      
+    <PageShell
+      className="pb-24 relative overflow-hidden"
+      spotlight="from-accent-blue/15 via-accent-purple/5 to-transparent"
+    >
       {/* CSS Keyframe Animation Injections for Advanced Premium Layouts */}
       <style>{`
         @keyframes dash {
@@ -195,18 +197,22 @@ export default function About() {
       `}</style>
 
       {/* Background glowing ambient orbs */}
-      <div className="absolute top-[-5%] left-[-10%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-br from-accent-blue/12 via-accent-purple/6 to-transparent blur-[120px] pointer-events-none z-0 animate-pulse" style={{ animationDuration: '9s' }} />
-      <div className="absolute top-[35%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-tr from-accent-emerald/10 via-accent-blue/5 to-transparent blur-[120px] pointer-events-none z-0 animate-pulse" style={{ animationDuration: '12s' }} />
+      <div
+        className="absolute top-[-5%] left-[-10%] w-[45vw] h-[45vw] rounded-full bg-gradient-to-br from-accent-blue/12 via-accent-purple/6 to-transparent blur-[120px] pointer-events-none z-0 animate-pulse"
+        style={{ animationDuration: "9s" }}
+      />
+      <div
+        className="absolute top-[35%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-gradient-to-tr from-accent-emerald/10 via-accent-blue/5 to-transparent blur-[120px] pointer-events-none z-0 animate-pulse"
+        style={{ animationDuration: "12s" }}
+      />
 
       {/* Interactive molecular network background - matches dynamically on dark/light mode */}
       <MolecularBackground isDark={isDark} />
 
       <div className="relative z-10 space-y-28">
-        
         {/* ------------------ DIVISION 1: VISION HERO & SLIDESHOW ------------------ */}
         <section className="max-w-6xl mx-auto px-6 pt-4">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            
             {/* Left Column: Vision & Mission Narrative */}
             <div className="lg:col-span-7 space-y-6">
               <Reveal>
@@ -227,14 +233,22 @@ export default function About() {
 
               <Reveal delay={200}>
                 <p className="text-[clamp(0.8125rem,1.25vw,1rem)] text-text-secondary leading-relaxed font-medium">
-                  As a first life sciences mover in the Amaravati Quantum Valley, Quantum Codon brings together biological innovation, computational intelligence, and compliance management in a single-window solution, eliminating fragmentation across the biotech value chain.
+                  As a first life sciences mover in the Amaravati Quantum Valley, Quantum Codon
+                  brings together biological innovation, computational intelligence, and compliance
+                  management in a single-window solution, eliminating fragmentation across the
+                  biotech value chain.
                 </p>
               </Reveal>
 
               <div className="border-t border-border-subtle/40 pt-6 space-y-4">
                 <Reveal delay={300}>
                   <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
-                    Biotechnology innovation remains fragmented. Drug discovery teams work in one environment, bioinformatics analyses are conducted in another, manufacturing development is outsourced elsewhere, and regulatory compliance often becomes an afterthought. This fragmentation increases costs, extends development timelines, creates data silos, and introduces execution risk at every stage of the product lifecycle.
+                    Biotechnology innovation remains fragmented. Drug discovery teams work in one
+                    environment, bioinformatics analyses are conducted in another, manufacturing
+                    development is outsourced elsewhere, and regulatory compliance often becomes an
+                    afterthought. This fragmentation increases costs, extends development timelines,
+                    creates data silos, and introduces execution risk at every stage of the product
+                    lifecycle.
                   </p>
                 </Reveal>
 
@@ -248,7 +262,12 @@ export default function About() {
 
                 <Reveal delay={400}>
                   <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
-                    As a first mover in the Amaravati Quantum Valley, Quantum Codon brings together biological knowledge, computational intelligence, and compliance management into a single integrated platform, into a single operating framework. From drug discovery and bioinformatics to manufacturing, analytics, regulatory approvals, and workforce development, we help accelerate innovation while reducing complexity, cost, and delivery risk.
+                    As a first mover in the Amaravati Quantum Valley, Quantum Codon brings together
+                    biological knowledge, computational intelligence, and compliance management into
+                    a single integrated platform, into a single operating framework. From drug
+                    discovery and bioinformatics to manufacturing, analytics, regulatory approvals,
+                    and workforce development, we help accelerate innovation while reducing
+                    complexity, cost, and delivery risk.
                   </p>
                 </Reveal>
               </div>
@@ -288,7 +307,9 @@ export default function About() {
 
                     {/* Manual Slideshow Controls */}
                     <button
-                      onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
+                      onClick={() =>
+                        setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)
+                      }
                       className="absolute left-3 top-1/2 -translate-y-1/2 h-9 w-9 rounded-full bg-black/60 backdrop-blur-xs border border-white/10 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-black/90 cursor-pointer z-20"
                       aria-label="Previous Slide"
                     >
@@ -321,7 +342,6 @@ export default function About() {
                 </div>
               </Reveal>
             </div>
-
           </div>
         </section>
 
@@ -341,13 +361,13 @@ export default function About() {
               </Reveal>
               <Reveal delay={200}>
                 <p className="text-xs md:text-sm text-text-secondary font-medium">
-                  Today’s biotech innovators operate in a fragmented ecosystem that stunts scientific translation:
+                  Today’s biotech innovators operate in a fragmented ecosystem that stunts
+                  scientific translation:
                 </p>
               </Reveal>
             </div>
 
             <div className="grid lg:grid-cols-12 gap-8 items-stretch">
-              
               {/* Left Column: Interactive Friction List */}
               <div className="lg:col-span-7 flex flex-col gap-2.5">
                 {challenges.map((item, idx) => {
@@ -358,8 +378,8 @@ export default function About() {
                       onClick={() => setActiveChallenge(idx)}
                       onMouseEnter={() => setActiveChallenge(idx)}
                       className={`w-full py-3.5 px-5 rounded-2xl border text-left transition-all duration-300 flex justify-between items-center group relative cursor-pointer ${
-                        isActive 
-                          ? "border-accent-purple/40 bg-accent-purple/5 shadow-lg shadow-accent-purple/5 translate-x-1" 
+                        isActive
+                          ? "border-accent-purple/40 bg-accent-purple/5 shadow-lg shadow-accent-purple/5 translate-x-1"
                           : "border-border-subtle/60 hover:border-text-secondary/35 bg-bg-raised/40 hover:bg-bg-raised"
                       }`}
                     >
@@ -367,13 +387,19 @@ export default function About() {
                         <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent-purple rounded-l-2xl" />
                       )}
                       <div className="flex items-center gap-4 min-w-0">
-                        <div className={`h-7 w-7 rounded-lg border flex items-center justify-center text-xs font-mono font-bold transition-colors ${
-                          isActive ? "bg-accent-purple text-white border-accent-purple" : "bg-bg-raised text-text-secondary border-border-subtle/50"
-                        }`}>
+                        <div
+                          className={`h-7 w-7 rounded-lg border flex items-center justify-center text-xs font-mono font-bold transition-colors ${
+                            isActive
+                              ? "bg-accent-purple text-white border-accent-purple"
+                              : "bg-bg-raised text-text-secondary border-border-subtle/50"
+                          }`}
+                        >
                           0{idx + 1}
                         </div>
                         <div className="min-w-0">
-                          <p className={`text-xs font-semibold transition-colors leading-tight ${isActive ? "text-text-primary" : "text-text-secondary"}`}>
+                          <p
+                            className={`text-xs font-semibold transition-colors leading-tight ${isActive ? "text-text-primary" : "text-text-secondary"}`}
+                          >
                             {item.title}
                           </p>
                           <p className="text-[10px] text-text-tertiary truncate mt-0.5 font-medium">
@@ -381,9 +407,13 @@ export default function About() {
                           </p>
                         </div>
                       </div>
-                      <ChevronRight className={`h-4 w-4 shrink-0 transition-transform ${
-                        isActive ? "text-accent-purple translate-x-1" : "text-text-tertiary/60 group-hover:text-text-secondary"
-                      }`} />
+                      <ChevronRight
+                        className={`h-4 w-4 shrink-0 transition-transform ${
+                          isActive
+                            ? "text-accent-purple translate-x-1"
+                            : "text-text-tertiary/60 group-hover:text-text-secondary"
+                        }`}
+                      />
                     </button>
                   );
                 })}
@@ -422,7 +452,9 @@ export default function About() {
                     <div className="grid grid-cols-12 gap-4 items-center bg-black/45 rounded-2xl border border-border-subtle/10 p-4">
                       {/* Left: Large Impact Metric */}
                       <div className="col-span-5 space-y-0.5">
-                        <span className="text-[7px] font-mono text-zinc-500 uppercase tracking-widest block">Analysis</span>
+                        <span className="text-[7px] font-mono text-zinc-500 uppercase tracking-widest block">
+                          Analysis
+                        </span>
                         <span className="text-sm font-bold text-rose-400 font-mono block leading-none truncate">
                           {challenges[activeChallenge].val}
                         </span>
@@ -440,7 +472,10 @@ export default function About() {
                     {/* Progress Indicator */}
                     <div className="space-y-1.5 pt-1">
                       <div className="w-full h-1 bg-zinc-800 rounded-full overflow-hidden relative">
-                        <div className="absolute inset-y-0 left-0 bg-gradient-to-r from-rose-500 to-accent-purple rounded-full animate-pulse-glow" style={{ width: "75%" }} />
+                        <div
+                          className="absolute inset-y-0 left-0 bg-gradient-to-r from-rose-500 to-accent-purple rounded-full animate-pulse-glow"
+                          style={{ width: "75%" }}
+                        />
                       </div>
                     </div>
                   </div>
@@ -452,11 +487,11 @@ export default function About() {
                   </div>
                 </div>
               </div>
-
             </div>
 
             <p className="text-center text-xs text-text-secondary italic font-medium pt-8 mt-4 border-t border-border-subtle/20 max-w-3xl mx-auto">
-              ✦ The innovation drought and fragmentation increase development costs, delay timelines, and reduce the probability of success.
+              ✦ The innovation drought and fragmentation increase development costs, delay
+              timelines, and reduce the probability of success.
             </p>
           </div>
         </section>
@@ -467,7 +502,6 @@ export default function About() {
             <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] pointer-events-none" />
 
             <div className="grid lg:grid-cols-12 gap-10 items-center relative z-10">
-              
               {/* Left Column: Solution Detail */}
               <div className="lg:col-span-7 space-y-6">
                 <Reveal>
@@ -482,7 +516,10 @@ export default function About() {
                 </Reveal>
                 <Reveal delay={200}>
                   <p className="text-sm md:text-base text-text-secondary leading-relaxed font-medium">
-                    We offer a brand new drug discovery platform and connect critical functions required to bring biotechnology products from concept to commercialisation. By integrating biology, computation, and compliance into a unified operating model, we create continuity across distinct stages of development.
+                    We offer a brand new drug discovery platform and connect critical functions
+                    required to bring biotechnology products from concept to commercialisation. By
+                    integrating biology, computation, and compliance into a unified operating model,
+                    we create continuity across distinct stages of development.
                   </p>
                 </Reveal>
               </div>
@@ -490,25 +527,24 @@ export default function About() {
               {/* Right Column: Visual Operating Framework Convergence Display */}
               <div className="lg:col-span-5 flex justify-center">
                 <div className="w-full max-w-[280px] aspect-square rounded-full border border-border-subtle/30 bg-black/25 backdrop-blur-md relative flex items-center justify-center p-4">
-                  
                   {/* Orbit Pulsing Ring HALO */}
                   <div className="absolute inset-0 rounded-full border border-accent-purple/20 animate-orbitpulse scale-[1.12]" />
 
                   {/* Glowing Merged Center Node */}
                   <div className="h-20 w-20 rounded-full bg-gradient-to-br from-accent-blue via-accent-purple to-accent-emerald flex items-center justify-center text-center shadow-lg shadow-accent-purple/40 animate-pulse relative z-20 transition-all duration-300">
                     <span className="font-mono text-[9px] font-bold text-white uppercase tracking-wider leading-none select-none">
-                      {activeOrbit === 0 
-                        ? "Biological\nData" 
-                        : activeOrbit === 1 
-                        ? "Quantum\nCompute" 
-                        : activeOrbit === 2 
-                        ? "Compliance\nIP" 
-                        : "Unified\nFramework"}
+                      {activeOrbit === 0
+                        ? "Biological\nData"
+                        : activeOrbit === 1
+                          ? "Quantum\nCompute"
+                          : activeOrbit === 2
+                            ? "Compliance\nIP"
+                            : "Unified\nFramework"}
                     </span>
                   </div>
 
                   {/* Orbit 1: Biology (uses responsive theme classes) */}
-                  <div 
+                  <div
                     onMouseEnter={() => setActiveOrbit(0)}
                     onMouseLeave={() => setActiveOrbit(null)}
                     className="absolute top-4 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10 select-none cursor-pointer group"
@@ -516,11 +552,13 @@ export default function About() {
                     <div className="h-10 w-10 rounded-full bg-accent-blue/10 border border-accent-blue/35 flex items-center justify-center text-accent-blue shadow-md shadow-accent-blue/5 transition-transform duration-300 group-hover:scale-110">
                       <Activity className="h-4.5 w-4.5" />
                     </div>
-                    <span className="font-mono text-[8px] font-bold uppercase text-accent-blue mt-1 transition-all duration-300 group-hover:scale-105">Biology</span>
+                    <span className="font-mono text-[8px] font-bold uppercase text-accent-blue mt-1 transition-all duration-300 group-hover:scale-105">
+                      Biology
+                    </span>
                   </div>
 
                   {/* Orbit 2: Computation (uses responsive theme classes) */}
-                  <div 
+                  <div
                     onMouseEnter={() => setActiveOrbit(1)}
                     onMouseLeave={() => setActiveOrbit(null)}
                     className="absolute bottom-4 left-6 translate-y-1/2 flex flex-col items-center z-10 select-none cursor-pointer group"
@@ -528,11 +566,13 @@ export default function About() {
                     <div className="h-10 w-10 rounded-full bg-accent-emerald/10 border border-accent-emerald/35 flex items-center justify-center text-accent-emerald shadow-md shadow-emerald-500/5 transition-transform duration-300 group-hover:scale-110">
                       <Cpu className="h-4.5 w-4.5" />
                     </div>
-                    <span className="font-mono text-[8px] font-bold uppercase text-accent-emerald mt-1 transition-all duration-300 group-hover:scale-105">Computation</span>
+                    <span className="font-mono text-[8px] font-bold uppercase text-accent-emerald mt-1 transition-all duration-300 group-hover:scale-105">
+                      Computation
+                    </span>
                   </div>
 
                   {/* Orbit 3: Compliance (uses responsive theme classes) */}
-                  <div 
+                  <div
                     onMouseEnter={() => setActiveOrbit(2)}
                     onMouseLeave={() => setActiveOrbit(null)}
                     className="absolute bottom-4 right-6 translate-y-1/2 flex flex-col items-center z-10 select-none cursor-pointer group"
@@ -540,26 +580,64 @@ export default function About() {
                     <div className="h-10 w-10 rounded-full bg-accent-purple/10 border border-accent-purple/35 flex items-center justify-center text-accent-purple shadow-md shadow-accent-purple/5 transition-transform duration-300 group-hover:scale-110">
                       <Award className="h-4.5 w-4.5" />
                     </div>
-                    <span className="font-mono text-[8px] font-bold uppercase text-accent-purple mt-1 transition-all duration-300 group-hover:scale-105">Compliance</span>
+                    <span className="font-mono text-[8px] font-bold uppercase text-accent-purple mt-1 transition-all duration-300 group-hover:scale-105">
+                      Compliance
+                    </span>
                   </div>
 
                   {/* Connection Orbits & Dashed Flow Lines SVG */}
                   <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
                     {/* Biology to Center */}
-                    <line x1="50" y1="14" x2="50" y2="40" stroke="url(#blueGrad)" strokeWidth="1.25" strokeDasharray="3 2" className="animate-dashflow" />
+                    <line
+                      x1="50"
+                      y1="14"
+                      x2="50"
+                      y2="40"
+                      stroke="url(#blueGrad)"
+                      strokeWidth="1.25"
+                      strokeDasharray="3 2"
+                      className="animate-dashflow"
+                    />
                     {/* Computation to Center */}
-                    <line x1="26" y1="74" x2="42" y2="58" stroke="url(#emeraldGrad)" strokeWidth="1.25" strokeDasharray="3 2" className="animate-dashflow" />
+                    <line
+                      x1="26"
+                      y1="74"
+                      x2="42"
+                      y2="58"
+                      stroke="url(#emeraldGrad)"
+                      strokeWidth="1.25"
+                      strokeDasharray="3 2"
+                      className="animate-dashflow"
+                    />
                     {/* Compliance to Center */}
-                    <line x1="74" y1="74" x2="58" y2="58" stroke="url(#purpleGrad)" strokeWidth="1.25" strokeDasharray="3 2" className="animate-dashflow" />
-                    
+                    <line
+                      x1="74"
+                      y1="74"
+                      x2="58"
+                      y2="58"
+                      stroke="url(#purpleGrad)"
+                      strokeWidth="1.25"
+                      strokeDasharray="3 2"
+                      className="animate-dashflow"
+                    />
+
                     {/* Flying Data Packets circles */}
                     <circle r="1.5" fill="#60a5fa" className="animate-packet1" />
                     <circle r="1.5" fill="#34d399" className="animate-packet2" />
                     <circle r="1.5" fill="#c084fc" className="animate-packet3" />
 
                     {/* Orbit Ring Background */}
-                    <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-zinc-800/40" strokeDasharray="2 3" />
-                    
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="38"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="0.5"
+                      className="text-zinc-800/40"
+                      strokeDasharray="2 3"
+                    />
+
                     <defs>
                       <linearGradient id="blueGrad" x1="0%" y1="0%" x2="0%" y2="100%">
                         <stop offset="0%" stopColor="#3b82f6" />
@@ -577,7 +655,6 @@ export default function About() {
                   </svg>
                 </div>
               </div>
-
             </div>
           </div>
         </section>
@@ -597,7 +674,8 @@ export default function About() {
             </Reveal>
             <Reveal delay={200}>
               <p className="text-xs md:text-sm text-text-secondary font-medium">
-                We eliminate traditional fragmentation, delivering support from initial discovery through regulatory approval.
+                We eliminate traditional fragmentation, delivering support from initial discovery
+                through regulatory approval.
               </p>
             </Reveal>
           </div>
@@ -608,46 +686,51 @@ export default function About() {
                 title: "Brand New Pipeline",
                 desc: "A brand new drug discovery pipeline built directly on genomic sequence mapping.",
                 icon: Activity,
-                color: "border-accent-blue/15 hover:border-accent-blue/45 bg-accent-blue/5 hover:bg-accent-blue/10 shadow-accent-blue/5",
+                color:
+                  "border-accent-blue/15 hover:border-accent-blue/45 bg-accent-blue/5 hover:bg-accent-blue/10 shadow-accent-blue/5",
                 metric: "01",
                 pill: "Bio-Mapping",
-                iconColor: "text-accent-blue"
+                iconColor: "text-accent-blue",
               },
               {
                 title: "Advanced Computation",
                 desc: "Advanced computational tools accelerate discovery, analysis, and optimisation.",
                 icon: Cpu,
-                color: "border-accent-purple/15 hover:border-accent-purple/45 bg-accent-purple/5 hover:bg-accent-purple/10 shadow-accent-purple/5",
+                color:
+                  "border-accent-purple/15 hover:border-accent-purple/45 bg-accent-purple/5 hover:bg-accent-purple/10 shadow-accent-purple/5",
                 metric: "02",
                 pill: "Accelerated",
-                iconColor: "text-accent-purple"
+                iconColor: "text-accent-purple",
               },
               {
                 title: "Connected Ecosystem",
                 desc: "Scientific, manufacturing, and regulatory workflows operate within a connected ecosystem.",
                 icon: Globe,
-                color: "border-accent-emerald/15 hover:border-accent-emerald/45 bg-accent-emerald/5 hover:bg-accent-emerald/10 shadow-accent-emerald/5",
+                color:
+                  "border-accent-emerald/15 hover:border-accent-emerald/45 bg-accent-emerald/5 hover:bg-accent-emerald/10 shadow-accent-emerald/5",
                 metric: "03",
                 pill: "Unified",
-                iconColor: "text-accent-emerald"
+                iconColor: "text-accent-emerald",
               },
               {
                 title: "Built-In Readiness",
                 desc: "Regulatory readiness is built into every stage rather than treated as a final hurdle.",
                 icon: FileCheck,
-                color: "border-amber-500/15 hover:border-amber-500/45 bg-amber-500/5 hover:bg-amber-500/10 shadow-amber-500/5",
+                color:
+                  "border-amber-500/15 hover:border-amber-500/45 bg-amber-500/5 hover:bg-amber-500/10 shadow-amber-500/5",
                 metric: "04",
                 pill: "Risk-Reduced",
-                iconColor: "text-amber-600 dark:text-amber-400"
+                iconColor: "text-amber-600 dark:text-amber-400",
               },
               {
                 title: "End-to-End Support",
                 desc: "Support from early research through commercialisation and workforce development.",
                 icon: Users,
-                color: "border-rose-500/15 hover:border-rose-500/45 bg-rose-500/5 hover:bg-rose-500/10 shadow-rose-500/5",
+                color:
+                  "border-rose-500/15 hover:border-rose-500/45 bg-rose-500/5 hover:bg-rose-500/10 shadow-rose-500/5",
                 metric: "05",
                 pill: "Life-Cycle",
-                iconColor: "text-rose-600 dark:text-rose-400"
+                iconColor: "text-rose-600 dark:text-rose-400",
               },
             ].map((diff, idx) => {
               const Icon = diff.icon;
@@ -665,7 +748,7 @@ export default function About() {
                         {diff.metric}
                       </span>
                     </div>
-                    
+
                     <h4 className="font-semibold text-xs leading-tight text-foreground tracking-wide">
                       {diff.title}
                     </h4>
@@ -684,7 +767,6 @@ export default function About() {
             })}
           </div>
         </section>
-
       </div>
     </PageShell>
   );

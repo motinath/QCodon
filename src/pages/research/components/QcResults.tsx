@@ -71,8 +71,8 @@ export function QcResults() {
         </h2>
         <p className="mt-6 text-slate-400 max-w-3xl">
           Our platform is built on continuous research from JNU and partner labs. From anti-malarial
-          leads to anti-leishmanial candidates, Deep Codon translates computational theory into wet-lab
-          outcomes.
+          leads to anti-leishmanial candidates, Deep Codon translates computational theory into
+          wet-lab outcomes.
         </p>
 
         <div className="mt-14 grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-6">
@@ -83,7 +83,9 @@ export function QcResults() {
             >
               <div className="flex justify-between text-xs text-muted-foreground">
                 <span className="font-mono">{r.year}</span>
-                <span className="px-2 py-0.5 rounded-full border border-black/10 dark:border-white/15 text-foreground/80 dark:text-white/80">{r.cls}</span>
+                <span className="px-2 py-0.5 rounded-full border border-black/10 dark:border-white/15 text-foreground/80 dark:text-white/80">
+                  {r.cls}
+                </span>
               </div>
               <div className="mt-3 text-xs text-accent-purple">{r.area}</div>
               <h3 className="font-bagel text-xl mt-2">{r.title}</h3>

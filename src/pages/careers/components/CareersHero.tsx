@@ -34,11 +34,15 @@ export default function CareersHero() {
             Careers · Quantum Codon
           </p>
           <h1 className="font-bagel mt-5 leading-[1.05] text-[clamp(2.5rem,6vw,4.5rem)]">
-            <span className="text-accent-blue/80 mr-2 align-top text-[clamp(1.75rem,3vw,2.5rem)]">“</span>
+            <span className="text-accent-blue/80 mr-2 align-top text-[clamp(1.75rem,3vw,2.5rem)]">
+              “
+            </span>
             Shape the Future.
             <br />
             <em className="italic">Engineer it with Quantum Codon.</em>
-            <span className="text-accent-blue/80 ml-2 align-top text-[clamp(1.75rem,3vw,2.5rem)]">”</span>
+            <span className="text-accent-blue/80 ml-2 align-top text-[clamp(1.75rem,3vw,2.5rem)]">
+              ”
+            </span>
           </h1>
           <p className="mt-6 w-full max-w-xl text-[clamp(0.875rem,1.5vw,1.125rem)] text-muted-foreground leading-relaxed">
             We're recruiting pioneers across biology, quantum computation, and software engineering.

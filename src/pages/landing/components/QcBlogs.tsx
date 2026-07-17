@@ -14,7 +14,9 @@ export function QcBlogs() {
             <p className="text-xs tracking-[0.3em] text-accent-emerald uppercase">
               Insights · Blogs
             </p>
-            <h2 className="font-bagel text-[clamp(1.75rem,4vw,3rem)] mt-3">Ideas from the frontier</h2>
+            <h2 className="font-bagel text-[clamp(1.75rem,4vw,3rem)] mt-3">
+              Ideas from the frontier
+            </h2>
             <p className="mt-3 text-muted-foreground max-w-xl">
               Long-form essays and field notes from the Quantum Codon team on dark genome science,
               AI, and therapeutics.
