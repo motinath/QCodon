@@ -6,7 +6,7 @@ export function DiagnosticWaveform({ status }: { status: string }) {
   useEffect(() => {
     let animId: number;
     const tick = () => {
-      setPhase((p) => p + 0.14);
+      setPhase((p) => p + 0.01);
       animId = requestAnimationFrame(tick);
     };
     animId = requestAnimationFrame(tick);
@@ -19,7 +19,7 @@ export function DiagnosticWaveform({ status }: { status: string }) {
 
   // Custom amplitudes and frequencies based on warning status
   const amp = status.includes("CRITICAL") ? 14 : status.includes("BLOCKED") ? 10 : 7;
-  const freq = status.includes("CRITICAL") ? 0.08 : status.includes("BLOCKED") ? 0.04 : 0.03;
+  const freq = status.includes("CRITICAL") ? 0.035 : status.includes("BLOCKED") ? 0.025 : 0.018;
 
   for (let x = 0; x <= width; x += 6) {
     const y = height / 2 + Math.sin(x * freq + phase) * amp * (Math.sin(x * 0.006) + 0.35);

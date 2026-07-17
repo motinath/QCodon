@@ -346,7 +346,7 @@ export default function About() {
               </Reveal>
             </div>
 
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,280px),1fr))] gap-8 items-stretch">
+            <div className="grid lg:grid-cols-12 gap-8 items-stretch">
               
               {/* Left Column: Interactive Friction List */}
               <div className="lg:col-span-7 flex flex-col gap-2.5">
@@ -466,7 +466,7 @@ export default function About() {
           <div className="relative rounded-3xl border border-accent-blue/20 bg-gradient-to-br from-accent-blue/10 via-accent-purple/5 to-transparent p-8 md:p-12 shadow-2xl overflow-hidden group">
             <div className="absolute inset-0 bg-grid-pattern opacity-[0.02] pointer-events-none" />
 
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,340px),1fr))] gap-10 items-center relative z-10">
+            <div className="grid lg:grid-cols-12 gap-10 items-center relative z-10">
               
               {/* Left Column: Solution Detail */}
               <div className="lg:col-span-7 space-y-6">

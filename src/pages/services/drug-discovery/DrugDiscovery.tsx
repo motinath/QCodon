@@ -407,8 +407,8 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
       `}</style>
 
       {/* 1. Centered Widescreen Cinematic Video Player */}
-      <div className="w-full mb-8">
-        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[2.4/1] rounded-3xl overflow-hidden bg-zinc-950 border border-border-subtle/30 shadow-2xl">
+      <div className="w-full max-w-4xl mx-auto mb-8 px-6">
+        <div className="relative w-full aspect-[16/10] md:aspect-[19/9] rounded-3xl overflow-hidden bg-zinc-950 border border-border-subtle/30 shadow-2xl">
           <video
             ref={videoRef}
             src="/dd.mp4"
@@ -428,8 +428,8 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
         <div className="absolute top-1/2 left-[6.25%] right-[6.25%] h-0 border-t-2 border-dashed border-border-subtle/30 -translate-y-1/2 -z-10" />
 
         {/* Dynamic sliding solid gradient connector line */}
-        <div 
-          className="absolute top-1/2 left-[6.25%] h-[3px] bg-gradient-to-r from-blue-500 via-teal-500 via-emerald-500 via-amber-500 via-orange-500 via-purple-500 via-indigo-500 to-violet-500 -translate-y-1/2 -z-10 rounded-full transition-all duration-500 ease-out" 
+        <div
+          className="absolute top-1/2 left-[6.25%] h-[3px] bg-gradient-to-r from-blue-500 via-teal-500 via-emerald-500 via-amber-500 via-orange-500 via-purple-500 via-indigo-500 to-violet-500 -translate-y-1/2 -z-10 rounded-full transition-all duration-500 ease-out"
           style={{ width: `${(activeStage / 7) * 87.5}%` }}
         />
 
@@ -438,18 +438,16 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
           return (
             <div key={idx} className="flex justify-center">
               {/* Outer ring and center dot */}
-              <div 
-                className={`h-9 w-9 rounded-full bg-bg-raised border-[3px] flex items-center justify-center shadow-md transition-all duration-300 cursor-pointer ${
-                  isActive 
-                    ? stage.nodeColor 
-                    : "border-border-subtle/40 bg-zinc-800/10 text-zinc-500"
-                }`}
+              <div
+                className={`h-9 w-9 rounded-full bg-bg-raised border-[3px] flex items-center justify-center shadow-md transition-all duration-300 cursor-pointer ${isActive
+                  ? stage.nodeColor
+                  : "border-border-subtle/40 bg-zinc-800/10 text-zinc-500"
+                  }`}
                 onClick={() => setActiveStage(idx)}
                 onMouseEnter={() => setActiveStage(idx)}
               >
-                <div className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
-                  isActive ? stage.dotColor : "bg-text-tertiary/20"
-                }`} />
+                <div className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${isActive ? stage.dotColor : "bg-text-tertiary/20"
+                  }`} />
               </div>
             </div>
           );
@@ -463,30 +461,28 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
             const StageIcon = stage.icon;
             const isCurrent = idx === activeStage;
             const isReached = idx <= activeStage;
-            
+
             return (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="relative flex-shrink-0 lg:flex-shrink w-[200px] lg:w-auto snap-center group cursor-pointer"
                 onMouseEnter={() => setActiveStage(idx)}
                 onClick={() => setActiveStage(idx)}
               >
 
                 {/* Card Container */}
-                <div className={`h-full border rounded-2xl p-4 flex flex-col items-center text-center backdrop-blur transition-all duration-350 ${
-                  isCurrent
-                    ? `${stage.activeBorder} ${stage.activeBg} ${stage.activeShadow} scale-[1.02]`
-                    : stage.isHighlighted
-                      ? "border-violet-500/40 bg-violet-500/5 dark:bg-violet-950/10 shadow-sm shadow-violet-500/5 hover:border-violet-500/70"
-                      : isDark 
-                        ? "border-border-subtle bg-bg-raised/40 hover:border-accent-blue/30" 
-                        : "border-slate-200 bg-white hover:border-accent-blue/30 shadow-sm shadow-slate-100/50"
-                }`}>
-                  
-                  {/* Icon Circle */}
-                  <div className={`h-11 w-11 rounded-full flex items-center justify-center mb-3.5 transition-transform duration-350 ${
-                    isCurrent || isReached ? stage.iconColor : "text-text-secondary bg-border-subtle/5"
+                <div className={`h-full border rounded-2xl p-4 flex flex-col items-center text-center backdrop-blur transition-all duration-350 ${isCurrent
+                  ? `${stage.activeBorder} ${stage.activeBg} ${stage.activeShadow} scale-[1.02]`
+                  : stage.isHighlighted
+                    ? "border-violet-500/40 bg-violet-500/5 dark:bg-violet-950/10 shadow-sm shadow-violet-500/5 hover:border-violet-500/70"
+                    : isDark
+                      ? "border-border-subtle bg-bg-raised/40 hover:border-accent-blue/30"
+                      : "border-slate-200 bg-white hover:border-accent-blue/30 shadow-sm shadow-slate-100/50"
                   }`}>
+
+                  {/* Icon Circle */}
+                  <div className={`h-11 w-11 rounded-full flex items-center justify-center mb-3.5 transition-transform duration-350 ${isCurrent || isReached ? stage.iconColor : "text-text-secondary bg-border-subtle/5"
+                    }`}>
                     <StageIcon className="h-4.5 w-4.5" />
                   </div>
 
@@ -506,11 +502,10 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
                   </p>
 
                   {/* Bottom tag pill */}
-                  <div className={`mt-auto px-2 py-0.5 text-[8px] font-mono font-bold border rounded-full transition-colors duration-350 ${
-                    isCurrent || isReached 
-                      ? stage.badgeColor 
-                      : "border-border-subtle/20 text-text-secondary/80 bg-border-subtle/10"
-                  }`}>
+                  <div className={`mt-auto px-2 py-0.5 text-[8px] font-mono font-bold border rounded-full transition-colors duration-350 ${isCurrent || isReached
+                    ? stage.badgeColor
+                    : "border-border-subtle/20 text-text-secondary/80 bg-border-subtle/10"
+                    }`}>
                     {stage.tag}
                   </div>
                 </div>
@@ -633,11 +628,10 @@ export function KeyApproachesGrid({ isDark }: { isDark: boolean }) {
           <button
             key={btn.id}
             onClick={() => setFilter(btn.id)}
-            className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition duration-300 flex items-center gap-2 border ${
-              filter === btn.id
-                ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-accent-blue dark:border-white shadow-md shadow-accent-blue/15"
-                : "bg-bg-raised/60 hover:bg-bg-raised text-text-secondary border-border-subtle/80 hover:border-text-secondary"
-            }`}
+            className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition duration-300 flex items-center gap-2 border ${filter === btn.id
+              ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-accent-blue dark:border-white shadow-md shadow-accent-blue/15"
+              : "bg-bg-raised/60 hover:bg-bg-raised text-text-secondary border-border-subtle/80 hover:border-text-secondary"
+              }`}
           >
             {btn.dot && <span className={`h-1.5 w-1.5 rounded-full ${btn.dot}`} />}
             {btn.label}
@@ -650,15 +644,13 @@ export function KeyApproachesGrid({ isDark }: { isDark: boolean }) {
         {filtered.map((item, idx) => (
           <div key={idx} className="relative group">
             {/* Visual background offset */}
-            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-2xl -z-10 transition-all ${
-              isDark ? "bg-[#181a1d] border border-border-subtle/50" : "bg-[#f4f0e6] border border-slate-200/50"
-            }`} />
+            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-2xl -z-10 transition-all ${isDark ? "bg-[#181a1d] border border-border-subtle/50" : "bg-[#f4f0e6] border border-slate-200/50"
+              }`} />
 
-            <div className={`h-full border rounded-2xl p-6 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${
-              isDark 
-                ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700" 
-                : "border-slate-200 bg-white shadow-sm hover:border-slate-350 hover:shadow-md"
-            }`}>
+            <div className={`h-full border rounded-2xl p-6 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${isDark
+              ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700"
+              : "border-slate-200 bg-white shadow-sm hover:border-slate-350 hover:shadow-md"
+              }`}>
               <div>
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-[9px] font-mono font-bold tracking-widest text-text-tertiary uppercase">
@@ -669,15 +661,15 @@ export function KeyApproachesGrid({ isDark }: { isDark: boolean }) {
                     {item.catLabel}
                   </span>
                 </div>
-                
+
                 <h4 className="text-base font-serif-display font-bold text-text-primary mb-1">
                   {item.title}
                 </h4>
-                
+
                 <p className="text-[10px] font-mono text-accent-blue dark:text-accent-emerald font-semibold uppercase tracking-wide mb-3">
                   {item.subtitle}
                 </p>
-                
+
                 <p className="text-xs text-text-secondary leading-relaxed font-medium">
                   {item.desc}
                 </p>
@@ -737,11 +729,11 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
   return (
     <div className="w-full">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-        
+
         {/* Left Column: DNA Helix Interactivity */}
         <div className="lg:col-span-6 relative flex flex-col justify-between border rounded-3xl p-6 md:p-8 overflow-hidden bg-bg-raised/40 border-border-subtle/50 backdrop-blur">
           {/* Subtle grid pattern overlay */}
-          <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "30px 30px"}} />
+          <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
 
           <div>
             <div className="flex justify-between items-center mb-6">
@@ -770,9 +762,8 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
                 <button
                   key={reg.id}
                   onClick={() => setSelectedRegion(reg.id)}
-                  className={`w-full py-2.5 px-4 rounded-xl border text-[11px] font-mono font-semibold uppercase tracking-wider text-left transition-all duration-300 flex justify-between items-center bg-bg-raised hover:scale-[1.01] ${reg.color} ${
-                    selectedRegion === reg.id ? "scale-[1.01] border-opacity-100 ring-1 ring-offset-2 ring-accent-blue/30" : "opacity-80"
-                  }`}
+                  className={`w-full py-2.5 px-4 rounded-xl border text-[11px] font-mono font-semibold uppercase tracking-wider text-left transition-all duration-300 flex justify-between items-center bg-bg-raised hover:scale-[1.01] ${reg.color} ${selectedRegion === reg.id ? "scale-[1.01] border-opacity-100 ring-1 ring-offset-2 ring-accent-blue/30" : "opacity-80"
+                    }`}
                 >
                   <span>{reg.label}</span>
                   <span className="text-[9px] opacity-75">Inspect →</span>
@@ -809,15 +800,13 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
 
         {/* Right Column: Investor & Partner Value Props */}
         <div className="lg:col-span-6 flex flex-col gap-6 md:gap-8 justify-between">
-          
+
           {/* Card 1: Investors */}
           <div className="relative group flex-1">
-            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-3xl -z-10 transition-all ${
-              isDark ? "bg-[#181a1d] border border-border-subtle" : "bg-[#f4f0e6] border border-slate-200"
-            }`} />
-            <div className={`h-full border rounded-3xl p-6 md:p-8 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${
-              isDark ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700" : "border-slate-200 bg-white shadow-md shadow-slate-100/50 hover:border-slate-350"
-            }`}>
+            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-3xl -z-10 transition-all ${isDark ? "bg-[#181a1d] border border-border-subtle" : "bg-[#f4f0e6] border border-slate-200"
+              }`} />
+            <div className={`h-full border rounded-3xl p-6 md:p-8 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${isDark ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700" : "border-slate-200 bg-white shadow-md shadow-slate-100/50 hover:border-slate-350"
+              }`}>
               <div className="space-y-3">
                 <span className="px-2 py-0.5 rounded text-[8px] font-mono font-bold bg-blue-500/10 text-blue-500 border border-blue-500/20 uppercase tracking-widest">
                   Investor Proposition
@@ -838,12 +827,10 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
 
           {/* Card 2: Industry Partners */}
           <div className="relative group flex-1">
-            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-3xl -z-10 transition-all ${
-              isDark ? "bg-[#181a1d] border border-border-subtle" : "bg-[#f4f0e6] border border-slate-200"
-            }`} />
-            <div className={`h-full border rounded-3xl p-6 md:p-8 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${
-              isDark ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700" : "border-slate-200 bg-white shadow-md shadow-slate-100/50 hover:border-slate-350"
-            }`}>
+            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-3xl -z-10 transition-all ${isDark ? "bg-[#181a1d] border border-border-subtle" : "bg-[#f4f0e6] border border-slate-200"
+              }`} />
+            <div className={`h-full border rounded-3xl p-6 md:p-8 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${isDark ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700" : "border-slate-200 bg-white shadow-md shadow-slate-100/50 hover:border-slate-350"
+              }`}>
               <div className="space-y-3">
                 <span className="px-2 py-0.5 rounded text-[8px] font-mono font-bold bg-purple-500/10 text-purple-500 border border-purple-500/20 uppercase tracking-widest">
                   Industry Partner Proposition
@@ -965,7 +952,7 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
   ];
 
   const filtered = molecules.filter(mol => {
-    const matchesSearch = 
+    const matchesSearch =
       mol.id.toLowerCase().includes(search.toLowerCase()) ||
       mol.indication.toLowerCase().includes(search.toLowerCase()) ||
       mol.market.toLowerCase().includes(search.toLowerCase()) ||
@@ -981,7 +968,7 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
     <div className="w-full space-y-6">
       {/* Filters & Search Row */}
       <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
-        
+
         {/* Search Input */}
         <div className="relative flex-1 max-w-md">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-tertiary" />
@@ -990,11 +977,10 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
             placeholder="Search candidates by ID, Indication, Market..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className={`w-full pl-10 pr-4 py-2 text-xs rounded-full border bg-bg-raised transition-all ${
-              isDark 
-                ? "border-zinc-800 focus:border-zinc-650 focus:ring-1 focus:ring-zinc-600 outline-none" 
-                : "border-slate-200 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 outline-none"
-            }`}
+            className={`w-full pl-10 pr-4 py-2 text-xs rounded-full border bg-bg-raised transition-all ${isDark
+              ? "border-zinc-800 focus:border-zinc-650 focus:ring-1 focus:ring-zinc-600 outline-none"
+              : "border-slate-200 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 outline-none"
+              }`}
           />
         </div>
 
@@ -1006,11 +992,10 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
               <button
                 key={mat}
                 onClick={() => setMaterialFilter(mat)}
-                className={`px-3 py-1.5 rounded-full text-[10px] font-mono uppercase font-bold tracking-wide transition-all ${
-                  materialFilter === mat
-                    ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 shadow"
-                    : "text-text-secondary hover:text-text-primary"
-                }`}
+                className={`px-3 py-1.5 rounded-full text-[10px] font-mono uppercase font-bold tracking-wide transition-all ${materialFilter === mat
+                  ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 shadow"
+                  : "text-text-secondary hover:text-text-primary"
+                  }`}
               >
                 {mat === "all" ? "All Materials" : mat + "s"}
               </button>
@@ -1023,11 +1008,10 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
               <button
                 key={stg}
                 onClick={() => setStageFilter(stg)}
-                className={`px-3 py-1.5 rounded-full text-[10px] font-mono uppercase font-bold tracking-wide transition-all ${
-                  stageFilter === stg
-                    ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 shadow"
-                    : "text-text-secondary hover:text-text-primary"
-                }`}
+                className={`px-3 py-1.5 rounded-full text-[10px] font-mono uppercase font-bold tracking-wide transition-all ${stageFilter === stg
+                  ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 shadow"
+                  : "text-text-secondary hover:text-text-primary"
+                  }`}
               >
                 {stg === "all" ? "All Stages" : stg}
               </button>
@@ -1054,7 +1038,7 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
           <div className="text-center py-16 space-y-3">
             <Activity className="h-8 w-8 mx-auto text-text-tertiary animate-pulse" />
             <p className="text-xs text-text-secondary font-medium font-mono">No matching molecular candidates found.</p>
-            <button 
+            <button
               onClick={() => { setSearch(""); setMaterialFilter("all"); setStageFilter("all"); }}
               className="text-[10px] font-mono uppercase text-accent-blue hover:underline"
             >
@@ -1068,16 +1052,15 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
           {filtered.map((mol) => {
             const isExpanded = expandedId === mol.id;
             return (
-              <div 
+              <div
                 key={mol.id}
-                className={`transition-all duration-300 ${
-                  isExpanded 
-                    ? "bg-accent-blue/5 dark:bg-zinc-900/30" 
-                    : "hover:bg-bg-raised/20"
-                }`}
+                className={`transition-all duration-300 ${isExpanded
+                  ? "bg-accent-blue/5 dark:bg-zinc-900/30"
+                  : "hover:bg-bg-raised/20"
+                  }`}
               >
                 {/* Table Row / Trigger */}
-                <div 
+                <div
                   onClick={() => setExpandedId(isExpanded ? null : mol.id)}
                   className="grid grid-cols-1 lg:grid-cols-12 gap-4 px-6 py-4 items-center cursor-pointer text-xs"
                 >
@@ -1152,7 +1135,7 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
                         </div>
                       </div>
 
-                      <button 
+                      <button
                         onClick={() => contactModal.open()}
                         className="w-full py-2.5 px-4 rounded-full bg-accent-blue dark:bg-white hover:bg-accent-blue/90 dark:hover:bg-zinc-100 text-white dark:text-zinc-950 text-[10px] font-mono uppercase font-bold tracking-wider transition-all duration-300 hover:scale-[1.02] shadow flex items-center justify-center gap-1.5"
                       >
@@ -1302,7 +1285,7 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
   ];
 
   const filtered = publications.filter(pub => {
-    const matchesSearch = 
+    const matchesSearch =
       pub.title.toLowerCase().includes(search.toLowerCase()) ||
       pub.authors.toLowerCase().includes(search.toLowerCase()) ||
       pub.journal.toLowerCase().includes(search.toLowerCase());
@@ -1316,7 +1299,7 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
     <div className="w-full space-y-6">
       {/* Search & Topic Selector */}
       <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
-        
+
         {/* Search */}
         <div className="relative flex-1 max-w-md">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-tertiary" />
@@ -1325,11 +1308,10 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
             placeholder="Search papers by title, author, journal..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className={`w-full pl-10 pr-4 py-2 text-xs rounded-full border bg-bg-raised transition-all ${
-              isDark 
-                ? "border-zinc-800 focus:border-zinc-650 focus:ring-1 focus:ring-zinc-600 outline-none" 
-                : "border-slate-200 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 outline-none"
-            }`}
+            className={`w-full pl-10 pr-4 py-2 text-xs rounded-full border bg-bg-raised transition-all ${isDark
+              ? "border-zinc-800 focus:border-zinc-650 focus:ring-1 focus:ring-zinc-600 outline-none"
+              : "border-slate-200 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 outline-none"
+              }`}
           />
         </div>
 
@@ -1344,11 +1326,10 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
             <button
               key={topic.id}
               onClick={() => setTopicFilter(topic.id)}
-              className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wide transition-all border ${
-                topicFilter === topic.id
-                  ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-accent-blue dark:border-white shadow"
-                  : "bg-bg-raised hover:bg-bg-raised text-text-secondary border-border-subtle/80 hover:border-text-secondary"
-              }`}
+              className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wide transition-all border ${topicFilter === topic.id
+                ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-accent-blue dark:border-white shadow"
+                : "bg-bg-raised hover:bg-bg-raised text-text-secondary border-border-subtle/80 hover:border-text-secondary"
+                }`}
             >
               {topic.label}
             </button>
@@ -1361,15 +1342,13 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
         {filtered.map((pub) => (
           <div key={pub.num} className="relative group">
             {/* Visual offset background */}
-            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-2xl -z-10 transition-all ${
-              isDark ? "bg-[#181a1d] border border-border-subtle/50" : "bg-[#f4f0e6] border border-slate-200/50"
-            }`} />
+            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-2xl -z-10 transition-all ${isDark ? "bg-[#181a1d] border border-border-subtle/50" : "bg-[#f4f0e6] border border-slate-200/50"
+              }`} />
 
-            <div className={`h-full border rounded-2xl p-6 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${
-              isDark 
-                ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700" 
-                : "border-slate-200 bg-white shadow-sm hover:border-slate-350 hover:shadow-md"
-            }`}>
+            <div className={`h-full border rounded-2xl p-6 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${isDark
+              ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700"
+              : "border-slate-200 bg-white shadow-sm hover:border-slate-350 hover:shadow-md"
+              }`}>
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="px-2 py-0.5 rounded text-[8px] font-mono font-bold bg-accent-blue/10 dark:bg-zinc-800 text-accent-blue dark:text-zinc-350 border border-accent-blue/20 dark:border-zinc-700/50 uppercase tracking-widest">
@@ -1666,25 +1645,22 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
         }}
         onMouseEnter={() => setHoveredNode(badgeNum)}
         onMouseLeave={() => setHoveredNode(null)}
-        className={`p-3 md:p-4 rounded-2xl border text-left transition-all duration-500 cursor-pointer ${
-          isActive
-            ? `${colorClass.activeBorder} ${colorClass.activeBg} ${isHovered ? "scale-[1.04] border-opacity-100" : "scale-[1.02]"}`
-            : `${isDark ? "border-zinc-800/50 bg-[#0d0e12]/20 text-zinc-500" : "border-slate-200 bg-slate-50/30 text-slate-400"} hover:scale-[1.01]`
-        }`}
+        className={`p-3 md:p-4 rounded-2xl border text-left transition-all duration-500 cursor-pointer ${isActive
+          ? `${colorClass.activeBorder} ${colorClass.activeBg} ${isHovered ? "scale-[1.04] border-opacity-100" : "scale-[1.02]"}`
+          : `${isDark ? "border-zinc-800/50 bg-[#0d0e12]/20 text-zinc-500" : "border-slate-200 bg-slate-50/30 text-slate-400"} hover:scale-[1.01]`
+          }`}
       >
         <div className="flex items-center gap-3">
           <div
-            className={`h-8 w-8 rounded-full border flex items-center justify-center transition-all ${
-              isActive ? colorClass.activeBorder : "border-border-subtle"
-            } ${isHovered ? "scale-110" : ""}`}
+            className={`h-8 w-8 rounded-full border flex items-center justify-center transition-all ${isActive ? colorClass.activeBorder : "border-border-subtle"
+              } ${isHovered ? "scale-110" : ""}`}
           >
             {icon}
           </div>
           <div className="flex-1 min-w-0">
             <h4
-              className={`text-[10px] md:text-xs font-mono tracking-wider uppercase font-bold truncate transition-colors ${
-                isActive ? colorClass.activeText : "text-text-secondary"
-              }`}
+              className={`text-[10px] md:text-xs font-mono tracking-wider uppercase font-bold truncate transition-colors ${isActive ? colorClass.activeText : "text-text-secondary"
+                }`}
             >
               {title}
             </h4>
@@ -1693,11 +1669,10 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
             </p>
           </div>
           <span
-            className={`h-5 w-5 rounded-full text-[9px] font-mono font-bold flex items-center justify-center border transition-all ${
-              isActive
-                ? `${colorClass.activeBorder} ${colorClass.activeText}`
-                : "border-border-subtle text-zinc-500"
-            } ${isHovered ? "scale-110" : ""}`}
+            className={`h-5 w-5 rounded-full text-[9px] font-mono font-bold flex items-center justify-center border transition-all ${isActive
+              ? `${colorClass.activeBorder} ${colorClass.activeText}`
+              : "border-border-subtle text-zinc-500"
+              } ${isHovered ? "scale-110" : ""}`}
           >
             {badgeNum}
           </span>
@@ -1822,11 +1797,10 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
 
   return (
     <div
-      className={`w-full border rounded-3xl p-5 md:p-8 flex flex-col items-center relative overflow-hidden transition-all duration-300 ${
-        isDark
-          ? "bg-obsidian/45 border-zinc-850 shadow-2xl shadow-black/40"
-          : "bg-white/70 border-slate-200/90 shadow-xl shadow-slate-100/50"
-      }`}
+      className={`w-full border rounded-3xl p-5 md:p-8 flex flex-col items-center relative overflow-hidden transition-all duration-300 ${isDark
+        ? "bg-obsidian/45 border-zinc-850 shadow-2xl shadow-black/40"
+        : "bg-white/70 border-slate-200/90 shadow-xl shadow-slate-100/50"
+        }`}
     >
       <style
         dangerouslySetInnerHTML={{
@@ -1953,9 +1927,8 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
 
       {/* Decorative Particle Cloud behind components */}
       <div
-        className={`absolute inset-0 pointer-events-none transition-opacity duration-[1500ms] ${
-          activeStage === 7 ? "opacity-75" : "opacity-40"
-        }`}
+        className={`absolute inset-0 pointer-events-none transition-opacity duration-[1500ms] ${activeStage === 7 ? "opacity-75" : "opacity-40"
+          }`}
       >
         <svg className="w-full h-full" fill="none">
           {bgParticles.map((p, i) => (
@@ -1992,11 +1965,10 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
           </p>
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className={`px-3 py-1.5 rounded-full text-[9px] font-mono uppercase font-bold border transition-all flex items-center gap-1.5 self-start md:self-auto ${
-              isDark
-                ? "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 text-zinc-300"
-                : "border-slate-200 bg-slate-100/50 hover:bg-slate-200/50 text-slate-600"
-            }`}
+            className={`px-3 py-1.5 rounded-full text-[9px] font-mono uppercase font-bold border transition-all flex items-center gap-1.5 self-start md:self-auto ${isDark
+              ? "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 text-zinc-300"
+              : "border-slate-200 bg-slate-100/50 hover:bg-slate-200/50 text-slate-600"
+              }`}
           >
             {isPlaying ? (
               <>
@@ -2755,9 +2727,8 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
 
         {/* Mobile Active Stage Card */}
         <div
-          className={`w-full p-5 rounded-2xl border transition-all duration-500 text-center ${
-            isDark ? "bg-[#0d0e12]/60 border-zinc-800/80" : "bg-slate-50/80 border-slate-200"
-          } ${mobileCardContent[activeStage].color}`}
+          className={`w-full p-5 rounded-2xl border transition-all duration-500 text-center ${isDark ? "bg-[#0d0e12]/60 border-zinc-800/80" : "bg-slate-50/80 border-slate-200"
+            } ${mobileCardContent[activeStage].color}`}
         >
           <h4 className="text-xs font-mono font-bold tracking-widest uppercase">
             {mobileCardContent[activeStage].title}
@@ -2773,11 +2744,10 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
 
       {/* ACTIVE STAGE DESCRIPTION BOX (DESKTOP) */}
       <div
-        className={`hidden md:block w-full mt-6 p-5 rounded-2xl border text-center transition-all duration-500 relative overflow-hidden ${
-          isDark
-            ? "bg-[#0d0e12]/40 border-zinc-800/80 scanline-effect"
-            : "bg-slate-50/50 border-slate-200 scanline-effect"
-        }`}
+        className={`hidden md:block w-full mt-6 p-5 rounded-2xl border text-center transition-all duration-500 relative overflow-hidden ${isDark
+          ? "bg-[#0d0e12]/40 border-zinc-800/80 scanline-effect"
+          : "bg-slate-50/50 border-slate-200 scanline-effect"
+          }`}
       >
         <div className="flex justify-between items-center border-b border-border-subtle/30 pb-2 mb-3">
           <span className="text-[10px] font-mono uppercase font-bold text-amber-500 tracking-wider">
@@ -2817,11 +2787,10 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
                 }}
                 onMouseEnter={() => setHoveredNode(st.hoverNode as number | null)}
                 onMouseLeave={() => setHoveredNode(null)}
-                className={`px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase transition-all duration-300 border ${
-                  isButtonActive
-                    ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-transparent scale-105"
-                    : `${isDark ? "border-zinc-800 hover:border-zinc-700 bg-zinc-900/30 text-zinc-400" : "border-slate-200 hover:border-slate-350 bg-slate-50/50 text-slate-500"}`
-                }`}
+                className={`px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase transition-all duration-300 border ${isButtonActive
+                  ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-transparent scale-105"
+                  : `${isDark ? "border-zinc-800 hover:border-zinc-700 bg-zinc-900/30 text-zinc-400" : "border-slate-200 hover:border-slate-350 bg-slate-50/50 text-slate-500"}`
+                  }`}
               >
                 {st.id}{" "}
                 <span className="hidden sm:inline ml-1 font-sans text-[9px] font-semibold tracking-normal text-opacity-80">
@@ -2834,9 +2803,8 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
 
         {/* Timeline progress bar indicator */}
         <div
-          className={`h-1 w-48 rounded-full overflow-hidden mt-1 bg-opacity-10 ${
-            isDark ? "bg-white" : "bg-black"
-          }`}
+          className={`h-1 w-48 rounded-full overflow-hidden mt-1 bg-opacity-10 ${isDark ? "bg-white" : "bg-black"
+            }`}
         >
           <div
             key={activeStage + (isPlaying ? "-playing" : "-paused")}
@@ -2951,11 +2919,10 @@ export default function DrugDiscoveryPage() {
               </button>
               <button
                 onClick={() => scrollToSection("out-licensing")}
-                className={`px-8 py-3.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition duration-300 hover:scale-105 active:scale-95 shadow-sm ${
-                  isDark
-                    ? "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-850 hover:border-zinc-700 text-white"
-                    : "border-slate-200 bg-white/75 hover:bg-white hover:border-accent-blue text-slate-800"
-                }`}
+                className={`px-8 py-3.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition duration-300 hover:scale-105 active:scale-95 shadow-sm ${isDark
+                  ? "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-850 hover:border-zinc-700 text-white"
+                  : "border-slate-200 bg-white/75 hover:bg-white hover:border-accent-blue text-slate-800"
+                  }`}
               >
                 View Licensing Candidates
               </button>
@@ -2967,9 +2934,8 @@ export default function DrugDiscoveryPage() {
       {/* SECTION 2: THE DRUG DISCOVERY PIPELINE (Act 1) */}
       <section
         id="pipeline"
-        className={`relative z-10 py-24 border-y ${
-          isDark ? "border-border-subtle bg-bg-raised/20" : "border-slate-200 bg-slate-50/50"
-        }`}
+        className={`relative z-10 py-24 border-y ${isDark ? "border-border-subtle bg-bg-raised/20" : "border-slate-200 bg-slate-50/50"
+          }`}
       >
         <div className="max-w-[1350px] mx-auto px-4">
           <div className="text-center mb-14">
@@ -3002,9 +2968,8 @@ export default function DrugDiscoveryPage() {
       {/* SECTION 3: KEY APPROACHES IN DRUG DISCOVERY (Act 2) */}
       <section
         id="approaches"
-        className={`relative z-10 py-24 border-b ${
-          isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
-        }`}
+        className={`relative z-10 py-24 border-b ${isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
+          }`}
       >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -3037,9 +3002,8 @@ export default function DrugDiscoveryPage() {
       {/* SECTION 4: VALUE CREATION & DARK GENOME (Act 3) */}
       <section
         id="value-realization"
-        className={`relative z-10 py-24 border-b ${
-          isDark ? "bg-bg-raised/20 border-border-subtle" : "bg-slate-50/50 border-slate-200"
-        }`}
+        className={`relative z-10 py-24 border-b ${isDark ? "bg-bg-raised/20 border-border-subtle" : "bg-slate-50/50 border-slate-200"
+          }`}
       >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -3072,9 +3036,8 @@ export default function DrugDiscoveryPage() {
       {/* SECTION 5: OUT-LICENSING DATABASE (Act 4) */}
       <section
         id="out-licensing"
-        className={`relative z-10 py-24 border-b ${
-          isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
-        }`}
+        className={`relative z-10 py-24 border-b ${isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
+          }`}
       >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -3107,9 +3070,8 @@ export default function DrugDiscoveryPage() {
       {/* SECTION 6: SCIENTIFIC EVIDENCE (Act 5) */}
       <section
         id="evidence"
-        className={`relative z-10 py-24 border-b ${
-          isDark ? "bg-bg-raised/25 border-border-subtle" : "bg-slate-50/50 border-slate-200"
-        }`}
+        className={`relative z-10 py-24 border-b ${isDark ? "bg-bg-raised/25 border-border-subtle" : "bg-slate-50/50 border-slate-200"
+          }`}
       >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -3140,7 +3102,7 @@ export default function DrugDiscoveryPage() {
       </section>
 
       {/* Act 6: Conversion / Closing CTA */}
-      <section className="relative z-10 py-28 overflow-hidden border-t border-white/5" style={{background: "linear-gradient(135deg, #060814 0%, #0a0f1e 40%, #0c0f18 70%, #07090d 100%)"}}>
+      <section className="relative z-10 py-28 overflow-hidden border-t border-white/5" style={{ background: "linear-gradient(135deg, #060814 0%, #0a0f1e 40%, #0c0f18 70%, #07090d 100%)" }}>
         {/* Decorative background glow orbs */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-accent-blue/10 blur-[120px] opacity-60" />
@@ -3149,7 +3111,7 @@ export default function DrugDiscoveryPage() {
         </div>
 
         {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px"}} />
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <Reveal>
