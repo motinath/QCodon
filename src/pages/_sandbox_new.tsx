@@ -1,3 +1,30 @@
+import { useEffect, useRef, useState, useMemo } from "react";
+import {
+  Search,
+  Brain,
+  Layers,
+  Sparkles,
+  Award,
+  ChevronDown,
+  ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  Plus,
+  Minus,
+  ExternalLink,
+  Zap,
+  Clock,
+  ShieldCheck,
+  Check,
+  BookOpen,
+  Activity,
+  Dna,
+  Target,
+  FlaskConical,
+  Users,
+  ChevronRight,
+} from "lucide-react";
+
 // --- Sub-component: DarkGenomeSandbox ---
 export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
   const [activeStage, setActiveStage] = useState(0);

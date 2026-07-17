@@ -1760,11 +1760,10 @@ export function QcServicesDetailed() {
                     setActiveTab(d.id);
                     window.location.hash = d.id;
                   }}
-                  className={`flex-shrink-0 text-left px-5 py-4 rounded-2xl border transition-all duration-300 w-[240px] lg:w-full flex items-center justify-between ${
-                    isActive
+                  className={`flex-shrink-0 text-left px-5 py-4 rounded-2xl border transition-all duration-300 w-[240px] lg:w-full flex items-center justify-between ${isActive
                       ? "bg-foreground text-background shadow-lg border-foreground font-semibold"
                       : "bg-white/5 border-white/10 hover:bg-white/10 text-muted-foreground hover:text-foreground"
-                  }`}
+                    }`}
                 >
                   <div className="flex flex-col">
                     <span className="text-[10px] font-mono opacity-60 tracking-wider">{d.num}</span>

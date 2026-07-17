@@ -1,7 +1,7 @@
 import { Link as TLink, useRouterState } from "@tanstack/react-router";
 import type { ComponentProps, ReactNode } from "react";
 
-type LinkProps = Omit<ComponentProps<typeof TLink>, "to"> & {
+type LinkProps = Omit<ComponentProps<typeof TLink>, "to" | "params"> & {
   to: string;
   children?: ReactNode;
   className?: string;

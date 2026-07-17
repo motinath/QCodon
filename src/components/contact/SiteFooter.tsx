@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/router-compat";
 import { Facebook, Instagram, Linkedin, Twitter, Youtube, MapPin } from "lucide-react";
 
 interface FooterLink {

@@ -33,7 +33,7 @@ export default function Landing() {
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <p className="text-[11px] tracking-[0.35em] text-accent-blue dark:text-accent-blue font-semibold uppercase mb-8">
-            Quantum Codon · Deep Codon Initiative
+            Quantum Codon - powering the next generation bioeconomy
           </p>
           <h1 className="font-serif-display text-5xl md:text-7xl leading-[1.05] text-foreground">
             The genome holds a secret{" "}

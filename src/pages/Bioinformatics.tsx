@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PageShell from "./_PageShell";
-import { Link } from "@tanstack/react-router";
+import { Link } from "@/lib/router-compat";
 import {
   Database,
   Dna,
