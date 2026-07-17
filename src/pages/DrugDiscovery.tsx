@@ -23,6 +23,10 @@ import {
   BookOpen,
   Activity,
   Dna,
+  Target,
+  FlaskConical,
+  Users,
+  ChevronRight,
 } from "lucide-react";
 
 // --- Sub-component: GenomeAtlasHero ---
@@ -256,205 +260,432 @@ export function AnimatedCounter({
   );
 }
 
-// --- Sub-component: DarkGenomeMap ---
-export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
-  const segments = [
+export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [activeStage, setActiveStage] = useState(7); // Culmination cures highlighted by default
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.6;
+    }
+  }, []);
+
+  const stages = [
     {
       num: "01",
-      title: "Protein-Coding Genome",
-      ratio: "2%",
-      meaning: "Active Exons & Structural Translation Matrices",
-      description:
-        "Decades of drug development have focused exclusively on the tiny fraction of DNA that codes directly for protein structures. This has left the remaining 98% completely unmined.",
-      accentColor: "from-slate-500 to-slate-600",
-      accentText: "text-slate-500 dark:text-slate-400",
-      status: "Saturated Target Field",
-      metrics: [
-        { label: "Druggability Index", value: "Low (Saturated)" },
-        { label: "R&D Focus Rate", value: "98% of Global Capital" },
-        { label: "Target Scope", value: "~20,005 Annotations" },
-      ],
-      attributes: [
-        "Well-characterized translation mechanics",
-        "Saturated patent space & high generic competition",
-        "Higher off-target side effect margins across tissues",
-      ],
-      strategy:
-        "We bypass standard coding sequence bottlenecks to design completely unique chemical spaces.",
+      name: "Bioinformatics",
+      details: "Scan dark genomes using quantum sequence maps and networks.",
+      tag: "AI + Big Data",
+      icon: Search,
+      phase: "W1-2",
+      iconColor: "text-blue-500 bg-blue-500/10",
+      badgeColor: "bg-blue-500/5 text-blue-500 border-blue-500/10",
+      nodeColor: "border-blue-500 bg-blue-500/20",
+      dotColor: "bg-blue-500",
+      activeBorder: "border-blue-500/70",
+      activeShadow: "shadow-lg shadow-blue-500/10",
+      activeBg: "bg-blue-500/5 dark:bg-blue-950/10"
     },
     {
       num: "02",
-      title: "Class I Dark DNA",
-      ratio: "~40%",
-      meaning: "Non-Expressing Introns & Chromosomal Intergenic Regions",
-      description:
-        "Silent segments and alternative reading frames that do not express under standard cellular coordinates. We map hidden promoters and translation pathways to express therapeutic peptide candidates.",
-      accentColor: "from-[#cca54a] to-[#cca54a]/85",
-      accentText: "text-amber-500",
-      status: "Active Expression Mapping",
-      metrics: [
-        { label: "Druggability Index", value: "High (Unexplored)" },
-        { label: "Target Resolution", value: "Sub-nanomolar Lead Affinity" },
-        { label: "SPR Validation", value: "tREP-18 Lead (1.8 nM)" },
-      ],
-      attributes: [
-        "Maps hidden promoters and alternative reading frames",
-        "Direct high-density synthesis of peptide candidates",
-        "Locks disease states at intronic splice boundaries",
-      ],
-      strategy:
-        "Quantum Codon indexes introns to create high-affinity synthetic peptides, unlocking novel patent spaces.",
+      name: "Target ID",
+      details: "Map 2D to 3D structure of undruggable targets.",
+      tag: "AI + Machine Learning",
+      icon: Target,
+      phase: "W3-4",
+      iconColor: "text-teal-500 bg-teal-500/10",
+      badgeColor: "bg-teal-500/5 text-teal-500 border-teal-500/10",
+      nodeColor: "border-teal-500 bg-teal-500/20",
+      dotColor: "bg-teal-500",
+      activeBorder: "border-teal-500/70",
+      activeShadow: "shadow-lg shadow-teal-500/10",
+      activeBg: "bg-teal-500/5 dark:bg-teal-950/10"
     },
     {
       num: "03",
-      title: "Class II Dark RNA",
-      ratio: "~56%",
-      meaning: "Non-Translating Structural RNAs & Riboswitch Domains",
-      description:
-        "Regulatory RNA machinery (lncRNAs, microRNAs, and untranslated mRNA hairpins) that coordinate cellular protein levels. Our platform models three-dimensional binding pockets directly on these structures.",
-      accentColor: "from-[#3f4c8c] to-[#3f4c8c]/85",
-      accentText: "text-[#3f4c8c] dark:text-[#5c6bb0]",
-      status: "3D Fold Target Lock",
-      metrics: [
-        { label: "Druggability Index", value: "Exceptional" },
-        { label: "Binding Focus", value: "3D Tertiary Pockets" },
-        { label: "Preclinical Lead", value: "EcoI2 Candidate (5.6x reduction)" },
-      ],
-      attributes: [
-        "Models secondary & tertiary lncRNA conformations",
-        "Blocks protein translation via 5'-UTR and 3'-UTR locks",
-        "Targets structural RNA complexes without genetic modification",
-      ],
-      strategy:
-        "Quantum Codon models structural RNA pockets to shut down disease translation networks at the source.",
+      name: "Hit Discovery",
+      details: "Test compound libraries against target RNA models.",
+      tag: "Quantum + Docking",
+      icon: Sparkles,
+      phase: "W5-8",
+      iconColor: "text-emerald-500 bg-emerald-500/10",
+      badgeColor: "bg-emerald-500/5 text-emerald-500 border-emerald-500/10",
+      nodeColor: "border-emerald-500 bg-emerald-500/20",
+      dotColor: "bg-emerald-500",
+      activeBorder: "border-emerald-500/70",
+      activeShadow: "shadow-lg shadow-emerald-500/10",
+      activeBg: "bg-emerald-500/5 dark:bg-emerald-950/10"
     },
+    {
+      num: "04",
+      name: "Lead Opt.",
+      details: "Refine chemical candidates for optimal efficacy and binding.",
+      tag: "GNN + QSAR",
+      icon: FlaskConical,
+      phase: "W9-14",
+      iconColor: "text-amber-500 bg-amber-500/10",
+      badgeColor: "bg-amber-500/5 text-amber-500 border-amber-500/10",
+      nodeColor: "border-amber-500 bg-amber-500/20",
+      dotColor: "bg-amber-500",
+      activeBorder: "border-amber-500/70",
+      activeShadow: "shadow-lg shadow-amber-500/10",
+      activeBg: "bg-amber-500/5 dark:bg-amber-950/10"
+    },
+    {
+      num: "05",
+      name: "Preclinical Val.",
+      details: "Validate candidate safety and target performance.",
+      tag: "In Silico + PD/PK",
+      icon: ShieldCheck,
+      phase: "M4-8",
+      iconColor: "text-orange-500 bg-orange-500/10",
+      badgeColor: "bg-orange-500/5 text-orange-500 border-orange-500/10",
+      nodeColor: "border-orange-500 bg-orange-500/20",
+      dotColor: "bg-orange-500",
+      activeBorder: "border-orange-500/70",
+      activeShadow: "shadow-lg shadow-orange-500/10",
+      activeBg: "bg-orange-500/5 dark:bg-orange-950/10"
+    },
+    {
+      num: "06",
+      name: "Clinical Trials",
+      details: "Evaluate therapeutic efficacy and side-effects in phases I–III.",
+      tag: "AI-Driven Analytics",
+      icon: Users,
+      phase: "Y1-3",
+      iconColor: "text-purple-500 bg-purple-500/10",
+      badgeColor: "bg-purple-500/5 text-purple-500 border-purple-500/10",
+      nodeColor: "border-purple-500 bg-purple-500/20",
+      dotColor: "bg-purple-500",
+      activeBorder: "border-purple-500/70",
+      activeShadow: "shadow-lg shadow-purple-500/10",
+      activeBg: "bg-purple-500/5 dark:bg-purple-950/10"
+    },
+    {
+      num: "07",
+      name: "FDA Approval",
+      details: "Complete regulatory review and submission for market access.",
+      tag: "Compliance + AI",
+      icon: ShieldCheck,
+      phase: "Final",
+      iconColor: "text-indigo-500 bg-indigo-500/10",
+      badgeColor: "bg-indigo-500/5 text-indigo-500 border-indigo-500/10",
+      nodeColor: "border-indigo-500 bg-indigo-500/20",
+      dotColor: "bg-indigo-500",
+      activeBorder: "border-indigo-500/70",
+      activeShadow: "shadow-lg shadow-indigo-500/10",
+      activeBg: "bg-indigo-500/5 dark:bg-indigo-950/10"
+    },
+    {
+      num: "08",
+      name: "From Code to Cure",
+      details: "Accelerating therapeutics at every step.",
+      tag: "Culmination",
+      icon: Sparkles,
+      phase: "Goal",
+      iconColor: "text-violet-500 bg-violet-500/10",
+      badgeColor: "bg-violet-500/5 text-violet-500 border-violet-500/10",
+      nodeColor: "border-violet-500 bg-violet-500/20",
+      dotColor: "bg-violet-500",
+      activeBorder: "border-violet-500",
+      activeShadow: "shadow-lg shadow-violet-500/25",
+      activeBg: "bg-violet-500/10 dark:bg-violet-950/20",
+      isHighlighted: true
+    }
   ];
 
   return (
-    <div className="max-w-7xl mx-auto py-12 px-6 relative">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 items-stretch">
-        {segments.map((seg, idx) => (
+    <div className="w-full flex flex-col items-center overflow-x-hidden">
+      <style>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
+
+      {/* 1. Centered Widescreen Cinematic Video Player */}
+      <div className="w-full mb-8">
+        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[2.4/1] rounded-3xl overflow-hidden bg-zinc-950 border border-border-subtle/30 shadow-2xl">
+          <video
+            ref={videoRef}
+            src="/dd.mp4"
+            className="w-full h-full object-cover object-center"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40 pointer-events-none" />
+        </div>
+      </div>
+
+      {/* 2. Top Horizontal Nodes timeline line */}
+      <div className="hidden lg:grid lg:grid-cols-8 gap-3 w-full relative mb-8">
+        {/* Background dotted line representing the full track length */}
+        <div className="absolute top-1/2 left-[6.25%] right-[6.25%] h-0 border-t-2 border-dashed border-border-subtle/30 -translate-y-1/2 -z-10" />
+
+        {/* Dynamic sliding solid gradient connector line */}
+        <div 
+          className="absolute top-1/2 left-[6.25%] h-[3px] bg-gradient-to-r from-blue-500 via-teal-500 via-emerald-500 via-amber-500 via-orange-500 via-purple-500 via-indigo-500 to-violet-500 -translate-y-1/2 -z-10 rounded-full transition-all duration-500 ease-out" 
+          style={{ width: `${(activeStage / 7) * 87.5}%` }}
+        />
+
+        {stages.map((stage, idx) => {
+          const isActive = idx <= activeStage;
+          return (
+            <div key={idx} className="flex justify-center">
+              {/* Outer ring and center dot */}
+              <div 
+                className={`h-9 w-9 rounded-full bg-bg-raised border-[3px] flex items-center justify-center shadow-md transition-all duration-300 cursor-pointer ${
+                  isActive 
+                    ? stage.nodeColor 
+                    : "border-border-subtle/40 bg-zinc-800/10 text-zinc-500"
+                }`}
+                onClick={() => setActiveStage(idx)}
+                onMouseEnter={() => setActiveStage(idx)}
+              >
+                <div className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
+                  isActive ? stage.dotColor : "bg-text-tertiary/20"
+                }`} />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* 3. Cards grid sequence (scrollable on mobile/tablet, 8-col grid on desktop) */}
+      <div className="w-full mt-2 relative">
+        <div className="flex overflow-x-auto lg:grid lg:grid-cols-8 gap-3 pt-2.5 pb-8 lg:py-3.5 no-scrollbar snap-x snap-mandatory overflow-y-visible">
+          {stages.map((stage, idx) => {
+            const StageIcon = stage.icon;
+            const isCurrent = idx === activeStage;
+            const isReached = idx <= activeStage;
+            
+            return (
+              <div 
+                key={idx} 
+                className="relative flex-shrink-0 lg:flex-shrink w-[200px] lg:w-auto snap-center group cursor-pointer"
+                onMouseEnter={() => setActiveStage(idx)}
+                onClick={() => setActiveStage(idx)}
+              >
+
+                {/* Card Container */}
+                <div className={`h-full border rounded-2xl p-4 flex flex-col items-center text-center backdrop-blur transition-all duration-350 ${
+                  isCurrent
+                    ? `${stage.activeBorder} ${stage.activeBg} ${stage.activeShadow} scale-[1.02]`
+                    : stage.isHighlighted
+                      ? "border-violet-500/40 bg-violet-500/5 dark:bg-violet-950/10 shadow-sm shadow-violet-500/5 hover:border-violet-500/70"
+                      : isDark 
+                        ? "border-border-subtle bg-bg-raised/40 hover:border-accent-blue/30" 
+                        : "border-slate-200 bg-white hover:border-accent-blue/30 shadow-sm shadow-slate-100/50"
+                }`}>
+                  
+                  {/* Icon Circle */}
+                  <div className={`h-11 w-11 rounded-full flex items-center justify-center mb-3.5 transition-transform duration-350 ${
+                    isCurrent || isReached ? stage.iconColor : "text-text-secondary bg-border-subtle/5"
+                  }`}>
+                    <StageIcon className="h-4.5 w-4.5" />
+                  </div>
+
+                  {/* Stage Number Label */}
+                  <span className="text-[10px] font-mono text-text-tertiary block mb-1">
+                    {stage.num}
+                  </span>
+
+                  {/* Stage Name */}
+                  <h4 className="font-sans text-xs md:text-sm font-semibold text-text-primary leading-tight mb-2.5">
+                    {stage.name}
+                  </h4>
+
+                  {/* Description Centered */}
+                  <p className="text-[11px] text-text-secondary leading-relaxed mb-4 font-medium min-h-[72px]">
+                    {stage.details}
+                  </p>
+
+                  {/* Bottom tag pill */}
+                  <div className={`mt-auto px-2 py-0.5 text-[8px] font-mono font-bold border rounded-full transition-colors duration-350 ${
+                    isCurrent || isReached 
+                      ? stage.badgeColor 
+                      : "border-border-subtle/20 text-text-secondary/80 bg-border-subtle/10"
+                  }`}>
+                    {stage.tag}
+                  </div>
+                </div>
+                {/* Floating Chevron right (desktop only) */}
+                {idx < stages.length - 1 && (
+                  <div className="absolute right-[-8px] top-[50%] -translate-y-1/2 translate-x-1/2 z-30 hidden lg:block text-text-tertiary">
+                    <ChevronRight className="h-4 w-4 opacity-40" />
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// --- Sub-component: KeyApproachesGrid ---
+export function KeyApproachesGrid({ isDark }: { isDark: boolean }) {
+  const [filter, setFilter] = useState("all");
+
+  const approaches = [
+    {
+      title: "Target-based",
+      subtitle: "Structure & ligand design",
+      desc: "Focused on specific structural receptor folds to model, design, and optimize ligand binding pocket affinity.",
+      category: "hypothesis-driven",
+      catLabel: "Hypothesis-driven",
+      color: "border-blue-500/20 text-blue-500 bg-blue-500/5 hover:border-blue-500",
+      dot: "bg-blue-500",
+    },
+    {
+      title: "Phenotypic",
+      subtitle: "Whole-cell testing",
+      desc: "Screening chemical agents in whole cell environments to record functional biological activity directly.",
+      category: "screening-based",
+      catLabel: "Screening-based",
+      color: "border-emerald-500/20 text-emerald-500 bg-emerald-500/5 hover:border-emerald-500",
+      dot: "bg-emerald-500",
+    },
+    {
+      title: "High-throughput",
+      subtitle: "Robotic screening",
+      desc: "Using advanced automation pipelines to execute thousands of simultaneous assays and screen chemical spaces rapidly.",
+      category: "screening-based",
+      catLabel: "Screening-based",
+      color: "border-emerald-500/20 text-emerald-500 bg-emerald-500/5 hover:border-emerald-500",
+      dot: "bg-emerald-500",
+    },
+    {
+      title: "Fragment-based",
+      subtitle: "Grow small binders",
+      desc: "Identifying and screening small chemical fragments and structurally evolving them into high-affinity candidates.",
+      category: "source-based",
+      catLabel: "Source-based",
+      color: "border-amber-500/20 text-amber-500 bg-amber-500/5 hover:border-amber-500",
+      dot: "bg-amber-500",
+    },
+    {
+      title: "Combinatorial",
+      subtitle: "Diverse libraries",
+      desc: "Synthesizing and mapping massive, structurally cataloged chemical libraries to discover candidate starting shapes.",
+      category: "screening-based",
+      catLabel: "Screening-based",
+      color: "border-emerald-500/20 text-emerald-500 bg-emerald-500/5 hover:border-emerald-500",
+      dot: "bg-emerald-500",
+    },
+    {
+      title: "Natural products",
+      subtitle: "Plants & biologics",
+      desc: "Harnessing molecular agents from evolutionary biological origins, modified to achieve therapeutic compatibility.",
+      category: "source-based",
+      catLabel: "Source-based",
+      color: "border-amber-500/20 text-amber-500 bg-amber-500/5 hover:border-amber-500",
+      dot: "bg-amber-500",
+    },
+    {
+      title: "Genomics-driven",
+      subtitle: "Omics-based targets",
+      desc: "Leveraging multi-omics data models, sequence analysis, and genomics databases to reveal hidden therapeutic targets.",
+      category: "hypothesis-driven",
+      catLabel: "Hypothesis-driven",
+      color: "border-blue-500/20 text-blue-500 bg-blue-500/5 hover:border-blue-500",
+      dot: "bg-blue-500",
+    },
+    {
+      title: "Computational/AI",
+      subtitle: "In silico design",
+      desc: "Using neural networks and physics solvers to simulate binding pockets and predict molecular configurations.",
+      category: "computational",
+      catLabel: "Computational/Strategic",
+      color: "border-purple-500/20 text-purple-500 bg-purple-500/5 hover:border-purple-500",
+      dot: "bg-purple-500",
+    },
+    {
+      title: "Drug repurposing",
+      subtitle: "Reuse approved drugs",
+      desc: "Evaluating clinically verified assets against newly modeled targets to isolate novel treatment indications.",
+      category: "computational",
+      catLabel: "Computational/Strategic",
+      color: "border-purple-500/20 text-purple-500 bg-purple-500/5 hover:border-purple-500",
+      dot: "bg-purple-500",
+    },
+  ];
+
+  const filtered = filter === "all" ? approaches : approaches.filter(app => app.category === filter);
+
+  return (
+    <div className="w-full">
+      {/* Category filter pills */}
+      <div className="flex flex-wrap justify-center gap-2 mb-12">
+        {[
+          { id: "all", label: "All Approaches" },
+          { id: "hypothesis-driven", label: "Hypothesis-driven", dot: "bg-blue-500" },
+          { id: "screening-based", label: "Screening-based", dot: "bg-emerald-500" },
+          { id: "source-based", label: "Source-based", dot: "bg-amber-500" },
+          { id: "computational", label: "Computational/Strategic", dot: "bg-purple-500" },
+        ].map((btn) => (
+          <button
+            key={btn.id}
+            onClick={() => setFilter(btn.id)}
+            className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition duration-300 flex items-center gap-2 border ${
+              filter === btn.id
+                ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-accent-blue dark:border-white shadow-md shadow-accent-blue/15"
+                : "bg-bg-raised/60 hover:bg-bg-raised text-text-secondary border-border-subtle/80 hover:border-text-secondary"
+            }`}
+          >
+            {btn.dot && <span className={`h-1.5 w-1.5 rounded-full ${btn.dot}`} />}
+            {btn.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Approaches Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+        {filtered.map((item, idx) => (
           <div key={idx} className="relative group">
-            {/* Visual offset backing container (warm bone / deep slate) */}
-            <div
-              className={`absolute -bottom-3 -right-3 h-full w-full rounded-3xl -z-10 transition-all duration-300 group-hover:-bottom-4 group-hover:-right-4 ${
-                isDark
-                  ? "bg-[#16171a] border border-border-subtle"
-                  : "bg-[#f4f0e6] border border-slate-200/80 shadow-sm"
-              }`}
-            />
+            {/* Visual background offset */}
+            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-2xl -z-10 transition-all ${
+              isDark ? "bg-[#181a1d] border border-border-subtle/50" : "bg-[#f4f0e6] border border-slate-200/50"
+            }`} />
 
-            <div
-              className={`h-full border rounded-3xl p-6 md:p-8 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-1 ${
-                isDark
-                  ? "border-zinc-800/80 bg-zinc-950/30 text-white hover:border-zinc-700 hover:bg-zinc-950/40"
-                  : "border-slate-200 bg-white text-slate-900 shadow-md shadow-slate-100/50 hover:border-slate-350 hover:shadow-lg"
-              }`}
-            >
-              {/* Card Header */}
+            <div className={`h-full border rounded-2xl p-6 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${
+              isDark 
+                ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700" 
+                : "border-slate-200 bg-white shadow-sm hover:border-slate-350 hover:shadow-md"
+            }`}>
               <div>
-                <div className="flex justify-between items-start mb-6">
-                  <div>
-                    <span className="text-[10px] font-sans font-semibold tracking-[0.12em] text-text-tertiary block mb-1">
-                      SEGMENT {seg.num}
-                    </span>
-                    <span
-                      className={`inline-block px-2.5 py-0.5 rounded-full text-[9px] font-sans font-semibold uppercase tracking-[0.06em] border ${
-                        idx === 0
-                          ? isDark
-                            ? "border-slate-800 bg-slate-900/30 text-slate-400"
-                            : "border-slate-200 bg-slate-50 text-slate-650"
-                          : idx === 1
-                            ? "border-amber-500/20 bg-amber-500/5 text-amber-500"
-                            : "border-[#3f4c8c]/20 bg-[#3f4c8c]/5 text-[#3f4c8c] dark:text-[#5c6bb0]"
-                      }`}
-                    >
-                      {seg.status}
-                    </span>
-                  </div>
-                  <span
-                    className={`text-xl font-sans font-bold px-3 py-1 rounded-2xl bg-gradient-to-r ${seg.accentColor} text-white shadow-sm`}
-                  >
-                    {seg.ratio}
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-[9px] font-mono font-bold tracking-widest text-text-tertiary uppercase">
+                    Approach {idx + 1}
+                  </span>
+                  <span className={`px-2 py-0.5 rounded text-[8px] font-mono font-bold border uppercase tracking-wider flex items-center gap-1.5 ${item.color}`}>
+                    <span className={`h-1.5 w-1.5 rounded-full ${item.dot}`} />
+                    {item.catLabel}
                   </span>
                 </div>
-
-                <h3 className="font-serif-display text-2xl font-medium tracking-tight mb-2">
-                  {seg.title}
-                </h3>
-                <p
-                  className={`text-[10px] font-sans tracking-[0.08em] uppercase mb-5 font-semibold ${seg.accentText}`}
-                >
-                  {seg.meaning}
+                
+                <h4 className="text-base font-serif-display font-bold text-text-primary mb-1">
+                  {item.title}
+                </h4>
+                
+                <p className="text-[10px] font-mono text-accent-blue dark:text-accent-emerald font-semibold uppercase tracking-wide mb-3">
+                  {item.subtitle}
                 </p>
-
-                <p className="text-sm text-text-secondary leading-relaxed mb-6 font-medium">
-                  {seg.description}
+                
+                <p className="text-xs text-text-secondary leading-relaxed font-medium">
+                  {item.desc}
                 </p>
-
-                {/* Technical Parameters */}
-                <div
-                  className={`p-4 rounded-2xl border mb-6 space-y-3 ${
-                    isDark ? "bg-black/20 border-zinc-800/60" : "bg-slate-50 border-slate-200/60"
-                  }`}
-                >
-                  <span className="text-[10px] font-sans uppercase tracking-[0.08em] text-text-tertiary block font-semibold">
-                    Bioinformatics Parameters
-                  </span>
-                  <div className="space-y-2 text-xs font-sans">
-                    {seg.metrics.map((m, mIdx) => (
-                      <div
-                        key={mIdx}
-                        className="flex justify-between items-center py-1 border-b border-border-subtle/20 last:border-0"
-                      >
-                        <span className="text-text-secondary font-medium">{m.label}</span>
-                        <span className="text-text-primary font-bold">{m.value}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Attributes List */}
-                <div className="space-y-3 mb-8">
-                  <span className="text-[10px] font-sans uppercase tracking-[0.08em] text-text-tertiary block font-semibold">
-                    Target Properties
-                  </span>
-                  <ul className="space-y-2.5 text-xs text-text-secondary">
-                    {seg.attributes.map((attr, aIdx) => (
-                      <li key={aIdx} className="flex items-start gap-2">
-                        <Dna className={`w-3.5 h-3.5 mt-0.5 shrink-0 ${seg.accentText}`} />
-                        <span className="leading-relaxed">{attr}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
 
-              {/* Quantum Codon Integration Box */}
-              <div
-                className={`p-4 rounded-2xl border flex items-start gap-3 transition-colors ${
-                  idx === 0
-                    ? isDark
-                      ? "bg-zinc-900/10 border-zinc-800/50"
-                      : "bg-slate-50/50 border-slate-200/50"
-                    : idx === 1
-                      ? "bg-amber-500/5 border-amber-500/20"
-                      : "bg-[#3f4c8c]/5 border-[#3f4c8c]/20"
-                }`}
-              >
-                <span
-                  className={`h-2 w-2 rounded-full mt-1.5 shrink-0 ${
-                    idx === 0 ? "bg-slate-400" : idx === 1 ? "bg-amber-500" : "bg-[#3f4c8c]"
-                  }`}
-                />
-                <div>
-                  <span className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] text-text-primary block mb-1">
-                    Quantum Codon Strategy
-                  </span>
-                  <p className="text-xs text-text-secondary leading-relaxed font-medium">
-                    {seg.strategy}
-                  </p>
-                </div>
+              <div className="mt-4 pt-3 border-t border-border-subtle/20 flex justify-between items-center text-[9px] font-mono text-text-tertiary">
+                <span>Standardized Target Lock</span>
+                <span>Active Model</span>
               </div>
             </div>
           </div>
@@ -464,396 +695,723 @@ export function DarkGenomeMap({ isDark }: { isDark: boolean }) {
   );
 }
 
-// --- Sub-component: BiologicalScalePipeline ---
-export function BiologicalScalePipeline({ isDark }: { isDark: boolean }) {
-  const [activeStage, setActiveStage] = useState<number | null>(0);
-  const [intersecting, setIntersecting] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
+// --- Sub-component: ValueRealization ---
+export function ValueRealization({ isDark }: { isDark: boolean }) {
+  const [selectedRegion, setSelectedRegion] = useState("all");
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) setIntersecting(true);
-      },
-      { threshold: 0.2 },
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const stages = [
-    {
-      num: "01",
-      name: "Genome Scan",
-      scale: "Scale: 10⁶ base pairs",
-      icon: Search,
-      tagline: "Scouring non-coding regions across intergenic DNA",
-      body: "We process whole-genome sequencing files to locate silent intron boundaries and untranslated mRNA sequences. This identifies where potential structural templates sit inside previously discarded data.",
+  const regions = {
+    all: {
+      title: "The Unmapped Reservoir",
+      desc: "Our platform opens up the 98% non-expressing genome dismissed as 'junk DNA.' Below are the structural sub-domains we map to synthesize functional therapeutic candidates.",
+      evidence: "Founding research team spent 15+ years published across 12+ peer-reviewed papers.",
     },
-    {
-      num: "02",
-      name: "Folding AI",
-      scale: "Scale: 10⁻⁹ meters",
-      icon: Brain,
-      tagline: "Resolving tertiary structural protein structures",
-      body: "Our models translate dark-encoded patterns into predicted 3D structures, establishing binding pocket configurations and ADMET kinetics with state-of-the-art accuracy.",
+    intergenic: {
+      title: "Intergenic DNA & ORFs",
+      desc: "Genomic segments lying between genes. We locate hidden open reading frames (ORFs) that evolution preserved but never expressed under normal conditions.",
+      evidence: "Creates completely custom, first-in-class assets with clean, defensible IP.",
     },
-    {
-      num: "03",
-      name: "Virtual Docking",
-      scale: "Scale: Angstroms (10⁻¹⁰m)",
-      icon: Layers,
-      tagline: "Screening candidate binding dynamics in silico",
-      body: "High-throughput docking matrices score binding affinities across dynamic receptor templates, weeding out molecules with unfavorable steric constraints.",
+    introns: {
+      title: "Introns & Splice boundaries",
+      desc: "Non-coding sections of RNA transcript split out before translation. We map alternative splicing frames to generate high-affinity peptide leads.",
+      evidence: "Targeting cancer splice variations and cell-cycle boundaries directly.",
     },
-    {
-      num: "04",
-      name: "Quantum Dynamics",
-      scale: "Scale: Sub-angstrom",
-      icon: Sparkles,
-      tagline: "Electron density and sub-kcal/mol energy modeling",
-      body: "We calculate quantum molecular parameters—analyzing electrostatic polarization, charge transport vectors, and thermodynamic binding free energies.",
+    antisense: {
+      title: "Antisense Strands",
+      desc: "The opposite DNA sequence that coordinates gene transcript activity. We identify functional templates directly on antisense configurations.",
+      evidence: "Allows bypassing standard coding sequence bottlenecks.",
     },
-    {
-      num: "05",
-      name: "Wet-Lab Assays",
-      scale: "Scale: Micrometers (10⁻⁶m)",
-      icon: Award,
-      tagline: "In vitro binding testing and lead crystallization",
-      body: "Validated structures are synthesized and tested in cellular biological assays, verifying target inhibition performance and preclinical viability parameters.",
+    pseudogenes: {
+      title: "Pseudogenes",
+      desc: "Defunct gene copies resembling real genes but inactive. Our models re-engineer these elements to output synthetic proteins.",
+      evidence: "Creates novel molecular classes with no preexisting prior art.",
     },
-  ];
-
-  return (
-    <div ref={ref} className="w-full">
-      {/* Node Path */}
-      <div className="relative flex flex-col md:flex-row items-center justify-between gap-8 md:gap-4 px-4">
-        {/* Dynamic connection lines */}
-        <div
-          className={`absolute top-1/2 left-0 right-0 h-[1.5px] -translate-y-1/2 z-0 hidden md:block ${
-            isDark ? "bg-[#222528]" : "bg-slate-200"
-          }`}
-        >
-          <div
-            className="h-full bg-gradient-to-r from-accent-primary via-accent-secondary to-accent-data transition-all duration-[1800ms] ease-out"
-            style={{ width: intersecting ? "100%" : "0%" }}
-          />
-        </div>
-
-        <div
-          className={`absolute left-1/2 top-0 bottom-0 w-[1.5px] -translate-x-1/2 z-0 md:hidden ${
-            isDark ? "bg-[#222528]" : "bg-slate-200"
-          }`}
-        >
-          <div
-            className="w-full bg-gradient-to-b from-accent-primary via-accent-secondary to-accent-data transition-all duration-[1800ms] ease-out"
-            style={{ height: intersecting ? "100%" : "0%" }}
-          />
-        </div>
-
-        {stages.map((stage, idx) => {
-          const Icon = stage.icon;
-          const isActive = activeStage === idx;
-          return (
-            <div
-              key={idx}
-              onClick={() => setActiveStage(isActive ? null : idx)}
-              className="relative z-10 flex flex-col items-center cursor-pointer transition-all duration-300 animate-fade-in"
-              style={{
-                transform: intersecting ? "scale(1) translateY(0)" : "scale(0.8) translateY(25px)",
-                opacity: intersecting ? 1 : 0,
-                transitionDelay: `${idx * 120}ms`,
-              }}
-            >
-              <div
-                className={`h-16 w-16 rounded-full border flex flex-col items-center justify-center transition-all duration-300 shadow-md ${
-                  isActive
-                    ? `${isDark ? "border-white bg-zinc-900" : "border-accent-blue bg-accent-blue/10"} scale-105`
-                    : `${isDark ? "border-border-subtle bg-obsidian" : "border-slate-200 bg-white"} hover:border-text-secondary`
-                }`}
-              >
-                <Icon
-                  className={`h-5 w-5 ${isActive ? (isDark ? "text-white" : "text-accent-blue") : "text-text-secondary"}`}
-                />
-              </div>
-              <span className="text-[9px] font-mono mt-3 font-semibold tracking-wider text-accent-blue dark:text-zinc-500">
-                STAGE {stage.num}
-              </span>
-              <span className="text-[11px] font-bold text-text-primary mt-0.5">{stage.name}</span>
-              <span className="text-[9px] font-mono opacity-60 mt-0.5">{stage.scale}</span>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Node Detail Drawer */}
-      <div className="mt-10 overflow-hidden relative">
-        <div
-          className={`absolute -bottom-3 -right-3 h-full w-full rounded-3xl -z-10 transition-all ${
-            isDark
-              ? "bg-[#181a1d] border border-border-subtle"
-              : "bg-[#f4f0e6] border border-slate-200"
-          }`}
-        />
-        <div
-          className={`border rounded-3xl p-6 md:p-8 shadow-sm transition-all duration-300 min-h-[140px] ${
-            isDark ? "border-border-subtle bg-bg-raised" : "border-slate-200 bg-white"
-          }`}
-        >
-          {activeStage !== null ? (
-            <div className="animate-fade-in space-y-2">
-              <div className="flex items-center gap-3">
-                <span className="text-[9px] font-mono font-bold uppercase tracking-widest px-2.5 py-1 rounded border bg-accent-blue/5 border-border-subtle text-accent-blue dark:bg-zinc-800/40 dark:text-zinc-300 dark:border-zinc-700/50">
-                  STAGE {stages[activeStage].num} · {stages[activeStage].scale}
-                </span>
-                <h4 className="text-lg font-bold font-serif-display text-text-primary">
-                  {stages[activeStage].name} Details
-                </h4>
-              </div>
-              <p className="text-xs font-mono uppercase font-semibold tracking-wider text-accent-blue dark:text-white">
-                {stages[activeStage].tagline}
-              </p>
-              <p className="text-sm text-text-secondary leading-relaxed max-w-4xl pt-2">
-                {stages[activeStage].body}
-              </p>
-            </div>
-          ) : (
-            <div className="flex items-center justify-center h-24 text-xs font-mono uppercase tracking-wider text-text-tertiary">
-              Select a pipeline stage above to reveal molecular dimensions.
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// --- Sub-component: NatureStyleEvidence ---
-export function NatureStyleEvidence({ isDark }: { isDark: boolean }) {
-  const publications = [
-    {
-      tag: "Oncology · Kinase Targets",
-      title: "Targeting alternative frames: EcoI2 leads in kinase domain inhibition",
-      journal: "Journal of Cancer Genomics Research",
-      date: "May 2026",
-      metric: "5.6x",
-      metricLabel: "Reduction in tumor cell division rates vs. negative control arrays.",
-    },
-    {
-      tag: "Infectious Disease · tRNA Peptides",
-      title: "tREP-18 demonstrates sub-nanomolar affinity against Leishmania donovani",
-      journal: "Nature Therapeutics Preprint",
-      date: "Feb 2026",
-      metric: "1.8 nM",
-      metricLabel: "Best-in-class IC50 validation verified via surface plasmon resonance.",
-    },
-    {
-      tag: "Neurodegeneration · UTR Structures",
-      title: "Suppression of BACE1 translation efficiency via target 5'-UTR locks",
-      journal: "Therapeutic RNA & Structural Biology",
-      date: "Nov 2025",
-      metric: "60%",
-      metricLabel: "Beta-amyloid peptide secretion drop observed in vitro cell lines.",
-    },
-  ];
-
-  return (
-    <div className="grid md:grid-cols-3 gap-8">
-      {publications.map((paper, idx) => (
-        <div key={idx} className="relative">
-          <div
-            className={`absolute -bottom-3 -right-3 h-full w-full rounded-3xl -z-10 transition-all ${
-              isDark
-                ? "bg-[#181a1d] border border-border-subtle"
-                : "bg-[#f4f0e6] border border-slate-200"
-            }`}
-          />
-          <article
-            className={`border rounded-3xl p-6 md:p-8 flex flex-col justify-between h-full transition-all duration-300 ${
-              isDark
-                ? "border-border-subtle bg-bg-raised hover:border-white shadow-md shadow-black/25"
-                : "border-slate-200 bg-white hover:border-accent-blue shadow-md shadow-slate-100/50"
-            }`}
-          >
-            <div>
-              <div className="flex justify-between items-center text-[10px] font-mono text-text-tertiary font-bold uppercase mb-4 tracking-wider">
-                <span>{paper.tag}</span>
-                <span className="text-accent-blue dark:text-zinc-400">{paper.date}</span>
-              </div>
-
-              <h3 className="font-serif-display text-xl font-bold leading-snug text-text-primary hover:opacity-80 transition-colors mb-4">
-                {paper.title}
-              </h3>
-
-              <div className="my-5 p-4 rounded-2xl border text-center bg-accent-blue/5 border-border-subtle dark:bg-zinc-800/40 dark:border-zinc-700/50">
-                <span className="text-3xl font-mono font-bold text-accent-blue dark:text-white">
-                  <AnimatedCounter
-                    value={parseFloat(paper.metric)}
-                    suffix={paper.metric.replace(/[0-9.]/g, "")}
-                    decimals={paper.metric.includes(".") ? 1 : 0}
-                  />
-                </span>
-                <p className="text-[9px] font-mono uppercase text-text-secondary mt-1 font-semibold tracking-wider">
-                  {paper.metricLabel}
-                </p>
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-border-subtle/50 flex justify-between items-center text-[10px] font-mono uppercase font-bold text-text-tertiary">
-              <span>{paper.journal}</span>
-              <span className="flex items-center gap-1 hover:underline cursor-pointer text-accent-blue dark:text-zinc-300 dark:hover:text-white">
-                View study <ExternalLink className="w-3 h-3" />
-              </span>
-            </div>
-          </article>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// --- Sub-component: MoleculeShowcase ---
-export function MoleculeShowcase({ isDark }: { isDark: boolean }) {
-  const [activeMol, setActiveMol] = useState<"trep" | "ecoi">("trep");
-
-  const molData = {
-    trep: {
-      name: "tREP-18 Candidate",
-      type: "tRNA-derived Peptide Assembly",
-      disease: "Leishmaniasis (Pathogenic Infection)",
-      steps: [
-        {
-          label: "1. Sequence Origin",
-          detail:
-            "Isolated from structural transfer RNA segments inside the non-coding genome mapped in clinical Leishmania lines.",
-        },
-        {
-          label: "2. Vector Structure",
-          detail:
-            "Folds into a rigid, cationic macrocycle displaying optimal ADMET profiles and proteolytic stability thresholds.",
-        },
-        {
-          label: "3. Target Lock",
-          detail:
-            "Binds directly to the pathogen outer membrane, disrupting replication and structural integrity.",
-        },
-        {
-          label: "4. Assay Proof",
-          detail:
-            "Tested in vitro, yielding a best-in-class binding affinity index of 1.8 nM IC50, with minimal toxicity bounds.",
-        },
-      ],
-    },
-    ecoi: {
-      name: "EcoI2 Candidate",
-      type: "Intergenic Kinase Inhibitor",
-      disease: "Oncology (Solid Tumor Proliferation)",
-      steps: [
-        {
-          label: "1. Sequence Origin",
-          detail:
-            "Derived from unannotated chromosomal exons outside classic protein-coding segments.",
-        },
-        {
-          label: "2. Vector Structure",
-          detail:
-            "AlphaFold models show a highly specific alpha-helix arm that slots precisely into mutated ATP kinase pockets.",
-        },
-        {
-          label: "3. Target Lock",
-          detail:
-            "Blocks signaling cascade sequences, arresting cell division without triggering cellular necrosis pathways.",
-        },
-        {
-          label: "4. Assay Proof",
-          detail:
-            "Tested in solid tumor cultures, showcasing a 5.6-fold division arrest rate compared to traditional inhibitors.",
-        },
-      ],
-    },
+    lncrna: {
+      title: "lncRNA & tRNA domains",
+      desc: "Non-translating structural RNAs that control cell regulation. We model 3D target pockets on long non-coding RNAs and tRNA structures.",
+      evidence: "Discovered and named tRNA-encoded peptides (tREPs) class.",
+    }
   };
 
-  const active = molData[activeMol];
+  const current = regions[selectedRegion as keyof typeof regions] || regions.all;
 
   return (
-    <div className="relative">
-      <div
-        className={`absolute -bottom-4 -right-4 h-full w-full rounded-3xl -z-10 transition-all ${
-          isDark
-            ? "bg-[#181a1d] border border-border-subtle"
-            : "bg-[#f4f0e6] border border-slate-200"
-        }`}
-      />
-      <div
-        className={`border rounded-3xl p-6 md:p-10 shadow-sm ${
-          isDark ? "border-border-subtle bg-bg-raised" : "border-slate-200 bg-white"
-        }`}
-      >
-        <div className="flex gap-4 border-b border-border-subtle pb-6 mb-8">
-          <button
-            onClick={() => setActiveMol("trep")}
-            className={`pb-2 border-b-2 font-serif-display text-lg font-bold transition-all ${
-              activeMol === "trep"
-                ? "border-accent-blue text-accent-blue dark:border-white dark:text-white"
-                : "border-transparent text-text-secondary hover:text-text-primary"
-            }`}
-          >
-            tREP-18 Dossier
-          </button>
-          <button
-            onClick={() => setActiveMol("ecoi")}
-            className={`pb-2 border-b-2 font-serif-display text-lg font-bold transition-all ${
-              activeMol === "ecoi"
-                ? "border-accent-blue text-accent-blue dark:border-white dark:text-white"
-                : "border-transparent text-text-secondary hover:text-text-primary"
-            }`}
-          >
-            EcoI2 Dossier
-          </button>
-        </div>
+    <div className="w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        {/* Left Column: DNA Helix Interactivity */}
+        <div className="lg:col-span-6 relative flex flex-col justify-between border rounded-3xl p-6 md:p-8 overflow-hidden bg-bg-raised/40 border-border-subtle/50 backdrop-blur">
+          {/* Subtle grid pattern overlay */}
+          <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "30px 30px"}} />
 
-        <div className="grid md:grid-cols-12 gap-8">
-          <div className="md:col-span-4 space-y-4">
-            <div>
-              <span className="text-[9px] font-mono font-bold uppercase tracking-widest px-2 py-0.5 border rounded text-accent-blue bg-accent-blue/5 border-border-subtle dark:text-zinc-350 dark:bg-zinc-800/40 dark:border-zinc-700/50">
-                Lead Candidate Profile
+          <div>
+            <div className="flex justify-between items-center mb-6">
+              <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-accent-blue dark:text-zinc-500 font-bold">
+                Genomic Dark Matter Interactive Model
               </span>
-              <h3 className="font-serif-display text-2xl font-bold text-text-primary mt-3">
-                {active.name}
-              </h3>
-              <p className="text-xs font-mono text-text-secondary">{active.type}</p>
+              <span className="h-2 w-2 rounded-full bg-emerald-500 animate-ping" />
             </div>
 
-            <div
-              className={`p-4 rounded-xl border space-y-1 ${
-                isDark ? "bg-zinc-900 border-zinc-800" : "bg-slate-50 border-slate-200"
-              }`}
-            >
-              <span className="text-[9px] font-mono uppercase text-text-tertiary tracking-wider font-semibold">
-                Target Indication
-              </span>
-              <p className="text-sm font-bold text-text-primary">{active.disease}</p>
+            <h3 className="font-serif-display text-xl font-bold text-text-primary mb-3">
+              Explore Non-Coding Regions
+            </h3>
+            <p className="text-xs text-text-secondary leading-relaxed mb-6">
+              Click on different layers of the genomic map to isolate structural elements utilized by the Quantum Codon platform.
+            </p>
+
+            {/* Buttons list */}
+            <div className="relative flex flex-col gap-2.5 w-full my-4">
+              {[
+                { id: "intergenic", label: "Intergenic DNA", color: "border-blue-500/30 hover:border-blue-500 text-blue-500" },
+                { id: "introns", label: "Introns & Alternative ORFs", color: "border-emerald-500/30 hover:border-emerald-500 text-emerald-500" },
+                { id: "antisense", label: "Antisense Strands", color: "border-amber-500/30 hover:border-amber-500 text-amber-500" },
+                { id: "pseudogenes", label: "Pseudogenes", color: "border-purple-500/30 hover:border-purple-500 text-purple-500" },
+                { id: "lncrna", label: "lncRNA & tRNA regions", color: "border-rose-500/30 hover:border-rose-500 text-rose-500" },
+              ].map((reg) => (
+                <button
+                  key={reg.id}
+                  onClick={() => setSelectedRegion(reg.id)}
+                  className={`w-full py-2.5 px-4 rounded-xl border text-[11px] font-mono font-semibold uppercase tracking-wider text-left transition-all duration-300 flex justify-between items-center bg-bg-raised hover:scale-[1.01] ${reg.color} ${
+                    selectedRegion === reg.id ? "scale-[1.01] border-opacity-100 ring-1 ring-offset-2 ring-accent-blue/30" : "opacity-80"
+                  }`}
+                >
+                  <span>{reg.label}</span>
+                  <span className="text-[9px] opacity-75">Inspect →</span>
+                </button>
+              ))}
+
+              {selectedRegion !== "all" && (
+                <button
+                  onClick={() => setSelectedRegion("all")}
+                  className="text-[10px] font-mono text-center text-text-secondary mt-1 hover:text-text-primary underline self-center"
+                >
+                  Reset to Overview
+                </button>
+              )}
+            </div>
+
+          </div>
+
+          {/* Dynamic details pane */}
+          <div className="mt-8 pt-6 border-t border-border-subtle/20 min-h-[140px] flex flex-col justify-between">
+            <div>
+              <h4 className="text-xs font-serif-display font-bold text-text-primary mb-1 uppercase tracking-wide">
+                {current.title}
+              </h4>
+              <p className="text-xs text-text-secondary leading-relaxed">
+                {current.desc}
+              </p>
+            </div>
+            <p className="text-[10px] font-mono text-accent-blue dark:text-accent-emerald font-semibold mt-3 italic">
+              ✦ {current.evidence}
+            </p>
+          </div>
+        </div>
+
+        {/* Right Column: Investor & Partner Value Props */}
+        <div className="lg:col-span-6 flex flex-col gap-6 md:gap-8 justify-between">
+          
+          {/* Card 1: Investors */}
+          <div className="relative group flex-1">
+            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-3xl -z-10 transition-all ${
+              isDark ? "bg-[#181a1d] border border-border-subtle" : "bg-[#f4f0e6] border border-slate-200"
+            }`} />
+            <div className={`h-full border rounded-3xl p-6 md:p-8 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${
+              isDark ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700" : "border-slate-200 bg-white shadow-md shadow-slate-100/50 hover:border-slate-350"
+            }`}>
+              <div className="space-y-3">
+                <span className="px-2 py-0.5 rounded text-[8px] font-mono font-bold bg-blue-500/10 text-blue-500 border border-blue-500/20 uppercase tracking-widest">
+                  Investor Proposition
+                </span>
+                <h4 className="text-lg font-serif-display font-bold text-text-primary">
+                  Proprietary Discovery Engine
+                </h4>
+                <p className="text-xs text-text-secondary leading-relaxed">
+                  Sitting on genomic real estate no competitor has staked a claim to — a pipeline of first-in-class assets generated at a fraction of the cost and timeline of conventional discovery, with a founding team whose published track record de-risks the science years ahead of typical seed-stage platforms.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 mt-4 text-[10px] font-mono text-text-tertiary">
+                <Clock className="w-3.5 h-3.5" />
+                <span>Accelerated timeline to Seed / Series A milestones</span>
+              </div>
             </div>
           </div>
 
-          <div className="md:col-span-8 grid gap-4 sm:grid-cols-2">
-            {active.steps.map((step, idx) => (
-              <div
-                key={idx}
-                className={`p-5 rounded-2xl border space-y-2 transition-colors duration-300 ${
-                  isDark
-                    ? "bg-bg-sunken/45 border-border-subtle hover:border-zinc-700"
-                    : "bg-slate-50/50 border-slate-200 hover:border-accent-blue"
+          {/* Card 2: Industry Partners */}
+          <div className="relative group flex-1">
+            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-3xl -z-10 transition-all ${
+              isDark ? "bg-[#181a1d] border border-border-subtle" : "bg-[#f4f0e6] border border-slate-200"
+            }`} />
+            <div className={`h-full border rounded-3xl p-6 md:p-8 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${
+              isDark ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700" : "border-slate-200 bg-white shadow-md shadow-slate-100/50 hover:border-slate-350"
+            }`}>
+              <div className="space-y-3">
+                <span className="px-2 py-0.5 rounded text-[8px] font-mono font-bold bg-purple-500/10 text-purple-500 border border-purple-500/20 uppercase tracking-widest">
+                  Industry Partner Proposition
+                </span>
+                <h4 className="text-lg font-serif-display font-bold text-text-primary">
+                  Pre-Validated Molecules & Enzyme Candidates
+                </h4>
+                <p className="text-xs text-text-secondary leading-relaxed">
+                  Access to pre-validated, screened molecules and enzyme candidates ready for licensing or tech transfer — new chemical entities and catalytic scaffolds that expand your pipeline without inheriting the freedom-to-operate constraints of conventionally sourced IP.
+                </p>
+              </div>
+              <div className="flex items-center gap-2 mt-4 text-[10px] font-mono text-text-tertiary">
+                <ShieldCheck className="w-3.5 h-3.5" />
+                <span>Clean, defensible IP & freedom-to-operate certainty</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Lead Candidate callout banner */}
+          <div className="relative overflow-hidden rounded-2xl border p-4 bg-gradient-to-r from-accent-blue/10 via-indigo-500/5 to-purple-500/10 border-accent-blue/20 dark:border-accent-blue/30 backdrop-blur">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <span className="h-2 w-2 rounded-full bg-amber-500" />
+                  <span className="text-[10px] font-mono uppercase font-bold text-accent-blue dark:text-zinc-350">
+                    Lead Compound Highlight
+                  </span>
+                </div>
+                <h5 className="text-xs font-serif-display font-bold text-text-primary">
+                  tREP-18 — Nanomolar Antileishmanial Activity (IC50 ≈ 22 nM)
+                </h5>
+                <p className="text-[11px] text-text-secondary max-w-xl">
+                  Demonstrates potent efficacy against pathogens while completely sparing human cells — verifying that dark genome mapping produces drug-like, non-toxic molecules.
+                </p>
+              </div>
+              <div className="flex items-center justify-start">
+                <span className="text-[10px] font-mono border rounded px-2.5 py-1 text-accent-blue dark:text-zinc-350 border-accent-blue/30 whitespace-nowrap">
+                  Validated In Vitro
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// --- Sub-component: OutLicensingDatabase ---
+export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
+  const contactModal = useContactModal();
+  const [search, setSearch] = useState("");
+  const [materialFilter, setMaterialFilter] = useState("all");
+  const [stageFilter, setStageFilter] = useState("all");
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const molecules = [
+    {
+      id: "qC-36",
+      material: "compound",
+      market: "Infectious Disease",
+      indication: "Malaria",
+      moa: "Novel blood-stage target",
+      stage: "Preclinical In Vivo",
+      differentiator: "Active against artemisinin-resistant strains",
+      highlightedData: "100% clearance in the in vivo models",
+      badgeColor: "bg-amber-500/10 text-amber-500 border-amber-500/20",
+      description: "A novel compound targeting malaria blood-stage receptors. Standard therapies have struggled with emerging artemisinin-resistant variations. qC-36 provides complete biochemical clearance in animal trials."
+    },
+    {
+      id: "qC-45",
+      material: "compound",
+      market: "Regenerative / Dermatology",
+      indication: "Chronic Wound Healing",
+      moa: "Angiogenesis / Tissue repair promoter",
+      stage: "Preclinical In Vivo",
+      differentiator: "Accelerates closure; stable at room temperature",
+      highlightedData: "Full re-epithelialization in 14 days in severe models",
+      badgeColor: "bg-amber-500/10 text-amber-500 border-amber-500/20",
+      description: "Designed to trigger cellular tissue repair pathways. It acts as an organic promoter of angiogenesis (blood vessel formation), facilitating tissue healing without cold-chain storage dependencies."
+    },
+    {
+      id: "qC-63",
+      material: "compound",
+      market: "Aesthetics / Dermatology",
+      indication: "Hair Fall (Alopecia)",
+      moa: "Follicle stem cell activator",
+      stage: "Preclinical In Vivo",
+      differentiator: "Non-hormonal mechanism; higher efficacy than SoC*",
+      highlightedData: "3x increase in active hair follicles in vivo",
+      badgeColor: "bg-amber-500/10 text-amber-500 border-amber-500/20",
+      description: "A non-hormonal, high-efficacy candidate that activates follicle stem cells. Overcomes the side-effect profiles associated with current standard of care (SoC) therapies by bypassing hormonal systems."
+    },
+    {
+      id: "qC-73",
+      material: "peptide",
+      market: "Infectious Disease",
+      indication: "Leishmaniasis",
+      moa: "Parasite-specific disruption",
+      stage: "In Vitro",
+      differentiator: "High efficacy without toxicity",
+      highlightedData: "Does not affect human cells even at 10x concentration",
+      badgeColor: "bg-blue-500/10 text-blue-500 border-blue-500/20",
+      description: "A highly selective synthetic peptide that disrupts parasite membranes with surgical accuracy. Efficacy is verified in vitro with an exceptionally clean safety profile in mammalian host cells."
+    },
+    {
+      id: "qC-99",
+      material: "peptide",
+      market: "Neurodegenerative",
+      indication: "Alzheimer's Disease",
+      moa: "Neuroinflammation inhibitor",
+      stage: "In Vitro",
+      differentiator: "High Blood-Brain Barrier (BBB) penetration; oral",
+      highlightedData: "95% reduction in BACE enzyme, cell line results",
+      badgeColor: "bg-blue-500/10 text-blue-500 border-blue-500/20",
+      description: "A blood-brain-barrier penetrating peptide targeting BACE enzyme pathways. It shuts down neuroinflammatory signaling cascades and blocks amyloid plaque formation in cell-line assays."
+    }
+  ];
+
+  const filtered = molecules.filter(mol => {
+    const matchesSearch = 
+      mol.id.toLowerCase().includes(search.toLowerCase()) ||
+      mol.indication.toLowerCase().includes(search.toLowerCase()) ||
+      mol.market.toLowerCase().includes(search.toLowerCase()) ||
+      mol.moa.toLowerCase().includes(search.toLowerCase());
+
+    const matchesMaterial = materialFilter === "all" || mol.material === materialFilter;
+    const matchesStage = stageFilter === "all" || mol.stage === stageFilter;
+
+    return matchesSearch && matchesMaterial && matchesStage;
+  });
+
+  return (
+    <div className="w-full space-y-6">
+      {/* Filters & Search Row */}
+      <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
+        
+        {/* Search Input */}
+        <div className="relative flex-1 max-w-md">
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-tertiary" />
+          <input
+            type="text"
+            placeholder="Search candidates by ID, Indication, Market..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className={`w-full pl-10 pr-4 py-2 text-xs rounded-full border bg-bg-raised transition-all ${
+              isDark 
+                ? "border-zinc-800 focus:border-zinc-650 focus:ring-1 focus:ring-zinc-600 outline-none" 
+                : "border-slate-200 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 outline-none"
+            }`}
+          />
+        </div>
+
+        {/* Filter buttons */}
+        <div className="flex flex-wrap items-center gap-3">
+          {/* Material selector */}
+          <div className="flex rounded-full border border-border-subtle p-0.5 bg-bg-raised/50">
+            {["all", "compound", "peptide"].map((mat) => (
+              <button
+                key={mat}
+                onClick={() => setMaterialFilter(mat)}
+                className={`px-3 py-1.5 rounded-full text-[10px] font-mono uppercase font-bold tracking-wide transition-all ${
+                  materialFilter === mat
+                    ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 shadow"
+                    : "text-text-secondary hover:text-text-primary"
                 }`}
               >
-                <span className="text-[10px] font-mono font-bold tracking-wider uppercase block text-accent-blue dark:text-white">
-                  {step.label}
-                </span>
-                <p className="text-xs text-text-secondary leading-relaxed">{step.detail}</p>
-              </div>
+                {mat === "all" ? "All Materials" : mat + "s"}
+              </button>
+            ))}
+          </div>
+
+          {/* Stage selector */}
+          <div className="flex rounded-full border border-border-subtle p-0.5 bg-bg-raised/50">
+            {["all", "Preclinical In Vivo", "In Vitro"].map((stg) => (
+              <button
+                key={stg}
+                onClick={() => setStageFilter(stg)}
+                className={`px-3 py-1.5 rounded-full text-[10px] font-mono uppercase font-bold tracking-wide transition-all ${
+                  stageFilter === stg
+                    ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 shadow"
+                    : "text-text-secondary hover:text-text-primary"
+                }`}
+              >
+                {stg === "all" ? "All Stages" : stg}
+              </button>
             ))}
           </div>
         </div>
+
+      </div>
+
+      {/* Main Table/Grid */}
+      <div className="overflow-hidden rounded-2xl border border-border-subtle/80 bg-bg-raised/10 backdrop-blur shadow-xl shadow-slate-100/50 dark:shadow-none">
+        {/* Desktop Header */}
+        <div className="hidden lg:grid grid-cols-12 gap-4 px-6 py-4 border-b border-border-subtle/40 bg-bg-raised/40 text-[10px] font-mono uppercase tracking-wider font-bold text-text-tertiary">
+          <div className="col-span-1">ID</div>
+          <div className="col-span-2">Material</div>
+          <div className="col-span-2">Market / Indication</div>
+          <div className="col-span-2">Mechanism of Action</div>
+          <div className="col-span-2">Current Stage</div>
+          <div className="col-span-3">Key Differentiator</div>
+        </div>
+
+        {/* Empty State */}
+        {filtered.length === 0 && (
+          <div className="text-center py-16 space-y-3">
+            <Activity className="h-8 w-8 mx-auto text-text-tertiary animate-pulse" />
+            <p className="text-xs text-text-secondary font-medium font-mono">No matching molecular candidates found.</p>
+            <button 
+              onClick={() => { setSearch(""); setMaterialFilter("all"); setStageFilter("all"); }}
+              className="text-[10px] font-mono uppercase text-accent-blue hover:underline"
+            >
+              Reset All Filters
+            </button>
+          </div>
+        )}
+
+        {/* Rows */}
+        <div className="divide-y divide-border-subtle/20">
+          {filtered.map((mol) => {
+            const isExpanded = expandedId === mol.id;
+            return (
+              <div 
+                key={mol.id}
+                className={`transition-all duration-300 ${
+                  isExpanded 
+                    ? "bg-accent-blue/5 dark:bg-zinc-900/30" 
+                    : "hover:bg-bg-raised/20"
+                }`}
+              >
+                {/* Table Row / Trigger */}
+                <div 
+                  onClick={() => setExpandedId(isExpanded ? null : mol.id)}
+                  className="grid grid-cols-1 lg:grid-cols-12 gap-4 px-6 py-4 items-center cursor-pointer text-xs"
+                >
+                  {/* ID */}
+                  <div className="col-span-1 font-mono font-bold text-text-primary flex items-center justify-between lg:block">
+                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">Candidate ID:</span>
+                    <span className="flex items-center gap-1.5">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent-blue dark:bg-accent-emerald animate-pulse" />
+                      {mol.id}
+                    </span>
+                  </div>
+
+                  {/* Material */}
+                  <div className="col-span-2 font-mono flex items-center justify-between lg:block">
+                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">Material:</span>
+                    <span className="capitalize font-semibold text-text-secondary">{mol.material}</span>
+                  </div>
+
+                  {/* Market / Indication */}
+                  <div className="col-span-2 flex items-center justify-between lg:block">
+                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">Indication:</span>
+                    <div>
+                      <p className="font-semibold text-text-primary">{mol.indication}</p>
+                      <p className="text-[10px] text-text-secondary">{mol.market}</p>
+                    </div>
+                  </div>
+
+                  {/* MoA */}
+                  <div className="col-span-2 flex items-center justify-between lg:block">
+                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">Mechanism:</span>
+                    <span className="text-text-secondary leading-normal">{mol.moa}</span>
+                  </div>
+
+                  {/* Current Stage */}
+                  <div className="col-span-2 flex items-center justify-between lg:block">
+                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">Stage:</span>
+                    <span className={`px-2.5 py-0.5 rounded-full text-[9px] font-mono font-semibold border ${mol.badgeColor}`}>
+                      {mol.stage}
+                    </span>
+                  </div>
+
+                  {/* Differentiator & Chevron */}
+                  <div className="col-span-3 flex items-center justify-between lg:block">
+                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">Key Feature:</span>
+                    <div className="flex items-center justify-end lg:justify-between w-full gap-4">
+                      <span className="text-[11px] text-text-secondary italic lg:not-italic font-medium leading-normal text-right lg:text-left">{mol.differentiator}</span>
+                      <ChevronDown className={`h-4 w-4 text-text-tertiary transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Expanded Details Pane */}
+                {isExpanded && (
+                  <div className="px-6 pb-6 pt-2 border-t border-border-subtle/10 grid md:grid-cols-12 gap-6 items-center animate-fade-in">
+                    <div className="md:col-span-8 space-y-3">
+                      <p className="text-[10px] font-mono uppercase font-bold text-accent-blue dark:text-accent-emerald tracking-widest">
+                        Asset Profile & Structural Description
+                      </p>
+                      <p className="text-xs text-text-secondary leading-relaxed font-medium">
+                        {mol.description}
+                      </p>
+                    </div>
+
+                    <div className="md:col-span-4 border-t md:border-t-0 md:border-l border-border-subtle/20 pt-4 md:pt-0 md:pl-6 space-y-4">
+                      <div>
+                        <span className="text-[9px] font-mono uppercase tracking-wider text-text-tertiary block mb-1">
+                          In Vivo / In Vitro Highlighted Data
+                        </span>
+                        <div className="px-3 py-2 rounded-xl bg-accent-blue/5 border border-accent-blue/10 text-xs font-mono font-bold text-accent-blue dark:text-white flex items-center gap-2">
+                          <ShieldCheck className="h-4 w-4 text-accent-blue dark:text-accent-emerald shrink-0" />
+                          <span>{mol.highlightedData}</span>
+                        </div>
+                      </div>
+
+                      <button 
+                        onClick={() => contactModal.open()}
+                        className="w-full py-2.5 px-4 rounded-full bg-accent-blue dark:bg-white hover:bg-accent-blue/90 dark:hover:bg-zinc-100 text-white dark:text-zinc-950 text-[10px] font-mono uppercase font-bold tracking-wider transition-all duration-300 hover:scale-[1.02] shadow flex items-center justify-center gap-1.5"
+                      >
+                        Request Out-Licensing Dossier
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      <p className="text-[10px] text-text-tertiary font-mono text-center">
+        * SoC = Standard of Care. All clinical targets are backed by internal biological assays and peer publications.
+      </p>
+    </div>
+  );
+}
+
+// --- Sub-component: PublicationsLibrary ---
+export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
+  const [search, setSearch] = useState("");
+  const [topicFilter, setTopicFilter] = useState("all");
+
+  const publications = [
+    {
+      num: 1,
+      title: "tREPs – a new class of functional tRNA encoded peptides",
+      authors: "Chakrabarti, A., Kaushik, M., Khan, J., et al.",
+      year: "2022",
+      journal: "ACS Omega, 7(22), 18361–18373",
+      url: "https://doi.org/10.1021/acsomega.2c01234",
+      topic: "tREPs",
+      category: "treps"
+    },
+    {
+      num: 2,
+      title: "Synthesizing non-natural parts from natural genomic template",
+      authors: "Dhar, P. K., Nanduri, B., et al.",
+      year: "2009",
+      journal: "Journal of Biological Engineering, 3, 2",
+      url: "https://doi.org/10.1186/1754-1611-3-2",
+      topic: "Dark Genome",
+      category: "dark-genome"
+    },
+    {
+      num: 3,
+      title: "Repurposing the Dark Genome I: Antisense Proteins",
+      authors: "Garg, M., & Dhar, P. K.",
+      year: "2023",
+      journal: "bioRxiv preprint",
+      url: "https://doi.org/10.1101/2023.03.15.532699",
+      topic: "Antisense",
+      category: "dark-genome"
+    },
+    {
+      num: 4,
+      title: "Repurposing The Dark Genome. III - Intronic Proteins",
+      authors: "Garg, M., & Dhar, P. K.",
+      year: "2023",
+      journal: "bioRxiv preprint",
+      url: "https://doi.org/10.1101/2023.06.10.544447",
+      topic: "Intronic Proteins",
+      category: "dark-genome"
+    },
+    {
+      num: 5,
+      title: "Discovering novel anti-malarial peptides from the not-coding genome—A working hypothesis",
+      authors: "Joshi, M., Kundapura, S. V., Poovaiah, T., Ingle, K., & Dhar, P. K.",
+      year: "2013",
+      journal: "Current Synthetic and Systems Biology, 1(1)",
+      url: "#",
+      topic: "Malaria",
+      category: "disease"
+    },
+    {
+      num: 6,
+      title: "Computational identification of novel microRNAs and their targets in the malarial vector Anopheles stephensi",
+      authors: "Krishnan, R., Kumar, V., Ananth, V., et al.",
+      year: "2015",
+      journal: "Systems and Synthetic Biology Journal, 9, 11–17",
+      url: "#",
+      topic: "RNA Target",
+      category: "disease"
+    },
+    {
+      num: 7,
+      title: "Repurposing the Dark Genome II – Reverse Proteins",
+      authors: "Nayak, S., & Dhar, P. K.",
+      year: "2023",
+      journal: "bioRxiv preprint",
+      url: "https://doi.org/10.1101/2023.03.20.533367",
+      topic: "Reverse Proteins",
+      category: "dark-genome"
+    },
+    {
+      num: 8,
+      title: "Repurposing the Dark Genome IV – Noncoding Proteins",
+      authors: "Nayak, S., & Dhar, P. K.",
+      year: "2023",
+      journal: "bioRxiv preprint",
+      url: "https://doi.org/10.1101/2023.06.29.547021",
+      topic: "Noncoding Proteins",
+      category: "dark-genome"
+    },
+    {
+      num: 9,
+      title: "In silico study of peptide inhibitors against BACE",
+      authors: "Raj, N., Helen, A., Manoj, N., et al.",
+      year: "2015",
+      journal: "Systems and Synthetic Biology Journal, 9, 67–72",
+      url: "#",
+      topic: "Alzheimer's",
+      category: "disease"
+    },
+    {
+      num: 10,
+      title: "Making novel proteins from pseudogenes",
+      authors: "Shidhi, P. R., Suravajhala, P., Nayeema, A., et al.",
+      year: "2015",
+      journal: "Bioinformatics, 31(1), 33–39",
+      url: "https://doi.org/10.1093/bioinformatics/btu585",
+      topic: "Pseudogenes",
+      category: "dark-genome"
+    },
+    {
+      num: 11,
+      title: "Function annotation of novel peptides generated from the non-expressing genome of Drosophila melanogaster",
+      authors: "Varughese, D., Nair, A. S., & Dhar, P. K.",
+      year: "2017",
+      journal: "Bioinformation, 13(1), 17–20",
+      url: "#",
+      topic: "Noncoding Proteins",
+      category: "dark-genome"
+    },
+    {
+      num: 12,
+      title: "Harnessing Escherichia coli’s Dark Genome to Produce Anti-Alzheimer Peptides",
+      authors: "Verma, N., Manvati, S., & Dhar, P. K.",
+      year: "2023",
+      journal: "bioRxiv preprint",
+      url: "https://doi.org/10.1101/2023.06.23.546343",
+      topic: "Alzheimer's",
+      category: "disease"
+    }
+  ];
+
+  const filtered = publications.filter(pub => {
+    const matchesSearch = 
+      pub.title.toLowerCase().includes(search.toLowerCase()) ||
+      pub.authors.toLowerCase().includes(search.toLowerCase()) ||
+      pub.journal.toLowerCase().includes(search.toLowerCase());
+
+    const matchesTopic = topicFilter === "all" || pub.category === topicFilter;
+
+    return matchesSearch && matchesTopic;
+  });
+
+  return (
+    <div className="w-full space-y-6">
+      {/* Search & Topic Selector */}
+      <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
+        
+        {/* Search */}
+        <div className="relative flex-1 max-w-md">
+          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-tertiary" />
+          <input
+            type="text"
+            placeholder="Search papers by title, author, journal..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className={`w-full pl-10 pr-4 py-2 text-xs rounded-full border bg-bg-raised transition-all ${
+              isDark 
+                ? "border-zinc-800 focus:border-zinc-650 focus:ring-1 focus:ring-zinc-600 outline-none" 
+                : "border-slate-200 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 outline-none"
+            }`}
+          />
+        </div>
+
+        {/* Topic Filters */}
+        <div className="flex flex-wrap gap-2">
+          {[
+            { id: "all", label: "All Papers" },
+            { id: "treps", label: "tREPs Research" },
+            { id: "dark-genome", label: "Dark Genome" },
+            { id: "disease", label: "Disease Targets" },
+          ].map((topic) => (
+            <button
+              key={topic.id}
+              onClick={() => setTopicFilter(topic.id)}
+              className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wide transition-all border ${
+                topicFilter === topic.id
+                  ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-accent-blue dark:border-white shadow"
+                  : "bg-bg-raised hover:bg-bg-raised text-text-secondary border-border-subtle/80 hover:border-text-secondary"
+              }`}
+            >
+              {topic.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Publications List */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+        {filtered.map((pub) => (
+          <div key={pub.num} className="relative group">
+            {/* Visual offset background */}
+            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-2xl -z-10 transition-all ${
+              isDark ? "bg-[#181a1d] border border-border-subtle/50" : "bg-[#f4f0e6] border border-slate-200/50"
+            }`} />
+
+            <div className={`h-full border rounded-2xl p-6 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${
+              isDark 
+                ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700" 
+                : "border-slate-200 bg-white shadow-sm hover:border-slate-350 hover:shadow-md"
+            }`}>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="px-2 py-0.5 rounded text-[8px] font-mono font-bold bg-accent-blue/10 dark:bg-zinc-800 text-accent-blue dark:text-zinc-350 border border-accent-blue/20 dark:border-zinc-700/50 uppercase tracking-widest">
+                    {pub.topic}
+                  </span>
+                  <span className="text-[10px] font-mono text-text-tertiary">
+                    [{pub.num.toString().padStart(2, "0")}] · {pub.year}
+                  </span>
+                </div>
+
+                <h4 className="text-sm font-serif-display font-bold text-text-primary leading-snug group-hover:text-accent-blue dark:group-hover:text-accent-emerald transition-colors">
+                  {pub.title}
+                </h4>
+
+                <p className="text-xs text-text-secondary font-medium">
+                  {pub.authors}
+                </p>
+
+                <p className="text-[11px] text-text-tertiary font-mono italic">
+                  {pub.journal}
+                </p>
+              </div>
+
+              <div className="mt-6 pt-3 border-t border-border-subtle/10 flex justify-between items-center">
+                <span className="text-[9px] font-mono text-text-tertiary uppercase">Academic Index</span>
+                {pub.url !== "#" ? (
+                  <a
+                    href={pub.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-[10px] font-mono font-bold uppercase text-accent-blue dark:text-accent-emerald hover:underline"
+                  >
+                    <span>View DOI Link</span>
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                ) : (
+                  <span className="text-[9px] font-mono text-text-tertiary uppercase">Manuscript Available</span>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -2364,16 +2922,15 @@ export default function DrugDiscoveryPage() {
               className="font-semibold leading-[1.1] text-text-primary tracking-tight"
               style={{ fontSize: "clamp(2.3rem, 5.5vw, 4.25rem)" }}
             >
-              <span>Discover previously inaccessible</span>
+              <span>A New Source of Biological IP</span>
               <span className="font-serif-italic block mt-3 text-accent-blue dark:text-white">
-                — in weeks instead of years.
+                — Validated Across a Decade of Research.
               </span>
             </h1>
           </Reveal>
           <Reveal delay={240}>
-            <p className="mt-8 max-w-2xl mx-auto text-base md:text-lg text-text-secondary leading-relaxed font-medium">
-              We explore the 98% non-coding genome—mapping silent DNA frames and structural RNA
-              networks to output validated therapeutic candidates.
+            <p className="mt-8 max-w-3xl mx-auto text-base md:text-lg text-text-secondary leading-relaxed font-medium">
+              Nearly all approved biotherapeutics originate from the same 2% of the genome. We explore the 98% non-coding "junk DNA" reservoir of functional peptides and proteins to discover novel assets in weeks instead of years.
             </p>
           </Reveal>
 
@@ -2387,65 +2944,64 @@ export default function DrugDiscoveryPage() {
           <Reveal delay={360}>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
               <button
-                onClick={() => scrollToSection("genome-map")}
+                onClick={() => scrollToSection("pipeline")}
                 className="px-8 py-3.5 rounded-full text-xs font-semibold uppercase tracking-wider transition duration-300 hover:scale-105 active:scale-95 shadow-md bg-accent-blue dark:bg-white text-white dark:text-zinc-950 font-bold"
               >
-                Explore the Atlas
+                Explore the Pipeline
               </button>
               <button
-                onClick={() => scrollToSection("evidence")}
+                onClick={() => scrollToSection("out-licensing")}
                 className={`px-8 py-3.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition duration-300 hover:scale-105 active:scale-95 shadow-sm ${
                   isDark
                     ? "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-850 hover:border-zinc-700 text-white"
                     : "border-slate-200 bg-white/75 hover:bg-white hover:border-accent-blue text-slate-800"
                 }`}
               >
-                View Scientific Evidence
+                View Licensing Candidates
               </button>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* SECTION 2: THE DARK GENOME MAP (Interactive Chromosome) */}
+      {/* SECTION 2: THE DRUG DISCOVERY PIPELINE (Act 1) */}
       <section
-        id="genome-map"
+        id="pipeline"
         className={`relative z-10 py-24 border-y ${
           isDark ? "border-border-subtle bg-bg-raised/20" : "border-slate-200 bg-slate-50/50"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-[1350px] mx-auto px-4">
           <div className="text-center mb-14">
             <Reveal>
               <span className="text-[10px] font-mono uppercase tracking-widest font-bold text-accent-blue dark:text-zinc-500">
-                Act 1 · Visual Mapping
+                Act 1 · Prediction to Patient
               </span>
             </Reveal>
             <Reveal delay={100}>
               <h2 className="font-semibold leading-[1.1] text-3xl md:text-5xl tracking-tight text-text-primary mt-3">
-                <span>The Dark Genome</span>
+                <span>The Drug Discovery Pipeline</span>
                 <span className="font-serif-italic block mt-1.5 text-accent-blue dark:text-white">
-                  — Atlas Exploration
+                  — Bypassing the 2% Bottleneck
                 </span>
               </h2>
             </Reveal>
             <Reveal delay={200}>
-              <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto leading-relaxed">
-                Decades of medicine focused on 2% coding regions. We map Class I DNA and Class II
-                RNA structures inside the unexamined 98%.
+              <p className="mt-4 text-sm text-text-secondary max-w-2xl mx-auto leading-relaxed font-medium">
+                Drug discovery is running out of room. Traditional approaches are limited to the same protein-coding areas mined for two decades. Quantum Codon maps candidates from sequence scanning directly to therapeutic solutions.
               </p>
             </Reveal>
           </div>
 
           <Reveal delay={250}>
-            <DarkGenomeMap isDark={isDark} />
+            <InteractiveDiscoveryPipeline isDark={isDark} />
           </Reveal>
         </div>
       </section>
 
-      {/* SECTION 3: THE DISCOVERY PIPELINE (Journey through Scale) */}
+      {/* SECTION 3: KEY APPROACHES IN DRUG DISCOVERY (Act 2) */}
       <section
-        id="pipeline"
+        id="approaches"
         className={`relative z-10 py-24 border-b ${
           isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
         }`}
@@ -2454,34 +3010,33 @@ export default function DrugDiscoveryPage() {
           <div className="text-center mb-14">
             <Reveal>
               <span className="text-[10px] font-mono uppercase tracking-widest font-bold text-accent-blue dark:text-zinc-500">
-                Act 2 · Unified Journey
+                Act 2 · Common Methodologies
               </span>
             </Reveal>
             <Reveal delay={100}>
               <h2 className="font-semibold leading-[1.1] text-3xl md:text-5xl tracking-tight text-text-primary mt-3">
-                <span>Pipeline Journey</span>
+                <span>Key Approaches in Drug Discovery</span>
                 <span className="font-serif-italic block mt-1.5 text-accent-blue dark:text-white">
-                  — through Biological Scale
+                  — Efficacy Across All Vectors
                 </span>
               </h2>
             </Reveal>
             <Reveal delay={250}>
-              <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto leading-relaxed">
-                Following genomic candidates from macroscopic structural database mapping to
-                sub-angstrom quantum simulation parameters.
+              <p className="mt-4 text-sm text-text-secondary max-w-2xl mx-auto leading-relaxed font-medium">
+                Rising R&D costs and shrinking hit rates have led to a pipeline crisis. We map all standard approaches across hypothesis-driven, screening-based, source-based, and computational categories to deliver breakthrough results.
               </p>
             </Reveal>
           </div>
 
           <Reveal delay={300}>
-            <BiologicalScalePipeline isDark={isDark} />
+            <KeyApproachesGrid isDark={isDark} />
           </Reveal>
         </div>
       </section>
 
-      {/* SECTION 4: SCIENTIFIC EVIDENCE (Trust Builders) */}
+      {/* SECTION 4: VALUE CREATION & DARK GENOME (Act 3) */}
       <section
-        id="evidence"
+        id="value-realization"
         className={`relative z-10 py-24 border-b ${
           isDark ? "bg-bg-raised/20 border-border-subtle" : "bg-slate-50/50 border-slate-200"
         }`}
@@ -2490,34 +3045,33 @@ export default function DrugDiscoveryPage() {
           <div className="text-center mb-14">
             <Reveal>
               <span className="text-[10px] font-mono uppercase tracking-widest font-bold text-accent-blue dark:text-zinc-500">
-                Act 3 · Peer Validation
+                Act 3 · Biological IP Creation
               </span>
             </Reveal>
             <Reveal delay={100}>
               <h2 className="font-semibold leading-[1.1] text-3xl md:text-5xl tracking-tight text-text-primary mt-3">
-                <span>Scientific Evidence</span>
+                <span>Dark Matter of the Genome</span>
                 <span className="font-serif-italic block mt-1.5 text-accent-blue dark:text-white">
-                  — & Peer Benchmarks
+                  — Structural Value Propositions
                 </span>
               </h2>
             </Reveal>
             <Reveal delay={200}>
-              <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto leading-relaxed">
-                Rigorous empirical validations backed by in vitro testing coordinates and academic
-                publications.
+              <p className="mt-4 text-sm text-text-secondary max-w-2xl mx-auto leading-relaxed font-medium">
+                Converting unmapped, silent genomic regions into high-affinity, first-in-class assets. We generate clean, defensible biological IP that solves the freedom-to-operate limitations of conventional chemistry.
               </p>
             </Reveal>
           </div>
 
           <Reveal delay={300}>
-            <NatureStyleEvidence isDark={isDark} />
+            <ValueRealization isDark={isDark} />
           </Reveal>
         </div>
       </section>
 
-      {/* SECTION 5: MOLECULE SHOWCASE (Case Studies) */}
+      {/* SECTION 5: OUT-LICENSING DATABASE (Act 4) */}
       <section
-        id="molecule-showcase"
+        id="out-licensing"
         className={`relative z-10 py-24 border-b ${
           isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
         }`}
@@ -2526,33 +3080,33 @@ export default function DrugDiscoveryPage() {
           <div className="text-center mb-14">
             <Reveal>
               <span className="text-[10px] font-mono uppercase tracking-widest font-bold text-accent-blue dark:text-zinc-500">
-                Act 4 · Molecule Profiles
+                Act 4 · Ready for Licensing
               </span>
             </Reveal>
             <Reveal delay={100}>
               <h2 className="font-semibold leading-[1.1] text-3xl md:text-5xl tracking-tight text-text-primary mt-3">
-                <span>Lead Candidate</span>
+                <span>Lead Candidate Pipeline</span>
                 <span className="font-serif-italic block mt-1.5 text-accent-blue dark:text-white">
-                  — Molecule Showcase
+                  — Molecular Assets Database
                 </span>
               </h2>
             </Reveal>
             <Reveal delay={200}>
-              <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto leading-relaxed">
-                Step-by-step case histories tracing candidate discovery from genomic sequences to
-                verified assay binding outcomes.
+              <p className="mt-4 text-sm text-text-secondary max-w-2xl mx-auto leading-relaxed font-medium">
+                Browse our therapeutic assets catalog. Click on any molecular ID to inspect clinical indications, mechanism profiles, and validated test benchmarks available for licensing or co-development.
               </p>
             </Reveal>
           </div>
 
           <Reveal delay={300}>
-            <MoleculeShowcase isDark={isDark} />
+            <OutLicensingDatabase isDark={isDark} />
           </Reveal>
         </div>
       </section>
 
-      {/* SECTION 6: PLATFORM VISION (Supporting Engines) */}
+      {/* SECTION 6: SCIENTIFIC EVIDENCE (Act 5) */}
       <section
+        id="evidence"
         className={`relative z-10 py-24 border-b ${
           isDark ? "bg-bg-raised/25 border-border-subtle" : "bg-slate-50/50 border-slate-200"
         }`}
@@ -2561,65 +3115,27 @@ export default function DrugDiscoveryPage() {
           <div className="text-center mb-16">
             <Reveal>
               <span className="text-[10px] font-mono uppercase tracking-widest font-bold text-accent-blue dark:text-zinc-500">
-                Act 5 · The Supporting Stack
+                Act 5 · Scientific Validation
               </span>
             </Reveal>
             <Reveal delay={100}>
               <h2 className="font-semibold leading-[1.1] text-3xl md:text-5xl tracking-tight text-text-primary mt-3">
-                <span>Platform Vision</span>
+                <span>Publications & Peer Reviews</span>
                 <span className="font-serif-italic block mt-1.5 text-accent-blue dark:text-white">
-                  — & Supporting Tech
+                  — A Decade of Rigorous Research
                 </span>
               </h2>
             </Reveal>
             <Reveal delay={200}>
-              <p className="mt-4 text-sm text-text-secondary max-w-lg mx-auto leading-relaxed">
-                Our biological outcomes are backed by proprietary compute clusters, AI algorithms,
-                and quantum solvers.
+              <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto leading-relaxed font-medium">
+                Our science is backed by over 15 years of discovery and 12+ major peer-reviewed papers mapping non-coding translation pathways.
               </p>
             </Reveal>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Neural Folding AI",
-                body: "Deep neural networks trained specifically on unexpressed chromosomal loops to resolve folded tertiary models and structural binding receptors.",
-              },
-              {
-                title: "Quantum Chem Solver",
-                body: "Sub-angstrom quantum molecular simulations analyzing charge vectors and free energy values without laboratory backlogs.",
-              },
-              {
-                title: "High-Throughput Clusters",
-                body: "Proprietary cloud GPU arrays and automation pipelines processing trillions of target structures simultaneously.",
-              },
-            ].map((vision, idx) => (
-              <div key={idx} className="relative">
-                <div
-                  className={`absolute -bottom-2 -right-2 h-full w-full rounded-3xl -z-10 transition-all ${
-                    isDark
-                      ? "bg-[#181a1d] border border-border-subtle"
-                      : "bg-[#f4f0e6] border border-slate-200"
-                  }`}
-                />
-                <Reveal delay={idx * 100}>
-                  <div
-                    className={`border rounded-3xl p-6 md:p-8 flex flex-col justify-between min-h-[200px] transition-all hover:-translate-y-0.5 duration-300 ${
-                      isDark
-                        ? "border-border-subtle bg-bg-raised hover:border-accent-blue shadow-md shadow-black/25"
-                        : "border-slate-200 bg-white hover:border-accent-blue shadow-md shadow-slate-100/50"
-                    }`}
-                  >
-                    <div>
-                      <h4 className="text-lg font-serif-display font-bold mb-3">{vision.title}</h4>
-                      <p className="text-xs text-text-secondary leading-relaxed">{vision.body}</p>
-                    </div>
-                  </div>
-                </Reveal>
-              </div>
-            ))}
-          </div>
+          <Reveal delay={300}>
+            <PublicationsLibrary isDark={isDark} />
+          </Reveal>
         </div>
       </section>
 
