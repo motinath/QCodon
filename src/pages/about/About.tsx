@@ -207,8 +207,55 @@ export default function About() {
         <section className="max-w-6xl mx-auto px-6 pt-4">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             
-            {/* Left Column: Premium Visual Slideshow */}
-            <div className="lg:col-span-5 w-full max-w-md mx-auto lg:mx-0 relative order-1">
+            {/* Left Column: Vision & Mission Narrative */}
+            <div className="lg:col-span-7 space-y-6">
+              <Reveal>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 text-accent-blue text-xs font-semibold uppercase tracking-wider">
+                  <Zap className="h-3 w-3 animate-pulse" />
+                  First-Mover · Amaravati Quantum Valley
+                </div>
+              </Reveal>
+
+              <Reveal delay={100}>
+                <h1 className="font-serif-display text-[clamp(2rem,5vw,3.75rem)] leading-[1.08] text-text-primary tracking-tight">
+                  powering the <br />
+                  <span className="bg-gradient-to-r from-accent-blue via-accent-purple to-accent-emerald bg-clip-text text-transparent">
+                    next-generation bioeconomy
+                  </span>
+                </h1>
+              </Reveal>
+
+              <Reveal delay={200}>
+                <p className="text-[clamp(0.8125rem,1.25vw,1rem)] text-text-secondary leading-relaxed font-medium">
+                  As a first life sciences mover in the Amaravati Quantum Valley, Quantum Codon brings together biological innovation, computational intelligence, and compliance management in a single-window solution, eliminating fragmentation across the biotech value chain.
+                </p>
+              </Reveal>
+
+              <div className="border-t border-border-subtle/40 pt-6 space-y-4">
+                <Reveal delay={300}>
+                  <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
+                    Biotechnology innovation remains fragmented. Drug discovery teams work in one environment, bioinformatics analyses are conducted in another, manufacturing development is outsourced elsewhere, and regulatory compliance often becomes an afterthought. This fragmentation increases costs, extends development timelines, creates data silos, and introduces execution risk at every stage of the product lifecycle.
+                  </p>
+                </Reveal>
+
+                <Reveal delay={350}>
+                  <div className="border-l-2 border-accent-purple pl-4 py-1.5 bg-bg-raised/20 rounded-r-xl">
+                    <p className="text-xs md:text-sm font-serif-italic font-bold text-text-primary">
+                      Quantum Codon is changing that status quo.
+                    </p>
+                  </div>
+                </Reveal>
+
+                <Reveal delay={400}>
+                  <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
+                    As a first mover in the Amaravati Quantum Valley, Quantum Codon brings together biological knowledge, computational intelligence, and compliance management into a single integrated platform, into a single operating framework. From drug discovery and bioinformatics to manufacturing, analytics, regulatory approvals, and workforce development, we help accelerate innovation while reducing complexity, cost, and delivery risk.
+                  </p>
+                </Reveal>
+              </div>
+            </div>
+
+            {/* Right Column: Premium Visual Slideshow */}
+            <div className="lg:col-span-5 w-full max-w-md mx-auto lg:mx-0 relative">
               <Reveal delay={300}>
                 <div className="relative rounded-3xl border border-border-subtle bg-bg-raised/40 backdrop-blur-md p-4 shadow-2xl overflow-hidden group">
                   <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/5 via-transparent to-accent-emerald/5 pointer-events-none" />
@@ -273,53 +320,6 @@ export default function About() {
                   </div>
                 </div>
               </Reveal>
-            </div>
-
-            {/* Right Column: Vision & Mission Narrative */}
-            <div className="lg:col-span-7 space-y-6 order-2">
-              <Reveal>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-blue/10 text-accent-blue text-xs font-semibold uppercase tracking-wider">
-                  <Zap className="h-3 w-3 animate-pulse" />
-                  First-Mover · Amaravati Quantum Valley
-                </div>
-              </Reveal>
-
-              <Reveal delay={100}>
-                <h1 className="font-serif-display text-[clamp(2rem,5vw,3.75rem)] leading-[1.08] text-text-primary tracking-tight">
-                  powering the <br />
-                  <span className="bg-gradient-to-r from-accent-blue via-accent-purple to-accent-emerald bg-clip-text text-transparent">
-                    next-generation bioeconomy
-                  </span>
-                </h1>
-              </Reveal>
-
-              <Reveal delay={200}>
-                <p className="text-[clamp(0.8125rem,1.25vw,1rem)] text-text-secondary leading-relaxed font-medium">
-                  As a first life sciences mover in the Amaravati Quantum Valley, Quantum Codon brings together biological innovation, computational intelligence, and compliance management in a single-window solution, eliminating fragmentation across the biotech value chain.
-                </p>
-              </Reveal>
-
-              <div className="border-t border-border-subtle/40 pt-6 space-y-4">
-                <Reveal delay={300}>
-                  <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
-                    Biotechnology innovation remains fragmented. Drug discovery teams work in one environment, bioinformatics analyses are conducted in another, manufacturing development is outsourced elsewhere, and regulatory compliance often becomes an afterthought. This fragmentation increases costs, extends development timelines, creates data silos, and introduces execution risk at every stage of the product lifecycle.
-                  </p>
-                </Reveal>
-
-                <Reveal delay={350}>
-                  <div className="border-l-2 border-accent-purple pl-4 py-1.5 bg-bg-raised/20 rounded-r-xl">
-                    <p className="text-xs md:text-sm font-serif-italic font-bold text-text-primary">
-                      Quantum Codon is changing that status quo.
-                    </p>
-                  </div>
-                </Reveal>
-
-                <Reveal delay={400}>
-                  <p className="text-xs md:text-sm text-text-secondary leading-relaxed font-medium">
-                    As a first mover in the Amaravati Quantum Valley, Quantum Codon brings together biological knowledge, computational intelligence, and compliance management into a single integrated platform, into a single operating framework. From drug discovery and bioinformatics to manufacturing, analytics, regulatory approvals, and workforce development, we help accelerate innovation while reducing complexity, cost, and delivery risk.
-                  </p>
-                </Reveal>
-              </div>
             </div>
 
           </div>
