@@ -7,7 +7,7 @@ export function QcUntapped() {
       id="platform"
       className="relative py-28 px-6 bg-[#f0f4f8] dark:bg-[#0c131f] transition-colors duration-300"
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] gap-12 items-center">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left column: Text & progress bars */}
         <div className="lg:col-span-7">
           <p className="text-xs tracking-[0.3em] text-accent-emerald">UNTAPPED BIOLOGICAL SPACE</p>
