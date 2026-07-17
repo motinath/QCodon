@@ -1,8 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Toaster } from "sonner";
-import { ContactHero } from "@/components/contact/ContactHero";
-import { ContactChannels } from "@/components/contact/ContactChannels";
-import { ContactForm } from "@/components/contact/ContactForm";
+import Contact from "@/pages/contact/Contact";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -20,16 +17,5 @@ export const Route = createFileRoute("/contact")({
       },
     ],
   }),
-  component: ContactPage,
+  component: Contact,
 });
-
-function ContactPage() {
-  return (
-    <main className="min-h-screen bg-background text-foreground">
-      <ContactHero />
-      <ContactChannels />
-      <ContactForm />
-      <Toaster position="top-center" richColors />
-    </main>
-  );
-}

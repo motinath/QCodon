@@ -10,17 +10,14 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { ThemeProvider, themeBootstrapScript } from "../components/ThemeProvider";
-import { ContactModalProvider } from "../components/ContactModal";
-import { QcNavbar } from "../components/QuantumCodon";
-import QcPreloader from "../components/QcPreloader";
-import QcRouteSwipe from "../components/QcRouteSwipe";
-import { SiteFooter } from "../components/contact/SiteFooter";
+import { ThemeProvider, themeBootstrapScript } from "../components/shared/ThemeProvider";
+import { ContactModalProvider } from "../components/shared/ContactModal";
+import { QcNavbar } from "../components/layout/QcNavbar";
+import QcPreloader from "../components/layout/QcPreloader";
+import QcRouteSwipe from "../components/layout/QcRouteSwipe";
+import { SiteFooter } from "../components/layout/SiteFooter";
 import QcChatbot from "../components/QcChatbot";
 
-// no-op stub — Lovable platform reporting is not used in local/self-hosted builds
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function reportLovableError(_error: unknown, _context?: Record<string, any>): void { }
 
 function NotFoundComponent() {
   return (
@@ -48,7 +45,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    console.error(error);
   }, [error]);
 
   return (
@@ -87,14 +84,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Quantum Codon" },
+      { name: "description", content: "Quantum Codon — Unlocking the dark genome for next-generation therapeutics, bioinformatics, and biotech innovation." },
+      { name: "author", content: "Quantum Codon" },
+      { property: "og:title", content: "Quantum Codon" },
+      { property: "og:description", content: "Unlocking the dark genome for next-generation therapeutics, bioinformatics, and biotech innovation." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@QuantumCodon" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -104,6 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap",
       },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
   }),
   shellComponent: RootShell,

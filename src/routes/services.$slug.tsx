@@ -1,10 +1,10 @@
 import { createFileRoute, notFound, Link } from "@tanstack/react-router";
 import { getOffering, offerings, type Offering } from "@/lib/services-data";
-import EducationPage from "@/pages/Education";
-import DrugDiscoveryPage from "@/pages/DrugDiscovery";
-import AnalyticalServicesPage from "@/pages/AnalyticalServices";
-import BioMmgPage from "@/pages/BioMmg";
-import BioinformaticsPage from "@/pages/Bioinformatics";
+import EducationPage from "@/pages/services/education/Education";
+import DrugDiscoveryPage from "@/pages/services/drug-discovery/DrugDiscovery";
+import AnalyticalServicesPage from "@/pages/services/analytical-services/AnalyticalServices";
+import BioMmgPage from "@/pages/services/bio-mmg/BioMmg";
+import BioinformaticsPage from "@/pages/services/bioinformatics/Bioinformatics";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
