@@ -18,7 +18,6 @@ import QcRouteSwipe from "../components/layout/QcRouteSwipe";
 import { SiteFooter } from "../components/layout/SiteFooter";
 import QcChatbot from "../components/QcChatbot";
 
-
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -85,10 +84,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Quantum Codon" },
-      { name: "description", content: "Quantum Codon — Unlocking the dark genome for next-generation therapeutics, bioinformatics, and biotech innovation." },
+      {
+        name: "description",
+        content:
+          "Quantum Codon — Unlocking the dark genome for next-generation therapeutics, bioinformatics, and biotech innovation.",
+      },
       { name: "author", content: "Quantum Codon" },
       { property: "og:title", content: "Quantum Codon" },
-      { property: "og:description", content: "Unlocking the dark genome for next-generation therapeutics, bioinformatics, and biotech innovation." },
+      {
+        property: "og:description",
+        content:
+          "Unlocking the dark genome for next-generation therapeutics, bioinformatics, and biotech innovation.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@QuantumCodon" },

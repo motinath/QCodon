@@ -93,7 +93,9 @@ export default function IndustryDetailPage({ slug }: { slug: string }) {
 
       <section className="max-w-5xl mx-auto px-6 mt-16">
         <p className="text-xs tracking-[0.3em] text-accent-blue uppercase">Use Cases</p>
-        <h2 className="font-serif-display text-[clamp(1.75rem,3vw,2.5rem)] mt-3">Where it applies</h2>
+        <h2 className="font-serif-display text-[clamp(1.75rem,3vw,2.5rem)] mt-3">
+          Where it applies
+        </h2>
         <div className="mt-8 grid grid-cols-[repeat(auto-fit,minmax(min(100%,220px),1fr))] gap-5">
           {i.useCases.map((u) => (
             <div
@@ -142,7 +144,9 @@ export default function IndustryDetailPage({ slug }: { slug: string }) {
 
       <section className="max-w-5xl mx-auto px-6 mt-20">
         <div className="rounded-3xl border border-foreground/10 p-10 md:p-14 bg-gradient-to-br from-accent-blue/10 via-accent-purple/10 to-accent-emerald/10 text-center">
-          <h2 className="font-serif-display text-[clamp(1.75rem,3vw,2.5rem)]">Partner with us in {i.title}</h2>
+          <h2 className="font-serif-display text-[clamp(1.75rem,3vw,2.5rem)]">
+            Partner with us in {i.title}
+          </h2>
           <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
             Tell us about your goals and we'll map the right Deep Codon capabilities to your
             roadmap.

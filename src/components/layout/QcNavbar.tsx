@@ -1,14 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "../../lib/router-compat";
 import SkyToggle from "@/components/ui/sky-toggle";
-import {
-  ChevronDown,
-  Info,
-  Briefcase,
-  BookOpen,
-  FileText,
-  Microscope,
-} from "lucide-react";
+import { ChevronDown, Info, Briefcase, BookOpen, FileText, Microscope } from "lucide-react";
 import { industries } from "../../lib/industries-data";
 import { offerings } from "../../lib/services-data";
 import { useTheme } from "../shared/ThemeProvider";

@@ -569,7 +569,13 @@ function ProvenProcess() {
           className="absolute inset-0 -z-10"
           style={{ scale: bgScale, opacity: bgOpacity }}
         >
-          <img src={facilityImg} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover" />
+          <img
+            src={facilityImg}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover"
+          />
         </motion.div>
         <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/85 via-white/75 to-white/95 dark:from-slate-950/85 dark:via-slate-950/75 dark:to-slate-950/95" />
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.08),transparent_60%)]" />

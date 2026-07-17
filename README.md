@@ -21,17 +21,17 @@
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | [TanStack Start](https://tanstack.com/start) (React SSR) |
-| Routing | [TanStack Router](https://tanstack.com/router) (file-based) |
-| Language | TypeScript 5 |
-| Styling | Tailwind CSS v4 + Lightning CSS |
-| Build Tool | Vite 8 |
-| Icons | [Lucide React](https://lucide.dev/) |
-| 3D | Three.js / React Three Fiber |
-| Forms | React Hook Form + Zod |
-| Fonts | Inter, Cormorant Garamond (Google Fonts) |
+| Layer           | Technology                                                           |
+| --------------- | -------------------------------------------------------------------- |
+| Framework       | [TanStack Start](https://tanstack.com/start) (React SSR)             |
+| Routing         | [TanStack Router](https://tanstack.com/router) (file-based)          |
+| Language        | TypeScript 5                                                         |
+| Styling         | Tailwind CSS v4                                                      |
+| Build Tool      | Vite 8                                                               |
+| Icons           | [Lucide React](https://lucide.dev/)                                  |
+| 3D / Animations | HTML5 Canvas 2D with 3D Projection (Custom Math in `DnaHelix3D.tsx`) |
+| Forms           | React Hook Form + Zod                                                |
+| Fonts           | Inter, Cormorant Garamond (Google Fonts)                             |
 
 ---
 
@@ -62,7 +62,7 @@ npm run build
 ## Project Structure
 
 ```
-qcodon_2/
+QCodon/
 ├── public/                  # Static assets served at root (images, icons, og images)
 ├── src/
 │   ├── components/
@@ -87,6 +87,9 @@ qcodon_2/
 │   ├── routes/              # TanStack Router file-based route definitions (thin — just imports pages)
 │   ├── styles.css           # Global CSS tokens, Tailwind base, custom utilities
 │   └── vite-env.d.ts        # TypeScript declarations for .mp4 and other asset imports
+│   └── router.tsx           # Router configuration
+│   └── start.ts             # Entry point for Tanstack Start client
+│   └── server.ts            # Entry point for Tanstack Start server
 ├── vite.config.ts           # Vite + TanStack Start + Tailwind config
 ├── tsconfig.json            # TypeScript config
 └── package.json
@@ -98,29 +101,30 @@ qcodon_2/
 
 Each page lives in its own folder under `src/pages/`. The folder name matches the URL path exactly — this makes it easy for any developer to locate the code for any page they see in the browser.
 
-| URL in Browser | Folder | Main File |
-|---|---|---|
-| `/` | `src/pages/landing/` | `Landing.tsx` |
-| `/about` | `src/pages/about/` | `About.tsx` |
-| `/careers` | `src/pages/careers/` | `Careers.tsx` |
-| `/contact` | `src/pages/contact/` | `Contact.tsx` |
-| `/blogs` | `src/pages/blogs/` | `Blogs.tsx` |
-| `/blogs/:slug` | `src/pages/blogs/` | `BlogPostDetail.tsx` |
-| `/case-studies` | `src/pages/case-studies/` | `CaseStudies.tsx` |
-| `/research` | `src/pages/research/` | `Research.tsx` |
-| `/industries/:slug` | `src/pages/industries/` | `IndustryDetailPage.tsx` |
-| `/services/:slug` | `src/pages/services/` | One sub-folder per service (see below) |
+| URL in Browser      | Folder                          | Main File                                            |
+| ------------------- | ------------------------------- | ---------------------------------------------------- |
+| `/`                 | `src/pages/landing/`            | `Landing.tsx`                                        |
+| `/about`            | `src/pages/about/`              | `About.tsx`                                          |
+| `/careers`          | `src/pages/careers/`            | `Careers.tsx`                                        |
+| `/contact`          | `src/pages/contact/`            | `Contact.tsx`                                        |
+| `/blogs`            | `src/pages/blogs/`              | `Blogs.tsx`                                          |
+| `/blogs/:slug`      | `src/pages/blogs/`              | `BlogPostDetail.tsx`                                 |
+| `/case-studies`     | `src/pages/case-studies/`       | `CaseStudies.tsx`                                    |
+| `/research`         | `src/pages/research/`           | `Research.tsx`                                       |
+| `/education`        | `src/pages/services/education/` | `Education.tsx` (redirects to `/services/education`) |
+| `/industries/:slug` | `src/pages/industries/`         | `IndustryDetailPage.tsx`                             |
+| `/services/:slug`   | `src/pages/services/`           | One sub-folder per service (see below)               |
 
 ### Services Sub-pages (`/services/:slug`)
 
-| Slug in URL | Folder |
-|---|---|
-| `drug-discovery` | `src/pages/services/drug-discovery/` |
-| `analytical-services` | `src/pages/services/analytical-services/` |
+| Slug in URL             | Folder                                      |
+| ----------------------- | ------------------------------------------- |
+| `drug-discovery`        | `src/pages/services/drug-discovery/`        |
+| `analytical-services`   | `src/pages/services/analytical-services/`   |
 | `regulatory-compliance` | `src/pages/services/regulatory-compliance/` |
-| `bio-mmg` | `src/pages/services/bio-mmg/` |
-| `bioinformatics` | `src/pages/services/bioinformatics/` |
-| `education` | `src/pages/services/education/` |
+| `bio-mmg`               | `src/pages/services/bio-mmg/`               |
+| `bioinformatics`        | `src/pages/services/bioinformatics/`        |
+| `education`             | `src/pages/services/education/`             |
 
 ---
 
@@ -152,20 +156,22 @@ src/pages/about/
 
 Routes are defined in `src/routes/` using TanStack Router's file-based convention:
 
-| Route File | URL |
-|---|---|
-| `index.tsx` | `/` |
-| `about.tsx` | `/about` |
-| `careers.tsx` | `/careers` |
-| `contact.tsx` | `/contact` |
-| `blogs/index.tsx` | `/blogs` |
-| `blogs/$slug.tsx` | `/blogs/:slug` |
-| `case-studies.tsx` | `/case-studies` |
-| `research.tsx` | `/research` |
-| `industries.$slug.tsx` | `/industries/:slug` |
-| `services.$slug.tsx` | `/services/:slug` |
-| `services.regulatory-compliance.tsx` | `/services/regulatory-compliance` |
-| `__root.tsx` | App shell (Navbar, Footer, global providers) |
+| Route File                           | URL                               | Description                                             |
+| ------------------------------------ | --------------------------------- | ------------------------------------------------------- |
+| `index.tsx`                          | `/`                               | Home/landing page                                       |
+| `about.tsx`                          | `/about`                          | About page                                              |
+| `careers.tsx`                        | `/careers`                        | Careers page                                            |
+| `contact.tsx`                        | `/contact`                        | Contact page                                            |
+| `education.tsx`                      | `/education`                      | Redirects to `/services/education`                      |
+| `blogs.tsx`                          | `/blogs`                          | Layout route rendering `<Outlet />`                     |
+| `blogs/index.tsx`                    | `/blogs`                          | Blog index list page                                    |
+| `blogs/$slug.tsx`                    | `/blogs/:slug`                    | Blog detail page                                        |
+| `case-studies.tsx`                   | `/case-studies`                   | Case studies page                                       |
+| `research.tsx`                       | `/research`                       | Research page                                           |
+| `industries.$slug.tsx`               | `/industries/:slug`               | Dynamic Industry detail page                            |
+| `services.$slug.tsx`                 | `/services/:slug`                 | Dynamic Services details (uses sub-components per slug) |
+| `services.regulatory-compliance.tsx` | `/services/regulatory-compliance` | Custom service page for regulatory compliance           |
+| `__root.tsx`                         | App shell                         | Navbar, Footer, global providers, and layouts           |
 
 > Route files are intentionally thin — they only `import` the page component and export a `Route` object. All real UI code lives in `src/pages/`.
 
@@ -173,17 +179,17 @@ Routes are defined in `src/routes/` using TanStack Router's file-based conventio
 
 ## Shared Components
 
-| Component | Location | Purpose |
-|---|---|---|
-| `QcNavbar` | `src/components/layout/QcNavbar.tsx` | Top navigation bar |
-| `SiteFooter` | `src/components/layout/SiteFooter.tsx` | Site-wide footer |
-| `QcPreloader` | `src/components/layout/QcPreloader.tsx` | Animated page load screen |
-| `QcRouteSwipe` | `src/components/layout/QcRouteSwipe.tsx` | Page transition animation |
-| `QcChatbot` | `src/components/QcChatbot/` | Floating AI chatbot widget |
-| `ContactModal` | `src/components/shared/ContactModal.tsx` | Global contact popup (trigger via `useContactModal()`) |
-| `ThemeProvider` | `src/components/shared/ThemeProvider.tsx` | Dark/light mode context |
-| `Reveal` | `src/components/shared/Reveal.tsx` | Scroll-triggered fade-in animation wrapper |
-| `_PageShell` | `src/pages/_PageShell.tsx` | Wraps Navbar + page content + Footer |
+| Component       | Location                                  | Purpose                                                |
+| --------------- | ----------------------------------------- | ------------------------------------------------------ |
+| `QcNavbar`      | `src/components/layout/QcNavbar.tsx`      | Top navigation bar                                     |
+| `SiteFooter`    | `src/components/layout/SiteFooter.tsx`    | Site-wide footer                                       |
+| `QcPreloader`   | `src/components/layout/QcPreloader.tsx`   | Animated page load screen                              |
+| `QcRouteSwipe`  | `src/components/layout/QcRouteSwipe.tsx`  | Page transition animation                              |
+| `QcChatbot`     | `src/components/QcChatbot/`               | Floating AI chatbot widget                             |
+| `ContactModal`  | `src/components/shared/ContactModal.tsx`  | Global contact popup (trigger via `useContactModal()`) |
+| `ThemeProvider` | `src/components/shared/ThemeProvider.tsx` | Dark/light mode context                                |
+| `Reveal`        | `src/components/shared/Reveal.tsx`        | Scroll-triggered fade-in animation wrapper             |
+| `_PageShell`    | `src/pages/_PageShell.tsx`                | Wraps Navbar + page content + Footer                   |
 
 ---
 
@@ -192,47 +198,53 @@ Routes are defined in `src/routes/` using TanStack Router's file-based conventio
 This project uses **Tailwind CSS v4** with the following conventions:
 
 ### 1. Responsive grids — use `auto-fit` + `minmax`
+
 Instead of breakpoint columns, use one adaptive line:
+
 ```html
-<div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-6">
+<div class="grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-6"></div>
 ```
 
 ### 2. Widths — use `w-full` + `max-w-*`
+
 ```html
 <!-- Correct -->
 <div class="w-full max-w-5xl mx-auto">
-
-<!-- Avoid -->
-<div class="w-[800px]">
+  <!-- Avoid -->
+  <div class="w-[800px]"></div>
+</div>
 ```
 
 ### 3. Font sizes — use `clamp()` for fluid scaling
+
 ```html
 <!-- Scales smoothly from 2rem to 3.75rem without breakpoints -->
 <h1 class="text-[clamp(2rem,5vw,3.75rem)]">
-
-<!-- Avoid -->
-<h1 class="text-4xl md:text-5xl lg:text-6xl">
+  <!-- Avoid -->
+  <h1 class="text-4xl md:text-5xl lg:text-6xl"></h1>
+</h1>
 ```
 
 ### Design tokens (defined in `styles.css`)
+
 - Colors: `text-accent-blue`, `text-accent-emerald`, `text-accent-purple`
 - Backgrounds: `bg-[#0c131f]` (dark), `bg-[#f0f4f8]` (light)
-- Fonts: `font-bagel` (display), `font-serif-display` (editorial), default Inter
+- Fonts: `font-serif-display` (Cormorant Garamond editorial font), default Inter (sans-serif)
 
 ---
 
 ## Environment & Config
 
-| File | Purpose |
-|---|---|
-| `vite.config.ts` | Vite build config — plugins, server settings |
-| `tsconfig.json` | TypeScript settings — path alias `@/` maps to `src/` |
-| `tailwind.config` | Tailwind v4 uses CSS-first config in `styles.css` |
+| File              | Purpose                                              |
+| ----------------- | ---------------------------------------------------- |
+| `vite.config.ts`  | Vite build config — plugins, server settings         |
+| `tsconfig.json`   | TypeScript settings — path alias `@/` maps to `src/` |
+| `tailwind.config` | Tailwind v4 uses CSS-first config in `styles.css`    |
 
 ### Path alias
 
 `@/` is an alias for `src/`. Use it everywhere instead of relative paths:
+
 ```ts
 import { Reveal } from "@/components/shared/Reveal";
 import { blogPosts } from "@/pages/blogs/blogs-data";
@@ -255,11 +267,11 @@ npx tsc --noEmit   # Type-check without building (run this before pushing!)
 
 ## Key Data Files
 
-| File | What it controls |
-|---|---|
-| `src/lib/services-data.ts` | All service offerings (drug discovery, bioinformatics, etc.) and their slugs |
-| `src/lib/industries-data.ts` | All industry pages (healthcare, manufacturing, education) |
-| `src/pages/blogs/blogs-data.ts` | Blog post list, metadata, and content |
+| File                            | What it controls                                                             |
+| ------------------------------- | ---------------------------------------------------------------------------- |
+| `src/lib/services-data.ts`      | All service offerings (drug discovery, bioinformatics, etc.) and their slugs |
+| `src/lib/industries-data.ts`    | All industry pages (healthcare, manufacturing, education)                    |
+| `src/pages/blogs/blogs-data.ts` | Blog post list, metadata, and content                                        |
 
 ---
 
@@ -272,4 +284,4 @@ npx tsc --noEmit   # Type-check without building (run this before pushing!)
 
 ---
 
-*Built and maintained by the Quantum Codon engineering team.*
+_Built and maintained by the Quantum Codon engineering team._

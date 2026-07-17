@@ -48,9 +48,7 @@ export default function Blogs() {
               <h3 className="mt-3 font-serif-display text-2xl group-hover:text-accent-blue transition-colors duration-300 leading-snug">
                 {p.title}
               </h3>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                {p.excerpt}
-              </p>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{p.excerpt}</p>
             </div>
             <div className="mt-6 pt-5 border-t border-foreground/5 flex justify-between items-center text-xs text-muted-foreground font-mono">
               <span>{p.date}</span>

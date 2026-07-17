@@ -8,7 +8,9 @@ export function QcAbout() {
     >
       <div className="max-w-6xl mx-auto">
         <p className="text-xs tracking-[0.3em] text-accent-blue">ABOUT QUANTUM CODON</p>
-        <h2 className="font-bagel text-[clamp(1.75rem,4vw,3rem)] mt-3">Unlocking the Genome's Hidden Moat</h2>
+        <h2 className="font-bagel text-[clamp(1.75rem,4vw,3rem)] mt-3">
+          Unlocking the Genome's Hidden Moat
+        </h2>
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,380px),1fr))] gap-12 mt-12 items-center">
           <div className="space-y-6 text-muted-foreground leading-relaxed">

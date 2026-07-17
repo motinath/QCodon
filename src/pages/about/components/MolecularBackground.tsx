@@ -50,7 +50,7 @@ export function MolecularBackground({ isDark }: { isDark: boolean }) {
       ctx.lineWidth = 0.5;
       for (let i = 0; i < nodes.length; i++) {
         const n1 = nodes[i];
-        
+
         n1.x += n1.vx;
         n1.y += n1.vy;
 
@@ -67,7 +67,8 @@ export function MolecularBackground({ isDark }: { isDark: boolean }) {
           const dx = n1.x - n2.x;
           const dy = n1.y - n2.y;
           const distSq = dx * dx + dy * dy;
-          if (distSq < 16900) { // 130px * 130px
+          if (distSq < 16900) {
+            // 130px * 130px
             const dist = Math.sqrt(distSq);
             const alpha = (1 - dist / 130) * 0.07;
             ctx.strokeStyle = `rgba(${rgbColor}, ${alpha})`;
@@ -90,5 +91,7 @@ export function MolecularBackground({ isDark }: { isDark: boolean }) {
     };
   }, [isDark]);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-0 opacity-[0.45]" />;
+  return (
+    <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none z-0 opacity-[0.45]" />
+  );
 }

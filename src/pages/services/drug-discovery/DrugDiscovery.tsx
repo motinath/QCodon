@@ -284,7 +284,7 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
       dotColor: "bg-blue-500",
       activeBorder: "border-blue-500/70",
       activeShadow: "shadow-lg shadow-blue-500/10",
-      activeBg: "bg-blue-500/5 dark:bg-blue-950/10"
+      activeBg: "bg-blue-500/5 dark:bg-blue-950/10",
     },
     {
       num: "02",
@@ -299,7 +299,7 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
       dotColor: "bg-teal-500",
       activeBorder: "border-teal-500/70",
       activeShadow: "shadow-lg shadow-teal-500/10",
-      activeBg: "bg-teal-500/5 dark:bg-teal-950/10"
+      activeBg: "bg-teal-500/5 dark:bg-teal-950/10",
     },
     {
       num: "03",
@@ -314,7 +314,7 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
       dotColor: "bg-emerald-500",
       activeBorder: "border-emerald-500/70",
       activeShadow: "shadow-lg shadow-emerald-500/10",
-      activeBg: "bg-emerald-500/5 dark:bg-emerald-950/10"
+      activeBg: "bg-emerald-500/5 dark:bg-emerald-950/10",
     },
     {
       num: "04",
@@ -329,7 +329,7 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
       dotColor: "bg-amber-500",
       activeBorder: "border-amber-500/70",
       activeShadow: "shadow-lg shadow-amber-500/10",
-      activeBg: "bg-amber-500/5 dark:bg-amber-950/10"
+      activeBg: "bg-amber-500/5 dark:bg-amber-950/10",
     },
     {
       num: "05",
@@ -344,7 +344,7 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
       dotColor: "bg-orange-500",
       activeBorder: "border-orange-500/70",
       activeShadow: "shadow-lg shadow-orange-500/10",
-      activeBg: "bg-orange-500/5 dark:bg-orange-950/10"
+      activeBg: "bg-orange-500/5 dark:bg-orange-950/10",
     },
     {
       num: "06",
@@ -359,7 +359,7 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
       dotColor: "bg-purple-500",
       activeBorder: "border-purple-500/70",
       activeShadow: "shadow-lg shadow-purple-500/10",
-      activeBg: "bg-purple-500/5 dark:bg-purple-950/10"
+      activeBg: "bg-purple-500/5 dark:bg-purple-950/10",
     },
     {
       num: "07",
@@ -374,7 +374,7 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
       dotColor: "bg-indigo-500",
       activeBorder: "border-indigo-500/70",
       activeShadow: "shadow-lg shadow-indigo-500/10",
-      activeBg: "bg-indigo-500/5 dark:bg-indigo-950/10"
+      activeBg: "bg-indigo-500/5 dark:bg-indigo-950/10",
     },
     {
       num: "08",
@@ -390,8 +390,8 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
       activeBorder: "border-violet-500",
       activeShadow: "shadow-lg shadow-violet-500/25",
       activeBg: "bg-violet-500/10 dark:bg-violet-950/20",
-      isHighlighted: true
-    }
+      isHighlighted: true,
+    },
   ];
 
   return (
@@ -439,15 +439,19 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
             <div key={idx} className="flex justify-center">
               {/* Outer ring and center dot */}
               <div
-                className={`h-9 w-9 rounded-full bg-bg-raised border-[3px] flex items-center justify-center shadow-md transition-all duration-300 cursor-pointer ${isActive
-                  ? stage.nodeColor
-                  : "border-border-subtle/40 bg-zinc-800/10 text-zinc-500"
-                  }`}
+                className={`h-9 w-9 rounded-full bg-bg-raised border-[3px] flex items-center justify-center shadow-md transition-all duration-300 cursor-pointer ${
+                  isActive
+                    ? stage.nodeColor
+                    : "border-border-subtle/40 bg-zinc-800/10 text-zinc-500"
+                }`}
                 onClick={() => setActiveStage(idx)}
                 onMouseEnter={() => setActiveStage(idx)}
               >
-                <div className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${isActive ? stage.dotColor : "bg-text-tertiary/20"
-                  }`} />
+                <div
+                  className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
+                    isActive ? stage.dotColor : "bg-text-tertiary/20"
+                  }`}
+                />
               </div>
             </div>
           );
@@ -469,20 +473,26 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
                 onMouseEnter={() => setActiveStage(idx)}
                 onClick={() => setActiveStage(idx)}
               >
-
                 {/* Card Container */}
-                <div className={`h-full border rounded-2xl p-4 flex flex-col items-center text-center backdrop-blur transition-all duration-350 ${isCurrent
-                  ? `${stage.activeBorder} ${stage.activeBg} ${stage.activeShadow} scale-[1.02]`
-                  : stage.isHighlighted
-                    ? "border-violet-500/40 bg-violet-500/5 dark:bg-violet-950/10 shadow-sm shadow-violet-500/5 hover:border-violet-500/70"
-                    : isDark
-                      ? "border-border-subtle bg-bg-raised/40 hover:border-accent-blue/30"
-                      : "border-slate-200 bg-white hover:border-accent-blue/30 shadow-sm shadow-slate-100/50"
-                  }`}>
-
+                <div
+                  className={`h-full border rounded-2xl p-4 flex flex-col items-center text-center backdrop-blur transition-all duration-350 ${
+                    isCurrent
+                      ? `${stage.activeBorder} ${stage.activeBg} ${stage.activeShadow} scale-[1.02]`
+                      : stage.isHighlighted
+                        ? "border-violet-500/40 bg-violet-500/5 dark:bg-violet-950/10 shadow-sm shadow-violet-500/5 hover:border-violet-500/70"
+                        : isDark
+                          ? "border-border-subtle bg-bg-raised/40 hover:border-accent-blue/30"
+                          : "border-slate-200 bg-white hover:border-accent-blue/30 shadow-sm shadow-slate-100/50"
+                  }`}
+                >
                   {/* Icon Circle */}
-                  <div className={`h-11 w-11 rounded-full flex items-center justify-center mb-3.5 transition-transform duration-350 ${isCurrent || isReached ? stage.iconColor : "text-text-secondary bg-border-subtle/5"
-                    }`}>
+                  <div
+                    className={`h-11 w-11 rounded-full flex items-center justify-center mb-3.5 transition-transform duration-350 ${
+                      isCurrent || isReached
+                        ? stage.iconColor
+                        : "text-text-secondary bg-border-subtle/5"
+                    }`}
+                  >
                     <StageIcon className="h-4.5 w-4.5" />
                   </div>
 
@@ -502,10 +512,13 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
                   </p>
 
                   {/* Bottom tag pill */}
-                  <div className={`mt-auto px-2 py-0.5 text-[8px] font-mono font-bold border rounded-full transition-colors duration-350 ${isCurrent || isReached
-                    ? stage.badgeColor
-                    : "border-border-subtle/20 text-text-secondary/80 bg-border-subtle/10"
-                    }`}>
+                  <div
+                    className={`mt-auto px-2 py-0.5 text-[8px] font-mono font-bold border rounded-full transition-colors duration-350 ${
+                      isCurrent || isReached
+                        ? stage.badgeColor
+                        : "border-border-subtle/20 text-text-secondary/80 bg-border-subtle/10"
+                    }`}
+                  >
                     {stage.tag}
                   </div>
                 </div>
@@ -612,7 +625,8 @@ export function KeyApproachesGrid({ isDark }: { isDark: boolean }) {
     },
   ];
 
-  const filtered = filter === "all" ? approaches : approaches.filter(app => app.category === filter);
+  const filtered =
+    filter === "all" ? approaches : approaches.filter((app) => app.category === filter);
 
   return (
     <div className="w-full">
@@ -628,10 +642,11 @@ export function KeyApproachesGrid({ isDark }: { isDark: boolean }) {
           <button
             key={btn.id}
             onClick={() => setFilter(btn.id)}
-            className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition duration-300 flex items-center gap-2 border ${filter === btn.id
-              ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-accent-blue dark:border-white shadow-md shadow-accent-blue/15"
-              : "bg-bg-raised/60 hover:bg-bg-raised text-text-secondary border-border-subtle/80 hover:border-text-secondary"
-              }`}
+            className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition duration-300 flex items-center gap-2 border ${
+              filter === btn.id
+                ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-accent-blue dark:border-white shadow-md shadow-accent-blue/15"
+                : "bg-bg-raised/60 hover:bg-bg-raised text-text-secondary border-border-subtle/80 hover:border-text-secondary"
+            }`}
           >
             {btn.dot && <span className={`h-1.5 w-1.5 rounded-full ${btn.dot}`} />}
             {btn.label}
@@ -644,19 +659,29 @@ export function KeyApproachesGrid({ isDark }: { isDark: boolean }) {
         {filtered.map((item, idx) => (
           <div key={idx} className="relative group">
             {/* Visual background offset */}
-            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-2xl -z-10 transition-all ${isDark ? "bg-[#181a1d] border border-border-subtle/50" : "bg-[#f4f0e6] border border-slate-200/50"
-              }`} />
+            <div
+              className={`absolute -bottom-2 -right-2 h-full w-full rounded-2xl -z-10 transition-all ${
+                isDark
+                  ? "bg-[#181a1d] border border-border-subtle/50"
+                  : "bg-[#f4f0e6] border border-slate-200/50"
+              }`}
+            />
 
-            <div className={`h-full border rounded-2xl p-6 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${isDark
-              ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700"
-              : "border-slate-200 bg-white shadow-sm hover:border-slate-350 hover:shadow-md"
-              }`}>
+            <div
+              className={`h-full border rounded-2xl p-6 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${
+                isDark
+                  ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700"
+                  : "border-slate-200 bg-white shadow-sm hover:border-slate-350 hover:shadow-md"
+              }`}
+            >
               <div>
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-[9px] font-mono font-bold tracking-widest text-text-tertiary uppercase">
                     Approach {idx + 1}
                   </span>
-                  <span className={`px-2 py-0.5 rounded text-[8px] font-mono font-bold border uppercase tracking-wider flex items-center gap-1.5 ${item.color}`}>
+                  <span
+                    className={`px-2 py-0.5 rounded text-[8px] font-mono font-bold border uppercase tracking-wider flex items-center gap-1.5 ${item.color}`}
+                  >
                     <span className={`h-1.5 w-1.5 rounded-full ${item.dot}`} />
                     {item.catLabel}
                   </span>
@@ -721,7 +746,7 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
       title: "lncRNA & tRNA domains",
       desc: "Non-translating structural RNAs that control cell regulation. We model 3D target pockets on long non-coding RNAs and tRNA structures.",
       evidence: "Discovered and named tRNA-encoded peptides (tREPs) class.",
-    }
+    },
   };
 
   const current = regions[selectedRegion as keyof typeof regions] || regions.all;
@@ -729,11 +754,17 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
   return (
     <div className="w-full">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-
         {/* Left Column: DNA Helix Interactivity */}
         <div className="lg:col-span-6 relative flex flex-col justify-between border rounded-3xl p-6 md:p-8 overflow-hidden bg-bg-raised/40 border-border-subtle/50 backdrop-blur">
           {/* Subtle grid pattern overlay */}
-          <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "30px 30px" }} />
+          <div
+            className="absolute inset-0 opacity-[0.02] pointer-events-none"
+            style={{
+              backgroundImage:
+                "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+              backgroundSize: "30px 30px",
+            }}
+          />
 
           <div>
             <div className="flex justify-between items-center mb-6">
@@ -747,23 +778,47 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
               Explore Non-Coding Regions
             </h3>
             <p className="text-xs text-text-secondary leading-relaxed mb-6">
-              Click on different layers of the genomic map to isolate structural elements utilized by the Quantum Codon platform.
+              Click on different layers of the genomic map to isolate structural elements utilized
+              by the Quantum Codon platform.
             </p>
 
             {/* Buttons list */}
             <div className="relative flex flex-col gap-2.5 w-full my-4">
               {[
-                { id: "intergenic", label: "Intergenic DNA", color: "border-blue-500/30 hover:border-blue-500 text-blue-500" },
-                { id: "introns", label: "Introns & Alternative ORFs", color: "border-emerald-500/30 hover:border-emerald-500 text-emerald-500" },
-                { id: "antisense", label: "Antisense Strands", color: "border-amber-500/30 hover:border-amber-500 text-amber-500" },
-                { id: "pseudogenes", label: "Pseudogenes", color: "border-purple-500/30 hover:border-purple-500 text-purple-500" },
-                { id: "lncrna", label: "lncRNA & tRNA regions", color: "border-rose-500/30 hover:border-rose-500 text-rose-500" },
+                {
+                  id: "intergenic",
+                  label: "Intergenic DNA",
+                  color: "border-blue-500/30 hover:border-blue-500 text-blue-500",
+                },
+                {
+                  id: "introns",
+                  label: "Introns & Alternative ORFs",
+                  color: "border-emerald-500/30 hover:border-emerald-500 text-emerald-500",
+                },
+                {
+                  id: "antisense",
+                  label: "Antisense Strands",
+                  color: "border-amber-500/30 hover:border-amber-500 text-amber-500",
+                },
+                {
+                  id: "pseudogenes",
+                  label: "Pseudogenes",
+                  color: "border-purple-500/30 hover:border-purple-500 text-purple-500",
+                },
+                {
+                  id: "lncrna",
+                  label: "lncRNA & tRNA regions",
+                  color: "border-rose-500/30 hover:border-rose-500 text-rose-500",
+                },
               ].map((reg) => (
                 <button
                   key={reg.id}
                   onClick={() => setSelectedRegion(reg.id)}
-                  className={`w-full py-2.5 px-4 rounded-xl border text-[11px] font-mono font-semibold uppercase tracking-wider text-left transition-all duration-300 flex justify-between items-center bg-bg-raised hover:scale-[1.01] ${reg.color} ${selectedRegion === reg.id ? "scale-[1.01] border-opacity-100 ring-1 ring-offset-2 ring-accent-blue/30" : "opacity-80"
-                    }`}
+                  className={`w-full py-2.5 px-4 rounded-xl border text-[11px] font-mono font-semibold uppercase tracking-wider text-left transition-all duration-300 flex justify-between items-center bg-bg-raised hover:scale-[1.01] ${reg.color} ${
+                    selectedRegion === reg.id
+                      ? "scale-[1.01] border-opacity-100 ring-1 ring-offset-2 ring-accent-blue/30"
+                      : "opacity-80"
+                  }`}
                 >
                   <span>{reg.label}</span>
                   <span className="text-[9px] opacity-75">Inspect →</span>
@@ -779,7 +834,6 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
                 </button>
               )}
             </div>
-
           </div>
 
           {/* Dynamic details pane */}
@@ -788,9 +842,7 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
               <h4 className="text-xs font-serif-display font-bold text-text-primary mb-1 uppercase tracking-wide">
                 {current.title}
               </h4>
-              <p className="text-xs text-text-secondary leading-relaxed">
-                {current.desc}
-              </p>
+              <p className="text-xs text-text-secondary leading-relaxed">{current.desc}</p>
             </div>
             <p className="text-[10px] font-mono text-accent-blue dark:text-accent-emerald font-semibold mt-3 italic">
               ✦ {current.evidence}
@@ -800,13 +852,22 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
 
         {/* Right Column: Investor & Partner Value Props */}
         <div className="lg:col-span-6 flex flex-col gap-6 md:gap-8 justify-between">
-
           {/* Card 1: Investors */}
           <div className="relative group flex-1">
-            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-3xl -z-10 transition-all ${isDark ? "bg-[#181a1d] border border-border-subtle" : "bg-[#f4f0e6] border border-slate-200"
-              }`} />
-            <div className={`h-full border rounded-3xl p-6 md:p-8 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${isDark ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700" : "border-slate-200 bg-white shadow-md shadow-slate-100/50 hover:border-slate-350"
-              }`}>
+            <div
+              className={`absolute -bottom-2 -right-2 h-full w-full rounded-3xl -z-10 transition-all ${
+                isDark
+                  ? "bg-[#181a1d] border border-border-subtle"
+                  : "bg-[#f4f0e6] border border-slate-200"
+              }`}
+            />
+            <div
+              className={`h-full border rounded-3xl p-6 md:p-8 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${
+                isDark
+                  ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700"
+                  : "border-slate-200 bg-white shadow-md shadow-slate-100/50 hover:border-slate-350"
+              }`}
+            >
               <div className="space-y-3">
                 <span className="px-2 py-0.5 rounded text-[8px] font-mono font-bold bg-blue-500/10 text-blue-500 border border-blue-500/20 uppercase tracking-widest">
                   Investor Proposition
@@ -815,7 +876,10 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
                   Proprietary Discovery Engine
                 </h4>
                 <p className="text-xs text-text-secondary leading-relaxed">
-                  Sitting on genomic real estate no competitor has staked a claim to — a pipeline of first-in-class assets generated at a fraction of the cost and timeline of conventional discovery, with a founding team whose published track record de-risks the science years ahead of typical seed-stage platforms.
+                  Sitting on genomic real estate no competitor has staked a claim to — a pipeline of
+                  first-in-class assets generated at a fraction of the cost and timeline of
+                  conventional discovery, with a founding team whose published track record de-risks
+                  the science years ahead of typical seed-stage platforms.
                 </p>
               </div>
               <div className="flex items-center gap-2 mt-4 text-[10px] font-mono text-text-tertiary">
@@ -827,10 +891,20 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
 
           {/* Card 2: Industry Partners */}
           <div className="relative group flex-1">
-            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-3xl -z-10 transition-all ${isDark ? "bg-[#181a1d] border border-border-subtle" : "bg-[#f4f0e6] border border-slate-200"
-              }`} />
-            <div className={`h-full border rounded-3xl p-6 md:p-8 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${isDark ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700" : "border-slate-200 bg-white shadow-md shadow-slate-100/50 hover:border-slate-350"
-              }`}>
+            <div
+              className={`absolute -bottom-2 -right-2 h-full w-full rounded-3xl -z-10 transition-all ${
+                isDark
+                  ? "bg-[#181a1d] border border-border-subtle"
+                  : "bg-[#f4f0e6] border border-slate-200"
+              }`}
+            />
+            <div
+              className={`h-full border rounded-3xl p-6 md:p-8 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${
+                isDark
+                  ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700"
+                  : "border-slate-200 bg-white shadow-md shadow-slate-100/50 hover:border-slate-350"
+              }`}
+            >
               <div className="space-y-3">
                 <span className="px-2 py-0.5 rounded text-[8px] font-mono font-bold bg-purple-500/10 text-purple-500 border border-purple-500/20 uppercase tracking-widest">
                   Industry Partner Proposition
@@ -839,7 +913,10 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
                   Pre-Validated Molecules & Enzyme Candidates
                 </h4>
                 <p className="text-xs text-text-secondary leading-relaxed">
-                  Access to pre-validated, screened molecules and enzyme candidates ready for licensing or tech transfer — new chemical entities and catalytic scaffolds that expand your pipeline without inheriting the freedom-to-operate constraints of conventionally sourced IP.
+                  Access to pre-validated, screened molecules and enzyme candidates ready for
+                  licensing or tech transfer — new chemical entities and catalytic scaffolds that
+                  expand your pipeline without inheriting the freedom-to-operate constraints of
+                  conventionally sourced IP.
                 </p>
               </div>
               <div className="flex items-center gap-2 mt-4 text-[10px] font-mono text-text-tertiary">
@@ -863,7 +940,9 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
                   tREP-18 — Nanomolar Antileishmanial Activity (IC50 ≈ 22 nM)
                 </h5>
                 <p className="text-[11px] text-text-secondary max-w-xl">
-                  Demonstrates potent efficacy against pathogens while completely sparing human cells — verifying that dark genome mapping produces drug-like, non-toxic molecules.
+                  Demonstrates potent efficacy against pathogens while completely sparing human
+                  cells — verifying that dark genome mapping produces drug-like, non-toxic
+                  molecules.
                 </p>
               </div>
               <div className="flex items-center justify-start">
@@ -873,7 +952,6 @@ export function ValueRealization({ isDark }: { isDark: boolean }) {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -899,7 +977,8 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
       differentiator: "Active against artemisinin-resistant strains",
       highlightedData: "100% clearance in the in vivo models",
       badgeColor: "bg-amber-500/10 text-amber-500 border-amber-500/20",
-      description: "A novel compound targeting malaria blood-stage receptors. Standard therapies have struggled with emerging artemisinin-resistant variations. qC-36 provides complete biochemical clearance in animal trials."
+      description:
+        "A novel compound targeting malaria blood-stage receptors. Standard therapies have struggled with emerging artemisinin-resistant variations. qC-36 provides complete biochemical clearance in animal trials.",
     },
     {
       id: "qC-45",
@@ -911,7 +990,8 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
       differentiator: "Accelerates closure; stable at room temperature",
       highlightedData: "Full re-epithelialization in 14 days in severe models",
       badgeColor: "bg-amber-500/10 text-amber-500 border-amber-500/20",
-      description: "Designed to trigger cellular tissue repair pathways. It acts as an organic promoter of angiogenesis (blood vessel formation), facilitating tissue healing without cold-chain storage dependencies."
+      description:
+        "Designed to trigger cellular tissue repair pathways. It acts as an organic promoter of angiogenesis (blood vessel formation), facilitating tissue healing without cold-chain storage dependencies.",
     },
     {
       id: "qC-63",
@@ -923,7 +1003,8 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
       differentiator: "Non-hormonal mechanism; higher efficacy than SoC*",
       highlightedData: "3x increase in active hair follicles in vivo",
       badgeColor: "bg-amber-500/10 text-amber-500 border-amber-500/20",
-      description: "A non-hormonal, high-efficacy candidate that activates follicle stem cells. Overcomes the side-effect profiles associated with current standard of care (SoC) therapies by bypassing hormonal systems."
+      description:
+        "A non-hormonal, high-efficacy candidate that activates follicle stem cells. Overcomes the side-effect profiles associated with current standard of care (SoC) therapies by bypassing hormonal systems.",
     },
     {
       id: "qC-73",
@@ -935,7 +1016,8 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
       differentiator: "High efficacy without toxicity",
       highlightedData: "Does not affect human cells even at 10x concentration",
       badgeColor: "bg-blue-500/10 text-blue-500 border-blue-500/20",
-      description: "A highly selective synthetic peptide that disrupts parasite membranes with surgical accuracy. Efficacy is verified in vitro with an exceptionally clean safety profile in mammalian host cells."
+      description:
+        "A highly selective synthetic peptide that disrupts parasite membranes with surgical accuracy. Efficacy is verified in vitro with an exceptionally clean safety profile in mammalian host cells.",
     },
     {
       id: "qC-99",
@@ -947,11 +1029,12 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
       differentiator: "High Blood-Brain Barrier (BBB) penetration; oral",
       highlightedData: "95% reduction in BACE enzyme, cell line results",
       badgeColor: "bg-blue-500/10 text-blue-500 border-blue-500/20",
-      description: "A blood-brain-barrier penetrating peptide targeting BACE enzyme pathways. It shuts down neuroinflammatory signaling cascades and blocks amyloid plaque formation in cell-line assays."
-    }
+      description:
+        "A blood-brain-barrier penetrating peptide targeting BACE enzyme pathways. It shuts down neuroinflammatory signaling cascades and blocks amyloid plaque formation in cell-line assays.",
+    },
   ];
 
-  const filtered = molecules.filter(mol => {
+  const filtered = molecules.filter((mol) => {
     const matchesSearch =
       mol.id.toLowerCase().includes(search.toLowerCase()) ||
       mol.indication.toLowerCase().includes(search.toLowerCase()) ||
@@ -968,7 +1051,6 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
     <div className="w-full space-y-6">
       {/* Filters & Search Row */}
       <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
-
         {/* Search Input */}
         <div className="relative flex-1 max-w-md">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-tertiary" />
@@ -977,10 +1059,11 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
             placeholder="Search candidates by ID, Indication, Market..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className={`w-full pl-10 pr-4 py-2 text-xs rounded-full border bg-bg-raised transition-all ${isDark
-              ? "border-zinc-800 focus:border-zinc-650 focus:ring-1 focus:ring-zinc-600 outline-none"
-              : "border-slate-200 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 outline-none"
-              }`}
+            className={`w-full pl-10 pr-4 py-2 text-xs rounded-full border bg-bg-raised transition-all ${
+              isDark
+                ? "border-zinc-800 focus:border-zinc-650 focus:ring-1 focus:ring-zinc-600 outline-none"
+                : "border-slate-200 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 outline-none"
+            }`}
           />
         </div>
 
@@ -992,10 +1075,11 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
               <button
                 key={mat}
                 onClick={() => setMaterialFilter(mat)}
-                className={`px-3 py-1.5 rounded-full text-[10px] font-mono uppercase font-bold tracking-wide transition-all ${materialFilter === mat
-                  ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 shadow"
-                  : "text-text-secondary hover:text-text-primary"
-                  }`}
+                className={`px-3 py-1.5 rounded-full text-[10px] font-mono uppercase font-bold tracking-wide transition-all ${
+                  materialFilter === mat
+                    ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 shadow"
+                    : "text-text-secondary hover:text-text-primary"
+                }`}
               >
                 {mat === "all" ? "All Materials" : mat + "s"}
               </button>
@@ -1008,17 +1092,17 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
               <button
                 key={stg}
                 onClick={() => setStageFilter(stg)}
-                className={`px-3 py-1.5 rounded-full text-[10px] font-mono uppercase font-bold tracking-wide transition-all ${stageFilter === stg
-                  ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 shadow"
-                  : "text-text-secondary hover:text-text-primary"
-                  }`}
+                className={`px-3 py-1.5 rounded-full text-[10px] font-mono uppercase font-bold tracking-wide transition-all ${
+                  stageFilter === stg
+                    ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 shadow"
+                    : "text-text-secondary hover:text-text-primary"
+                }`}
               >
                 {stg === "all" ? "All Stages" : stg}
               </button>
             ))}
           </div>
         </div>
-
       </div>
 
       {/* Main Table/Grid */}
@@ -1037,9 +1121,15 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
         {filtered.length === 0 && (
           <div className="text-center py-16 space-y-3">
             <Activity className="h-8 w-8 mx-auto text-text-tertiary animate-pulse" />
-            <p className="text-xs text-text-secondary font-medium font-mono">No matching molecular candidates found.</p>
+            <p className="text-xs text-text-secondary font-medium font-mono">
+              No matching molecular candidates found.
+            </p>
             <button
-              onClick={() => { setSearch(""); setMaterialFilter("all"); setStageFilter("all"); }}
+              onClick={() => {
+                setSearch("");
+                setMaterialFilter("all");
+                setStageFilter("all");
+              }}
               className="text-[10px] font-mono uppercase text-accent-blue hover:underline"
             >
               Reset All Filters
@@ -1054,10 +1144,9 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
             return (
               <div
                 key={mol.id}
-                className={`transition-all duration-300 ${isExpanded
-                  ? "bg-accent-blue/5 dark:bg-zinc-900/30"
-                  : "hover:bg-bg-raised/20"
-                  }`}
+                className={`transition-all duration-300 ${
+                  isExpanded ? "bg-accent-blue/5 dark:bg-zinc-900/30" : "hover:bg-bg-raised/20"
+                }`}
               >
                 {/* Table Row / Trigger */}
                 <div
@@ -1066,7 +1155,9 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
                 >
                   {/* ID */}
                   <div className="col-span-1 font-mono font-bold text-text-primary flex items-center justify-between lg:block">
-                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">Candidate ID:</span>
+                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">
+                      Candidate ID:
+                    </span>
                     <span className="flex items-center gap-1.5">
                       <span className="h-1.5 w-1.5 rounded-full bg-accent-blue dark:bg-accent-emerald animate-pulse" />
                       {mol.id}
@@ -1075,13 +1166,19 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
 
                   {/* Material */}
                   <div className="col-span-2 font-mono flex items-center justify-between lg:block">
-                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">Material:</span>
-                    <span className="capitalize font-semibold text-text-secondary">{mol.material}</span>
+                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">
+                      Material:
+                    </span>
+                    <span className="capitalize font-semibold text-text-secondary">
+                      {mol.material}
+                    </span>
                   </div>
 
                   {/* Market / Indication */}
                   <div className="col-span-2 flex items-center justify-between lg:block">
-                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">Indication:</span>
+                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">
+                      Indication:
+                    </span>
                     <div>
                       <p className="font-semibold text-text-primary">{mol.indication}</p>
                       <p className="text-[10px] text-text-secondary">{mol.market}</p>
@@ -1090,24 +1187,36 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
 
                   {/* MoA */}
                   <div className="col-span-2 flex items-center justify-between lg:block">
-                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">Mechanism:</span>
+                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">
+                      Mechanism:
+                    </span>
                     <span className="text-text-secondary leading-normal">{mol.moa}</span>
                   </div>
 
                   {/* Current Stage */}
                   <div className="col-span-2 flex items-center justify-between lg:block">
-                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">Stage:</span>
-                    <span className={`px-2.5 py-0.5 rounded-full text-[9px] font-mono font-semibold border ${mol.badgeColor}`}>
+                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">
+                      Stage:
+                    </span>
+                    <span
+                      className={`px-2.5 py-0.5 rounded-full text-[9px] font-mono font-semibold border ${mol.badgeColor}`}
+                    >
                       {mol.stage}
                     </span>
                   </div>
 
                   {/* Differentiator & Chevron */}
                   <div className="col-span-3 flex items-center justify-between lg:block">
-                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">Key Feature:</span>
+                    <span className="lg:hidden text-[9px] text-text-tertiary uppercase tracking-wider">
+                      Key Feature:
+                    </span>
                     <div className="flex items-center justify-end lg:justify-between w-full gap-4">
-                      <span className="text-[11px] text-text-secondary italic lg:not-italic font-medium leading-normal text-right lg:text-left">{mol.differentiator}</span>
-                      <ChevronDown className={`h-4 w-4 text-text-tertiary transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
+                      <span className="text-[11px] text-text-secondary italic lg:not-italic font-medium leading-normal text-right lg:text-left">
+                        {mol.differentiator}
+                      </span>
+                      <ChevronDown
+                        className={`h-4 w-4 text-text-tertiary transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
+                      />
                     </div>
                   </div>
                 </div>
@@ -1150,7 +1259,8 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
         </div>
       </div>
       <p className="text-[10px] text-text-tertiary font-mono text-center">
-        * SoC = Standard of Care. All clinical targets are backed by internal biological assays and peer publications.
+        * SoC = Standard of Care. All clinical targets are backed by internal biological assays and
+        peer publications.
       </p>
     </div>
   );
@@ -1170,7 +1280,7 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
       journal: "ACS Omega, 7(22), 18361–18373",
       url: "https://doi.org/10.1021/acsomega.2c01234",
       topic: "tREPs",
-      category: "treps"
+      category: "treps",
     },
     {
       num: 2,
@@ -1180,7 +1290,7 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
       journal: "Journal of Biological Engineering, 3, 2",
       url: "https://doi.org/10.1186/1754-1611-3-2",
       topic: "Dark Genome",
-      category: "dark-genome"
+      category: "dark-genome",
     },
     {
       num: 3,
@@ -1190,7 +1300,7 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
       journal: "bioRxiv preprint",
       url: "https://doi.org/10.1101/2023.03.15.532699",
       topic: "Antisense",
-      category: "dark-genome"
+      category: "dark-genome",
     },
     {
       num: 4,
@@ -1200,27 +1310,29 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
       journal: "bioRxiv preprint",
       url: "https://doi.org/10.1101/2023.06.10.544447",
       topic: "Intronic Proteins",
-      category: "dark-genome"
+      category: "dark-genome",
     },
     {
       num: 5,
-      title: "Discovering novel anti-malarial peptides from the not-coding genome—A working hypothesis",
+      title:
+        "Discovering novel anti-malarial peptides from the not-coding genome—A working hypothesis",
       authors: "Joshi, M., Kundapura, S. V., Poovaiah, T., Ingle, K., & Dhar, P. K.",
       year: "2013",
       journal: "Current Synthetic and Systems Biology, 1(1)",
       url: "#",
       topic: "Malaria",
-      category: "disease"
+      category: "disease",
     },
     {
       num: 6,
-      title: "Computational identification of novel microRNAs and their targets in the malarial vector Anopheles stephensi",
+      title:
+        "Computational identification of novel microRNAs and their targets in the malarial vector Anopheles stephensi",
       authors: "Krishnan, R., Kumar, V., Ananth, V., et al.",
       year: "2015",
       journal: "Systems and Synthetic Biology Journal, 9, 11–17",
       url: "#",
       topic: "RNA Target",
-      category: "disease"
+      category: "disease",
     },
     {
       num: 7,
@@ -1230,7 +1342,7 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
       journal: "bioRxiv preprint",
       url: "https://doi.org/10.1101/2023.03.20.533367",
       topic: "Reverse Proteins",
-      category: "dark-genome"
+      category: "dark-genome",
     },
     {
       num: 8,
@@ -1240,7 +1352,7 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
       journal: "bioRxiv preprint",
       url: "https://doi.org/10.1101/2023.06.29.547021",
       topic: "Noncoding Proteins",
-      category: "dark-genome"
+      category: "dark-genome",
     },
     {
       num: 9,
@@ -1250,7 +1362,7 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
       journal: "Systems and Synthetic Biology Journal, 9, 67–72",
       url: "#",
       topic: "Alzheimer's",
-      category: "disease"
+      category: "disease",
     },
     {
       num: 10,
@@ -1260,17 +1372,18 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
       journal: "Bioinformatics, 31(1), 33–39",
       url: "https://doi.org/10.1093/bioinformatics/btu585",
       topic: "Pseudogenes",
-      category: "dark-genome"
+      category: "dark-genome",
     },
     {
       num: 11,
-      title: "Function annotation of novel peptides generated from the non-expressing genome of Drosophila melanogaster",
+      title:
+        "Function annotation of novel peptides generated from the non-expressing genome of Drosophila melanogaster",
       authors: "Varughese, D., Nair, A. S., & Dhar, P. K.",
       year: "2017",
       journal: "Bioinformation, 13(1), 17–20",
       url: "#",
       topic: "Noncoding Proteins",
-      category: "dark-genome"
+      category: "dark-genome",
     },
     {
       num: 12,
@@ -1280,11 +1393,11 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
       journal: "bioRxiv preprint",
       url: "https://doi.org/10.1101/2023.06.23.546343",
       topic: "Alzheimer's",
-      category: "disease"
-    }
+      category: "disease",
+    },
   ];
 
-  const filtered = publications.filter(pub => {
+  const filtered = publications.filter((pub) => {
     const matchesSearch =
       pub.title.toLowerCase().includes(search.toLowerCase()) ||
       pub.authors.toLowerCase().includes(search.toLowerCase()) ||
@@ -1299,7 +1412,6 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
     <div className="w-full space-y-6">
       {/* Search & Topic Selector */}
       <div className="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between">
-
         {/* Search */}
         <div className="relative flex-1 max-w-md">
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-text-tertiary" />
@@ -1308,10 +1420,11 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
             placeholder="Search papers by title, author, journal..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className={`w-full pl-10 pr-4 py-2 text-xs rounded-full border bg-bg-raised transition-all ${isDark
-              ? "border-zinc-800 focus:border-zinc-650 focus:ring-1 focus:ring-zinc-600 outline-none"
-              : "border-slate-200 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 outline-none"
-              }`}
+            className={`w-full pl-10 pr-4 py-2 text-xs rounded-full border bg-bg-raised transition-all ${
+              isDark
+                ? "border-zinc-800 focus:border-zinc-650 focus:ring-1 focus:ring-zinc-600 outline-none"
+                : "border-slate-200 focus:border-accent-blue focus:ring-1 focus:ring-accent-blue/30 outline-none"
+            }`}
           />
         </div>
 
@@ -1326,10 +1439,11 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
             <button
               key={topic.id}
               onClick={() => setTopicFilter(topic.id)}
-              className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wide transition-all border ${topicFilter === topic.id
-                ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-accent-blue dark:border-white shadow"
-                : "bg-bg-raised hover:bg-bg-raised text-text-secondary border-border-subtle/80 hover:border-text-secondary"
-                }`}
+              className={`px-3.5 py-1.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wide transition-all border ${
+                topicFilter === topic.id
+                  ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-accent-blue dark:border-white shadow"
+                  : "bg-bg-raised hover:bg-bg-raised text-text-secondary border-border-subtle/80 hover:border-text-secondary"
+              }`}
             >
               {topic.label}
             </button>
@@ -1342,13 +1456,21 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
         {filtered.map((pub) => (
           <div key={pub.num} className="relative group">
             {/* Visual offset background */}
-            <div className={`absolute -bottom-2 -right-2 h-full w-full rounded-2xl -z-10 transition-all ${isDark ? "bg-[#181a1d] border border-border-subtle/50" : "bg-[#f4f0e6] border border-slate-200/50"
-              }`} />
+            <div
+              className={`absolute -bottom-2 -right-2 h-full w-full rounded-2xl -z-10 transition-all ${
+                isDark
+                  ? "bg-[#181a1d] border border-border-subtle/50"
+                  : "bg-[#f4f0e6] border border-slate-200/50"
+              }`}
+            />
 
-            <div className={`h-full border rounded-2xl p-6 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${isDark
-              ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700"
-              : "border-slate-200 bg-white shadow-sm hover:border-slate-350 hover:shadow-md"
-              }`}>
+            <div
+              className={`h-full border rounded-2xl p-6 flex flex-col justify-between backdrop-blur transition-all duration-300 group-hover:-translate-y-0.5 ${
+                isDark
+                  ? "border-border-subtle bg-bg-raised/40 hover:border-zinc-700"
+                  : "border-slate-200 bg-white shadow-sm hover:border-slate-350 hover:shadow-md"
+              }`}
+            >
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="px-2 py-0.5 rounded text-[8px] font-mono font-bold bg-accent-blue/10 dark:bg-zinc-800 text-accent-blue dark:text-zinc-350 border border-accent-blue/20 dark:border-zinc-700/50 uppercase tracking-widest">
@@ -1363,17 +1485,15 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
                   {pub.title}
                 </h4>
 
-                <p className="text-xs text-text-secondary font-medium">
-                  {pub.authors}
-                </p>
+                <p className="text-xs text-text-secondary font-medium">{pub.authors}</p>
 
-                <p className="text-[11px] text-text-tertiary font-mono italic">
-                  {pub.journal}
-                </p>
+                <p className="text-[11px] text-text-tertiary font-mono italic">{pub.journal}</p>
               </div>
 
               <div className="mt-6 pt-3 border-t border-border-subtle/10 flex justify-between items-center">
-                <span className="text-[9px] font-mono text-text-tertiary uppercase">Academic Index</span>
+                <span className="text-[9px] font-mono text-text-tertiary uppercase">
+                  Academic Index
+                </span>
                 {pub.url !== "#" ? (
                   <a
                     href={pub.url}
@@ -1385,7 +1505,9 @@ export function PublicationsLibrary({ isDark }: { isDark: boolean }) {
                     <ExternalLink className="h-3 w-3" />
                   </a>
                 ) : (
-                  <span className="text-[9px] font-mono text-text-tertiary uppercase">Manuscript Available</span>
+                  <span className="text-[9px] font-mono text-text-tertiary uppercase">
+                    Manuscript Available
+                  </span>
                 )}
               </div>
             </div>
@@ -1645,22 +1767,25 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
         }}
         onMouseEnter={() => setHoveredNode(badgeNum)}
         onMouseLeave={() => setHoveredNode(null)}
-        className={`p-3 md:p-4 rounded-2xl border text-left transition-all duration-500 cursor-pointer ${isActive
-          ? `${colorClass.activeBorder} ${colorClass.activeBg} ${isHovered ? "scale-[1.04] border-opacity-100" : "scale-[1.02]"}`
-          : `${isDark ? "border-zinc-800/50 bg-[#0d0e12]/20 text-zinc-500" : "border-slate-200 bg-slate-50/30 text-slate-400"} hover:scale-[1.01]`
-          }`}
+        className={`p-3 md:p-4 rounded-2xl border text-left transition-all duration-500 cursor-pointer ${
+          isActive
+            ? `${colorClass.activeBorder} ${colorClass.activeBg} ${isHovered ? "scale-[1.04] border-opacity-100" : "scale-[1.02]"}`
+            : `${isDark ? "border-zinc-800/50 bg-[#0d0e12]/20 text-zinc-500" : "border-slate-200 bg-slate-50/30 text-slate-400"} hover:scale-[1.01]`
+        }`}
       >
         <div className="flex items-center gap-3">
           <div
-            className={`h-8 w-8 rounded-full border flex items-center justify-center transition-all ${isActive ? colorClass.activeBorder : "border-border-subtle"
-              } ${isHovered ? "scale-110" : ""}`}
+            className={`h-8 w-8 rounded-full border flex items-center justify-center transition-all ${
+              isActive ? colorClass.activeBorder : "border-border-subtle"
+            } ${isHovered ? "scale-110" : ""}`}
           >
             {icon}
           </div>
           <div className="flex-1 min-w-0">
             <h4
-              className={`text-[10px] md:text-xs font-mono tracking-wider uppercase font-bold truncate transition-colors ${isActive ? colorClass.activeText : "text-text-secondary"
-                }`}
+              className={`text-[10px] md:text-xs font-mono tracking-wider uppercase font-bold truncate transition-colors ${
+                isActive ? colorClass.activeText : "text-text-secondary"
+              }`}
             >
               {title}
             </h4>
@@ -1669,10 +1794,11 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
             </p>
           </div>
           <span
-            className={`h-5 w-5 rounded-full text-[9px] font-mono font-bold flex items-center justify-center border transition-all ${isActive
-              ? `${colorClass.activeBorder} ${colorClass.activeText}`
-              : "border-border-subtle text-zinc-500"
-              } ${isHovered ? "scale-110" : ""}`}
+            className={`h-5 w-5 rounded-full text-[9px] font-mono font-bold flex items-center justify-center border transition-all ${
+              isActive
+                ? `${colorClass.activeBorder} ${colorClass.activeText}`
+                : "border-border-subtle text-zinc-500"
+            } ${isHovered ? "scale-110" : ""}`}
           >
             {badgeNum}
           </span>
@@ -1797,10 +1923,11 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
 
   return (
     <div
-      className={`w-full border rounded-3xl p-5 md:p-8 flex flex-col items-center relative overflow-hidden transition-all duration-300 ${isDark
-        ? "bg-obsidian/45 border-zinc-850 shadow-2xl shadow-black/40"
-        : "bg-white/70 border-slate-200/90 shadow-xl shadow-slate-100/50"
-        }`}
+      className={`w-full border rounded-3xl p-5 md:p-8 flex flex-col items-center relative overflow-hidden transition-all duration-300 ${
+        isDark
+          ? "bg-obsidian/45 border-zinc-850 shadow-2xl shadow-black/40"
+          : "bg-white/70 border-slate-200/90 shadow-xl shadow-slate-100/50"
+      }`}
     >
       <style
         dangerouslySetInnerHTML={{
@@ -1927,8 +2054,9 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
 
       {/* Decorative Particle Cloud behind components */}
       <div
-        className={`absolute inset-0 pointer-events-none transition-opacity duration-[1500ms] ${activeStage === 7 ? "opacity-75" : "opacity-40"
-          }`}
+        className={`absolute inset-0 pointer-events-none transition-opacity duration-[1500ms] ${
+          activeStage === 7 ? "opacity-75" : "opacity-40"
+        }`}
       >
         <svg className="w-full h-full" fill="none">
           {bgParticles.map((p, i) => (
@@ -1965,10 +2093,11 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
           </p>
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className={`px-3 py-1.5 rounded-full text-[9px] font-mono uppercase font-bold border transition-all flex items-center gap-1.5 self-start md:self-auto ${isDark
-              ? "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 text-zinc-300"
-              : "border-slate-200 bg-slate-100/50 hover:bg-slate-200/50 text-slate-600"
-              }`}
+            className={`px-3 py-1.5 rounded-full text-[9px] font-mono uppercase font-bold border transition-all flex items-center gap-1.5 self-start md:self-auto ${
+              isDark
+                ? "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 text-zinc-300"
+                : "border-slate-200 bg-slate-100/50 hover:bg-slate-200/50 text-slate-600"
+            }`}
           >
             {isPlaying ? (
               <>
@@ -2727,8 +2856,9 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
 
         {/* Mobile Active Stage Card */}
         <div
-          className={`w-full p-5 rounded-2xl border transition-all duration-500 text-center ${isDark ? "bg-[#0d0e12]/60 border-zinc-800/80" : "bg-slate-50/80 border-slate-200"
-            } ${mobileCardContent[activeStage].color}`}
+          className={`w-full p-5 rounded-2xl border transition-all duration-500 text-center ${
+            isDark ? "bg-[#0d0e12]/60 border-zinc-800/80" : "bg-slate-50/80 border-slate-200"
+          } ${mobileCardContent[activeStage].color}`}
         >
           <h4 className="text-xs font-mono font-bold tracking-widest uppercase">
             {mobileCardContent[activeStage].title}
@@ -2744,10 +2874,11 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
 
       {/* ACTIVE STAGE DESCRIPTION BOX (DESKTOP) */}
       <div
-        className={`hidden md:block w-full mt-6 p-5 rounded-2xl border text-center transition-all duration-500 relative overflow-hidden ${isDark
-          ? "bg-[#0d0e12]/40 border-zinc-800/80 scanline-effect"
-          : "bg-slate-50/50 border-slate-200 scanline-effect"
-          }`}
+        className={`hidden md:block w-full mt-6 p-5 rounded-2xl border text-center transition-all duration-500 relative overflow-hidden ${
+          isDark
+            ? "bg-[#0d0e12]/40 border-zinc-800/80 scanline-effect"
+            : "bg-slate-50/50 border-slate-200 scanline-effect"
+        }`}
       >
         <div className="flex justify-between items-center border-b border-border-subtle/30 pb-2 mb-3">
           <span className="text-[10px] font-mono uppercase font-bold text-amber-500 tracking-wider">
@@ -2787,10 +2918,11 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
                 }}
                 onMouseEnter={() => setHoveredNode(st.hoverNode as number | null)}
                 onMouseLeave={() => setHoveredNode(null)}
-                className={`px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase transition-all duration-300 border ${isButtonActive
-                  ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-transparent scale-105"
-                  : `${isDark ? "border-zinc-800 hover:border-zinc-700 bg-zinc-900/30 text-zinc-400" : "border-slate-200 hover:border-slate-350 bg-slate-50/50 text-slate-500"}`
-                  }`}
+                className={`px-3 py-1.5 rounded-full text-[10px] font-mono font-bold uppercase transition-all duration-300 border ${
+                  isButtonActive
+                    ? "bg-accent-blue dark:bg-white text-white dark:text-zinc-950 border-transparent scale-105"
+                    : `${isDark ? "border-zinc-800 hover:border-zinc-700 bg-zinc-900/30 text-zinc-400" : "border-slate-200 hover:border-slate-350 bg-slate-50/50 text-slate-500"}`
+                }`}
               >
                 {st.id}{" "}
                 <span className="hidden sm:inline ml-1 font-sans text-[9px] font-semibold tracking-normal text-opacity-80">
@@ -2803,8 +2935,9 @@ export function DarkGenomeSandbox({ isDark }: { isDark: boolean }) {
 
         {/* Timeline progress bar indicator */}
         <div
-          className={`h-1 w-48 rounded-full overflow-hidden mt-1 bg-opacity-10 ${isDark ? "bg-white" : "bg-black"
-            }`}
+          className={`h-1 w-48 rounded-full overflow-hidden mt-1 bg-opacity-10 ${
+            isDark ? "bg-white" : "bg-black"
+          }`}
         >
           <div
             key={activeStage + (isPlaying ? "-playing" : "-paused")}
@@ -2864,9 +2997,7 @@ export default function DrugDiscoveryPage() {
   };
 
   return (
-    <div
-      className="flex flex-col w-full min-h-screen relative overflow-hidden font-sans transition-colors duration-300 bg-background text-foreground"
-    >
+    <div className="flex flex-col w-full min-h-screen relative overflow-hidden font-sans transition-colors duration-300 bg-background text-foreground">
       {/* Premium Spotlight Effect */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[350px] bg-gradient-to-b from-accent-blue/15 via-transparent to-transparent blur-[120px] rounded-full pointer-events-none -z-10 opacity-60 dark:opacity-40" />
 
@@ -2874,9 +3005,7 @@ export default function DrugDiscoveryPage() {
       <section className="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden">
         <GenomeAtlasHero isDark={isDark} />
 
-        <div
-          className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background via-transparent to-background/60"
-        />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-background via-transparent to-background/60" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <Reveal>
@@ -2898,7 +3027,9 @@ export default function DrugDiscoveryPage() {
           </Reveal>
           <Reveal delay={240}>
             <p className="mt-8 max-w-3xl mx-auto text-base md:text-lg text-text-secondary leading-relaxed font-medium">
-              Nearly all approved biotherapeutics originate from the same 2% of the genome. We explore the 98% non-coding "junk DNA" reservoir of functional peptides and proteins to discover novel assets in weeks instead of years.
+              Nearly all approved biotherapeutics originate from the same 2% of the genome. We
+              explore the 98% non-coding "junk DNA" reservoir of functional peptides and proteins to
+              discover novel assets in weeks instead of years.
             </p>
           </Reveal>
 
@@ -2919,10 +3050,11 @@ export default function DrugDiscoveryPage() {
               </button>
               <button
                 onClick={() => scrollToSection("out-licensing")}
-                className={`px-8 py-3.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition duration-300 hover:scale-105 active:scale-95 shadow-sm ${isDark
-                  ? "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-850 hover:border-zinc-700 text-white"
-                  : "border-slate-200 bg-white/75 hover:bg-white hover:border-accent-blue text-slate-800"
-                  }`}
+                className={`px-8 py-3.5 rounded-full border text-xs font-semibold uppercase tracking-wider transition duration-300 hover:scale-105 active:scale-95 shadow-sm ${
+                  isDark
+                    ? "border-zinc-800 bg-zinc-900/50 hover:bg-zinc-850 hover:border-zinc-700 text-white"
+                    : "border-slate-200 bg-white/75 hover:bg-white hover:border-accent-blue text-slate-800"
+                }`}
               >
                 View Licensing Candidates
               </button>
@@ -2934,8 +3066,9 @@ export default function DrugDiscoveryPage() {
       {/* SECTION 2: THE DRUG DISCOVERY PIPELINE (Act 1) */}
       <section
         id="pipeline"
-        className={`relative z-10 py-24 border-y ${isDark ? "border-border-subtle bg-bg-raised/20" : "border-slate-200 bg-slate-50/50"
-          }`}
+        className={`relative z-10 py-24 border-y ${
+          isDark ? "border-border-subtle bg-bg-raised/20" : "border-slate-200 bg-slate-50/50"
+        }`}
       >
         <div className="max-w-[1350px] mx-auto px-4">
           <div className="text-center mb-14">
@@ -2954,7 +3087,9 @@ export default function DrugDiscoveryPage() {
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-4 text-sm text-text-secondary max-w-2xl mx-auto leading-relaxed font-medium">
-                Drug discovery is running out of room. Traditional approaches are limited to the same protein-coding areas mined for two decades. Quantum Codon maps candidates from sequence scanning directly to therapeutic solutions.
+                Drug discovery is running out of room. Traditional approaches are limited to the
+                same protein-coding areas mined for two decades. Quantum Codon maps candidates from
+                sequence scanning directly to therapeutic solutions.
               </p>
             </Reveal>
           </div>
@@ -2968,8 +3103,9 @@ export default function DrugDiscoveryPage() {
       {/* SECTION 3: KEY APPROACHES IN DRUG DISCOVERY (Act 2) */}
       <section
         id="approaches"
-        className={`relative z-10 py-24 border-b ${isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
-          }`}
+        className={`relative z-10 py-24 border-b ${
+          isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
+        }`}
       >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -2988,7 +3124,9 @@ export default function DrugDiscoveryPage() {
             </Reveal>
             <Reveal delay={250}>
               <p className="mt-4 text-sm text-text-secondary max-w-2xl mx-auto leading-relaxed font-medium">
-                Rising R&D costs and shrinking hit rates have led to a pipeline crisis. We map all standard approaches across hypothesis-driven, screening-based, source-based, and computational categories to deliver breakthrough results.
+                Rising R&D costs and shrinking hit rates have led to a pipeline crisis. We map all
+                standard approaches across hypothesis-driven, screening-based, source-based, and
+                computational categories to deliver breakthrough results.
               </p>
             </Reveal>
           </div>
@@ -3002,8 +3140,9 @@ export default function DrugDiscoveryPage() {
       {/* SECTION 4: VALUE CREATION & DARK GENOME (Act 3) */}
       <section
         id="value-realization"
-        className={`relative z-10 py-24 border-b ${isDark ? "bg-bg-raised/20 border-border-subtle" : "bg-slate-50/50 border-slate-200"
-          }`}
+        className={`relative z-10 py-24 border-b ${
+          isDark ? "bg-bg-raised/20 border-border-subtle" : "bg-slate-50/50 border-slate-200"
+        }`}
       >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -3022,7 +3161,9 @@ export default function DrugDiscoveryPage() {
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-4 text-sm text-text-secondary max-w-2xl mx-auto leading-relaxed font-medium">
-                Converting unmapped, silent genomic regions into high-affinity, first-in-class assets. We generate clean, defensible biological IP that solves the freedom-to-operate limitations of conventional chemistry.
+                Converting unmapped, silent genomic regions into high-affinity, first-in-class
+                assets. We generate clean, defensible biological IP that solves the
+                freedom-to-operate limitations of conventional chemistry.
               </p>
             </Reveal>
           </div>
@@ -3036,8 +3177,9 @@ export default function DrugDiscoveryPage() {
       {/* SECTION 5: OUT-LICENSING DATABASE (Act 4) */}
       <section
         id="out-licensing"
-        className={`relative z-10 py-24 border-b ${isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
-          }`}
+        className={`relative z-10 py-24 border-b ${
+          isDark ? "bg-obsidian border-border-subtle" : "bg-white border-slate-200"
+        }`}
       >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -3056,7 +3198,9 @@ export default function DrugDiscoveryPage() {
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-4 text-sm text-text-secondary max-w-2xl mx-auto leading-relaxed font-medium">
-                Browse our therapeutic assets catalog. Click on any molecular ID to inspect clinical indications, mechanism profiles, and validated test benchmarks available for licensing or co-development.
+                Browse our therapeutic assets catalog. Click on any molecular ID to inspect clinical
+                indications, mechanism profiles, and validated test benchmarks available for
+                licensing or co-development.
               </p>
             </Reveal>
           </div>
@@ -3070,8 +3214,9 @@ export default function DrugDiscoveryPage() {
       {/* SECTION 6: SCIENTIFIC EVIDENCE (Act 5) */}
       <section
         id="evidence"
-        className={`relative z-10 py-24 border-b ${isDark ? "bg-bg-raised/25 border-border-subtle" : "bg-slate-50/50 border-slate-200"
-          }`}
+        className={`relative z-10 py-24 border-b ${
+          isDark ? "bg-bg-raised/25 border-border-subtle" : "bg-slate-50/50 border-slate-200"
+        }`}
       >
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -3090,7 +3235,8 @@ export default function DrugDiscoveryPage() {
             </Reveal>
             <Reveal delay={200}>
               <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto leading-relaxed font-medium">
-                Our science is backed by over 15 years of discovery and 12+ major peer-reviewed papers mapping non-coding translation pathways.
+                Our science is backed by over 15 years of discovery and 12+ major peer-reviewed
+                papers mapping non-coding translation pathways.
               </p>
             </Reveal>
           </div>
@@ -3102,7 +3248,12 @@ export default function DrugDiscoveryPage() {
       </section>
 
       {/* Act 6: Conversion / Closing CTA */}
-      <section className="relative z-10 py-28 overflow-hidden border-t border-white/5" style={{ background: "linear-gradient(135deg, #060814 0%, #0a0f1e 40%, #0c0f18 70%, #07090d 100%)" }}>
+      <section
+        className="relative z-10 py-28 overflow-hidden border-t border-white/5"
+        style={{
+          background: "linear-gradient(135deg, #060814 0%, #0a0f1e 40%, #0c0f18 70%, #07090d 100%)",
+        }}
+      >
         {/* Decorative background glow orbs */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-accent-blue/10 blur-[120px] opacity-60" />
@@ -3111,7 +3262,14 @@ export default function DrugDiscoveryPage() {
         </div>
 
         {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
 
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <Reveal>
@@ -3154,9 +3312,18 @@ export default function DrugDiscoveryPage() {
           {/* Trust signals */}
           <Reveal delay={360}>
             <div className="mt-12 flex flex-wrap justify-center gap-6 text-[11px] text-[#64748b]">
-              <span className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-emerald-400 inline-block" />Replies within 1 business day</span>
-              <span className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-blue-400 inline-block" />Peer-reviewed science</span>
-              <span className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 rounded-full bg-purple-400 inline-block" />Amaravati, India HQ</span>
+              <span className="flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 inline-block" />
+                Replies within 1 business day
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-blue-400 inline-block" />
+                Peer-reviewed science
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-purple-400 inline-block" />
+                Amaravati, India HQ
+              </span>
             </div>
           </Reveal>
         </div>
