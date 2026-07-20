@@ -43,7 +43,7 @@ export default function OpenPositions() {
                   key={tab}
                   type="button"
                   onClick={() => setActive(tab)}
-                  className={`relative pb-3 text-sm md:text-base transition ${
+                  className={`relative pb-3 text-xs md:text-sm font-mono-data uppercase tracking-wider transition focus-visible:ring-2 focus-visible:ring-accent-blue rounded-sm ${
                     isActive
                       ? "text-accent-blue font-semibold"
                       : "text-muted-foreground hover:text-foreground"

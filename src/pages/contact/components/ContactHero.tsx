@@ -18,8 +18,8 @@ export function ContactHero() {
               className="font-semibold leading-[1.1] text-foreground"
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 3.25rem)" }}
             >
-              <span className="block whitespace-nowrap">Your Goals,</span>
-              <span className="block whitespace-nowrap">Our Commitment</span>
+              <span className="block">Your Goals,</span>
+              <span className="block">Our Commitment</span>
               <span className="font-serif-italic mt-2 block" style={{ color: "#2563eb" }}>
                 — Let&rsquo;s Build Together
               </span>

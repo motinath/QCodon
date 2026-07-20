@@ -13,8 +13,7 @@ import appCss from "../styles.css?url";
 import { ThemeProvider, themeBootstrapScript } from "../components/shared/ThemeProvider";
 import { ContactModalProvider } from "../components/shared/ContactModal";
 import { QcNavbar } from "../components/layout/QcNavbar";
-import QcPreloader from "../components/layout/QcPreloader";
-import QcRouteSwipe from "../components/layout/QcRouteSwipe";
+import QcPreloader3D from "../components/layout/QcPreloader3D";
 import { SiteFooter } from "../components/layout/SiteFooter";
 import QcChatbot from "../components/QcChatbot";
 
@@ -106,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap",
       },
       { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
@@ -139,7 +138,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <ContactModalProvider>
-          <QcPreloader />
+          <QcPreloader3D />
           <QcNavbar />
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />

@@ -54,20 +54,20 @@ export default function CaseStudies() {
         {cases.map((c) => (
           <article
             key={c.title}
-            className="p-7 rounded-2xl border border-foreground/10 bg-white/60 dark:bg-white/5 backdrop-blur grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-6 items-start"
+            className="p-7 rounded-2xl border border-foreground/10 bg-white/60 dark:bg-white/5 backdrop-blur grid grid-cols-[repeat(auto-fit,minmax(min(100%,300px),1fr))] gap-6 items-start sci-panel"
           >
             <div>
-              <p className="text-[10px] tracking-[0.3em] text-accent-emerald uppercase">{c.tag}</p>
+              <p className="text-[10px] font-mono-data tracking-[0.3em] text-accent-emerald uppercase">{c.tag}</p>
               <h2 className="mt-2 font-serif-display text-2xl leading-snug">{c.title}</h2>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed max-w-2xl">
                 {c.summary}
               </p>
             </div>
             <div className="md:text-right">
-              <div className="font-bagel text-3xl bg-gradient-to-r from-accent-blue to-accent-emerald bg-clip-text text-transparent">
+              <div className="font-mono-data font-bold text-2xl md:text-3xl bg-gradient-to-r from-accent-blue to-accent-emerald bg-clip-text text-transparent">
                 {c.metric}
               </div>
-              <p className="text-xs text-muted-foreground mt-1">Outcome</p>
+              <p className="text-xs font-mono-data uppercase tracking-wider text-muted-foreground mt-1">Key Outcome</p>
             </div>
           </article>
         ))}

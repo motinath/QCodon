@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "../../lib/router-compat";
 import SkyToggle from "@/components/ui/sky-toggle";
-import { ChevronDown, Info, Briefcase, BookOpen, FileText, Microscope } from "lucide-react";
+import { ChevronDown, Info, Briefcase, BookOpen, FileText, Microscope, Menu, X, ChevronRight } from "lucide-react";
 import { industries } from "../../lib/industries-data";
 import { offerings } from "../../lib/services-data";
 import { useTheme } from "../shared/ThemeProvider";
@@ -67,6 +67,7 @@ const industriesItems = industries.map((i) => ({
 
 export function QcNavbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const offeringsRef = useRef<HTMLDivElement | null>(null);
   const companyRef = useRef<HTMLDivElement | null>(null);
@@ -416,6 +417,7 @@ export function QcNavbar() {
           </Link>
         </nav>
 
+        {/* Desktop CTA & Theme Toggle */}
         <div className="hidden md:flex items-center gap-3">
           <Link
             to="/contact"
@@ -429,7 +431,113 @@ export function QcNavbar() {
             aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
           />
         </div>
+
+        {/* Mobile Hamburger & Actions */}
+        <div className="flex md:hidden items-center gap-2">
+          <SkyToggle
+            checked={theme === "dark"}
+            onChange={(checked) => setTheme(checked ? "dark" : "light")}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          />
+          <button
+            type="button"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="p-2 rounded-lg text-foreground hover:bg-black/5 dark:hover:bg-white/10 transition-colors focus:outline-none"
+            aria-label="Toggle mobile menu"
+          >
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
+
+      {/* Responsive Mobile Drawer Navigation */}
+      {mobileOpen && (
+        <div className="md:hidden fixed inset-x-0 top-16 bottom-0 bg-background/95 backdrop-blur-2xl z-50 overflow-y-auto px-6 py-6 border-t border-border flex flex-col justify-between animate-fade-in">
+          <div className="space-y-6">
+            <div>
+              <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-accent-blue mb-3">
+                Offerings & Services
+              </p>
+              <div className="grid grid-cols-1 gap-2">
+                {offerings.map((o) => (
+                  <Link
+                    key={o.slug}
+                    to={`/services/${o.slug}`}
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center justify-between p-3 rounded-xl bg-card border border-border/60 text-sm font-medium text-foreground hover:border-accent-blue transition-colors"
+                  >
+                    <span>{o.title}</span>
+                    <ChevronRight className="w-4 h-4 text-muted-foreground" />
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-accent-purple mb-3">
+                Company & Insights
+              </p>
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  to="/about"
+                  onClick={() => setMobileOpen(false)}
+                  className="p-3 rounded-xl bg-card border border-border/60 text-xs font-semibold text-foreground text-center"
+                >
+                  About Us
+                </Link>
+                <Link
+                  to="/research"
+                  onClick={() => setMobileOpen(false)}
+                  className="p-3 rounded-xl bg-card border border-border/60 text-xs font-semibold text-foreground text-center"
+                >
+                  Research
+                </Link>
+                <Link
+                  to="/blogs"
+                  onClick={() => setMobileOpen(false)}
+                  className="p-3 rounded-xl bg-card border border-border/60 text-xs font-semibold text-foreground text-center"
+                >
+                  Blogs
+                </Link>
+                <Link
+                  to="/case-studies"
+                  onClick={() => setMobileOpen(false)}
+                  className="p-3 rounded-xl bg-card border border-border/60 text-xs font-semibold text-foreground text-center"
+                >
+                  Case Studies
+                </Link>
+                <Link
+                  to="/careers"
+                  onClick={() => setMobileOpen(false)}
+                  className="p-3 rounded-xl bg-card border border-border/60 text-xs font-semibold text-foreground text-center"
+                >
+                  Careers
+                </Link>
+                <Link
+                  to="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="p-3 rounded-xl bg-card border border-border/60 text-xs font-semibold text-foreground text-center"
+                >
+                  Contact
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="pt-6 border-t border-border/40 mt-6 space-y-3">
+            <Link
+              to="/contact"
+              onClick={() => setMobileOpen(false)}
+              className="w-full py-3 rounded-full bg-accent-blue text-white text-center font-semibold text-sm block shadow-lg shadow-accent-blue/20"
+            >
+              Connect with us
+            </Link>
+            <p className="text-center text-xs text-muted-foreground">
+              Quantum Codon — Powering the next-generation bioeconomy
+            </p>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
