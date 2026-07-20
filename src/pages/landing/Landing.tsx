@@ -1,8 +1,6 @@
 import { useEffect, useRef } from "react";
 import heroVideo from "./hero.mp4";
-import { QcAbout } from "./components/QcAbout";
-import { QcBlogs } from "./components/QcBlogs";
-import { QcPipeline } from "@/components/shared/QcPipeline";
+import { QcLandingContent } from "./components/QcLandingContent";
 
 export default function Landing() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -47,15 +45,11 @@ export default function Landing() {
             A scientific platform unlocking the dark genome — non-expressing DNA and non-translating
             RNA — to design first-in-class therapeutic molecules.
           </p>
-
-          {/* Removed links and contact info pill as requested */}
         </div>
       </section>
 
       {/* Content Sections */}
-      <QcAbout />
-      <QcPipeline />
-      <QcBlogs />
+      <QcLandingContent />
     </div>
   );
 }
