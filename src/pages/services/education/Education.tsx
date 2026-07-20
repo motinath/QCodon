@@ -496,10 +496,10 @@ export default function EducationPage() {
 
                       {/* Overlaid Badges */}
                       <div className="absolute top-3.5 left-3.5 flex flex-wrap gap-1.5">
-                        <span className="text-[10px] tracking-wide font-bold uppercase rounded-md px-2.5 py-1 bg-slate-900/90 text-white backdrop-blur shadow-sm">
+                        <span className="text-xs tracking-wide font-bold uppercase rounded-md px-2.5 py-1 bg-slate-900/90 text-white backdrop-blur shadow-sm">
                           {item.categoryType}
                         </span>
-                        <span className="text-[10px] tracking-wide font-bold uppercase rounded-md px-2.5 py-1 bg-[#10b981]/90 text-white backdrop-blur shadow-sm">
+                        <span className="text-xs tracking-wide font-bold uppercase rounded-md px-2.5 py-1 bg-[#10b981]/90 text-white backdrop-blur shadow-sm">
                           {item.topic}
                         </span>
                       </div>
@@ -509,7 +509,7 @@ export default function EducationPage() {
                     <div className="p-5 flex-1 flex flex-col justify-between">
                       <div>
                         {/* Duration or Date */}
-                        <div className="text-[11px] font-semibold text-[#10b981] tracking-wider uppercase mb-2">
+                        <div className="text-xs font-bold text-[#10b981] tracking-wider uppercase mb-2">
                           {item.durationOrDate}
                         </div>
 

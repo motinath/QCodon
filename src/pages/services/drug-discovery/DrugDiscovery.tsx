@@ -497,23 +497,23 @@ export function InteractiveDiscoveryPipeline({ isDark }: { isDark: boolean }) {
                   </div>
 
                   {/* Stage Number Label */}
-                  <span className="text-[10px] font-mono text-text-tertiary block mb-1">
+                  <span className="text-xs font-mono font-bold text-text-tertiary block mb-1">
                     {stage.num}
                   </span>
 
                   {/* Stage Name */}
-                  <h4 className="font-sans text-xs md:text-sm font-semibold text-text-primary leading-tight mb-2.5">
+                  <h4 className="font-sans text-sm font-semibold text-text-primary leading-tight mb-2.5">
                     {stage.name}
                   </h4>
 
                   {/* Description Centered */}
-                  <p className="text-[11px] text-text-secondary leading-relaxed mb-4 font-medium min-h-[72px]">
+                  <p className="text-xs text-text-secondary leading-relaxed mb-4 font-medium min-h-[72px]">
                     {stage.details}
                   </p>
 
                   {/* Bottom tag pill */}
                   <div
-                    className={`mt-auto px-2 py-0.5 text-[8px] font-mono font-bold border rounded-full transition-colors duration-350 ${
+                    className={`mt-auto px-2.5 py-1 text-xs font-mono font-bold border rounded-full transition-colors duration-350 ${
                       isCurrent || isReached
                         ? stage.badgeColor
                         : "border-border-subtle/20 text-text-secondary/80 bg-border-subtle/10"
@@ -676,11 +676,11 @@ export function KeyApproachesGrid({ isDark }: { isDark: boolean }) {
             >
               <div>
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-[9px] font-mono font-bold tracking-widest text-text-tertiary uppercase">
+                  <span className="text-xs font-mono font-bold tracking-widest text-text-tertiary uppercase">
                     Approach {idx + 1}
                   </span>
                   <span
-                    className={`px-2 py-0.5 rounded text-[8px] font-mono font-bold border uppercase tracking-wider flex items-center gap-1.5 ${item.color}`}
+                    className={`px-2.5 py-1 rounded text-xs font-mono font-bold border uppercase tracking-wider flex items-center gap-1.5 ${item.color}`}
                   >
                     <span className={`h-1.5 w-1.5 rounded-full ${item.dot}`} />
                     {item.catLabel}
@@ -691,7 +691,7 @@ export function KeyApproachesGrid({ isDark }: { isDark: boolean }) {
                   {item.title}
                 </h4>
 
-                <p className="text-[10px] font-mono text-accent-blue dark:text-accent-emerald font-semibold uppercase tracking-wide mb-3">
+                <p className="text-xs font-mono text-accent-blue dark:text-accent-emerald font-bold uppercase tracking-wide mb-3">
                   {item.subtitle}
                 </p>
 
@@ -700,7 +700,7 @@ export function KeyApproachesGrid({ isDark }: { isDark: boolean }) {
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-border-subtle/20 flex justify-between items-center text-[9px] font-mono text-text-tertiary">
+              <div className="mt-4 pt-3 border-t border-border-subtle/20 flex justify-between items-center text-xs font-mono text-text-tertiary font-semibold">
                 <span>Standardized Target Lock</span>
                 <span>Active Model</span>
               </div>
@@ -1108,7 +1108,7 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
       {/* Main Table/Grid */}
       <div className="overflow-hidden rounded-2xl border border-border-subtle/80 bg-bg-raised/10 backdrop-blur shadow-xl shadow-slate-100/50 dark:shadow-none">
         {/* Desktop Header */}
-        <div className="hidden lg:grid grid-cols-12 gap-4 px-6 py-4 border-b border-border-subtle/40 bg-bg-raised/40 text-[10px] font-mono uppercase tracking-wider font-bold text-text-tertiary">
+        <div className="hidden lg:grid grid-cols-12 gap-4 px-6 py-4 border-b border-border-subtle/40 bg-bg-raised/40 text-xs font-mono uppercase tracking-wider font-bold text-text-tertiary">
           <div className="col-span-1">ID</div>
           <div className="col-span-2">Material</div>
           <div className="col-span-2">Market / Indication</div>
@@ -1130,7 +1130,7 @@ export function OutLicensingDatabase({ isDark }: { isDark: boolean }) {
                 setMaterialFilter("all");
                 setStageFilter("all");
               }}
-              className="text-[10px] font-mono uppercase text-accent-blue hover:underline"
+              className="text-xs font-mono font-bold uppercase text-accent-blue hover:underline"
             >
               Reset All Filters
             </button>

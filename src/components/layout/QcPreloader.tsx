@@ -75,7 +75,7 @@ export default function QcPreloader() {
           <div className="absolute inset-y-0 left-0 bg-gradient-to-r from-accent-blue via-accent-purple to-accent-emerald rounded-full animate-preload-progress" />
         </div>
 
-        <p className="text-[10px] tracking-[0.4em] uppercase text-slate-400 font-mono mt-4 animate-pulse">
+        <p className="text-xs sm:text-sm tracking-[0.3em] uppercase text-slate-300 font-mono font-bold mt-4 animate-pulse">
           Quantum Initiative
         </p>
       </div>

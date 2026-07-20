@@ -69,7 +69,7 @@ function Reveal({
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <p className="text-[11px] font-mono tracking-[0.32em] text-emerald-600 uppercase">{children}</p>
+    <p className="text-xs font-mono font-semibold tracking-[0.25em] text-emerald-600 dark:text-emerald-400 uppercase">{children}</p>
   );
 }
 
@@ -153,7 +153,7 @@ function Hero({ openContactModal }: { openContactModal: () => void }) {
         <Reveal>
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/60 shadow-sm">
             <Compass className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-            <span className="text-[11px] font-mono tracking-[0.3em] uppercase text-emerald-700 dark:text-emerald-400">
+            <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-emerald-700 dark:text-emerald-400">
               Regulatory & Compliance
             </span>
           </div>

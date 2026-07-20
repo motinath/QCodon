@@ -48,7 +48,7 @@ export function QcUntapped() {
               </div>
             ))}
           </div>
-          <p className="mt-5 text-[11px] text-muted-foreground leading-relaxed">
+          <p className="mt-5 text-xs text-muted-foreground font-medium leading-relaxed">
             Approximate proportions vary by organism and annotation methodology. Class I + Class II
             form Deep Codon's therapeutic reservoir.
           </p>
@@ -69,7 +69,7 @@ export function QcUntapped() {
               />
             </div>
             <div className="mt-4 text-center">
-              <span className="text-[10px] tracking-[0.25em] uppercase font-mono text-accent-emerald font-semibold">
+              <span className="text-xs tracking-[0.25em] uppercase font-mono text-accent-emerald font-bold">
                 98% Dark Genome Reservoir
               </span>
             </div>

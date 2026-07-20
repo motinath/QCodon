@@ -71,7 +71,7 @@ export default function QcPreloader3D() {
           Quantum Codon
         </h1>
 
-        <p className="mt-4 font-mono-data text-xs md:text-sm font-semibold uppercase text-accent-blue animate-tagline-tracking">
+        <p className="mt-4 font-mono-data text-sm md:text-base font-bold uppercase text-blue-300 drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)] animate-tagline-tracking">
           Powering the Next-Generation Bioeconomy
         </p>
 

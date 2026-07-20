@@ -32,10 +32,12 @@ export default function Landing() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_45%,var(--background)_100%)]" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-          <p className="text-[11px] tracking-[0.35em] text-accent-blue dark:text-accent-blue font-semibold uppercase mb-8">
-            Quantum Codon - powering the next generation bioeconomy
-          </p>
-          <h1 className="font-serif-display text-5xl md:text-7xl leading-[1.05] text-foreground">
+          <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-background/90 dark:bg-black/80 border border-accent-blue/40 shadow-xl backdrop-blur-md mb-8">
+            <span className="text-xs sm:text-sm tracking-[0.18em] text-foreground dark:text-white font-bold uppercase">
+              Quantum Codon — Powering the Next-Generation Bioeconomy
+            </span>
+          </div>
+          <h1 className="font-serif-display text-5xl md:text-7xl leading-[1.05] text-foreground font-bold drop-shadow-sm">
             The genome holds a secret{" "}
             <em className="italic text-accent-purple dark:text-accent-purple">98%</em>.
             <br />

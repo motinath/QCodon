@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --font-size: 16px;
+  --font-size: 17.5px;
   --background: #f7f7f4;
   --foreground: #0f1115;
   --card: #ffffff;
@@ -170,6 +170,7 @@
       -apple-system,
       sans-serif;
     font-feature-settings: "ss01", "cv02", "cv11";
+    line-height: 1.65;
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
@@ -183,8 +184,8 @@
   .font-bagel,
   .font-serif-display {
     font-family: "Cormorant Garamond", "Times New Roman", serif;
-    font-weight: 500;
-    letter-spacing: -0.02em;
+    font-weight: 600;
+    letter-spacing: -0.015em;
   }
 
   .font-mono-data {
@@ -205,26 +206,26 @@
   /* Site-Wide Master Typography & Layout Utilities */
   .heading-hero {
     font-family: "Cormorant Garamond", "Times New Roman", serif;
-    font-weight: 500;
-    letter-spacing: -0.02em;
-    font-size: clamp(2.25rem, 5vw, 4.25rem);
-    line-height: 1.12;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+    line-height: 1.15;
   }
 
   .heading-section {
     font-family: "Cormorant Garamond", "Times New Roman", serif;
-    font-weight: 500;
-    letter-spacing: -0.015em;
-    font-size: clamp(1.875rem, 4vw, 3.25rem);
-    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    font-size: clamp(2.125rem, 4.5vw, 3.5rem);
+    line-height: 1.22;
   }
 
   .badge-meta {
     font-family: "Fira Code", "JetBrains Mono", monospace;
-    font-size: 0.75rem;
+    font-size: 0.8125rem;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
   }
 
   /* Micro-bordered scientific card styling (Sign 2 Fix) */
