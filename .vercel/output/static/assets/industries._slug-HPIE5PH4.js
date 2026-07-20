@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-DVpe7PXp.js";var t=e(),n=()=>(0,t.jsxs)(`div`,{className:`pt-32 pb-24 px-6 max-w-3xl mx-auto text-center`,children:[(0,t.jsx)(`p`,{className:`text-xs tracking-[0.3em] text-accent-emerald uppercase`,children:`404`}),(0,t.jsx)(`h1`,{className:`font-serif-display text-4xl mt-3`,children:`Industry not found`})]});export{n as notFoundComponent};
