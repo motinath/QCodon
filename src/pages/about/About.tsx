@@ -347,11 +347,11 @@ export default function About() {
 
             <div className="flex flex-col sm:flex-row items-center gap-4 shrink-0">
               <a
-                href="mailto:contact@quantumcodon.com"
+                href="mailto:contact@qcodon.com"
                 className="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-accent-blue hover:bg-accent-blue/90 text-white font-semibold text-sm transition-all shadow-lg hover:scale-105"
               >
                 <Mail className="w-4 h-4" />
-                <span>contact@quantumcodon.com</span>
+                <span>contact@qcodon.com</span>
               </a>
               <Link
                 to="/contact"

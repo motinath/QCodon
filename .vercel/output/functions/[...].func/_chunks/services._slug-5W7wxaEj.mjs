@@ -7,8 +7,8 @@ import { t as PageShell } from "../_PageShell-BkJHn740.mjs";
 import { n as useContactModal } from "./ContactModal-G1XSPA_v.mjs";
 import { t as Reveal } from "./Reveal-az3c4cn2.mjs";
 import { t as Card } from "./card-CzXpCsbD.mjs";
-import { i as offerings, o as useTheme, r as getOffering, t as Route } from "./services._slug-fZYjFj52.mjs";
-//#region dist/server/assets/services._slug-BCyytcNX.js
+import { i as offerings, o as useTheme, r as getOffering, t as Route } from "./services._slug-BnKXDniR.mjs";
+//#region dist/server/assets/services._slug-5W7wxaEj.js
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 var import_jsx_runtime = require_jsx_runtime();
 var import_lucide_react = require_lucide_react();
@@ -4614,17 +4614,17 @@ function BioMmgPage() {
 							className: "mt-8 flex flex-wrap justify-center gap-4",
 							children: [
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-									href: "mailto:investors@qcodon.com",
+									href: "mailto:contact@qcodon.com",
 									className: "px-6 py-3 rounded-full bg-foreground text-background text-sm font-semibold hover:opacity-90 transition flex items-center gap-2 shadow",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_lucide_react.Coins, { className: "w-4 h-4" }), "Request Investment Deck"]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-									href: "mailto:partners@qcodon.com",
+									href: "mailto:contact@qcodon.com",
 									className: "px-6 py-3 rounded-full bg-accent-blue text-white text-sm font-semibold hover:opacity-95 transition flex items-center gap-2 shadow",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_lucide_react.Calendar, { className: "w-4 h-4" }), "Schedule a Call"]
 								}),
 								/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-									href: "mailto:partners@qcodon.com",
+									href: "mailto:contact@qcodon.com",
 									className: "px-6 py-3 rounded-full border border-foreground/20 text-sm font-semibold hover:bg-foreground/5 transition flex items-center gap-2",
 									children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_lucide_react.Mail, { className: "w-4 h-4" }), "Partner With Us"]
 								})
@@ -5304,7 +5304,7 @@ function BioinformaticsPage() {
 									children: `from Bio import Entrez, SeqIO
 
 # Provide your institutional email
-Entrez.email = "research@qcodon.com"
+Entrez.email = "contact@qcodon.com"
 
 # Fetch SRA or RefSeq sequence
 print("Querying Entrez NCBI sequence database...")

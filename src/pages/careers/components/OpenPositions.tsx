@@ -82,7 +82,7 @@ export default function OpenPositions() {
                     <p className="text-xs text-muted-foreground mt-1">{j.type}</p>
                   </div>
                   <a
-                    href="mailto:careers@qcodon.com"
+                    href="mailto:contact@qcodon.com"
                     className="self-start md:self-auto inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2 text-xs font-semibold text-background hover:opacity-90 transition"
                   >
                     Apply Now <ArrowRight className="h-3.5 w-3.5" />
@@ -103,10 +103,10 @@ export default function OpenPositions() {
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm">
               <a
-                href="mailto:careers@qcodon.com"
+                href="mailto:contact@qcodon.com"
                 className="text-accent-blue font-medium hover:underline"
               >
-                ✉ careers@qcodon.com
+                ✉ contact@qcodon.com
               </a>
               <span className="text-muted-foreground hidden sm:inline">|</span>
               <a

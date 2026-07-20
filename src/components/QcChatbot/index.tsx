@@ -66,15 +66,15 @@ const KB_FALLBACK: Array<{ patterns: string[]; answer: string }> = [
   },
   {
     patterns: ["education", "training", "certification", "course", "learn", "program"],
-    answer: `🎓 **Education & Training** programs by Quantum Codon:\n• Dark Genome Mapping & Annotation\n• AI Structure Prediction (AlphaFold)\n• Quantum Molecular Dynamics\n• Synthetic Expression Genetics\n\nNext cohort: **July 15, 2026** | Contact: education@qcodon.com\n→ [Education Page](/education#academic-training)`,
+    answer: `🎓 **Education & Training** programs by Quantum Codon:\n• Dark Genome Mapping & Annotation\n• AI Structure Prediction (AlphaFold)\n• Quantum Molecular Dynamics\n• Synthetic Expression Genetics\n\nNext cohort: **July 15, 2026** | Contact: contact@qcodon.com\n→ [Education Page](/education#academic-training)`,
   },
   {
     patterns: ["career", "job", "position", "hire", "apply", "work"],
-    answer: `💼 **Open Positions at Quantum Codon**:\n• Computational Biologist (Full-Time · Amaravati)\n• Quantum Software Engineer (Full-Time/Hybrid)\n• Lead Regulatory Auditor (Full-Time/Hybrid)\n\nApply: careers@qcodon.com\n→ [Careers Page](/careers)`,
+    answer: `💼 **Open Positions at Quantum Codon**:\n• Computational Biologist (Full-Time · Amaravati)\n• Quantum Software Engineer (Full-Time/Hybrid)\n• Lead Regulatory Auditor (Full-Time/Hybrid)\n\nApply: contact@qcodon.com\n→ [Careers Page](/careers)`,
   },
   {
     patterns: ["contact", "email", "partner", "investor", "meeting", "reach"],
-    answer: `📬 **Contact Quantum Codon**:\n• General: contact@qcodon.com\n• Education: education@qcodon.com\n• Careers: careers@qcodon.com\n\nFor partnerships or investor enquiries → [Contact Page](/contact)`,
+    answer: `📬 **Contact Quantum Codon**:\n• Email: contact@qcodon.com\n\nFor partnerships or investor enquiries → [Contact Page](/contact)`,
   },
   {
     patterns: ["about", "who", "founder", "pawan", "dhar", "company", "history"],

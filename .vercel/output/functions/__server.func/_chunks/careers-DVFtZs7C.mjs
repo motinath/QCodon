@@ -3,7 +3,7 @@ import { n as require_jsx_runtime, r as require_react } from "../_libs/react+tan
 import { t as require_lucide_react } from "../_libs/lucide-react.mjs";
 import { t as PageShell } from "../_PageShell-BkJHn740.mjs";
 import { n as useContactModal } from "./ContactModal-G1XSPA_v.mjs";
-//#region dist/server/assets/careers-CV0QiSsr.js
+//#region dist/server/assets/careers-DVFtZs7C.js
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 var import_jsx_runtime = require_jsx_runtime();
 var import_lucide_react = require_lucide_react();
@@ -337,7 +337,7 @@ function OpenPositions() {
 									children: j.type
 								})
 							] }), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-								href: "mailto:careers@qcodon.com",
+								href: "mailto:contact@qcodon.com",
 								className: "self-start md:self-auto inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2 text-xs font-semibold text-background hover:opacity-90 transition",
 								children: ["Apply Now ", /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_lucide_react.ArrowRight, { className: "h-3.5 w-3.5" })]
 							})]
@@ -361,9 +361,9 @@ function OpenPositions() {
 								className: "mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm",
 								children: [
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("a", {
-										href: "mailto:careers@qcodon.com",
+										href: "mailto:contact@qcodon.com",
 										className: "text-accent-blue font-medium hover:underline",
-										children: "✉ careers@qcodon.com"
+										children: "✉ contact@qcodon.com"
 									}),
 									/* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", {
 										className: "text-muted-foreground hidden sm:inline",

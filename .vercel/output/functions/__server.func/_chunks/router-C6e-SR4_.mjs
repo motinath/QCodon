@@ -7,10 +7,10 @@ import { t as require_lucide_react } from "../_libs/lucide-react.mjs";
 import { n as useContactModal, t as ContactModalProvider } from "./ContactModal-G1XSPA_v.mjs";
 import { r as industries, t as Route$12 } from "./industries._slug-Bt496p4b.mjs";
 import { t as cn } from "./utils-C_uf36nf.mjs";
-import { a as themeBootstrapScript, i as offerings, n as ThemeProvider, o as useTheme, t as Route$13 } from "./services._slug-fZYjFj52.mjs";
+import { a as themeBootstrapScript, i as offerings, n as ThemeProvider, o as useTheme, t as Route$13 } from "./services._slug-BnKXDniR.mjs";
 import { t as QueryClient } from "../_libs/tanstack__query-core.mjs";
 import { o as motion, s as AnimatePresence } from "../_libs/framer-motion+[...].mjs";
-//#region dist/server/assets/router-Cc7ijWNY.js
+//#region dist/server/assets/router-C6e-SR4_.js
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 var import_jsx_runtime = require_jsx_runtime();
 var import_lucide_react = require_lucide_react();
@@ -794,7 +794,7 @@ Quantum Codon Pvt Ltd is a deep-tech biotechnology company that focuses on the "
 
 **Corporate Lab**: Amaravati Quantum Valley, Andhra Pradesh, India.
 
-**Email**: contact@qcodon.com | education: education@qcodon.com | careers: careers@qcodon.com
+**Email**: contact@qcodon.com
 
 ---
 
@@ -833,7 +833,7 @@ The website has the following pages and sections. Always guide users to the exac
 
 - **Careers** → URL: /careers
   - Open positions: Computational Biologist, Quantum Software Engineer, Lead Regulatory Auditor
-  - Apply: careers@qcodon.com
+  - Apply: contact@qcodon.com
 
 - **Contact** → URL: /contact
   - Partner with Quantum Codon, request investor deck, schedule meetings
@@ -973,7 +973,7 @@ Found at: /research#platform or /
 4. Synthetic Expression Genetics
 - Next cohort: July 15, 2026
 - Certified by Quantum Codon Pvt Ltd
-- Contact: education@qcodon.com
+- Contact: contact@qcodon.com
 
 ---
 
@@ -1106,7 +1106,7 @@ var KB_FALLBACK = [
 			"learn",
 			"program"
 		],
-		answer: `🎓 **Education & Training** programs by Quantum Codon:\n• Dark Genome Mapping & Annotation\n• AI Structure Prediction (AlphaFold)\n• Quantum Molecular Dynamics\n• Synthetic Expression Genetics\n\nNext cohort: **July 15, 2026** | Contact: education@qcodon.com\n→ [Education Page](/education#academic-training)`
+		answer: `🎓 **Education & Training** programs by Quantum Codon:\n• Dark Genome Mapping & Annotation\n• AI Structure Prediction (AlphaFold)\n• Quantum Molecular Dynamics\n• Synthetic Expression Genetics\n\nNext cohort: **July 15, 2026** | Contact: contact@qcodon.com\n→ [Education Page](/education#academic-training)`
 	},
 	{
 		patterns: [
@@ -1117,7 +1117,7 @@ var KB_FALLBACK = [
 			"apply",
 			"work"
 		],
-		answer: `💼 **Open Positions at Quantum Codon**:\n• Computational Biologist (Full-Time · Amaravati)\n• Quantum Software Engineer (Full-Time/Hybrid)\n• Lead Regulatory Auditor (Full-Time/Hybrid)\n\nApply: careers@qcodon.com\n→ [Careers Page](/careers)`
+		answer: `💼 **Open Positions at Quantum Codon**:\n• Computational Biologist (Full-Time · Amaravati)\n• Quantum Software Engineer (Full-Time/Hybrid)\n• Lead Regulatory Auditor (Full-Time/Hybrid)\n\nApply: contact@qcodon.com\n→ [Careers Page](/careers)`
 	},
 	{
 		patterns: [
@@ -1128,7 +1128,7 @@ var KB_FALLBACK = [
 			"meeting",
 			"reach"
 		],
-		answer: `📬 **Contact Quantum Codon**:\n• General: contact@qcodon.com\n• Education: education@qcodon.com\n• Careers: careers@qcodon.com\n\nFor partnerships or investor enquiries → [Contact Page](/contact)`
+		answer: `📬 **Contact Quantum Codon**:\n• Email: contact@qcodon.com\n\nFor partnerships or investor enquiries → [Contact Page](/contact)`
 	},
 	{
 		patterns: [
@@ -1780,7 +1780,7 @@ var Route$8 = createFileRoute("/education")({ beforeLoad: () => {
 		params: { slug: "education" }
 	});
 } });
-var $$splitComponentImporter$7 = () => import("./contact-CEZByq3V.mjs");
+var $$splitComponentImporter$7 = () => import("./contact-D1RZPr5w.mjs");
 var Route$7 = createFileRoute("/contact")({
 	head: () => ({ meta: [
 		{ title: "Contact — Quantum Codon" },
@@ -1818,7 +1818,7 @@ var Route$6 = createFileRoute("/case-studies")({
 	] }),
 	component: lazyRouteComponent($$splitComponentImporter$6, "component")
 });
-var $$splitComponentImporter$5 = () => import("./careers-CV0QiSsr.mjs");
+var $$splitComponentImporter$5 = () => import("./careers-DVFtZs7C.mjs");
 var Route$5 = createFileRoute("/careers")({
 	head: () => ({ meta: [{ title: "Careers — Quantum Codon" }, {
 		name: "description",
@@ -1828,7 +1828,7 @@ var Route$5 = createFileRoute("/careers")({
 });
 var $$splitComponentImporter$4 = () => import("./blogs-BO-Mf7Wp.mjs");
 var Route$4 = createFileRoute("/blogs")({ component: lazyRouteComponent($$splitComponentImporter$4, "component") });
-var $$splitComponentImporter$3 = () => import("./about-C7cyKXwt.mjs");
+var $$splitComponentImporter$3 = () => import("./about-BAhumYIS.mjs");
 var Route$3 = createFileRoute("/about")({
 	head: () => ({ meta: [{ title: "About — Quantum Codon" }, {
 		name: "description",

@@ -2,7 +2,7 @@ import { r as __toESM } from "../_runtime.mjs";
 import { n as require_jsx_runtime, r as require_react } from "../_libs/react+tanstack__react-query.mjs";
 import { k as notFound, m as createFileRoute, p as lazyRouteComponent } from "../_libs/@tanstack/react-router+[...].mjs";
 import { t as require_lucide_react } from "../_libs/lucide-react.mjs";
-//#region dist/server/assets/services._slug-fZYjFj52.js
+//#region dist/server/assets/services._slug-BnKXDniR.js
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 var import_jsx_runtime = require_jsx_runtime();
 var import_lucide_react = require_lucide_react();
@@ -388,7 +388,7 @@ var getOffering = (slug) => {
 	const normSlug = slug === "analytical-services" ? "analytical-service" : slug;
 	return offerings.find((o) => o.slug === normSlug);
 };
-var $$splitComponentImporter = () => import("./services._slug-BCyytcNX.mjs");
+var $$splitComponentImporter = () => import("./services._slug-5W7wxaEj.mjs");
 var $$splitErrorComponentImporter = () => import("./services._slug-DeT2LagJ.mjs");
 var $$splitNotFoundComponentImporter = () => import("./services._slug-BWNwkAHj.mjs");
 var Route = createFileRoute("/services/$slug")({

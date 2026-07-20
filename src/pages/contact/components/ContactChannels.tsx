@@ -16,8 +16,8 @@ const channels = [
     icon: LifeBuoy,
     title: "Talk to support",
     subtitle: "Already a customer? We're here whenever you need a hand.",
-    linkLabel: "support@qcodon.com",
-    href: "mailto:support@qcodon.com",
+    linkLabel: "contact@qcodon.com",
+    href: "mailto:contact@qcodon.com",
     // middle card: slides down from top
     from: "translateY(-80px)",
   },

@@ -514,21 +514,21 @@ export default function BioMmgPage() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <a
-              href="mailto:investors@qcodon.com"
+              href="mailto:contact@qcodon.com"
               className="px-6 py-3 rounded-full bg-foreground text-background text-sm font-semibold hover:opacity-90 transition flex items-center gap-2 shadow"
             >
               <Coins className="w-4 h-4" />
               Request Investment Deck
             </a>
             <a
-              href="mailto:partners@qcodon.com"
+              href="mailto:contact@qcodon.com"
               className="px-6 py-3 rounded-full bg-accent-blue text-white text-sm font-semibold hover:opacity-95 transition flex items-center gap-2 shadow"
             >
               <Calendar className="w-4 h-4" />
               Schedule a Call
             </a>
             <a
-              href="mailto:partners@qcodon.com"
+              href="mailto:contact@qcodon.com"
               className="px-6 py-3 rounded-full border border-foreground/20 text-sm font-semibold hover:bg-foreground/5 transition flex items-center gap-2"
             >
               <Mail className="w-4 h-4" />

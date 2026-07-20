@@ -3,7 +3,7 @@ import { n as require_jsx_runtime, r as require_react } from "../_libs/react+tan
 import { t as Link$1 } from "./router-compat-Byun9neG.mjs";
 import { t as require_lucide_react } from "../_libs/lucide-react.mjs";
 import { t as PageShell } from "../_PageShell-BkJHn740.mjs";
-//#region dist/server/assets/about-C7cyKXwt.js
+//#region dist/server/assets/about-BAhumYIS.js
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 var import_jsx_runtime = require_jsx_runtime();
 var import_lucide_react = require_lucide_react();
@@ -392,9 +392,9 @@ function About() {
 						}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", {
 							className: "flex flex-col sm:flex-row items-center gap-4 shrink-0",
 							children: [/* @__PURE__ */ (0, import_jsx_runtime.jsxs)("a", {
-								href: "mailto:contact@quantumcodon.com",
+								href: "mailto:contact@qcodon.com",
 								className: "inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-accent-blue hover:bg-accent-blue/90 text-white font-semibold text-sm transition-all shadow-lg hover:scale-105",
-								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_lucide_react.Mail, { className: "w-4 h-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "contact@quantumcodon.com" })]
+								children: [/* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_lucide_react.Mail, { className: "w-4 h-4" }), /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "contact@qcodon.com" })]
 							}), /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(Link$1, {
 								to: "/contact",
 								className: "inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/20 hover:bg-white/10 text-white text-sm font-medium transition-all",

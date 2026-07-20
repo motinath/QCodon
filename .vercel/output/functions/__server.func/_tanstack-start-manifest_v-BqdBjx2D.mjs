@@ -1,4 +1,4 @@
-//#region dist/server/assets/_tanstack-start-manifest_v-BMk-AkbT.js
+//#region dist/server/assets/_tanstack-start-manifest_v-BqdBjx2D.js
 var tsrStartManifest = () => ({ routes: {
 	__root__: {
 		filePath: "C:/Users/motinath_/Downloads/QCodon/src/routes/__root.tsx",
@@ -17,7 +17,7 @@ var tsrStartManifest = () => ({ routes: {
 		],
 		css: ["/assets/index-CMPyZMQP.css"],
 		preloads: [
-			"/assets/index-CxXujP-r.js",
+			"/assets/index-CtOIZcPk.js",
 			"/assets/jsx-runtime-DVpe7PXp.js",
 			"/assets/useStore-DcDjZIug.js",
 			"/assets/link-DPyCl2jx.js",
@@ -28,14 +28,14 @@ var tsrStartManifest = () => ({ routes: {
 		scripts: [{ attrs: {
 			type: "module",
 			async: !0,
-			src: "/assets/index-CxXujP-r.js"
+			src: "/assets/index-CtOIZcPk.js"
 		} }]
 	},
 	"/": {
 		filePath: "C:/Users/motinath_/Downloads/QCodon/src/routes/index.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/routes-BN6iKnl_.js",
+			"/assets/routes-D5CUro0-.js",
 			"/assets/building-2-o7-flElB.js",
 			"/assets/sparkles-BqyjtEfS.js",
 			"/assets/database-DL7orRHa.js",
@@ -46,39 +46,39 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "C:/Users/motinath_/Downloads/QCodon/src/routes/about.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/about-B0CrPa2U.js",
+			"/assets/about-DYkhiYO7.js",
 			"/assets/arrow-right-BzZSIK-s.js",
 			"/assets/award-L_8ypVKg.js",
 			"/assets/sparkles-BqyjtEfS.js",
 			"/assets/flask-conical-BnhbO9ZQ.js",
 			"/assets/mail-DUuuv2pA.js",
-			"/assets/_PageShell-Cjc0gSQ8.js"
+			"/assets/_PageShell-E4ogZJ1q.js"
 		]
 	},
 	"/blogs": {
 		filePath: "C:/Users/motinath_/Downloads/QCodon/src/routes/blogs.tsx",
 		children: ["/blogs/$slug", "/blogs/"],
-		preloads: ["/assets/blogs-Be5WoNzP.js"]
+		preloads: ["/assets/blogs-B7hFQcBG.js"]
 	},
 	"/careers": {
 		filePath: "C:/Users/motinath_/Downloads/QCodon/src/routes/careers.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/careers-CexMwyBi.js",
+			"/assets/careers-Cvk5dhD6.js",
 			"/assets/arrow-right-BzZSIK-s.js",
-			"/assets/_PageShell-Cjc0gSQ8.js"
+			"/assets/_PageShell-E4ogZJ1q.js"
 		]
 	},
 	"/case-studies": {
 		filePath: "C:/Users/motinath_/Downloads/QCodon/src/routes/case-studies.tsx",
 		children: void 0,
-		preloads: ["/assets/case-studies-BKiIuMtW.js"]
+		preloads: ["/assets/case-studies-BjpykSQL.js"]
 	},
 	"/contact": {
 		filePath: "C:/Users/motinath_/Downloads/QCodon/src/routes/contact.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/contact-DsKdO4hm.js",
+			"/assets/contact-HabjjAKp.js",
 			"/assets/arrow-right-BzZSIK-s.js",
 			"/assets/Reveal-B8jAJ0gU.js"
 		]
@@ -87,16 +87,16 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "C:/Users/motinath_/Downloads/QCodon/src/routes/research.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/research-CHkYuOCG.js",
-			"/assets/card-DxmAvuFg.js",
-			"/assets/_PageShell-Cjc0gSQ8.js"
+			"/assets/research-CCmPwQ3i.js",
+			"/assets/card-BldtHrrR.js",
+			"/assets/_PageShell-E4ogZJ1q.js"
 		]
 	},
 	"/blogs/$slug": {
 		filePath: "C:/Users/motinath_/Downloads/QCodon/src/routes/blogs/$slug.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/_slug-DyLhPry9.js",
+			"/assets/_slug-CJBc_hxG.js",
 			"/assets/calendar-r69ArtMr.js",
 			"/assets/sparkles-BqyjtEfS.js",
 			"/assets/users-CYkJmRV1.js",
@@ -108,8 +108,8 @@ var tsrStartManifest = () => ({ routes: {
 		filePath: "C:/Users/motinath_/Downloads/QCodon/src/routes/industries.$slug.tsx",
 		children: void 0,
 		preloads: [
+			"/assets/industries._slug-BZjp3gzC.js",
 			"/assets/industries._slug-BrgBJlJf.js",
-			"/assets/industries._slug-DzCaWMeb.js",
 			"/assets/industries._slug-HPIE5PH4.js"
 		]
 	},
@@ -118,8 +118,7 @@ var tsrStartManifest = () => ({ routes: {
 		children: void 0,
 		preloads: [
 			"/assets/services._slug-BrgBJlJf.js",
-			"/assets/services._slug-Dtrb8viB.js",
-			"/assets/services._slug-OJYkaz1d.js",
+			"/assets/services._slug-D1UlxG3s.js",
 			"/assets/arrow-right-BzZSIK-s.js",
 			"/assets/calendar-r69ArtMr.js",
 			"/assets/sparkles-BqyjtEfS.js",
@@ -130,15 +129,16 @@ var tsrStartManifest = () => ({ routes: {
 			"/assets/mail-DUuuv2pA.js",
 			"/assets/trending-up-CNGmJl4w.js",
 			"/assets/Reveal-B8jAJ0gU.js",
-			"/assets/card-DxmAvuFg.js",
-			"/assets/_PageShell-Cjc0gSQ8.js"
+			"/assets/card-BldtHrrR.js",
+			"/assets/_PageShell-E4ogZJ1q.js",
+			"/assets/services._slug-Dtrb8viB.js"
 		]
 	},
 	"/services/regulatory-compliance": {
 		filePath: "C:/Users/motinath_/Downloads/QCodon/src/routes/services.regulatory-compliance.tsx",
 		children: void 0,
 		preloads: [
-			"/assets/services.regulatory-compliance-DiL1HBLH.js",
+			"/assets/services.regulatory-compliance-DuU6MxFj.js",
 			"/assets/arrow-right-BzZSIK-s.js",
 			"/assets/award-L_8ypVKg.js",
 			"/assets/building-2-o7-flElB.js",
@@ -150,7 +150,7 @@ var tsrStartManifest = () => ({ routes: {
 	"/blogs/": {
 		filePath: "C:/Users/motinath_/Downloads/QCodon/src/routes/blogs/index.tsx",
 		children: void 0,
-		preloads: ["/assets/blogs-T1EcpSYc.js"]
+		preloads: ["/assets/blogs-nyK1JkUQ.js"]
 	}
 } });
 //#endregion

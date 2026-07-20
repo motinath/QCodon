@@ -5,7 +5,7 @@ import { t as require_lucide_react } from "../_libs/lucide-react.mjs";
 import { t as Reveal } from "./Reveal-az3c4cn2.mjs";
 import { n as objectType, r as stringType, t as literalType } from "../_libs/zod.mjs";
 import { t as toast } from "../_libs/sonner.mjs";
-//#region dist/server/assets/contact-CEZByq3V.js
+//#region dist/server/assets/contact-D1RZPr5w.js
 var import_react = /* @__PURE__ */ __toESM(require_react(), 1);
 var import_jsx_runtime = require_jsx_runtime();
 var import_lucide_react = require_lucide_react();
@@ -107,8 +107,8 @@ var channels = [
 		icon: import_lucide_react.LifeBuoy,
 		title: "Talk to support",
 		subtitle: "Already a customer? We're here whenever you need a hand.",
-		linkLabel: "support@qcodon.com",
-		href: "mailto:support@qcodon.com",
+		linkLabel: "contact@qcodon.com",
+		href: "mailto:contact@qcodon.com",
 		from: "translateY(-80px)"
 	},
 	{

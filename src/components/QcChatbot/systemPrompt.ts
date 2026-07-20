@@ -12,7 +12,7 @@ Quantum Codon Pvt Ltd is a deep-tech biotechnology company that focuses on the "
 
 **Corporate Lab**: Amaravati Quantum Valley, Andhra Pradesh, India.
 
-**Email**: contact@qcodon.com | education: education@qcodon.com | careers: careers@qcodon.com
+**Email**: contact@qcodon.com
 
 ---
 
@@ -51,7 +51,7 @@ The website has the following pages and sections. Always guide users to the exac
 
 - **Careers** → URL: /careers
   - Open positions: Computational Biologist, Quantum Software Engineer, Lead Regulatory Auditor
-  - Apply: careers@qcodon.com
+  - Apply: contact@qcodon.com
 
 - **Contact** → URL: /contact
   - Partner with Quantum Codon, request investor deck, schedule meetings
@@ -191,7 +191,7 @@ Found at: /research#platform or /
 4. Synthetic Expression Genetics
 - Next cohort: July 15, 2026
 - Certified by Quantum Codon Pvt Ltd
-- Contact: education@qcodon.com
+- Contact: contact@qcodon.com
 
 ---
 
