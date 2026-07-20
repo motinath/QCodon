@@ -34,14 +34,14 @@ export default function ResearchPage() {
 
   return (
     <PageShell className="!pb-0" spotlight="from-accent-emerald/15 via-transparent to-transparent">
-      <div className="max-w-6xl mx-auto px-6 mb-12 text-center">
-        <p className="text-xs tracking-[0.3em] text-accent-blue uppercase font-semibold">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 text-center">
+        <p className="badge-meta text-accent-blue">
           Scientific Platform
         </p>
-        <h1 className="font-serif-display text-4xl md:text-6xl mt-4 leading-tight">
+        <h1 className="heading-hero mt-4">
           Dark Genome Research
         </h1>
-        <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-sm leading-relaxed">
+        <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
           Explore our experimental proof, genomic classifications, and the technological framework
           behind the Deep Codon Initiative.
         </p>
@@ -59,7 +59,7 @@ export default function ResearchPage() {
                 else if (tab.id === "results") window.location.hash = "results";
                 else if (tab.id === "publications") window.location.hash = "paper";
               }}
-              className={`px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider transition-all duration-300 border ${
+              className={`px-5 py-2.5 rounded-full text-xs font-mono-data uppercase font-semibold tracking-wider transition-all duration-300 border focus-visible:ring-2 focus-visible:ring-accent-blue ${
                 activeTab === tab.id
                   ? "bg-foreground text-background border-foreground shadow-md font-semibold"
                   : "bg-white/5 border-white/10 hover:bg-white/10 text-muted-foreground hover:text-foreground"

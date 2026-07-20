@@ -92,12 +92,12 @@ function ServiceDetailPage() {
             <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-blue/10 text-accent-blue">
               <Icon className="h-6 w-6" />
             </div>
-            <span className={`font-mono text-xs tracking-widest uppercase ${o.accentText}`}>
+            <span className={`badge-meta ${o.accentText}`}>
               {o.num} · {o.badge}
             </span>
           </div>
-          <p className="text-xs tracking-[0.3em] text-accent-emerald uppercase">{o.hero.eyebrow}</p>
-          <h1 className="font-serif-display text-4xl md:text-6xl mt-4 leading-tight">
+          <p className="badge-meta text-accent-emerald">{o.hero.eyebrow}</p>
+          <h1 className="heading-hero mt-4">
             {o.hero.headline}
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-3xl leading-relaxed">

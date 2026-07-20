@@ -80,21 +80,21 @@ export function QcLandingContent() {
   return (
     <div className="w-full flex flex-col space-y-0 text-foreground transition-colors duration-300">
       {/* SECTION 1: Single-Window Overview & Amaravati Quantum Valley */}
-      <section className="relative py-24 px-6 bg-gradient-to-b from-transparent via-[#f8fafc]/50 to-[#f1f5f9] dark:via-[#0c121e]/50 dark:to-[#080d16] border-b border-border/40">
+      <section className="relative py-20 md:py-24 px-4 sm:px-6 lg:px-8 section-highlight">
         <div className="max-w-5xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-blue/10 dark:bg-accent-blue/20 border border-accent-blue/20 text-accent-blue font-semibold text-xs tracking-wider uppercase mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-blue/10 dark:bg-accent-blue/20 border border-accent-blue/20 text-accent-blue badge-meta mb-6">
             <Building2 className="w-3.5 h-3.5" />
-            <span>Amaravati Quantum Valley Mover</span>
+            <span>AMARAVATI QUANTUM VALLEY FIRST MOVER</span>
           </div>
 
-          <h2 className="font-serif-display text-3xl md:text-5xl font-normal leading-tight text-foreground">
+          <h2 className="heading-section text-foreground">
             Quantum Codon – powering the next-generation bioeconomy
           </h2>
 
-          <div className="mt-8 p-8 md:p-10 rounded-3xl bg-white/70 dark:bg-white/[0.03] backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-xl relative overflow-hidden group">
+          <div className="mt-8 p-6 md:p-10 rounded-3xl bg-white/70 dark:bg-white/[0.03] backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-xl relative overflow-hidden group sci-panel">
             <div className="absolute top-0 right-0 w-96 h-96 bg-accent-blue/10 rounded-full filter blur-3xl -z-10 transition-all duration-700 group-hover:scale-125" />
             
-            <p className="text-lg md:text-xl text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
+            <p className="text-base md:text-lg text-slate-800 dark:text-slate-200 font-medium leading-relaxed">
               As a first life sciences mover in the Amaravati Quantum Valley, Quantum Codon brings together biological innovation, computational intelligence, and compliance management in a single-window solution, eliminating fragmentation across the biotech value chain.
             </p>
           </div>
@@ -102,14 +102,14 @@ export function QcLandingContent() {
       </section>
 
       {/* SECTION 2: Changing the Status Quo */}
-      <section className="relative py-24 px-6 bg-[#f8fafc] dark:bg-[#0f172a] border-b border-border/40">
+      <section className="relative py-20 md:py-24 px-4 sm:px-6 lg:px-8 section-base">
         <div className="max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-12 gap-10 items-stretch">
+          <div className="grid md:grid-cols-12 gap-8 md:gap-10 items-stretch">
             {/* Traditional Fragmented Challenge Card */}
-            <div className="md:col-span-6 p-8 rounded-3xl bg-rose-500/5 dark:bg-rose-500/10 border border-rose-500/20 flex flex-col justify-between">
+            <div className="md:col-span-6 p-6 md:p-8 rounded-3xl bg-rose-500/5 dark:bg-rose-500/10 border border-rose-500/20 flex flex-col justify-between sci-panel">
               <div>
-                <span className="text-xs tracking-widest uppercase font-semibold text-rose-600 dark:text-rose-400">
-                  The Problem
+                <span className="badge-meta text-rose-600 dark:text-rose-400">
+                  SYSTEMIC CHALLENGE
                 </span>
                 <h3 className="font-serif-display text-2xl md:text-3xl mt-3 mb-4 text-foreground">
                   Biotechnology innovation remains fragmented.
@@ -118,17 +118,17 @@ export function QcLandingContent() {
                   Drug discovery teams work in one environment, bioinformatics analyses are conducted in another, manufacturing development is outsourced elsewhere, and regulatory compliance often becomes an afterthought.
                 </p>
               </div>
-              <div className="mt-6 pt-6 border-t border-rose-500/20 text-xs text-rose-700 dark:text-rose-300 font-medium leading-relaxed">
+              <div className="mt-6 pt-6 border-t border-rose-500/20 text-xs font-mono-data text-rose-700 dark:text-rose-300 font-medium leading-relaxed">
                 This fragmentation increases costs, extends development timelines, creates data silos, and introduces execution risk at every stage of the product lifecycle.
               </div>
             </div>
 
             {/* Quantum Codon Transformation Card */}
-            <div className="md:col-span-6 p-8 rounded-3xl bg-gradient-to-br from-accent-blue/10 via-accent-purple/10 to-accent-emerald/10 dark:from-accent-blue/20 dark:to-accent-purple/20 border border-accent-blue/30 flex flex-col justify-between shadow-lg relative overflow-hidden">
+            <div className="md:col-span-6 p-6 md:p-8 rounded-3xl bg-gradient-to-br from-accent-blue/10 via-accent-purple/10 to-accent-emerald/10 dark:from-accent-blue/20 dark:to-accent-purple/20 border border-accent-blue/30 flex flex-col justify-between shadow-lg relative overflow-hidden sci-panel">
               <div>
-                <span className="inline-flex items-center gap-1.5 text-xs tracking-widest uppercase font-bold text-accent-blue dark:text-accent-blue">
+                <span className="inline-flex items-center gap-1.5 badge-meta text-accent-blue">
                   <Sparkles className="w-3.5 h-3.5" />
-                  The Transformation
+                  UNIFIED ARCHITECTURE
                 </span>
                 <h3 className="font-serif-display text-2xl md:text-3xl mt-3 mb-4 text-foreground">
                   Quantum Codon is changing that status quo.
@@ -149,13 +149,13 @@ export function QcLandingContent() {
       </section>
 
       {/* SECTION 3: Why Quantum Codon */}
-      <section className="relative py-24 px-6 bg-[#edf2f7] dark:bg-[#0a1118] border-b border-border/40">
+      <section className="relative py-20 md:py-24 px-4 sm:px-6 lg:px-8 section-tint">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs tracking-[0.3em] uppercase text-accent-purple font-semibold">
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+            <span className="badge-meta text-accent-purple">
               Ecosystem Assessment
             </span>
-            <h2 className="font-serif-display text-3xl md:text-5xl mt-3">
+            <h2 className="heading-section mt-3">
               Why Quantum Codon
             </h2>
             <p className="mt-4 text-base md:text-lg text-muted-foreground">
@@ -167,7 +167,7 @@ export function QcLandingContent() {
             {painPoints.map((item, index) => (
               <div
                 key={index}
-                className="p-6 rounded-2xl bg-white/80 dark:bg-white/[0.04] backdrop-blur-md border border-black/10 dark:border-white/10 hover:border-amber-500/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+                className="p-6 rounded-2xl bg-white/80 dark:bg-white/[0.04] backdrop-blur-md border border-black/10 dark:border-white/10 hover:border-amber-500/50 hover:shadow-md transition-all duration-300 flex flex-col justify-between group sci-panel"
               >
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-amber-500/10 dark:bg-amber-500/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
@@ -193,16 +193,16 @@ export function QcLandingContent() {
       </section>
 
       {/* SECTION 4: Quantum Codon Solves This Problem */}
-      <section className="relative py-24 px-6 bg-gradient-to-br from-[#1e3a8a]/5 via-background to-[#5b21b6]/5 dark:from-[#1e3a8a]/20 dark:to-[#5b21b6]/20 border-b border-border/40">
+      <section className="relative py-20 md:py-24 px-4 sm:px-6 lg:px-8 section-highlight">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="text-xs tracking-[0.3em] uppercase text-accent-emerald font-semibold">
-            Unified Operating Model
+          <span className="badge-meta text-accent-emerald">
+            UNIFIED OPERATING MODEL
           </span>
-          <h2 className="font-serif-display text-3xl md:text-5xl mt-3 mb-6">
+          <h2 className="heading-section mt-3 mb-6">
             Quantum Codon Solves This Problem
           </h2>
-          <div className="p-8 md:p-12 rounded-3xl bg-white/80 dark:bg-white/[0.04] backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-2xl relative">
-            <p className="text-lg md:text-xl text-foreground font-medium leading-relaxed">
+          <div className="p-6 md:p-10 rounded-3xl bg-white/80 dark:bg-white/[0.04] backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-2xl relative sci-panel">
+            <p className="text-base md:text-lg text-foreground font-medium leading-relaxed">
               We offer a brand new drug discovery platform and connect critical functions required to bring biotechnology products from concept to commercialisation. By integrating biology, computation, and compliance into a unified operating model, we create continuity across distinct stages of development.
             </p>
           </div>
@@ -210,13 +210,13 @@ export function QcLandingContent() {
       </section>
 
       {/* SECTION 5: What Makes Us Different */}
-      <section className="relative py-24 px-6 bg-[#f8fafc] dark:bg-[#080d14]">
+      <section className="relative py-20 md:py-24 px-4 sm:px-6 lg:px-8 section-base">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs tracking-[0.3em] uppercase text-accent-blue font-semibold">
-              Core Value Advantage
+          <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+            <span className="badge-meta text-accent-blue">
+              CORE VALUE ADVANTAGE
             </span>
-            <h2 className="font-serif-display text-3xl md:text-5xl mt-3">
+            <h2 className="heading-section mt-3">
               What Makes Us Different
             </h2>
           </div>

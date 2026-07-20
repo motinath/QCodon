@@ -80,15 +80,15 @@ export default function About() {
       className="pb-24 relative overflow-hidden"
       spotlight="from-accent-blue/15 via-accent-purple/5 to-transparent"
     >
-      <div className="w-full max-w-6xl mx-auto px-6 pt-12 space-y-24">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 space-y-20 md:space-y-24">
         {/* HERO HEADER & 2% vs 98% GENOME SPLIT VISUALIZER */}
         <section className="text-center max-w-4xl mx-auto space-y-8 pt-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-blue/10 dark:bg-accent-blue/20 border border-accent-blue/20 text-accent-blue font-semibold text-xs tracking-wider uppercase">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-blue/10 dark:bg-accent-blue/20 border border-accent-blue/20 text-accent-blue badge-meta">
             <Sparkles className="w-3.5 h-3.5" />
             <span>About Quantum Codon</span>
           </div>
 
-          <h1 className="font-serif-display text-4xl md:text-6xl font-medium leading-tight text-foreground">
+          <h1 className="heading-hero text-foreground">
             Unlocking the <em className="italic text-accent-purple font-serif">98%</em> Silent Genome to Power the Next-Gen Bioeconomy
           </h1>
 
@@ -97,10 +97,10 @@ export default function About() {
           </p>
 
           {/* Interactive Visualizer: 2% Mined vs 98% Dark Genome */}
-          <div className="mt-10 p-8 rounded-3xl bg-white/70 dark:bg-white/[0.03] backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-2xl space-y-6 text-left relative overflow-hidden">
+          <div className="mt-10 p-6 md:p-8 rounded-3xl bg-white/70 dark:bg-white/[0.03] backdrop-blur-xl border border-black/10 dark:border-white/10 shadow-2xl space-y-6 text-left relative overflow-hidden sci-panel">
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-border/40 pb-4">
               <div>
-                <span className="text-xs font-semibold uppercase tracking-wider text-accent-blue">
+                <span className="badge-meta text-accent-blue">
                   Biological Frontier Contrast
                 </span>
                 <h3 className="font-serif-display text-2xl text-foreground mt-1">
@@ -114,26 +114,26 @@ export default function About() {
 
             {/* Split Progress Bar */}
             <div className="space-y-3">
-              <div className="flex justify-between text-xs font-semibold">
-                <span className="text-muted-foreground">Crowded 2% Protein-Coding Regions (Traditional Pharma)</span>
+              <div className="flex flex-col sm:flex-row sm:justify-between text-xs font-semibold gap-1">
+                <span className="text-muted-foreground">Crowded 2% Protein-Coding Regions</span>
                 <span className="text-accent-purple font-bold">Untapped 98% Dark Matter (Quantum Codon)</span>
               </div>
-              <div className="h-6 w-full rounded-full bg-slate-200 dark:bg-slate-800 flex overflow-hidden p-1 gap-1">
-                <div className="w-[12%] bg-rose-500/80 rounded-l-full flex items-center justify-center text-[10px] font-bold text-white transition-all duration-500">
+              <div className="h-7 w-full rounded-full bg-slate-200 dark:bg-slate-800 flex overflow-hidden p-1 gap-1">
+                <div className="w-[15%] sm:w-[12%] bg-rose-500/80 rounded-l-full flex items-center justify-center text-[10px] font-bold text-white transition-all duration-500">
                   2%
                 </div>
-                <div className="w-[88%] bg-gradient-to-r from-accent-blue via-accent-purple to-accent-emerald rounded-r-full flex items-center justify-center text-[11px] font-bold text-white shadow-md animate-pulse">
+                <div className="w-[85%] sm:w-[88%] bg-gradient-to-r from-accent-blue via-accent-purple to-accent-emerald rounded-r-full flex items-center justify-center text-[10px] sm:text-[11px] font-bold text-white shadow-md animate-pulse px-2 truncate">
                   98% Quantum Codon Biological Frontier
                 </div>
               </div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4 pt-2 text-xs text-muted-foreground">
-              <div className="p-3 rounded-xl bg-rose-500/5 dark:bg-rose-500/10 border border-rose-500/20">
+              <div className="p-4 rounded-xl bg-rose-500/5 dark:bg-rose-500/10 border border-rose-500/20">
                 <strong className="text-rose-600 dark:text-rose-400 font-semibold block mb-1">Traditional Focus (2%)</strong>
                 A century of pharmaceutical research mining the exact same protein-coding sequences, resulting in dry pipelines and reformulations.
               </div>
-              <div className="p-3 rounded-xl bg-accent-blue/5 dark:bg-accent-blue/10 border border-accent-blue/20">
+              <div className="p-4 rounded-xl bg-accent-blue/5 dark:bg-accent-blue/10 border border-accent-blue/20">
                 <strong className="text-accent-blue font-semibold block mb-1">Quantum Codon Frontier (98%)</strong>
                 15+ years of foundational science unlocking silent DNA & untranslated RNA to produce genuinely novel chemistry with zero prior art.
               </div>
