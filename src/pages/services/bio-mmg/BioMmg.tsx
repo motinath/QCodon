@@ -18,56 +18,62 @@ import {
   Layers,
   Network,
   Scale,
+  Sparkles,
+  FlaskConical,
+  Gauge,
+  Factory,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import bioprocessControlImg from "./bioprocess-control-bioreactor.jpg";
+import probioticsProcessImg from "./probiotics-production-process.jpg";
 
 export default function BioMmgPage() {
   return (
     <PageShell spotlight="from-accent-purple/15 via-transparent to-transparent">
       {/* 1. Hero Section */}
       <section className="max-w-6xl mx-auto px-6 mb-16">
-        <div className="relative rounded-3xl border border-accent-purple/20 bg-accent-purple/[0.03] dark:bg-accent-purple/[0.05] p-10 md:p-16 backdrop-blur-md overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(124,58,237,0.1),transparent_50%)] pointer-events-none" />
+        <div className="relative rounded-3xl border border-accent-purple/20 bg-accent-purple/[0.03] dark:bg-accent-purple/[0.05] p-8 md:p-14 backdrop-blur-md overflow-hidden sci-panel">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(124,58,237,0.12),transparent_60%)] pointer-events-none" />
           <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <div className="lg:col-span-7">
               <div className="flex items-center gap-3 mb-6">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-accent-purple/10 text-accent-purple">
-                  <Dna className="h-6 w-6" />
+                  <Dna className="h-6 w-6 text-accent-purple" />
                 </div>
                 <span className="font-mono text-xs tracking-[0.2em] uppercase text-accent-purple font-semibold">
                   Offering 02 — Bio MMG
                 </span>
               </div>
-              <h1 className="font-serif-display text-4xl md:text-5xl lg:text-6xl leading-[1.15] text-foreground font-medium">
-                Biomanufacturing: Engineering the Future, Today.
+              <h1 className="font-serif-display text-4xl md:text-5xl lg:text-6xl leading-[1.12] text-foreground font-semibold">
+                Biomanufacturing: Industrializing Biological Science.
               </h1>
-              <p className="mt-6 text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                Where breakthrough science meets industrial-scale execution — powering the next era
-                of sustainable industry.
+              <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
+                Where breakthrough synthetic biology meets precision bioprocess control — engineering industrial-scale fermentation and next-generation bio-products.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
                   href="#partner"
-                  className="px-6 py-3 rounded-full bg-foreground text-background text-sm font-semibold hover:opacity-90 transition shadow-lg"
+                  className="px-6 py-3.5 rounded-2xl bg-foreground text-background text-sm font-semibold hover:opacity-90 transition shadow-xl"
                 >
                   Partner With Us
                 </a>
                 <a
                   href="#platform"
-                  className="px-6 py-3 rounded-full border border-foreground/20 text-sm font-semibold hover:bg-foreground/5 transition"
+                  className="px-6 py-3.5 rounded-2xl border border-border/80 text-sm font-semibold text-foreground hover:bg-secondary/60 transition shadow-sm"
                 >
-                  Explore Platform
+                  Explore Bioprocess Platform
                 </a>
               </div>
             </div>
 
-            <div className="lg:col-span-5 relative w-full aspect-[4/3] lg:aspect-square overflow-hidden rounded-2xl border border-accent-purple/10 shadow-2xl bg-slate-950/5 dark:bg-slate-950/25">
+            {/* Bioprocess Control Bioreactor Image Card */}
+            <div className="lg:col-span-5 relative w-full aspect-[4/3] sm:aspect-[16/11] lg:aspect-square overflow-hidden rounded-3xl border border-border/60 dark:border-white/10 shadow-2xl bg-slate-950 group">
               <img
-                src="/startup-biotech-hero.png"
-                alt="Biomanufacturing Hero"
-                className="w-full h-full object-cover transition-transform duration-750 hover:scale-105"
+                src={bioprocessControlImg}
+                alt="Automated 150L Bioprocess Control Bioreactor with Live Telemetry Dashboard"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+
             </div>
           </div>
         </div>
@@ -81,18 +87,15 @@ export default function BioMmgPage() {
               The Opportunity
             </p>
             <h2 className="font-serif-display text-3xl md:text-4xl mt-3 text-foreground leading-tight">
-              The shift is happening now
+              The industrial bioeconomy is now
             </h2>
           </div>
           <div className="md:col-span-8 space-y-4 text-base text-muted-foreground leading-relaxed">
             <p>
-              The world is shifting. Traditional industries worth trillions are urgently seeking
-              sustainable, nature-based solutions to replace legacy processes that can no longer
-              scale without consequence.
+              Traditional manufacturing relies on energy-intensive petrochemical processes that fail to scale sustainably. High-yield bioprocess fermentation unlocks bio-identical therapeutics, enzymes, and active probiotics.
             </p>
             <p className="font-semibold text-foreground">
-              Biology is no longer just a science — it is becoming the platform for the next
-              industrial revolution.
+              Biology is the ultimate precision manufacturing operating system.
             </p>
           </div>
         </div>
@@ -153,6 +156,51 @@ export default function BioMmgPage() {
         </div>
       </section>
 
+      {/* NEW SECTION: End-to-End Precision Fermentation & Probiotics Process Showcase */}
+      <section className="max-w-6xl mx-auto px-6 py-16">
+        <div className="rounded-3xl border border-accent-emerald/20 bg-accent-emerald/[0.02] dark:bg-accent-emerald/[0.04] p-8 md:p-12 backdrop-blur-lg overflow-hidden relative">
+          <div className="grid lg:grid-cols-12 gap-10 items-center">
+            <div className="lg:col-span-6 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-emerald/10 text-accent-emerald text-xs font-semibold tracking-wider uppercase">
+                <Factory className="w-3.5 h-3.5" />
+                <span>End-to-End Fermentation Pipeline</span>
+              </div>
+              <h2 className="font-serif-display text-3xl md:text-5xl font-semibold text-foreground leading-tight">
+                Precision Probiotics & Industrial Fermentation Process
+              </h2>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                From targeted strain selection and culture growth to high-density fermentation, cellular separation, micro-encapsulation, and final formulation — our integrated bioprocess infrastructure delivers maximum yield and potency.
+              </p>
+              <ul className="space-y-3 pt-2">
+                {[
+                  "Controlled Multi-Parameter Vessel Fermentation",
+                  "Real-Time Analytics & Sensor Regulation",
+                  "Automated Downstream Separation & Encapsulation",
+                  "Pharmaceutical & Health-Grade Quality Standards",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 text-sm font-medium text-foreground">
+                    <CheckCircle2 className="w-4 h-4 text-accent-emerald flex-shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Probiotics Process Image Showcase */}
+            <div className="lg:col-span-6">
+              <div className="relative rounded-2xl overflow-hidden border border-border/60 dark:border-white/10 shadow-2xl bg-slate-950 group">
+                <img
+                  src={probioticsProcessImg}
+                  alt="Precision Probiotics Production Process Flow and Bioreactor System"
+                  className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 4. Execution Platform Systems */}
       <section id="platform" className="max-w-6xl mx-auto px-6 py-16">
         <div className="border-t border-slate-200 dark:border-slate-800 pt-16">
@@ -172,15 +220,15 @@ export default function BioMmgPage() {
             {[
               {
                 system: "System 01",
-                title: "Benchtop Bioreactors",
-                image: "/startup-bioreactor.png",
-                desc: "Sleek glass benchtop clean room bioreactors. Engineered with high-precision flow mechanics and active digital regulation loops for precise cell cultivation.",
+                title: "150L Bioprocess Control Bioreactors",
+                image: bioprocessControlImg,
+                desc: "High-precision 150L glass and stainless-steel clean room bioreactors. Engineered with active digital regulation loops for temp, pH, dissolved oxygen, and agitation.",
               },
               {
                 system: "System 02",
-                title: "Parallel Fermentation",
-                image: "/startup-fermentation.png",
-                desc: "High-throughput parallel benchtop fermenters for rapid scale-up. Connected multi-vessel systems log parameters and yield dynamics in real-time.",
+                title: "Precision Probiotic Fermentation",
+                image: probioticsProcessImg,
+                desc: "End-to-end precision probiotic production pipeline covering strain selection, culture growth, separation, micro-encapsulation, and potent packaging.",
               },
               {
                 system: "System 03",
@@ -199,11 +247,11 @@ export default function BioMmgPage() {
                 key={sys.system}
                 className="group rounded-3xl overflow-hidden border border-foreground/5 bg-white/40 dark:bg-black/20 p-5 shadow-lg backdrop-blur-md flex flex-col justify-between hover:-translate-y-2 hover:shadow-2xl hover:border-accent-purple/35 transition-all duration-500"
               >
-                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-foreground/5 bg-slate-950 mb-6">
+                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl border border-foreground/5 bg-slate-950 mb-6">
                   <img
                     src={sys.image}
                     alt={sys.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-106"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-4 left-4 bg-slate-900/90 text-white font-mono text-[10px] tracking-widest uppercase px-3 py-1 rounded-md backdrop-blur shadow transition-colors duration-300 group-hover:bg-accent-purple group-hover:text-white">
                     {sys.system}
@@ -220,6 +268,7 @@ export default function BioMmgPage() {
           </div>
         </div>
       </section>
+
 
       {/* 5. Market Opportunity Section */}
       <section className="max-w-6xl mx-auto px-6 py-16">

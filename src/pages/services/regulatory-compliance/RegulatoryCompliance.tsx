@@ -31,12 +31,14 @@ import {
 } from "lucide-react";
 import { useContactModal } from "../../../components/shared/ContactModal";
 import { SiteFooter } from "../../../components/layout/SiteFooter";
-import heroTeam from "./hero-reg.png";
 import dashboardImg from "./sci-reg.png";
 import facilityImg from "./work-reg.png";
 import biotechImg from "./molecule.jpeg";
-import biomanufacturingImg from "./manf.jpg";
+import biomanufacturingImg from "../bio-mmg/bioprocess-control-bioreactor.jpg";
 import bioaiImg from "./brainr.jpeg";
+import bioRegImg from "./bio-regulatory-compliance.png";
+import analyticalImg from "./analytical-chemistry.jpg";
+
 
 /* ============================================================
    Shared atoms
@@ -124,86 +126,84 @@ export default function RegulatoryCompliancePage() {
 function Hero({ openContactModal }: { openContactModal: () => void }) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const yImg = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const scaleImg = useTransform(scrollYProgress, [0, 1], [1.05, 1.18]);
   const yText = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
   const opacityText = useTransform(scrollYProgress, [0, 0.85], [1, 0]);
 
   return (
     <section
       ref={ref}
-      className="relative min-h-[100svh] flex items-center pt-28 pb-20 px-6 overflow-hidden"
+      className="relative min-h-[100svh] flex items-center pt-28 pb-20 px-6 overflow-hidden bg-white dark:bg-slate-950"
     >
-      {/* Background image — positioned behind everything */}
-      <div className="absolute inset-0 z-0">
-        <motion.img
-          src={heroTeam}
-          alt=""
-          className="h-full w-full object-cover"
-          style={{ y: yImg, scale: scaleImg }}
-        />
-      </div>
-
-      {/* Overlays */}
-      <div className="absolute inset-0 z-[1] bg-gradient-to-r from-white/95 via-white/70 to-white/10 dark:from-slate-950/95 dark:via-slate-950/70 dark:to-slate-950/10" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-white/20 via-transparent to-white/60 dark:from-slate-950/20 dark:via-transparent dark:to-slate-950/60" />
       <HexGridOverlay />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.08),transparent_50%)]" />
 
-      <motion.div className="relative z-[2] max-w-3xl" style={{ y: yText, opacity: opacityText }}>
-        <Reveal>
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/60 shadow-sm">
-            <Compass className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-            <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-emerald-700 dark:text-emerald-400">
-              Regulatory & Compliance
-            </span>
+      <motion.div
+        className="relative z-[2] max-w-6xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-14 items-center"
+        style={{ y: yText, opacity: opacityText }}
+      >
+        {/* Left Column: Text Content & CTAs */}
+        <div>
+          <Reveal>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/60 shadow-sm">
+              <Compass className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+              <span className="text-xs font-mono font-bold tracking-[0.25em] uppercase text-emerald-700 dark:text-emerald-400">
+                Regulatory & Compliance
+              </span>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <h1 className="mt-7 font-serif-display italic text-5xl md:text-6xl lg:text-7xl leading-[1.04] text-slate-900 dark:text-slate-100">
+              Navigating the Future of{" "}
+              <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-sky-600 bg-clip-text text-transparent not-italic">
+                Bio-Innovation
+              </span>
+            </h1>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <p className="mt-6 text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed">
+              Your regulatory compass in{" "}
+              <span className="text-slate-900 dark:text-slate-100 font-medium">Biotech</span>,{" "}
+              <span className="text-slate-900 dark:text-slate-100 font-medium">Biomanufacturing</span>{" "}
+              & <span className="text-slate-900 dark:text-slate-100 font-medium">BioAI</span>.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.3}>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <button
+                onClick={openContactModal}
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 text-white text-sm font-medium tracking-wide hover:bg-emerald-700 transition-all hover:shadow-[0_14px_40px_-12px_rgba(5,150,105,0.55)]"
+              >
+                Schedule a Consultation
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </button>
+              <a
+                href="#process"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-300 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 backdrop-blur text-slate-800 dark:text-slate-200 text-sm font-medium tracking-wide hover:bg-white dark:hover:bg-slate-800 transition-all"
+              >
+                <Download className="h-4 w-4" />
+                Download Investor Deck
+              </a>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Right Column: Bio Regulatory Compliance Image */}
+        <Reveal delay={0.25}>
+          <div className="relative">
+            <div className="absolute -inset-4 bg-gradient-to-tr from-emerald-500/20 via-sky-500/20 to-transparent rounded-[2.5rem] blur-2xl" />
+            <div className="relative overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-700/80 shadow-2xl shadow-slate-900/20 group">
+              <img
+                src={bioRegImg}
+                alt="Bio Regulatory Compliance certified verification"
+                className="w-full h-auto object-contain rounded-3xl transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/30 via-transparent to-transparent pointer-events-none" />
+            </div>
           </div>
         </Reveal>
-
-        <Reveal delay={0.1}>
-          <h1 className="mt-7 font-serif-display italic text-5xl md:text-7xl leading-[1.04] text-slate-900 dark:text-slate-100">
-            Navigating the Future of{" "}
-            <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-sky-600 bg-clip-text text-transparent not-italic">
-              Bio-Innovation
-            </span>
-          </h1>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <p className="mt-6 text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed">
-            Your regulatory compass in{" "}
-            <span className="text-slate-900 dark:text-slate-100 font-medium">Biotech</span>,{" "}
-            <span className="text-slate-900 dark:text-slate-100 font-medium">Biomanufacturing</span>{" "}
-            & <span className="text-slate-900 dark:text-slate-100 font-medium">BioAI</span>.
-          </p>
-        </Reveal>
-
-        <Reveal delay={0.3}>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <button
-              onClick={openContactModal}
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-emerald-600 text-white text-sm font-medium tracking-wide hover:bg-emerald-700 transition-all hover:shadow-[0_14px_40px_-12px_rgba(5,150,105,0.55)]"
-            >
-              Schedule a Consultation
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </button>
-            <a
-              href="#process"
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border border-slate-300 dark:border-slate-700 bg-white/70 dark:bg-slate-900/70 backdrop-blur text-slate-800 dark:text-slate-200 text-sm font-medium tracking-wide hover:bg-white dark:hover:bg-slate-800 transition-all"
-            >
-              <Download className="h-4 w-4" />
-              Download Investor Deck
-            </a>
-          </div>
-        </Reveal>
-
-        <motion.div
-          className="absolute -bottom-20 left-0 flex flex-col items-start gap-2 text-slate-400 dark:text-slate-600"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <span className="text-[10px] font-mono tracking-[0.3em] uppercase">Scroll</span>
-          <div className="w-px h-10 bg-gradient-to-b from-slate-400 to-transparent" />
-        </motion.div>
       </motion.div>
     </section>
   );
@@ -312,69 +312,80 @@ function ImpactStrip() {
 function InvestorTrust() {
   return (
     <section className="relative py-28 px-6 border-y border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
-      <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 items-center">
+      <div className="max-w-6xl mx-auto">
+        {/* Full-Width Header across top */}
         <Reveal>
-          <Eyebrow>Investor Confidence Starts Here</Eyebrow>
-          <h2 className="mt-4 font-serif-display italic text-4xl md:text-5xl text-slate-900 dark:text-slate-100 leading-tight">
-            We bridge the gap between groundbreaking science and{" "}
-            <span className="text-sky-600 dark:text-sky-400 not-italic">investor readiness.</span>
-          </h2>
-          <p className="mt-6 text-slate-600 dark:text-slate-400 leading-relaxed">
-            Our deep understanding of global regulatory frameworks ensures your company is
-            positioned for robust, de-risked growth.
-          </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            {["FDA", "EMA", "ICH", "PMDA"].map((a) => (
-              <div
-                key={a}
-                className="px-5 py-2 rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/50 text-xs font-mono tracking-[0.25em] text-emerald-700 dark:text-emerald-400 uppercase"
-              >
-                {a}
-              </div>
-            ))}
-          </div>
-          <div className="mt-8 space-y-3">
-            {[
-              {
-                t: "Deep Regulatory Intelligence",
-                d: "Former agency reviewers and industry veterans on every engagement.",
-                icon: ScanSearch,
-              },
-              {
-                t: "Accelerated Timelines",
-                d: "Proven strategies that compress approval cycles and reduce capital burn.",
-                icon: Clock,
-              },
-              {
-                t: "Investor-Ready Documentation",
-                d: "Regulatory packages that instill confidence in due diligence.",
-                icon: ShieldCheck,
-              },
-            ].map((p) => (
-              <div
-                key={p.t}
-                className="flex gap-4 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/60 dark:bg-slate-800/60"
-              >
-                <div className="flex-shrink-0 h-10 w-10 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 grid place-items-center ring-1 ring-emerald-100 dark:ring-emerald-900">
-                  <p.icon className="h-4 w-4" />
+          <div className="max-w-3xl">
+            <Eyebrow>Investor Confidence Starts Here</Eyebrow>
+            <h2 className="mt-4 font-serif-display italic text-4xl md:text-5xl text-slate-900 dark:text-slate-100 leading-tight">
+              We bridge the gap between groundbreaking science and{" "}
+              <span className="text-sky-600 dark:text-sky-400 not-italic">investor readiness.</span>
+            </h2>
+            <p className="mt-5 text-slate-600 dark:text-slate-400 leading-relaxed">
+              Our deep understanding of global regulatory frameworks ensures your company is
+              positioned for robust, de-risked growth.
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              {["FDA", "EMA", "ICH", "PMDA"].map((a) => (
+                <div
+                  key={a}
+                  className="px-5 py-2 rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/50 text-xs font-mono tracking-[0.25em] text-emerald-700 dark:text-emerald-400 uppercase"
+                >
+                  {a}
                 </div>
-                <div>
-                  <h4 className="font-medium text-slate-900 dark:text-slate-100">{p.t}</h4>
-                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                    {p.d}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </Reveal>
 
-        <Reveal delay={0.15}>
-          <ParallaxImage
-            src={dashboardImg}
-            alt="Pre-IPO compliance dashboard tracking readiness and risk indicators"
-          />
-        </Reveal>
+        {/* 2-Column Grid: 3 Text Boxes on Left, Image on Right */}
+        <div className="mt-12 grid lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+          {/* Left Column: 3 Text Boxes */}
+          <Reveal delay={0.1}>
+            <div className="space-y-4 h-full flex flex-col justify-between">
+              {[
+                {
+                  t: "Deep Regulatory Intelligence",
+                  d: "Former agency reviewers and industry veterans on every engagement.",
+                  icon: ScanSearch,
+                },
+                {
+                  t: "Accelerated Timelines",
+                  d: "Proven strategies that compress approval cycles and reduce capital burn.",
+                  icon: Clock,
+                },
+                {
+                  t: "Investor-Ready Documentation",
+                  d: "Regulatory packages that instill confidence in due diligence.",
+                  icon: ShieldCheck,
+                },
+              ].map((p) => (
+                <div
+                  key={p.t}
+                  className="flex gap-4 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/70 dark:bg-slate-800/60 hover:border-emerald-500/30 transition-all flex-1 items-center"
+                >
+                  <div className="flex-shrink-0 h-11 w-11 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 grid place-items-center ring-1 ring-emerald-100 dark:ring-emerald-900">
+                    <p.icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-slate-900 dark:text-slate-100 text-base">{p.t}</h4>
+                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                      {p.d}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+
+          {/* Right Column: Image directly beside the 3 text boxes */}
+          <Reveal delay={0.15} className="h-full">
+            <ParallaxImage
+              src={analyticalImg}
+              alt="Analytical Chemistry laboratory with Q-TOF LC/MS system and chromatogram analysis"
+            />
+          </Reveal>
+        </div>
       </div>
     </section>
   );
@@ -383,16 +394,16 @@ function InvestorTrust() {
 function ParallaxImage({ src, alt }: { src: string; alt: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-4%", "4%"]);
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative h-full flex flex-col justify-center">
       <div className="absolute -inset-4 bg-gradient-to-tr from-emerald-200/50 via-sky-200/40 to-transparent rounded-[2rem] blur-2xl" />
-      <div className="relative overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl shadow-slate-900/10">
+      <div className="relative overflow-hidden rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl shadow-slate-900/10 bg-slate-900 dark:bg-slate-900">
         <motion.img
           src={src}
           alt={alt}
-          style={{ y, scale: 1.1 }}
-          className="w-full h-full object-cover"
+          style={{ y }}
+          className="w-full h-auto object-contain rounded-3xl"
         />
       </div>
     </div>

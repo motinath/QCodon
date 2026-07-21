@@ -24,6 +24,7 @@ import {
   Flame,
   Binary,
 } from "lucide-react";
+import bioinformaticsConsoleImg from "./bioinformatics-genomics-suite.png";
 
 type DatabaseItem = {
   name: string;
@@ -222,8 +223,9 @@ export default function BioinformaticsPage() {
         <div className="relative rounded-3xl border border-cyan-500/20 bg-cyan-500/[0.03] dark:bg-cyan-500/[0.05] p-10 md:p-16 backdrop-blur-md overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(6,182,212,0.1),transparent_50%)] pointer-events-none" />
 
-          <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            <div className="lg:col-span-7">
+          <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            {/* Left Column: Title, Eyebrow, Description & CTAs */}
+            <div className="lg:col-span-6 text-left">
               <div className="flex items-center gap-3 mb-6">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-500 border border-cyan-500/20 shadow-sm">
                   <Cpu className="h-6 w-6" />
@@ -232,7 +234,7 @@ export default function BioinformaticsPage() {
                   Offering 04 — Bioinformatics
                 </span>
               </div>
-              <h1 className="font-serif-display text-4xl md:text-5xl lg:text-6xl leading-[1.15] text-foreground font-medium">
+              <h1 className="font-serif-display text-4xl md:text-5xl lg:text-6xl leading-[1.12] text-foreground font-medium">
                 Intelligent Bioinformatics Platforms & Frameworks
               </h1>
               <p className="mt-6 text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
@@ -255,13 +257,18 @@ export default function BioinformaticsPage() {
               </div>
             </div>
 
-            <div className="lg:col-span-5 relative w-full aspect-[4/3] lg:aspect-square overflow-hidden rounded-2xl border border-cyan-500/10 shadow-2xl bg-slate-950/5 dark:bg-slate-950/25">
-              <img
-                src="/ai-control-panel.png"
-                alt="Bioinformatics Console"
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-103"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none" />
+            {/* Right Column: Right-side Card fitting 100% of the image (aspect-16/9 + object-contain) */}
+            <div className="lg:col-span-6 flex justify-center w-full">
+              <div className="relative w-full rounded-3xl overflow-hidden border border-cyan-500/20 shadow-2xl bg-slate-950 p-2 sm:p-2.5 sci-panel group">
+                <div className="relative w-full aspect-[16/9.5] rounded-2xl overflow-hidden bg-slate-950 flex items-center justify-center">
+                  <img
+                    src={bioinformaticsConsoleImg}
+                    alt="Bioinformatics Computational Suite Dashboard"
+                    className="w-full h-full object-contain saturate-110 transition-transform duration-700 group-hover:scale-102"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
